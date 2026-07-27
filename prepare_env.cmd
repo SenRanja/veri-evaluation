@@ -1,0 +1,11 @@
+
+
+@REM conda activate py312
+set OPENAI_API_KEY=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
+
+
+
+
+
+
+

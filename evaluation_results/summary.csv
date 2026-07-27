@@ -1,0 +1,7 @@
+﻿case,metric,score,threshold,passed,reason,error
+refund_policy,AnswerRelevancyMetric,0.0,0.7,False,The score is 0.00 because the response focuses on the return policy instead of directly addressing the concern about the shoes not fitting.,
+refund_policy,Correctness,0.6153509240900503,0.7,False,"The actual output conveys the same essential information as the expected output regarding the 30-day refund policy, but it lacks the concise phrasing and clarity of the expected output. The phrase 'at no extra cost' is slightly different in wording, which affects the overall alignment with the expected output.",
+refund_policy,FaithfulnessMetric,1.0,0.7,True,"The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context.",
+wrong_refund_period,AnswerRelevancyMetric,1.0,0.7,True,The score is 1.00 because the response directly addresses the concern about the shoes not fitting without any irrelevant statements.,
+wrong_refund_period,Correctness,0.18553319831028964,0.7,False,"The actual output mentions a 90-day return period, while the expected output specifies a 30-day full refund. This discrepancy is significant as it alters the terms of the return policy, leading to a misalignment with the expected criteria.",
+wrong_refund_period,FaithfulnessMetric,0.0,0.7,False,"The score is 0.00 because the actual output claims a 90-day return period, which directly contradicts the retrieval context stating customers are eligible for a 30-day full refund.",
