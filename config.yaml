@@ -1,0 +1,64 @@
+project:
+  cases_file: "evaluation_cases/test_cases.json"
+  results_directory: "evaluation_results"
+
+judge:
+  model: "gpt-4o-mini"
+
+metrics:
+  answer_relevancy:
+    enabled: true
+    threshold: 0.7
+    include_reason: true
+    strict_mode: false
+    async_mode: true
+    verbose_mode: false
+
+  correctness:
+    enabled: true
+    name: "Correctness"
+    threshold: 0.7
+    strict_mode: false
+    async_mode: true
+    verbose_mode: false
+
+    criteria: >-
+      Determine whether the actual output is correct based on the
+      expected output. Penalize factual contradictions, missing
+      essential information, and materially incorrect claims.
+
+    evaluation_params:
+      - "ACTUAL_OUTPUT"
+      - "EXPECTED_OUTPUT"
+
+  faithfulness:
+    enabled: true
+    threshold: 0.7
+    include_reason: true
+    strict_mode: false
+    async_mode: true
+    verbose_mode: false
+    penalize_ambiguous_claims: false
+
+output:
+  results_json: "results.json"
+  summary_csv: "summary.csv"
+  token_summary_json: "token_summary.json"
+
+  include_test_case_content: true
+  pretty_json: true
+
+openai_interceptor:
+  enabled: true
+  log_file: "openai_interactions.jsonl"
+  clear_existing_log: true
+
+  print_requests: false
+  print_responses: false
+
+  capture_full_messages: true
+  capture_full_response: true
+
+execution:
+  continue_on_metric_error: true
+  print_metric_reasons: false

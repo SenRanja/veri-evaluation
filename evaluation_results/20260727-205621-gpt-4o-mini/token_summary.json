@@ -1,0 +1,16 @@
+{
+  "request_count": 18,
+  "response_count": 18,
+  "error_count": 0,
+  "prompt_tokens": 5025,
+  "completion_tokens": 786,
+  "total_tokens": 5811,
+  "requests_by_model": {
+    "gpt-4o-mini-2024-07-18": {
+      "response_count": 18,
+      "prompt_tokens": 5025,
+      "completion_tokens": 786,
+      "total_tokens": 5811
+    }
+  }
+}

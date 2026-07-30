@@ -7,6 +7,7 @@
 
 ```bash
 conda activate py312
+pip install deepeval openai pyyaml
 deepeval test run test_evaluation.py
 ```
 
