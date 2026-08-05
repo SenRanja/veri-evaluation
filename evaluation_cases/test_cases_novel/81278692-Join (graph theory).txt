@@ -1,0 +1,1005 @@
+In graph theory, the join operation is a graph operation that combines two graphs by connecting every vertex of one graph to every vertex of the other. The join of two graphs 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+      
+    
+    {\displaystyle G_{1}}
+  
+ and 
+  
+    
+      
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{2}}
+  
+ is denoted 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}+G_{2}}
+  
+, 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        ∨
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}\vee G_{2}}
+  
+, or 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        ∇
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}\nabla G_{2}}
+  
+.
+
+
+== Definition ==
+Let 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        =
+        (
+        
+          V
+          
+            1
+          
+        
+        ,
+        
+          E
+          
+            1
+          
+        
+        )
+      
+    
+    {\displaystyle G_{1}=(V_{1},E_{1})}
+  
+ and 
+  
+    
+      
+        
+          G
+          
+            2
+          
+        
+        =
+        (
+        
+          V
+          
+            2
+          
+        
+        ,
+        
+          E
+          
+            2
+          
+        
+        )
+      
+    
+    {\displaystyle G_{2}=(V_{2},E_{2})}
+  
+ be two disjoint graphs. The join 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}+G_{2}}
+  
+ is a graph with:
+
+Vertex set: 
+  
+    
+      
+        V
+        (
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+        )
+        =
+        
+          V
+          
+            1
+          
+        
+        ∪
+        
+          V
+          
+            2
+          
+        
+      
+    
+    {\displaystyle V(G_{1}+G_{2})=V_{1}\cup V_{2}}
+  
+
+Edge set: 
+  
+    
+      
+        E
+        (
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+        )
+        =
+        
+          E
+          
+            1
+          
+        
+        ∪
+        
+          E
+          
+            2
+          
+        
+        ∪
+        {
+        u
+        v
+        ∣
+        u
+        ∈
+        
+          V
+          
+            1
+          
+        
+        ,
+        v
+        ∈
+        
+          V
+          
+            2
+          
+        
+        }
+      
+    
+    {\displaystyle E(G_{1}+G_{2})=E_{1}\cup E_{2}\cup \{uv\mid u\in V_{1},v\in V_{2}\}}
+  
+
+In other words, the join contains all vertices and edges from both original graphs, plus new edges connecting every vertex in 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+      
+    
+    {\displaystyle G_{1}}
+  
+ to every vertex in 
+  
+    
+      
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{2}}
+  
+.
+
+
+== Examples ==
+Several well-known graph families can be constructed using the join operation.
+
+Complete bipartite graph
+
+  
+    
+      
+        
+          K
+          
+            m
+            ,
+            n
+          
+        
+        =
+        
+          
+            
+              K
+              ¯
+            
+          
+          
+            m
+          
+        
+        +
+        
+          
+            
+              K
+              ¯
+            
+          
+          
+            n
+          
+        
+      
+    
+    {\displaystyle K_{m,n}={\overline {K}}_{m}+{\overline {K}}_{n}}
+  
+ (join of two independent sets).
+Wheel graph
+
+  
+    
+      
+        
+          W
+          
+            n
+          
+        
+        =
+        
+          C
+          
+            n
+          
+        
+        +
+        
+          K
+          
+            1
+          
+        
+      
+    
+    {\displaystyle W_{n}=C_{n}+K_{1}}
+  
+ (join of a cycle graph and a single vertex).
+Star graph
+
+  
+    
+      
+        
+          S
+          
+            n
+            +
+            1
+          
+        
+        =
+        
+          
+            
+              K
+              ¯
+            
+          
+          
+            n
+          
+        
+        +
+        
+          K
+          
+            1
+          
+        
+      
+    
+    {\displaystyle S_{n+1}={\overline {K}}_{n}+K_{1}}
+  
+ (join of a 
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+ vertex empty graph and a single vertex).
+Fan graph
+
+  
+    
+      
+        
+          F
+          
+            m
+            ,
+            n
+          
+        
+        =
+        
+          P
+          
+            n
+          
+        
+        +
+        
+          
+            
+              K
+              ¯
+            
+          
+          
+            m
+          
+        
+      
+    
+    {\displaystyle F_{m,n}=P_{n}+{\overline {K}}_{m}}
+  
+ (join of a path graph with an empty graph).
+Complete graph
+
+  
+    
+      
+        
+          K
+          
+            n
+          
+        
+        =
+        
+          K
+          
+            m
+          
+        
+        +
+        
+          K
+          
+            n
+            −
+            m
+          
+        
+      
+    
+    {\displaystyle K_{n}=K_{m}+K_{n-m}}
+  
+ (join of two complete graphs whose orders sum to 
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+).
+Cograph
+Cographs are formed by repeated join and disjoint union operations starting from single vertices.
+Windmill graph
+
+  
+    
+      
+        
+          D
+          
+            n
+          
+          
+            (
+            m
+            )
+          
+        
+        =
+        m
+        
+          K
+          
+            n
+            −
+            1
+          
+        
+        +
+        
+          K
+          
+            1
+          
+        
+      
+    
+    {\displaystyle D_{n}^{(m)}=mK_{n-1}+K_{1}}
+  
+ (join of $m$ copies of the complete graph on 
+  
+    
+      
+        n
+        −
+        1
+      
+    
+    {\displaystyle n-1}
+  
+ vertices with a single vertex).
+
+
+== Properties ==
+
+
+=== Basic properties ===
+The join operation is commutative for unlabeled graphs: 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+        ≅
+        
+          G
+          
+            2
+          
+        
+        +
+        
+          G
+          
+            1
+          
+        
+      
+    
+    {\displaystyle G_{1}+G_{2}\cong G_{2}+G_{1}}
+  
+.
+If 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+      
+    
+    {\displaystyle G_{1}}
+  
+ has 
+  
+    
+      
+        
+          p
+          
+            1
+          
+        
+      
+    
+    {\displaystyle p_{1}}
+  
+ vertices and 
+  
+    
+      
+        
+          q
+          
+            1
+          
+        
+      
+    
+    {\displaystyle q_{1}}
+  
+ edges, and 
+  
+    
+      
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{2}}
+  
+ has 
+  
+    
+      
+        
+          p
+          
+            2
+          
+        
+      
+    
+    {\displaystyle p_{2}}
+  
+ vertices and 
+  
+    
+      
+        
+          q
+          
+            2
+          
+        
+      
+    
+    {\displaystyle q_{2}}
+  
+ edges, then 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}+G_{2}}
+  
+ has 
+  
+    
+      
+        
+          p
+          
+            1
+          
+        
+        +
+        
+          p
+          
+            2
+          
+        
+      
+    
+    {\displaystyle p_{1}+p_{2}}
+  
+ vertices and 
+  
+    
+      
+        
+          q
+          
+            1
+          
+        
+        +
+        
+          q
+          
+            2
+          
+        
+        +
+        
+          p
+          
+            1
+          
+        
+        
+          p
+          
+            2
+          
+        
+      
+    
+    {\displaystyle q_{1}+q_{2}+p_{1}p_{2}}
+  
+ edges. If 
+  
+    
+      
+        
+          p
+          
+            1
+          
+        
+        >
+        0
+      
+    
+    {\displaystyle p_{1}>0}
+  
+ and 
+  
+    
+      
+        
+          p
+          
+            2
+          
+        
+        >
+        0
+      
+    
+    {\displaystyle p_{2}>0}
+  
+ then 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}+G_{2}}
+  
+ is connected (
+  
+    
+      
+        
+          K
+          
+            
+              p
+              
+                1
+              
+            
+            ,
+            
+              p
+              
+                2
+              
+            
+          
+        
+      
+    
+    {\displaystyle K_{p_{1},p_{2}}}
+  
+ is a subgraph).
+
+
+=== Chromatic number ===
+The chromatic number of the join satisfies: 
+
+  
+    
+      
+        χ
+        (
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+        )
+        =
+        χ
+        (
+        
+          G
+          
+            1
+          
+        
+        )
+        +
+        χ
+        (
+        
+          G
+          
+            2
+          
+        
+        )
+      
+    
+    {\displaystyle \chi (G_{1}+G_{2})=\chi (G_{1})+\chi (G_{2})}
+  
+.
+
+This property holds because vertices from 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+      
+    
+    {\displaystyle G_{1}}
+  
+ and 
+  
+    
+      
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{2}}
+  
+ must use different colors (as they are all adjacent to each other), and within each original graph, the minimum coloring is preserved. It was used in a 1974 construction by Thom Sulanke related to the Earth–Moon problem of coloring graphs of thickness two. Sulanke observed that the join 
+  
+    
+      
+        
+          C
+          
+            5
+          
+        
+        +
+        
+          K
+          
+            6
+          
+        
+      
+    
+    {\displaystyle C_{5}+K_{6}}
+  
+ is a thickness-two graph requiring nine colors, still the largest number of colors known to be needed for this problem.
+
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+        +
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{1}+G_{2}}
+  
+ is color critical if and only if 
+  
+    
+      
+        
+          G
+          
+            1
+          
+        
+      
+    
+    {\displaystyle G_{1}}
+  
+ and 
+  
+    
+      
+        
+          G
+          
+            2
+          
+        
+      
+    
+    {\displaystyle G_{2}}
+  
+ are both color critical.
+
+
+== See also ==
+Disjoint union of graphs
+Graph minor
+Join (topology)
+
+
+== References ==
+
+
+== External links ==
+Weisstein, Eric W. "Graph Join". MathWorld.

@@ -1,0 +1,21 @@
+Semaphorin-4D (SEMA4D) also known as Cluster of Differentiation 100 (CD100), is a protein of the semaphorin family that in humans is encoded by the SEMA4D gene.
+
+
+== Function ==
+Semaphorin 4D (Sema 4D) is an axon guidance molecule which is secreted by oligodendrocytes and induces growth cone collapse in the central nervous system. By binding plexin B1 receptor it functions as an R-Ras GTPase-activating protein (GAP) and repels axon growth cones in both the mature central nervous system.
+In the immune system, CD100 binds CD72 to activate B cells and dendritic cells, though much about this interaction is still under investigation.
+During skin damage repairs, SEMA4D interacts with Plexin B2 on Gamma delta T cells  to play a role in the healing process.
+
+
+== See also ==
+Cluster of differentiation
+
+
+== References ==
+
+
+== Further reading ==
+
+
+== External links ==
+SEMA4D+protein,+human at the U.S. National Library of Medicine Medical Subject Headings (MeSH)

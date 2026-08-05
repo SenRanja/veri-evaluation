@@ -1,0 +1,49 @@
+Ascocoryne sarcoides is a species of fungus in the family Helotiaceae. The species name is derived from the Greek sarkodes (fleshy). Formerly known as Coryne sarcoides, its taxonomical history has been complicated by the fact that it may adopt both sexual and asexual forms. Colloquially known as jelly drops or the purple jellydisc, this common fungus appears as a gelatinous mass of pinkish or purple-colored discs. Distributed widely in North America, Eurasia, and Oceania, A. sarcoides is a saprobic fungus and grows in clusters on the trunks and branches of a variety of dead woods. Field studies suggest that colonization by A. sarcoides of the heartwood of black spruce confers some resistance to further infection by rot-causing fungi. A. sarcoides contains the antibiotic compound ascocorynin, shown in the laboratory to inhibit the growth of several gram-positive bacteria.
+
+
+== Taxonomy ==
+
+The taxonomical history of this fungus has been complicated by the fact that its life cycle allows for both an imperfect (making asexual spores, or conidia) or perfect (making sexual spores) form; at various times authors have assigned names to one or the other form, but these names have often been at odds with the accepted rules of fungal nomenclature. It was originally described in 1781 by the Dutch scientist Nikolaus Joseph von Jacquin as Lichen sarcoides. Christian Hendrik Persoon called it Peziza sarcoides in 1801. Elias Magnus Fries, in his 1822 publication Systema Mycologicum, described the imperfect state of the fungus under the name Tremella sarcoides. The genus name Coryne was first used in 1851 by Bonorden, who proposed Coryne sarcoides for the imperfect state; in 1865 the Tulasne brothers (Charles and Louis René) used Coryne to refer to both the perfect and imperfect forms. It was designated the type species for the genus in a 1931 publication by Clements and Shear.
+Several decades later it became apparent that the name Coryne sarcoides violated the naming conventions imposed by fungal taxonomists—specifically, the species was named after the imperfect state, so in 1967, Groves and Wilson proposed the new genus name Ascocoryne to accommodate the perfect state. The conidial state of this fungus is Coryne dubia Persoon ex S.F. Gray (synonymous with Pirobasidium sarcoides von Hoehnel). The specific epithet is derived from Greek and means "fleshy, flesh-like", from σάρξ (sarx, sarc- in compounds), "flesh", and the common adjectival ending -οειδής (-oeides), "similar, -like".
+
+
+== Description ==
+
+This fungus is characterized by a fruiting body (technically an apothecium) with a pinkish-purple color and more or less gelatinous consistency. The apothecia, typically 0.5 to 1.5 centimetres (1⁄4 to 5⁄8 in) in diameter, start with a roughly spherical shape, then eventually flatten out to become shallowly cup-shaped with a wavy edge and smooth upper surface. The lower surface may be covered with small particles (granular), and the apothecia are either attached directly to the growing surface (sessile), or have a rudimentary stem. The apothecia are accompanied by a conidial form, where non-sexual spores are generated. The conidial form consists of sporodochia, a cushion-like asexual fruiting body mass consisting of short conidiophores (specialized stalks that bear conidia). The sporodochia are similar in color and consistency to the apothecia but very variable in shape, typically club-, spoon-, or tongue-shaped, and bearing minute, cylindrical, straight or curved conidia. As the fungus matures and the apothecia enlarge and press against each other, the apothecia coalesce to form a gelatinous, irregular mass.  The flesh, similar to the appearance of the fungus, is pinkish-purple and gelatinous. The odor and taste of A. sarcoides are not distinctive. Ascocoryne sarcoides is not considered edible.
+
+
+=== Microscopic features ===
+The spores are translucent (hyaline), smooth, have an ellipsoid shape, with dimensions of 12–16 by 3–5 μm. Spores contain one or two oil droplets. The spore print is white. The imperfect (conidial) form of the fungus produces smooth, hyaline spores that are 3–3.5 by 1–2 μm. The asci (sexual spore-bearing cells) have a cylindrical shape, with dimensions of 115–125 by 8–10 μm. The paraphyses (sterile filamentous cells interspersed among the asci) are cylindrical with slightly swollen tips, and few branches.
+
+
+=== Similar species ===
+Ascocoryne cylichnium, another small and gelatinous violet-colored species, has apothecia that are more often cup-shaped, and has larger spores (20–24 by 5.5–6 μm). Because of its resemblance to the jelly fungi, A. sarcoides has been mistaken for the basidiomycete species Auricularia auricula and Tremella foliacea. T. foliacea is larger, brown, and leafy in appearance. A. auricula is also larger, typically brown, is disc- or ear-shaped, with a ribbed undersurface. Microscopically, Tremella foliacea and A. auricula are easily distinguished from A. sarcoides by the presence of basidia (rather than asci).
+Other similar species include Bulgaria inquinans and Exidia glandulosa, and some of the genus Pachyella (usually producing darker, wider, and flatter discs).
+
+
+== Habitat and distribution ==
+This species has a broad distribution in forested areas of North America and Europe. A saprobic fungus, it derives nutrients from decaying organic matter, and as such is usually found growing on the stumps and logs of fallen deciduous trees. However, it is also found on a variety of living trees as well. For example, in Europe it has been found on the stems of living spruce (Picea abies) in Finland, France, Great Britain, Norway, and Germany.
+Other collections sites include Australia, Chile, China, Cuba, Iceland, Korea, and Taiwan. In Hawaii, it grows on trunks of fallen Cibotium and Aleurites trees. A. sarcoides occurs most frequently in late summer and autumn.
+
+
+== Role in tree decay ==
+
+A number of field studies conducted in the boreal forest region of Northern Ontario (Canada) showed that A. sarcoides was found to be frequently associated with various deciduous and coniferous tree hosts that had been affected by the fungal disease known as heart rot; this discovery was noted as unusual, as most fungal tree infections are known to be caused by basidiomycetes, not ascomycetes. In the case of the commercially valuable tree species black spruce (Picea mariana), it was determined that prior colonization by A. sarcoides reduces the incidence of subsequent infection by common fungal pathogens, such as Fomes pini and Scytinostroma galactina; furthermore, A. sarcoides can exist in the wood with no noticeable harmful effects on the host. A similar relationship was shown later to exist with jack pine trees (species Pinus banksiana), whereby A. sarcoides inhibited Peniophora pseudopini, but had little effect on the subsequent growth of Fomes pini. The study also showed that A. sarcoides is isolated more frequently from defective wood as the age of the tree increases (trees examined in the study were over 80 years old), and that it can infect both uninfected heartwood as well as previously decayed wood; in the latter case it usually coexists with the causal fungi.
+
+
+== Research ==
+
+
+=== Bioactive compounds ===
+
+Terphenylquinones are chemical compounds that are widely distributed among the fungi. Ascocoryne sarcoides has been shown to contain a terphenylquinone named ascocorynin—a chemical derivative of the compound benzoquinone. This pigment, when in alkaline solution, turns a dark violet, similar in color to the fruit bodies of the fungus. Ascocorynin has moderate antibiotic activity, and was shown in laboratory tests to inhibit the growth of several gram-positive bacteria, including the widely distributed food spoilage organism Bacillus stearothermophilus; however, it has no effect on the growth on gram-negative bacteria, nor does it have any antifungal activity.
+
+
+=== Volatile organic compounds ===
+In 2008, an isolate of A. sarcoides was observed to produce a series of volatiles including 6 to 9 carbon alcohols, ketones and alkanes. This mixture was called "Mycodiesel" because of its similarity to some existing fuel mixtures. The researchers have suggested that this, combined with its ability to digest cellulose, make it a potential source of biofuel. The isolate was originally identified at Gliocladium roseum but its taxonomy was later revised to Ascococoryne sarcoides. Its genome was sequenced in 2012 in an effort to determine the genetic basis for the production of these volatiles.
+
+
+== References ==
+
+
+== External links ==

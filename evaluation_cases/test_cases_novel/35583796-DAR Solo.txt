@@ -1,0 +1,35 @@
+The DAR Solo is a Bulgarian ultralight aircraft, designed by Tony Iliev and produced by Aeroplanes DAR, first flying in August 2008.
+The aircraft is supplied as a kit for amateur construction or as a complete ready-to-fly-aircraft.
+
+
+== Design and development ==
+The aircraft was designed to comply with the US FAR Part 103 Ultralight Vehicles rules as well as the German 120 kg class (called the Solo 120) and deregulated 115 kg class in the United Kingdom. It features a strut-braced high wing, a single-seat open cockpit, tricycle landing gear and a single engine in tractor configuration.
+The aircraft is built with a composite fuselage and an aluminum wing. Its 8.97 m (29.4 ft) span wing has flaperons and employs a single strut on each side supported by an optional jury strut. The standard engines used when the type was introduced were the 28 hp (21 kW) Hirth F33 and the 50 hp (37 kW) Hirth F23 two-stroke powerplants.
+The design offers combinations of three types of wings, three types of engines and four types of wheels.
+
+
+== Specifications (Solo) ==
+
+Data from BayerlGeneral characteristics
+Crew: one
+Wingspan: 8.97 m (29 ft 5 in)
+Wing area: 10.76 m2 (115.8 sq ft)
+Empty weight: 115 kg (254 lb)
+Gross weight: 220 kg (485 lb)
+Fuel capacity: 12 litres (2.6 imp gal; 3.2 US gal)
+Powerplant: 1 × Hirth F33 single cylinder, air-cooled, two stroke aircraft engine, 21 kW (28 hp)
+Performance
+
+Maximum speed: 130 km/h (81 mph, 70 kn)
+Cruise speed: 100 km/h (62 mph, 54 kn)
+Stall speed: 44.8 km/h (27.8 mph, 24.2 kn)
+Rate of climb: 3 m/s (590 ft/min)
+
+
+== References ==
+
+
+== External links ==
+
+Official website
+Official video

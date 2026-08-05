@@ -1,0 +1,18 @@
+WD 0145+234 is a white dwarf star approximately 96 ly (29 pc) from Earth in the constellation of Aries that has been associated with studies suggesting that a very large exoasteroid near the star was substantially disrupted, resulting in a considerable amount of dust and debris around the star. Alternatively, the outburst around WD 0145+234 is explained with ongoing collisions between planetesimals inside the dusty debris disk around the white dwarf.
+The outburst around WD 0145+234 appeared in 2018 in data by the Wide-Field Infrared Survey Explorer. Outburst around white dwarfs in the infrared are not unusual. Novae and dwarf novae also show outbursts, but they are accompanied by an outburst in the optical and appear around binaries. WD 0145+234 is however a single white dwarf and did not show any brightening in the optical images taken by CRTS and ASASSN. This suggested that the outburst was caused by recent replenishing or redistribution of dust. A follow-up study using the Spitzer Space Telescope found a decrease of the infrared brightness, beginning in late 2019. The decrease is accompanied by small bumps superimposed on the decrease of infrared brightness. The team studying WD 0145+234 with Spitzer concluded that the increase of brightness was not caused by the a tidal disruption of an exoasteroids, but by ongoing collisions in the disk around the white dwarf. A similar decrease in infrared brightness was found around the white dwarf GD 56. WD 0145+234 is also unusual because not only does it show metal pollution in the form of absorption lines, which are found around 25-50% of white dwarfs, but also emission lines caused by calcium gas, which are less common. It is still not clear what causes the metal emission lines around some white dwarfs, but the existence of such lines around WD 0145+234 suggests that metal gas is formed in collisions. There are still some unanswered questions for this hypothesis: Some white dwarfs with metal gas show variable emission lines, while WD 0145+234 does not show any variability in the calcium emission line. It is unclear why some white dwarfs show variable metal emission lines.
+Other white dwarfs with planetary pollution also show infrared variability, with the prototype being G29-38, which showed a decrease of infrared flux by about 35% over a period of 300 days. White dwarfs with the highest infrared variations show calcium emission lines, just like WD 0145+234. WD 0145+234 might be the system with one of the highest activity of this class of objects.
+Observations with NIRSpec released in a preprint in October 2023 showed that the debris disk is returning to its quiescent state. MIRI spectroscopy showed emission at 9-12 micron, consistent with silicate minerals and a tentative emission feature around 7 microns was interpreted as carbonates. The authors noted that emission of silicate minerals begins at 9 microns and therefore resembles more the emission feature of enstatite than that of fosterite.
+
+
+== See also ==
+Disrupted planet
+List of stars that have unusual dimming periods
+List of exoplanets and planetary debris around white dwarfs
+Tabby's Star
+WD 1145+017
+
+
+== Notes ==
+
+
+== References ==

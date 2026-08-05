@@ -1,0 +1,82 @@
+MCU 8051 IDE is a free software integrated development environment for microcontrollers based on the 8051. MCU 8051 IDE has a built-in simulator not only for the MCU itself, but also LCD displays and simple LED outputs as well as button inputs. It supports two programming languages: C (using SDCC) and assembly and runs on both Windows and Unix-based operating systems, such as FreeBSD and Linux.
+
+
+== Features ==
+MCU simulator with many debugging features: register status, step by step, interrupt viewer, external memory viewer, code memory viewer, etc.
+Simulator for certain electronic peripherals like LEDs, LED displays, LED matrices, LCD displays, etc.
+Support for C language
+Native macro-assembler
+Support for ASEM-51 and other assemblers
+Advanced text editor with syntax highlighting and validation
+Support for vim and nano embedded in the IDE
+Simple hardware programmer for certain AT89Sxx MCUs
+Scientific calculator: time delay calculation and code generation, base converter, etc.
+Hexadecimal editor
+
+
+== Supported MCUs ==
+The current version 1.4 supports many microcontrollers including:
+
+* 8051
+* 80C51
+* 8052
+* AT89C2051
+* AT89C4051
+* AT89C51
+* AT89C51RC
+* AT89C52
+* AT89C55WD
+* AT89LV51
+* AT89LV52
+* AT89LV55
+* AT89S52
+* AT89LS51
+* AT89LS52
+* AT89S8253
+* AT89S2051
+* AT89S4051
+* T87C5101
+* T83C5101
+* T83C5102
+* TS80C32X2
+* TS80C52X2
+* TS87C52X2
+* AT80C32X2
+* AT80C52X2
+* AT87C52X2
+* AT80C54X2
+* AT80C58X2
+* AT87C54X2
+* AT87C58X2
+* TS80C54X2
+* TS80C58X2
+* TS87C54X2
+* TS87C58X2
+* TS80C31X2
+* AT80C31X2
+* 8031
+* 8751
+* 8032
+* 8752
+* 80C31
+* 87C51
+* 80C52
+* 87C52
+* 80C32
+* 80C54
+* 87C54
+* 80C58
+* 87C58
+
+
+== See also ==
+8051 information
+Assembly language
+C language
+
+
+== External links ==
+"MCU 8051 IDE". Freecode.
+Paul's 8051 Tools, Projects and Free Code
+ASEM-51
+SDCC

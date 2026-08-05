@@ -1,0 +1,76 @@
+The Whispering Vault is a horror-themed role-playing game originally published in 1993. Players take on the role of "Stalkers", persons who have risen above their own mortality to act as servants of the guardians of Reality, tracking down and apprehending rogue gods who have invaded Reality and returning them to the realm of the Unseen where they are cast into The Whispering Vault.
+
+
+== History ==
+In 1993, at Gen Con 26, Mike Nystul sold a 88-page spiral-bound, pre-publication version (referred to as the "black book") of his self-published horror RPG called The Whispering Vault. Buoyed by positive comments, Nystul formed Pariah Press the following year to publish an expanded and professionally printed edition. 
+Shannon Applecline, in the book Designers & Dragons, highlighted the horror-themed art and evocative background material. Applecline also mentioned the "brutal and quick" combat system and the simple task resolution system that reduced dice-rolling to a minimum and brought the adventure storyline to the fore. 
+The following year, Nystul published two supplements: the Dangerous Prey sourcebook (1995) and a three-panel gamemaster's screen (1995). 
+In 1996, Chris Pramas acquired rights to The Whispering Vault from Mike Nystul and founded the company Ronin Publishing with his brother, Jason Pramas, along with their mutual friend, Neal Darcy. The first publication from Green Ronin was The Book of Hunts (1997), a book containing a series of adventures; Ronin Publishing created a second supplement called Mortal Magic, but it was left unpublished when Ronin folded in 1998. 
+Pharos Press acquired the rights for The Whispering Vault in 2000, but did not publish anything. In 2003, Ronin Arts acquired the rights, and released Mortal Magic, the unpublished work by Ronin Publishing; Ronin Arts then quickly published seven more PDFs that year, before discontinuing the line.
+
+
+== Description ==
+Characters within The Whispering Vault used to be human, but after a life dedicated to protecting humanity against supernatural beings they have been recruited into the ranks of the Stalkers, the main heroes of the game. Now armed with supernatural powers and able to summon ghostly servitors, their mission is to hunt down the Unbidden: rebellious gods who have escaped into the Realm of Flesh — what humanity calls "Reality".
+The Stalkers have other enemies:
+
+The Shadows are creatures who were denied existence and live in the Rift between the Realms of Flesh and Essence. Sometimes they manage to awaken into the Dream by themselves, sometimes the Unbidden bind them as Minions.
+Mortals may also be dangerous: the use of Magic may endanger the Dream, too.
+The Hunts of the Stalkers can happen in any era, and Stalkers may come from any period of History as time flows differently in the Realm of Essence and the Realm of Flesh.
+
+
+== Gameplay ==
+
+
+=== Character creation ===
+The player divides 22 points among four attributes. The number of points assigned to each attribute determines how many six-sided dice the player will roll for task and combat resolution.
+
+
+=== Combat and task resolution ===
+For both combat and task resolution, players try to achieve success by rolling a number of dice equal to their relevant skill level. As in Yahtzee, players try to roll matched sets or special combinations. Players can spend a point of kharma to reroll any number of the dice in search of better dice combinations. In combat, resulting damage is divided by the target's Fortitude. When fighting supernatural creatures, mortals must ignore any sixes that are rolled, making combat against these creatures much more difficult.
+
+
+== Publications ==
+
+
+=== Rulebooks ===
+'Black Book' booklet by Mike Nystul (1993)
+The Whispering Vault book by Pariah Press (1994)
+The Whispering Vault pdf file by Ronin Arts (2003)
+
+
+=== Supplements ===
+Gamemaster Screen by Pariah Press (1995)
+Dangerous Prey book by Pariah Press (1995)
+The Book of Hunts book by Green Ronin Publishing (1997)
+Dangerous Prey pdf file by Ronin Arts (2003)
+The Book of Hunts pdf file by Ronin Arts (2003)
+Mortal Magic pdf file by Ronin Arts (2003)
+Smuggler's Run pdf file by Ronin Arts (2003) (previously published in the Adventures Unlimited magazine, in 1995)
+Mastering the Vault pdf file by Ronin Arts (2003)
+The Vault and Time pdf file by Ronin Arts (2003)
+The Books of Shadows pdf file by Ronin Arts (2003)
+The Ixiptla pdf file by Ronin Arts (2003)
+
+
+== Reception ==
+Sam Chupp reviewed The Whispering Vault in White Wolf #40 (1994), rating it a 4 out of 5 and stated that "The Whispering Vault will appeal to you if you like horror- or superhero-style games, but I think you'll enjoy the elegance, uniqueness and atmosphere of the game even if you don't play those games. I heartily recommend The Whispering Vault, prototype that it is."
+William Spencer-Hale reviewed The Whispering Vault in White Wolf #44 (June, 1994), rating it a 5 out of 5 and stated that "To sum it all up, The Whispering Vault is a game that no fan of horror roleplaying should ignore."
+In the August 1994 edition of Dragon (Issue #208), Lester Smith reviewed the "pre-release" version of the game that had been sold at Gen Con, and admired the "powerful new mythology" and "strong atmosphere of brooding horror" that Mike Nystul was able to evoke in such a slim volume. Smith also liked the new mechanics for combat and task resolution, which he found "works surprisingly well". However, he did find several important elements missing, including "the keys of humanity", which apparently were supposed to explain the motivation for the player's characters. (Allen noted that this missing material would be included in the Pariah Press version that was being prepared for publication at the time the review was printed.) Allen concluded by giving The Whispering Vault a rating of 4 out of 6, saying "I definitely recommend this game for anyone who likes heroic horror. It is one of the most inventive treatments of the subject I have yet encountered."
+Six months later, in the May 1995 edition of Dragon (Issue #217), Lester Smith again reviewed the game, this time looking at the official first edition of the game, and called the book's presentation "excellent, nearly flawless." He found designer Mike Nystul's "unique vision both shockingly strange and yet universal in scope." Smith concluded by giving the game a perfect rating of 6 out of 6, saying, "This product is pure, distilled horror, with some of the most concise yet effective mechanics ever published; its relative slimness simply means that you’ll digest the game more quickly initially, and reference it more easily during play."
+In the following edition of Dragon (Issue #218 – June 1995), Rick Swan called The Whispering Vault "Only one of the smartest, spookiest horror RPGs that ever clawed its way from a crypt."
+In the November 1994 edition of Pyramid (Issue #10), William Spencer-Hale recommended the game, saying, "All in all, The Whispering Vault is a game worthy of the attention of any fan of horror roleplaying. This game is a welcome addition to any library and, out of all the roleplaying materials that I own, this is one that I will actually enjoy playing."
+
+
+== Reviews ==
+Review in Shadis #14
+Dosdediez (Número 7 - Feb/Mar 1995)
+Lester Smith review from Dragon Magazine #208 (republished online 2016-12-12)
+Casus Belli #83
+
+
+== References ==
+
+
+== External links ==
+Ronin Arts - official site
+Steve Jackson Games article about the design of the game

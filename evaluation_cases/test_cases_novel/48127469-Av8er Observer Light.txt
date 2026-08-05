@@ -1,0 +1,25 @@
+The Av8er Observer Light (or Lite) is a British paramotor that was designed by Paul Taylor and produced by Av8er Limited of Woodford Halse, Northamptonshire for powered paragliding. Now out of production, when it was available the aircraft was supplied complete and ready-to-fly.
+
+
+== Design and development ==
+The Observer Light was designed to comply with the US FAR 103 Ultralight Vehicles rules as well as European regulations. It features a paraglider-style wing, single-place accommodation and a single engine in pusher configuration. The aircraft is built with special attention to balancing and vibration isolation. The cage assembly includes small wheels to ease ground movement of the motor unit.
+As is the case with all paramotors, take-off and landing is accomplished by foot. Inflight steering is accomplished via handles that actuate the canopy brakes, creating roll and yaw.
+
+
+== Variants ==
+Observer Light AV1
+Model with a highly tuned 16 hp (12 kW) Radne Raket 120 Aero ES engine in pusher configuration with a 4:1 ratio reduction drive and a 140 cm (55 in) diameter two-bladed wooden propeller. The fuel tank capacity is 10 litres (2.2 imp gal; 2.6 US gal).
+Observer Carbon Lite
+Model with a two-piece carbon propeller.
+
+
+== Specifications (Observer Light AV1) ==
+Data from BertrandGeneral characteristics
+Crew: one
+Empty weight: 19.95 kg (44 lb)
+Fuel capacity: 10 litres (2.2 imp gal; 2.6 US gal)
+Powerplant: 1 × Radne Raket 120 Aero ES highly tuned single cylinder, two-stroke, air-cooled aircraft engine, with a 4:1 reduction drive, 12 kW (16 hp)
+Propellers: 2-bladed wooden, fixed pitch, 1.40 m (4 ft 7 in) diameter
+
+
+== References ==

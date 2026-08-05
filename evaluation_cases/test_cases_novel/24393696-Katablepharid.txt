@@ -1,0 +1,56 @@
+The kathablepharids or katablepharids (from Greek  kata 'downwards' and  blepharis 'eyelash') are a group of heterotrophic flagellates closely related to cryptomonads. First described by Heinrich Leonhards Skuja in 1939, kathablepharids were named after the genus Kathablepharis. This genus is corrected to Katablepharis under botanical nomenclature, but the original spelling is maintained under zoological nomenclature. They are single-celled protists with two anteriorly directed flagella, an anterior cytostome for ingesting eukaryotic prey, and a sheath that covers the cell membrane. They have extrusomes known as ejectisomes, as well as tubular mitochondrial cristae.
+
+
+== Evolution ==
+
+Besides the known katablepharid diversity, dozens of environmental DNA sequences (both freshwater and marine) seem to represent further katablepharids which have not been cultured or formally described. Through molecular phylogenetic analyses, they are consistently recovered as the sister clade to cryptomonads, an assemblage of flagellates containing the phagotrophic goniomonads and the photosynthetic cryptomonads. Initially, both groups were placed in the Hacrobia, a tentative group that also contained haptophytes, centrohelids, biliphytes and telonemids. However, the Hacrobia hypothesis was later disproven. Instead, haptophytes and centrohelids belong to the phylum Haptista, while cryptomonads and katablepharids remain as sister groups within the phylum Cryptista together with Palpitomonas. Haptista is more closely related to the TSAR clade, which includes telonemids, while Cryptista is more closely related to the Archaeplastida clade, which includes red algae, green algae, plants, glaucophytes and biliphytes.
+Within katablepharids, Roombia is the earliest branching genus, followed by Hatena. This genus is in turn the sister group to the remaining genera: Leucocryptos and Katablepharis. The fifth genus, Platychilomonas, is absent in all phylogenetic analyses due to lack of molecular data.
+
+
+== Description ==
+
+
+=== Morphology ===
+Katablepharids are flagellates, unicellular protists capable of swimming freely by using two hairless flagella inserted subapically or medially in the cell. The flagella are both projected forward (anteriorly), or only one flagellum is projected while the other trails. Their cell membrane is thickened by a sheath composed of two layers containing lamellae. The sheath also encases the flagella. Each cell has a nucleus in a central position, a Golgi apparatus in the anterior region, and a food vacuole in the posterior region. Their mitochondria have tubular cristae. Near the kinetosomes they have extrusomes known as 'ejectisomes' of various sizes, each composed of a single coiled ribbon or 'scroll', unlike cryptomonads which have ejectisomes composed of two scrolls.
+
+
+=== Nutrition ===
+These flagellates feed by ingesting other eukaryotes through a cytostome supported by bands of longitudinal microtubules. One species, Kathablepharis hyalurus, has secondarily lost the cytostome. The species Hatena arenicola has a unique life history in comparison: it feeds on Nephroselmis algae, temporarily retains their chloroplasts, enlarges them, and utilizes them for photosynthesis, which allows it to divide and reproduce. This process is known as kleptoplasty.
+
+
+== Systematics ==
+
+
+=== Taxonomic history ===
+The botanist Heinrich Leonhards Skuja in 1939 described the family Kathablepharidaceae to accommodate colourless flagellates that had two divergent flagella and a longitudinal groove. He included four genera in this family: Kathablepharis, Leucocryptos, Cryptaulax and Phyllomitus. He considered katablepharids as closely related to cryptomonads, and placed them in class Cryptophyceae on the basis of morphological features seen through light microscopy.
+In 1992, the protozoologist Naja Vørs created the zoological variant of the family, Kathablepharidae and corrected the botanical variant as Katablepharidaceae,
+An alternative to Vørs' classification was proposed by the protozoologist Thomas Cavalier-Smith in 1993. Through observations of a single species Kathablepharis ovalis, he classified katablepharids as part of the phylum Opalozoa, on the basis of tubular mitochondrial cristae and the absence of ejectisomes that are characteristic of cryptomonads. He erected a new class Cyathobodonea and placed Kathablepharis and Leucocryptos in a new order Kathablepharida, defined by two anterior flagella encased by a surface sheath, lack of cytopharynx, and an anterior cytostome supported by four bands of microtubules. The phylum Opalozoa was highly non-monophyletic, and in 1997 Cavalier-Smith separated katablepharids into a new phylum Neomonada which was another broad non-monophyletic assemblage. Katablepharids were placed in a new subphylum Isomita which also contained Telonemea. Because this scheme was based on the observations on a single species K. ovalis, it was not considered valid.
+In 1999, Brec Clay and Paul Kugrens reviewed the systematics of katablepharids and rejected Cavalier-Smith's classification. Instead, they adopted Vørs' family, corrected the zoological spelling to Kathablepharididae, emended the diagnosis to include only Katablepharis and Leucocryptos, and postponed any higher classification until molecular phylogenetics could resolve their true placement. This name, however, is not available under the ICZN per rule 29.3.1.1., as Kathablepharidae is in prevailing usage.
+Eventually, molecular data and electron microscopy studies revealed cryptomonads and katablepharids to be related. In 2004, Cavalier-Smith included both group as subphyla under the phylum Cryptista. For katablepharids, he proposed a new class Leucocryptea and subphylum Leucocrypta, named after Leucocryptos. The following year, Noriko Okamoto and Isao Inouye interpreted the molecular and morphological gap between the two groups sufficient to propose them as two separate phyla. They also argued that the treatment of both groups as divisions (=botanical phylum) agrees with the widely accepted system where Cryptophyta is a division. They described higher taxa for both nomenclature codes: phylum Kathablepharida, class Kathablepharidea and order Kathablepharidida under zoological nomenclature, and division Katablepharidophyta, class Katablepharidophyceae and order Katablepharidales under botanical nomenclature. In the following years, two new genera of katablepharids were described: Hatena in 2006 and Roombia in 2009.
+Following his own classification, Cavalier-Smith continued considering both groups as members of phylum Cryptista. In 2015, he lowered Leucocrypta to a superclass included within the subphylum Rollomonadia (equivalent to Cryptophyta), along with cryptomonads (under the name of Cryptomonada), and added additional subphyla Palpitia and Corbihelia to the phylum. As of 2024, katablepharids are generally accepted as a subgroup of the Cryptista or Cryptophyta, instead of an independent phylum or division, together with cryptomonads.
+
+
+=== Classification ===
+There are five accepted genera of katablepharids:
+
+Hatena Okamoto & Inouye 2006
+Kathablepharis/Katablepharis Skuja 1939
+Leucocryptos Butcher 1967
+Platychilomonas Larsen & Patterson 1990
+Roombia Okamoto, Chantangsi, Horák, Leander & Keeling 2009
+
+
+== Notes ==
+
+
+== References ==
+
+
+=== Citations ===
+
+
+=== Cited literature ===
+
+
+== External links ==
+Tree of Life: Katablepharids

@@ -1,0 +1,29 @@
+Samuel Hawks Caldwell (January 15, 1904 – October 12, 1960) was an American electrical engineer, known for his contributions to the early computers.
+
+
+== Early life and education ==
+Caldwell enrolled at MIT in 1921, where he completed his bachelor's, master's and doctoral degrees in electrical engineering.  His M.Sc. thesis was entitled Electrical characteristics and theory of operation of a dry electrolytic rectifier (1926).  In his doctoral studies he worked on analog computers with Vannevar Bush, developing the  Differential Analyzer.  His Sc.D., advised by Bush, was entitled The Extension and Application of Differential Analyzer Technique in the Solution of Ordinary Differential Equations (1933). 
+In 1934, he joined the faculty of the electrical engineering department as an assistant professor. 
+
+
+== World War II and Later Work ==
+During World War II, Caldwell was a chief within the fire control section of the National Defense Research Committee. For his work during WWII, he earned a Medal for Merit, the Naval Ordnance Development Award, and the King's Medal for Service in the Cause of Freedom from Great Britain. At the time, the Medal for Merit was the highest civilian honor granted by the United States.
+Caldwell was a pioneer in logic circuits.
+After the war, he led the MIT Center of Analysis, where he reluctantly gave way to digital computing by initiating the Rockefeller Electronic Computer (RED) and supporting the Project Whirlwind.  The centre closed around 1950, after which Caldwell continued as a faculty member, being the advisor to both David A. Huffman (1953) and Edward J. McCluskey (1956).
+
+
+== Sinotype ==
+While Francis Fan Lee was a student at MIT, Caldwell invited him to dinner at his home, where during a conversation about Chinese characters Lee explained that they are written according to certain regular rules. Caldwell reasoned that if Chinese could be "spelled," then a logical circuit could be designed that would allow users to "spell" Chinese on a computer. At the time, no widespread IME existed for Chinese.
+Since Caldwell knew no Chinese, he worked with several other scholars, including Lee and Lien-Sheng Yang, to create Sinotype. Together they comprised the Graphic Arts Research Foundation (GARF), which received funding for five years from the Carnegie Institute, the U.S. Army, and the U.S. Air Force in 1953.  
+In 1959, Caldwell published a paper describing his work on the Sinotype (also known as the Ideographic Composing Machine) which was one of the first efforts at typesetting and compositing the Chinese language with a computer. Using a QWERTY keyboard, a Sinotype user could input the brush strokes of which Chinese characters are composed (not their phonetic values). Sinotype has been described as the first instance of autocomplete.
+Due to growing doubts by funders, and Caldwell's early death at 56 in 1960, the project was shuttered. The conceptual advancements that Caldwell and GARF made are still visible in Chinese IMEs used today, such as the pop-up window that allows users to select a specific character.
+
+
+== Publications ==
+William H. Timbie and Henry Harold Higbie and Caldwell, Essentials of alternating currents, Wiley, 1939
+Electrical Engineering Research at M.I.T. : an appreciation MIT, 1948
+Analog and special purpose computing machines 1949
+Caldwell, Samuel Hawks (1958-12-01) [February 1958].  Written at Watertown, Massachusetts, USA. Switching Circuits and Logical Design (1st ed.). New York, USA: John Wiley & Sons Inc. ISBN 0-47112969-0. LCCN 58-7896. {{cite book}}: ISBN / Date incompatibility (help) (xviii+686 pages)
+
+
+== References ==

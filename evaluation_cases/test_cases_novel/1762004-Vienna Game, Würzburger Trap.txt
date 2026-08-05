@@ -1,0 +1,41 @@
+The Würzburger Trap is a chess opening trap in the Vienna Gambit. It was named around 1930 for German banker Max Würzburger.
+
+
+== The trap ==
+1. e4 e5 2. Nc3 Nf6 3. f4
+
+White plays the Vienna Gambit.
+3... d5
+
+Thought to be the best reply.
+4. fxe5 Nxe4 5. d3 
+
+White also has lines beginning 5.Qf3 (Steinitz) and 5.Nf3, but neither achieves an advantage.
+5... Qh4+?
+
+Initiating the trap. Black has other choices 5...Bb4 and 5...Nxc3.
+6. g3 Nxg3 7. Nf3 Qh5 8. Nxd5 Bg4
+
+8...Nxh1? 9.Nxc7+ Kd8 10.Nxa8 leads to advantage for White.
+9. Nf4
+
+White can obtain the better game with 9.Bg2 Nxh1 (9...Bxf3 10.Qxf3 Qxe5+ 11.Kd1 Nxh1 12.Bf4 Qxb2 13.Qe4+ +− Hamann–Schvenkrantz, Germany 1965; 10...Qxf3 11.Bxf3 Nxa1 12.Nxc7+ Kd7 13.Nxa8 Bc5 14.Bxh1 Nc6 15.Bf4± Arhangel'skij–Popov, USSR 1958; Larsen) 10.Nxc7+ Kd7 (10...Kd8 11.Nxa8 Nc6 12.d4 Bxf3 13.Qxf3 Qxf3 14.Bxf3 Nxd4 15.Bg5+ Be7 16.Rd1+−; Larsen) 11.Nxa8 Nc6.
+9... Bxf3 10. Nxh5 Bxd1 11. hxg3 Bxc2?
+
+Black tries to win a pawn, but instead loses a piece.
+12. b3 
+
+The black bishop on c2 is trapped; White will win it by playing Kd2 or Rh2 next turn.
+
+
+== References ==
+
+Bibliography
+
+Hooper, David; Whyld, Kenneth (1996). The Oxford Companion to Chess. Oxford University. ISBN 0-19-280049-3.
+Horowitz, I. A. (1964). Chess Openings: Theory and Practice. Simon & Schuster. ISBN 0-671-20553-6. {{cite book}}: ISBN / Date incompatibility (help)
+Korn, Walter (1982). Modern Chess Openings (12th ed.). David McKay Company, Inc. ISBN 0-679-13500-6.
+
+
+== Further reading ==
+Kasparov, Gary; Keene, Raymond (1982). Batsford Chess Openings. American Chess Promotions. p. 292. ISBN 0-7134-2112-6.

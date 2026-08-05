@@ -1,0 +1,38 @@
+restic is a free and open-source backup program designed to be fast, efficient and secure. It supports encrypted, deduplicated backups to local storage and a range of remote storage backends.
+The software is written in Go and is distributed under the BSD 2-Clause License.
+
+
+== Features ==
+restic creates backups as snapshots, allowing users to restore either whole backups or selected files from previous points in time. Backup repositories may be stored locally, on remote servers, or on supported cloud and object-storage services.
+Notable features include:
+
+client-side encryption;
+deduplication of backup data;
+incremental backup snapshots;
+repository checking and repair tools;
+support for mounting backup repositories using FUSE;
+command-line operation suitable for scripting and automation.
+
+
+== Platforms ==
+restic supports the major desktop and server operating systems, including Linux, macOS and Microsoft Windows, as well as several BSD systems.
+
+
+== Limitations ==
+restic is primarily a command-line backup utility. It does not include a built-in scheduler, central management console or bare-metal restore system; these functions are commonly handled using external tools or wrappers.
+
+
+== See also ==
+Backup software
+Data deduplication
+Filesystem in Userspace
+Rclone
+BorgBackup
+
+
+== References ==
+
+
+== External links ==
+Official website
+restic on GitHub

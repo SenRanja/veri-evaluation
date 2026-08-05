@@ -1,0 +1,76 @@
+The BeBox is a discontinued workstation from Be Inc., running the company's operating system, later named BeOS. It has two PowerPC CPUs, its I/O board has a custom "GeekPort", and the front bezel has "Blinkenlights".
+The BeBox debuted in October 1995 with dual PowerPC 603 at 66 MHz. The processors were upgraded to 133 MHz in August 1996 (BeBox Dual603e-133). Production was halted in January 1997, following the port of BeOS to the Macintosh, for the company to concentrate on software. Be sold around 1,000 66 MHz BeBoxes and 800 133 MHz BeBoxes.
+
+
+== CPU configuration ==
+
+Production models use two 66 MHz PowerPC 603 processors or two 133 MHz PowerPC 603e processors to power the BeBox. Prototypes having dual 200 MHz CPUs or four CPUs exist, but were never publicly available.
+
+
+== Main board ==
+The main board is in a standard AT format commonly found on PC. It used standard PC components to make it as inexpensive as possible.
+
+Two PowerPC 603/66 MHz or 603e/133 MHz processors
+Eight 72-pin SIMM sockets
+128 KB Flash ROM
+Three PCI slots
+Five ISA slots
+Internal SCSI connector
+Internal IDE connector
+Internal floppy connector
+External SCSI-2 connector
+Parallel port
+Keyboard port, AT-style
+Three GeekPort fuses
+I/O Board connector
+Front panel connector
+Power connector
+
+
+== I/O board ==
+The I/O board offers four serial ports (9-pin D-sub), a PS/2 mouse port, and two joystick ports (15-pin D-sub).
+There are four DIN MIDI ports (two in, two out), two stereo pairs of RCA connectors audio line-level input and output, and a pair of 3.5 mm stereo phone jacks for microphone input and headphone output. There are also internal audio connectors: 5-pin strip for the audio CD line-level playback, and two 4-pin strips for microphone input and headphone output. The audio is produced with a 16-bit DAC stereo sound system capable of 48 kHz and 44.1 kHz.
+For the more unusual uses, there are three 4-pin mini-DIN infrared (IR) I/O ports.
+
+
+=== GeekPort ===
+An experimental-electronic-development oriented port, backed by three fuses on the mainboard, the 37-pin D-sub "GeekPort" provides digital and analog I/O and DC power on the ISA bus:
+
+Two independent, bidirectional 8-bit ports
+Four A/D pins routing to a 12-bit A/D converter
+Four D/A pins connected to an independent 8-bit D/A converter
+Two signal ground reference pins
+Eleven power and ground pins: Two at +5 V, one at +12 V, one at -12 V, seven ground pins
+
+
+== "Blinkenlights" ==
+
+Two yellow/green vertical LED arrays, dubbed the "blinkenlights", are built into the front bezel to illustrate the CPU load. The bottommost LED on the right side indicates hard disk activity.
+
+
+== Market ==
+Be called the BeBox: "the first true real-time, portable, object-oriented system that features multiple PowerPC processors, true preemptive multitasking, an integrated database, fast I/O, and a wide range of expansion options — all at an extremely aggressive price that is well below that of any competitive offering."
+BeBox creator Jean-Louis Gassée did not see the BeBox as a general consumer device, warning that "Before we let you use the BeBox, we believe you must have some aptitude toward programming –  the standard language is C++."
+
+
+== Prototype ==
+As of 1993, prototypes (at the time called Be Machine) had two 25 MHz AT&T Hobbit processors and three AT&T 9308S DSPs. In 2009, a rare prototype of the BeBox with Hobbit processors was sold at an auction.
+
+
+== Linux ==
+Craftworks Solutions developed Be_Linux for the BeBox. Craftworks and Be Inc. announced in 1996 that they would work together to bring Be_Linux to the BeBox.
+
+
+== See also ==
+Multi Emulator Super System (MESS) –  able to emulate both BeBox 66 Archived 2015-06-21 at the Wayback Machine and 133 Archived 2015-06-21 at the Wayback Machine
+
+
+== References ==
+
+
+== External links ==
+Mark, Dave (January 1997). "The Wizards of Be, Inc". MacTech. Vol. 13, no. 1. p. 52-56.  –  An interview with Be Inc. CEO Jean-Louis Gassée and VP of Engineering Erich Ringewald.
+Potrebic, Peter; Horowitz, Steve (January 1996). "Opening the BeBox". MacTech. Vol. 12, no. 1. p. 25-45.
+"The BeBox Zone". Archived from the original on 15 April 2013.
+BeBox Photo Gallery (Joseph Palmer: Be HW Engineer)
+U.S. Trademark 75,054,089 (BeBox)

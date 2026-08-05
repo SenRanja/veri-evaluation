@@ -1,0 +1,29 @@
+An Ion Gun typically is an instrument that generates a beam of heavy ions with a well defined energy distribution. The ion beam is produced from a plasma that has been confined within a volume. Ions of a particular energy are extracted, accelerated, collimated and/or focused. The ion gun is composed of an ion source, extraction grid structure and a collimation/lensing structure. The plasma can be made up of an inert or reactive gas (e.g. N+ and O+) or an easily condensable substance (e.g. C+ and B+). The plasma can be formed from molecules that contain the substance which will form the beam, in which case, these molecules must be fragmented then ionized (e.g. H and CH4 can together be fragmented and ionized to create a beam for depositing diamond-like carbon films).
+The ion current density (or similarly the ion flux), the ion energy spread, and the resolution of the ion beam are key factors in ion gun design. The ion current density is controlled by the ion source, the energy spread is determined primarily by the extraction grid, and the resolution is determined primarily by the optical column.
+The ion gun is an important component in surface science in that it provides the scientist with a means to sputter etch a surface and generate an elemental or chemical depth profile. Modern ion guns can produce beam energies from 10eV to more than 10keV.
+
+
+== Measurement and Detection ==
+A Nanocoulombmeter in combination with a Faraday cup can be used
+to detect and measure the beams emitted from ion guns.
+
+
+== See also ==
+The term "ion gun" might also refer to an accelerator of any charged particle. See the following:
+
+Coronal Ionizer gun
+Soft X-ray Ionizer
+Electron gun
+Duoplasmatron
+Capillaritron
+Particle accelerator
+Particle beam
+Focused ion beam
+
+
+== References ==
+
+Mattox, D.M., "Handbook of Physical Vapor Deposition (PVD) Processing", 2nd ed., Elsevier Inc., Oxford (2010), p. 185
+Riviére, J.C., "Handbook of surface and interface analysis: methods for problem-solving", 2nd ed., CRC Press, Boca Raton (2009), p. 73-5
+Cherepin, T.V., "Secondary ion mass spectroscopy of solid surfaces", English ed., VNU Science Press, The Netherlands (1987), p. 38-9
+Briggs, D., "Surface analysis of polymers by XPS and static SIMS", Cambridge University Press (1998), p. 89

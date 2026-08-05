@@ -1,0 +1,125 @@
+The king (♔, ♚) is the most important piece in the game of chess. It may move to any adjacent square that is not controlled by an enemy piece; it may also perform, in tandem with the rook, a move called castling. If a player's king is threatened with capture, it is said to be in check, and the player must remove or evade the threat of capture immediately, such as by moving it away from the attacked square. If this cannot be done, the king is said to be in checkmate, resulting in a loss for the checkmated player. A player cannot make any move that places their own king in check. Despite this, the king can become a strong offensive piece in the endgame or, rarely, the middlegame.
+In algebraic notation, the king is abbreviated by the letter K among English speakers. The white king starts the game on e1; the black king starts on e8. Unlike all other pieces, each player can have only one king, and the king is never removed from the board during the game.
+
+
+== Placement and movement ==
+
+The white king starts on e1, on the file immediately to the right of White's queen from White's perspective. The black king starts on e8, directly across from the white king and left of the queen from Black's perspective. Each king starts on a square opposite its own color.
+A king can move one square horizontally, vertically, and diagonally unless the square is already occupied by a friendly piece or the move would place the king in check. If the square is occupied by an undefended enemy piece, the king may capture it, removing it from play. Opposing kings may never occupy adjacent squares (see opposition) to give check, as that would put the moving king in check as well. The king can give discovered check, however, by unblocking a bishop, rook, or queen.
+
+
+=== Castling ===
+
+Once per game, the king may castle in conjunction with a rook of the same color. When castling, the king moves two squares horizontally toward one of its rooks, and that rook is placed on the square over which the king crossed.
+Castling is permissible under the following conditions:
+
+Neither the king nor the castling rook have previously moved.
+No squares between the two pieces are occupied.
+The king is not in check.
+None of the squares the king would move across or to are under enemy attack.
+Castling with the h-file rook is known as castling kingside or short castling (denoted 0-0 in algebraic notation), while castling with the a-file rook is known as castling queenside or long castling (denoted 0-0-0).
+
+
+== Status in games ==
+
+
+=== Check and checkmate ===
+
+A king that is in a square controlled by an enemy piece is said to be in check, and the player in check must immediately respond to the situation. There are three possible ways to remove the king from check:
+
+Capturing the checking piece. This is done with either the king or another piece, but the king cannot be placed in check from a different piece in the process.
+Moving the king. The king is moved to an adjacent square where it is not in check. The king is not allowed to castle when it is in check.
+Blocking the check. Also called interposing, this is possible only if the checking piece is a queen, rook, or bishop and there is at least one empty square in the line between the checking piece and the checked king. Blocking a check is done by moving a piece to one such empty square. (The blocking piece is then pinned to the king by the attacking piece.)
+If none of the three options are available, the player's king has been checkmated, and the player loses the game.
+If the king is under attack by two different pieces simultaneously (referred to as double check), it is not possible to capture or block both of them simultaneously so the king must move.
+In casual games, when placing the opponent's king in check, it is common to announce this by saying "check", but this is not required by the rules of chess. In tournament games, it is unusual to announce check; competent players are expected to know when they are in check.
+
+
+=== Stalemate ===
+
+A stalemate occurs when a player, on their turn, has no legal moves, and the player's king is not in check.
+If this happens, the king is said to have been stalemated, and the game ends in a draw. A player who has very little or no chance of winning will often, in order to avoid a loss, try to entice the opponent to inadvertently place the player's king in stalemate (see swindle).
+
+
+== Role in gameplay ==
+In the opening and middlegame, the king will rarely play an active role in the development of an offensive or defensive position, with the notable exception of a king walk. Instead, it will normally castle and seek safety on the edge of the board behind friendly pawns. In the endgame, however, the king emerges to play an active role as an offensive piece, and can assist in the promotion of the player's remaining pawns.
+It is not meaningful to assign a value to the king relative to the other pieces, as it cannot be captured or exchanged and must be protected at all costs. In this sense, its value could be considered infinite. As an assessment of the king's capability as an offensive piece in the endgame, it is often considered to be slightly stronger than a bishop or knight. Emanuel Lasker gave it the value of a knight plus a pawn (i.e. four points on the scale of chess piece relative value), though some other theorists evaluate it closer to three points. It is better at defending friendly pawns than the knight is, and it is better at attacking enemy pawns than the bishop is.
+
+
+== History ==
+
+
+=== c. 600 CE Raja (India) Chaturanga ===
+The earliest documented chess king was known as the Raja. This piece could move one square in any direction and determined the outcome of the game, a feature that remains in modern chess.
+
+
+=== c. 7th-9th centuries Shah (Persia and the Islamic world) Shatranj ===
+In Shatranj, the king was called the shah, a name that helps derive the terms “check” and “checkmate.” (Checkmate, 2024) According to Shatranj rules, if only the king remained on the board, it was a loss unless the opponent was in the same position, which resulted in a draw. Additionally, a stalemate was counted as a win for the player delivering the stalemate.
+
+
+=== c. Late 15th century, early modern chess ===
+Castling was introduced in medieval Europe, where different regions had their own rules. One example was the “king’s leap,” which let the king move two squares. Early versions of castling took two moves: first, the king moved two spaces, then the rook moved next to the king.
+
+
+=== Modern chess ===
+By this time, the rules for the king, including castling, check, and checkmate, had been standardized across Europe. Stalemate was officially defined as a draw.
+
+
+== Strategy ==
+Although the king is the most valuable piece on the board due to its role in determining the outcome of the game, its practical activity varies greatly between the opening, middlegame, and endgame. In the opening and middlegame, the king is generally kept safe through castling and by remaining behind pawn cover. However, in the endgame the king becomes an active and often decisive piece, capable of supporting passed pawns, restricting the opponent’s king, and participating directly in the attack.
+
+
+=== Shouldering ===
+Another common endgame technique is shouldering. In this strategy, a king deliberately occupies a path that prevents the opposing king from approaching critical areas of the board, often pushing the rival king further away from the action. Shouldering is frequently decisive in races to support passed pawns.
+
+
+=== Centralisation ===
+In the endgame, the king’s value as a fighting piece increases dramatically. Because there are fewer threats of checkmate, the king can safely advance toward the center of the board. A centralized king controls a wide range of squares, assists in pawn promotion, and exerts influence over both flanks.
+
+
+=== Opposition ===
+
+One of the most fundamental strategic ideas in king endgames is the opposition. Opposition occurs when two kings stand on the same file, rank, or diagonal with only one square separating them. The player not having the move is said to “have the opposition.” This forces the opposing king to yield ground, and is often the critical factor in achieving promotion of a pawn or preventing the opponent’s advance. 
+
+
+=== Outflanking ===
+
+Closely related to opposition is the concept of outflanking. When direct opposition cannot be maintained, a king can maneuver around the opponent’s king to gain access to key squares. Outflanking allows a player to break through an opponent’s defensive setup, especially in pawn endgames, and is often combined with zugzwang to force progress.
+
+
+== Dimensions and design ==
+
+The king is traditionally the tallest and most prominent piece in a chess set, serving as a clear visual indicator of its importance. In the Staunton pattern, the international standard for tournament play since 1849, the king typically measures about 3.75 inches (95 mm)  in height in a standard set used on boards with 2.25-inch (57 mm) squares. Its base diameter is usually about 1.5–2 inches (38–50 mm), roughly 40–50% of its height, providing stability while maintaining proportional harmony with the board. The maximum width of the king, measured at the widest part of the body or crown, is typically slightly larger than the base, often around 2–2.25 inches (50–57 mm). Chess sets vary widely in scale, from miniature travel sets under 1 inch (25 mm) tall to large exhibition sets exceeding 6 inches (150 mm), but the king consistently remains the tallest and most easily recognizable piece.
+The king’s design is generally the most ornate among the chess pieces. In the Staunton design, it is crowned with a stylized cross, distinguishing it from the queen, which bears a coronet. This cross serves both decorative and practical purposes, allowing the piece to be quickly identified during play. Historical designs have varied considerably: in Islamic chess sets, kings were often abstract shapes or inscribed markers, while medieval European sets sometimes depicted kings with elaborate crowns, thrones, or scepters. Modern decorative sets may portray kings with detailed crowns, helmets, or other regal attributes, but the Staunton form remains standard in official play for its clarity and simplicity.
+
+
+== Name translations ==
+
+
+== Unicode ==
+
+Unicode defines three codepoints for a king:
+♔ U+2654 White Chess King
+♚ U+265A Black Chess King
+🨀 U+1FA00 Neutral Chess King
+
+
+== See also ==
+
+
+== Notes ==
+
+
+== References ==
+Barden, Leonard (1980), Play better chess with Leonard Barden, Octopus Books Limited, pp. 9, 11, 12, ISBN 0-7064-0967-1
+Brace, Edward R. (1977), An Illustrated Dictionary of Chess, Hamlyn Publishing Group, p. 151, ISBN 1-55521-394-4
+Hooper, David; Whyld, Kenneth (1996) [First pub. 1992], "king", The Oxford Companion to Chess (2nd ed.), Oxford University Press, pp. 200–01, ISBN 0-19-280049-3
+Lasker, Emanuel (1934), Lasker's Chess Primer, Billings (1988 reprint), ISBN 0-7134-6241-8 {{citation}}: ISBN / Date incompatibility (help)
+Ward, Chris (1996), Endgame Play, Batsford, ISBN 0-7134-7920-5
+FIDE Handbook: Laws of Chess
+
+
+== External links ==
+
+Fianchetto variation of the King’s Indian Defence Deprecated link archived 2014-08-05 at archive.today
+Piececlopedia: King by Fergus Duniho and Hans Bodlaender, The Chess Variant Pages

@@ -1,0 +1,20 @@
+DeVillier v. Texas, 601 U.S. 285 (2024), was a case that the Supreme Court of the United States decided on April 16, 2024. The case dealt with the Supreme Court's takings clause jurisprudence. Because the case touched on whether or not the 5th Amendment is self-executing, the case had implications for Trump v. Anderson and whether or not section 3 of the Fourteenth Amendment to the United States Constitution is self-executing, though ultimately the Anderson decision was announced before DeVillier. The Court heard oral argument on January 16, 2024.
+
+
+== Background ==
+In the early 2020s, the Texas Department of Transportation installed certain median barriers in the middle of Interstate 10 in Texas. The barriers fit together tightly such that water could not flow through them. As a result, water accumulated on one side of the highway during Hurricane Harvey and Tropical Storm Imelda, flooding the land on that side.
+Property owners sued Texas, alleging that the flooding of their land without compensation constituted a taking under the Fifth Amendment to the United States Constitution and therefore requires compensation.
+Texas argued that the Fifth Amendment is not self-executing and because there was no state statutory basis for an action against the state, DeVillier and other similarly situated landowners cannot be compensated.
+
+
+== Decision and reaction ==
+Justice Clarence Thomas wrote the unanimous opinion of the court, holding that DeVillier should be allowed to pursue his claim through the statutory mechanism articulated under Texas law. The Court vacated the judgment of the Fifth Circuit Court of Appeals.
+
+Texas Attorney General Ken Paxton said:“For as long as Texas has been Texas, it has recognized that property rights are crucial to a free society. Under the U.S. Constitution, such claims should be pursued under state law unless Congress has said otherwise. I’m pleased the Supreme Court agreed with us unanimously that citizens should sue under Texas law.”The Institute for Justice, which represented DeVillier, criticized Paxton's statement, saying: "If Texas had won today, the Supreme Court would have affirmed [the Fifth Circuit's] ruling. Instead, the Court did the opposite: Today’s ruling makes clear that Texas can be sued under the Fifth Amendment and that the claims Texas wanted thrown out will instead go to trial in that same federal district court—in other words, after Texas spent untold amounts of time and taxpayer dollars trying to get Richie’s Fifth Amendment claims dismissed, Richie will get to litigate his Fifth Amendment claims. The party that gets what he wants is the party that won. What Texas did is called losing. Only a politician would claim to have won a case he lost."
+
+
+== References ==
+
+
+== External links ==
+Opinion of the Court, DeVillier v. Texas

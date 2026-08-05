@@ -1,0 +1,20 @@
+Constructive notice is the legal fiction that signifies that a person or entity should have known, as a reasonable person would have, of a legal action taken or to be taken, even if they have no actual knowledge of it.
+
+
+== Overview ==
+The doctrine is generally construed with regards to legal notices published, either by posting them at a designated place in a courthouse, or publishing them in a newspaper designated for legal notices.  Because both methods of publication are available to the general public (courthouses being open to all members of the general public, and newspapers readily available in public places such as libraries), the person to whom the notice is being issued (even if issued in a generic form, such as "To All Heirs of John Smith, a Resident of Orange County") is considered to have received notice even if they were not actually aware of it.
+Another use of constructive notice is in the recording of deeds, mortgages, liens, and similar documents in county registries in the United States.  Since such documents are considered public information and can be accessed by any member of the public, such recordings are considered constructive notice of land conveyances or encumbrances having taken place.
+In corporate law, the doctrine of constructive notice is a doctrine where all persons dealing with a company are deemed (or "construed") to have knowledge of the company's articles of association and memorandum of association. The doctrine of indoor management is an exception to this rule.
+The New York City Housing Court allows use of the concept of constructive notice by either the tenant or the landlord. For example, constructive notice could be given to a landlord if a broken and unsupported metal grate on a public sidewalk collapses when stepped on by a pedestrian. The landlord is reasonably expected to know that this is a safety hazard.
+
+
+== Indoor management ==
+The harshness of the doctrine of constructive notice is somewhat reduced by the "Rule of Indoor management" or "Turquand's Rule". The rule derives its name from the case of Royal British Bank v Turquand, where the defendant was the liquidator of the insolvent Cameron's Coalbrook Steam, Coal and Swansea and Loughor Railway Company. The company had borrowed from Royal British Bank by giving a bond worth £2,000.
+The articles of the company stated that the directors could only borrow if authorised by a resolution of the company's general meeting, and could not borrow more than the amount specified in the resolution.
+The articles were registered with Companies House so there was constructive notice. But the bank could not have known about the resolution, as they were not registrable and thus were not a public document. The bond was held valid and there was no requirement to know the company's internal workings.
+
+
+== References ==
+
+
+== Notes ==

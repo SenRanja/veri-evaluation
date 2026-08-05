@@ -1,0 +1,27 @@
+The Partners for Change Outcome Management System (PCOMS) is a behavioral health outcomes management system for counseling and therapy services developed by Barry Duncan and Scott Miller. The therapeutic approach was inspired by Michael J. Lambert’s research regarding the use of consumer feedback during the therapeutic process with the Outcome Questionnaire 45.2 (OQ) and is designed to be a briefer method to measure therapeutic outcome.
+
+
+== Overview ==
+PCOMS employs two brief, 4-item scales, the Outcome Rating Scale (ORS) and Session Rating Scale (SRS). The ORS is designed to monitor therapeutic outcome, and is given to the client at the beginning of each counseling session. The ORS focuses on what has happened for the client between sessions and provides an early warning system for clients at risk of a negative outcome. The results are discussed in a transparent manner to promote collaboration between the client and therapist in planning the next step, especially when there has been no progress.
+The second form, the SRS, monitors how the session has gone for the client, and is given at the end of each therapy session. The SRS is designed to measure the therapeutic alliance given its importance in leading to positive treatment outcome Using PCOMS in clinical practice has been shown to result in a three and a half times more likelihood of achieving reliable change and half the likelihood of deterioration during treatment services. PCOMS is part of a growing trend in psychotherapy towards monitoring and managing clinical outcomes, and is one of only two systems (the other is the OQ 45.2) with randomized clinical trial support.
+
+
+== See also ==
+Therapeutic assessment
+Youth Outcome Questionnaire
+
+
+== References ==
+
+
+== Further reading ==
+Duncan, B., Solovey, A., & Rusk, G. (1992). Changing the rules: A client directed approach. New York: Guilford.
+Duncan, B., Miller. S., & Sparks, J. (2004). The heroic client: A revolutionary way to improve effectiveness through client directed outcome informed therapy (revised ed.). San Francisco: Jossey-Bass.
+Duncan, B. (2010). On becoming a better therapist. Washington, DC: American Psychological Association.
+Duncan, B., Miller, S., Wampold, B. & Hubble, M. (Eds.) (2010). The heart and soul of change: Delivering what works in therapy (2nd Ed.). Washington DC: American Psychological Association.
+Duncan, B., & Sparks, J. (2010). Heroic clients, heroic agencies: Partners for change (2nd Ed.). Jensen Beach, FL: HSCP Press.
+Prescott, D., Maeschalck, C. & Miller, S. (2017).  Feedback informed treatment in clinical practice. Washington, D.C.: American Psychological Association.
+
+
+== External links ==
+Heart and Soul of Change Project

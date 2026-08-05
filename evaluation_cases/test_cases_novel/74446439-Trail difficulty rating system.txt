@@ -1,0 +1,173 @@
+A trail difficulty rating system, also known as walking track grading system, walk gradings or trail grades, is a classification system for trails or walking paths based on their relative technical and physical difficulty. A trail difficulty rating system informs visitors about the attributes of walking tracks and helps visitors, particularly those who are not usual bushwalkers, make decisions to walk on trails that suit their skill level, manage their risk, improve their experience and assist in the planning of trails and trail systems.
+The grading system features a recognizable criteria for visitors, so they can tell the difficulty of a certain walk, thereby allowing the walkers to determine whether they have the physical ability to attempt the walk. The width, length and surface of the trail are important factors to determine the grading, in addition to natural obstacles such as rocks, ridges, holes, logs and drop-offs. The grading system is based on the physical attributes that are present during the course and the challenges, rather than the effort and fitness that is necessary by the walker. Trail length is not a standard of the system. Rather, trail distance should be posted on signs in addition to the difficulty symbol.
+
+
+== On Foot ==
+
+
+=== Australia ===
+
+The Australian Walking Track Grading System evaluates a path's difficulty level based on various criteria, such as: experience needed, steps, slopes, path quality and signage. The system features five grades, which are usually displayed at national parks or state parks:
+
+Grade 1 (Easy/Disabled Access) – "No bushwalking experience required. Flat even surface with no steps or steep sections."
+Grade 2 (Easy) – "No bushwalking experience required. The track is hardened or compacted surface and may have a gentle hill section or sections and occasional steps."
+Grade 3 (Moderate) – "Suitable for most ages and fitness levels. Some bushwalking experience recommended."
+Grade 4 (Moderate-Difficult) – "Bushwalking experience recommended. Tracks may be long, rough and very steep."
+Grade 5 (Difficult) – "Very experienced bushwalkers with specialised skills, including navigation and emergency first aid."
+
+
+==== Tasmania ====
+Tasmania has its own walking track classification system:
+
+T1 – Easy to Moderate: "Well defined and wide tracks on easy to moderate terrain, in slightly modified natural environments."
+T2 – Moderate: "Narrower but distinct tracks which can be muddy in some places, in pristine natural environments."
+T3 – Challenging: "You will experience marked but often-indistinct tracks, in very remote and wild areas. These challenging walks need a high level of fitness and some hiking experience."
+T4 – Difficult: "Tracks are often faint or unmarked in remote and craggy natural areas."
+
+
+=== Canada ===
+Canada features four grades for walking trails, although some provinces may have their own system. Here is the standard grading system:
+
+Easy – "No experience needed. Hard-packed surface, no obstacles, minimal stairs. Little or no change in elevation."
+Moderate – "Some basic trail experience needed. Mostly stable surface with infrequent obstacles, there may be stairs. Moderate changes in elevation, some short steep sections."
+Difficult – "Trail experience needed. Different surface types, including some that are not maintained. Major change in elevation with long steep sections."
+Route – "Exceptional trail and navigational experience needed. A variety of terrain: wet areas, loose rocks, exposure, thick forest."
+
+
+=== Montreal ===
+Montreal features five levels:
+
+Level 1 – "Relatively even terrain"
+Level 2 – "Uneven terrain"
+Level 3 – "Rough terrain"
+Level 4 – "Rough terrain, some scrambling"
+Level 5 – "Often very rough terrain, more scrambling"
+
+
+=== Ireland ===
+Ireland has a set of five classifications for trails:
+
+Class 1: Multiaccess – "All users including people with reduced mobility."
+Class 2: Easy – "Family groups including children and the elderly. "
+Class 3: Moderate – "People with a moderate level of fitness."
+Class 4: Strenuous – "People accustomed to walking rough trails and with a high level of fitness."
+Class 5: Very Difficult – "Only suitable for people accustomed to walking in remote areas and with a high level of fitness and navigation skills."
+
+
+=== New Zealand ===
+New Zealand national parks features four grades:
+
+Easiest: Easy Access Short Walk – "Even surface, well formed with no steps or steep sections. Stream and rivers are bridged."
+Easiest: Short Walk – "Track is well formed, with an even, well drained surface. There may be steps. Stream and rivers crossings are bridged."
+Intermediate – "Track is generally well formed, some sections may be rough, muddy or steep. Track has signs, poles or markers. Major stream and river crossings are bridged."
+Advanced – "Track is mostly unformed, may be rough and steep. Track has markers, poles or rock cairns. Expect unbridged stream and river crossings."
+Expert – "People with high level backcountry (remote areas) skills and experience, navigation and survival skills required. Complete self sufficiency required."
+
+
+=== Switzerland ===
+Switzerland has two trail difficulty scales (not including mountaineering), maintained by the Swiss Hiking Association (SWW) and the Swiss Alpine Club (SAC). Marked trails (as well as the official trail maps) usually carry the markings from the Swiss Hiking Association. In addition to the hiking difficulty scale, the Swiss Alpine Club also publishes the Alpine Grade Scale, focused on mountaineering routes. 
+
+
+=== United Kingdom ===
+
+The United Kingdom has three grades in their classification system, which are:
+
+Grade 1 – "An easy walk on pavement or well maintained paths without stiles and only moderate hills."
+Grade 2 – "A moderate walk in any setting with some difficult paths and the possibility of one or more substantial hills."
+Grade 3 – "A more difficult walk, mainly on poorly maintained path or tracks, through rough fields or woods. There may be steep climbs, rough uneven terrain or frequent stiles."
+
+
+=== United States ===
+
+
+==== Arizona ====
+Arizona's trail ratings are as follows:
+
+Easiest – "Paved Accessible Trail. Paved or hard and smooth."
+Easy – "Mostly smooth and wide. Dirt with occasional unevenness."
+Moderate – "Mostly smooth, variable width. Dirt with occasional unevenness."
+Moderate Difficult – "Mostly uneven surfaces. Dirt and rock."
+Difficult – "Long rocky segments with possible drops and exposure. Dirt and loose rock with continual unevenness."
+Extremely Difficult – "Long rocky segments with possible drops and exposure. Dirt and loose rock with continual unevenness."
+
+
+==== California ====
+In California, there are three different ratings according to the California Department of Parks & Recreation:
+
+Easy: "1–2 miles with easy terrain and little elevation gain."
+Moderate: "2–4 miles with moderate terrain and some elevation change."
+Challenging: "4 or more miles OR varying terrain."
+
+
+== Bicycle ==
+
+
+=== International ===
+IMBA Trail Difficulty Rating System:
+
+White circle – Easiest
+Green circle – Easy
+Blue square – More difficult
+Black diamond – Very difficult
+Double black diamond – Extremely difficult
+Variations on the above system may include:
+
+Green circle with blue border – Easy with intermediate sections
+Blue square with black border – Intermediate with difficult sections
+
+
+=== New Zealand ===
+In New Zealand, the Department of Conservation (New Zealand) uses six grades in the national parks, which are based upon those created by the Kennett Brothers.
+
+
+=== United Kingdom ===
+Trails in the UK are often managed by Forestry England who use an updated version of the CTC off-road trail grades since July 2023.
+
+
+== Car ==
+
+
+=== Australia ===
+Australian National Four-Wheel Drive Council (ANFWDC), supported by Four-Wheel Drive QLD (FWDQLD):
+
+Green – All wheel drive (AWD), high range (4High), highway tyres
+Blue – Low range (4Low) required, highway tyres
+Black – Low range, standard 4WD ground clearance (210mm or more), all-terrain (AT) tyres
+Red – Low range, high ground clearance (235mm or more), mud-terrain (MT) tyres
+
+
+== Motorcycle ==
+
+
+=== Australia ===
+DSMRA Grading System:
+
+Grade 0 – Touring
+Grade 1 – Easy
+Grade 2 – General
+Grade 3 – Hard
+Grade 4 – Hardest
+
+
+== Equestrian ==
+
+
+=== Australia ===
+South Australia horse trail difficulty rating system:
+
+Green circle – Easiest
+Blue square – Intermediate
+Black diamond – Advanced
+
+
+== See also ==
+Grade
+Piste
+Fastpacking
+Trail blazing
+
+
+== Notes ==
+
+
+== References ==

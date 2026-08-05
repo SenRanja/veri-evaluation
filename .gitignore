@@ -20,3 +20,11 @@ dist/
 .idea/
 .vscode/
 *.log
+
+# 测试用例，这个可以用readme的“生成文件”一节来处理
+./evaluation_cases/test_cases_novel
+
+
+
+
+

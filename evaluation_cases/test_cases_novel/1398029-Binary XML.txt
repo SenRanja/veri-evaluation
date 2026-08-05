@@ -1,0 +1,39 @@
+Various binary formats have been proposed as compact representations for XML (Extensible Markup Language).
+
+
+== Binary representation ==
+Using a binary XML format generally reduces the verbosity of XML documents thereby also reducing the cost of parsing, but hinders the use of ordinary text editors and third-party tools to view and edit the document.  There are several competing formats, but none has yet emerged as a de facto standard, although the World Wide Web Consortium adopted Efficient XML Interchange (EXI) as a Recommendation on 10 March 2011.
+Binary XML is typically used in applications where the performance of standard XML is insufficient, but the ability to convert the document to and from a form (XML) which is easily viewed and edited is valued.  Other advantages may include enabling random access and indexing of XML documents.
+The major challenge for binary XML is to create a single, widely adopted standard. The International Organization for Standardization (ISO) and the International Telecommunication Union (ITU) published the Fast Infoset standard in 2007 and 2005, respectively. Another standard (ISO/IEC 23001-1), known as Binary MPEG format for XML (BiM), has been standardized by the ISO in 2001. BiM is used by many European Telecommunications Standards Institute (ETSI) standards for digital TV and mobile TV. The Open Geospatial Consortium provides a Binary XML Encoding Specification (currently a Best Practice Paper) optimized for geo-related data (GML) and also a benchmark to compare performance of Fast InfoSet, EXI, BXML and deflate to encode/decode AIXM.
+Alternatives to binary XML include using traditional file compression methods on XML documents (for example gzip); or using an existing standard such as ASN.1. Traditional compression methods, however, offer only the advantage of reduced file size, without the advantage of decreased parsing time or random access. ASN.1/PER forms the basis of Fast Infoset, which is one binary XML standard. There are also hybrid approaches (e.g., VTD-XML) that attach a small index file to an XML document to eliminate the overhead of parsing.
+
+
+== Binary XML efforts ==
+Projects and file formats using binary XML include:
+
+BiM Standard, from the ISO, developed by the MPEG working group
+Fast Infoset, a standard published by ISO/IEC and ITU-T
+Efficient XML Interchange (EXI) W3C Recommendation, based on work by Efficient XML from AgileDelta, Inc.
+Extensible Binary Meta Language (EBML) from Matroska
+WAP Binary XML (WBXML)
+.NET Binary Format: XML Data Structure from Microsoft; the implementation included in .NET Framework 3.0 and later.
+Binary Markup Language (BML)
+Other projects that have functionality related to (or competing with) binary representations include:
+
+VTD-XML from XimpleWare and VTD-XML project
+Protocol Buffers from Google
+Apache Thrift
+Data Distribution Service from OMG
+Apache Avro for Big Data
+Android application package uses an undocumented binary XML format; the source code is open and well-commentated.
+JsonML, Badgerfish, GData, OpenRally and Parker can represent XML in JSON, and then JSON can be represented in binary format like property list or BSON.
+
+
+== See also ==
+BSON
+MessagePack
+CBOR
+Canonical S-expressions
+
+
+== References ==

@@ -1,0 +1,54 @@
+Robert Kassebaum Mortimer (November 1, 1927 – August 10, 2007) was a Canadian-born American molecular biologist and geneticist. He is widely regarded as the “father of yeast genetics” for turning Saccharomyces cerevisiae into a premier model organism. Mortimer’s experiments with yeast in the early 1950s led to the discovery of the RAD genes involved in DNA repair, and he went on to construct comprehensive genetic maps of yeast chromosomes. His technical innovations, such as using snail digestive enzymes to dissolve the yeast ascus, enabled the analysis of thousands of meioses and paved the way for studies of gene conversion and replicative aging. Mortimer founded the Saccharomyces stock center and shared thousands of strains with researchers, and he later co-developed the laboratory strain S288C. The Genetics Society of America recognized his contributions with the George W. Beadle Award in 2002.
+
+
+== Early life and education ==
+Mortimer was born in Didsbury, Alberta, Canada, on November 1, 1927.  He earned undergraduate honours in mathematics and physics at the University of Alberta and considered a career in oil and gas exploration.  Instead, he enrolled in the biophysics graduate programme at the University of California, Berkeley.  Working under medical physicist Cornelius Tobias, he investigated the effects of radiation on cell survival.  Mortimer received his Ph.D. in biophysics in 1953.
+
+
+== Academic career and research ==
+
+
+=== Discovery of DNA repair genes ===
+As a graduate student, Mortimer tested Tobias’s hypothesis that cells with more copies of each chromosome would be more resistant to X‑ray damage.  Using budding yeast, he created strains with one to four copies of each chromosome and demonstrated that extra copies increased sensitivity rather than resistance.  The paradoxical result led him to study how cells repair DNA damage.  These experiments led to the identification of the RAD (radiation sensitive) genes that form the basis of current understanding of DNA repair mechanisms.
+
+
+=== Yeast genetic mapping and technical innovations ===
+Yeast chromosomes are much smaller than those of common genetic model organisms such as Drosophila and maize.  Mortimer recognized that constructing a genetic map of S. cerevisiae was essential to understanding how X‑rays caused chromosomal damage.  Although he expected a small number of chromosomes, yeast turned out to have 16, making mapping more challenging.  By the mid‑1970s Mortimer and collaborators had created a workable map with mutations marking all chromosomes.  His early maps, co‑authored with Donald Hawthorne in 1960 and expanded with David Schild in 1980, eventually established the yeast haploid chromosome number of 16 by the 11th edition in 1992.
+In addition to mapping, Mortimer developed techniques that made yeast genetics feasible.  Because S. cerevisiae spores remain enclosed in a tough ascus, they were difficult to isolate with microdissecting needles.  Reasoning that some organism must be able to digest the ascus, Mortimer and John R. Johnston found that juice extracted from snail digestive tracts could dissolve the ascus and release spores for genetic analysis.  This method allowed researchers to study thousands of meioses, enabling discoveries such as gene conversion—the copying of information from one chromosome to its homolog—reported by Mortimer and colleagues including Seymour Fogel.
+Mortimer and Johnston also discovered in a 1959 Nature letter that mother and bud cells in a yeast culture have different life spans, providing the first demonstration of mortality in a microbial population.  Their experiments tracked budding scars to show that the number of divisions a mother cell can undergo is limited.  This finding laid groundwork for the genetics of aging.
+
+
+=== S288C strain and genetic resources ===
+Mortimer was instrumental in developing the laboratory yeast strain S288C.  The strain was derived from a complex series of crosses beginning with Emil Mrak’s EM93 strain; Mortimer used Reaume’s 99R derivative and other strains to produce S288C, which he bred to be nonflocculent and to grow on minimal nutrients.  S288C became a standard parent strain for isolating biochemical mutants and was subsequently used in yeast genome sequencing projects and mutant libraries.  Mortimer maintained and updated the yeast genetic map for decades and shared his strains freely, creating a culture of sharing in the yeast community.  He established the Saccharomyces stock center, which housed thousands of strains and allowed researchers to obtain them for only postage costs.
+
+
+=== Later research and wine yeast ===
+Mortimer retired from UC Berkeley in 1991 but continued to study yeast genetics.  He served for many years as a visiting scholar at the University of Florence and collaborated with European researchers on yeast strains used in wine production.  His work supported the use of indigenous yeasts in winemaking and showed that different yeast strains act sequentially during fermentation.  In 2003 he participated in a study that presented evidence that S. cerevisiae was used to ferment wine in Egypt around 3150 BC.
+
+
+== Academic service and recognition ==
+Mortimer spent his entire academic career at the University of California, Berkeley.  After receiving his doctorate he served as an instructor before joining the genetics faculty in 1956.  He became a full professor in 1966, chaired Berkeley’s division of medical physics from 1972 to 1978, and later chaired the Department of Biophysics and Medical Physics from 1984 to 1987.  He also served as acting director of the Lawrence Berkeley National Laboratory’s human genome project and was affiliated with the laboratory until his retirement.  In recognition of his contributions to genetic research, Mortimer shared the 2002 George W. Beadle Award with André Goffeau.  His dedication to community resources and mentorship earned him a reputation as the “father of his field”.
+
+
+== Personal life ==
+Mortimer married Mary Mortimer, and the couple had three surviving children: sons Douglas and Bruce and daughter Barbara.  A fourth son, Donald, died in 1993.  Outside of science he enjoyed fly fishing, mushroom hunting, hiking and gardening.  Mortimer died on August 10, 2007, at the age of 79 from complications of Alzheimer’s and Parkinson’s diseases.
+
+
+== Legacy ==
+Mortimer’s innovations transformed S. cerevisiae into a tractable genetic system and enabled the use of yeast as a model for studying DNA repair, recombination, aging and genome organisation.  The genetic maps he compiled laid the foundation for yeast genome sequencing and functional genomics, and his strains remain standard tools in laboratories worldwide.  By founding the Saccharomyces stock center and promoting a culture of open sharing, Mortimer helped build a global community of yeast researchers.  His discoveries continue to influence studies of aging and DNA repair across eukaryotes.
+
+
+== Selected works ==
+Mortimer, R. K., and J. R. Johnston. “Life span of individual yeast cells.” Nature 183 (1959): 1751–1752.
+Hawthorne, D. C., and R. K. Mortimer. “Chromosome mapping in Saccharomyces: centromere-linked genes.” Genetics 45 (1960): 1085–1110.
+Mortimer, R. K., and D. Schild. “Genetic map of Saccharomyces cerevisiae.” Microbiological Reviews 44 (1980): 519–571.
+Mortimer, R. K., C. R. Contopoulou and J. S. King. “Genetic and physical maps of Saccharomyces cerevisiae, edition 11.” Yeast 8 (1992): 817–902.
+
+
+== References ==
+
+
+== See also ==
+Saccharomyces cerevisiae
+Gene conversion
+DNA repair

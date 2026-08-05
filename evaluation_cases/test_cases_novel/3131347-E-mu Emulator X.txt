@@ -1,0 +1,16 @@
+Emulator X is a software-based audio sampler that was produced by E-MU Systems from 2004 to 2009.
+Emulator X software is compatible with PCs running the Microsoft Windows operating system. The sampler can operate as a stand-alone program or as a VST instrument and, as of Emulator X3, is available in both 32-bit and 64-bit versions.
+For the software to run, one of several sound cards sold by E-MU was originally required. The sound card acted as a hardware dongle to prevent unauthorised use without the purchase of an E-MU branded device.  This requirement was later dropped with the release of Emulator X3.
+
+
+== Versions ==
+Following E-MU's decision to end sales and production of its hardware sampler line in 2003, Emulator X was released as the company's first entry into the software sampler market in 2004. Emulator X2 was released in 2006, followed by the third and final incarnation, Emulator X3, in 2009. The product has since been discontinued and is no longer available to purchase from either E-MU or its parent company, Creative Technology.
+
+
+== Functionality ==
+Emulator X was largely based on E-MU's hardware sampler operating system, EOS. As such, it replicates or expands upon most of the design and features available in the final revision of the operating system, EOS 4.70. An example of this is the inclusion of E-MU's highly publicized "Z-Plane" filters, with Emulator X containing over 25 new filters not available in EOS.
+It is also capable of importing and exporting bank files in EOS format for compatibility with E-MU's legacy hardware samplers such as the Emulator IV and E4 Ultra series devices.
+It is the last software sampler produced that retains the ability to directly sample other sources, in contrast to current software samplers, which require existing samples and are therefore more akin to traditional ROMplers. Among the more noteworthy sampling features added in Emulator X2 is SynthSwipe, a tool which gives Emulator X the ability to sample from connected MIDI devices such as hardware synthesizers by sending a series of notes at differing velocities via MIDI and automatically recording the device's output to create a new fully mapped sample bank.
+
+
+== References ==

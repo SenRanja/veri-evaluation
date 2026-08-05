@@ -1,0 +1,37 @@
+The TMS1000 is a family of microcontrollers introduced by Texas Instruments in 1974. It combines a 4-bit central processor unit, read-only memory (ROM), random access memory (RAM), and input/output (I/O) lines as a complete "computer on a chip". It was intended for embedded systems in automobiles, appliances, games, and measurement instruments. It was the first high-volume, general-purpose commercial microcontroller. In 1974, chips in this family could be purchased in volume for around $2 each.  By 1979 about 26 million parts in this family were sold every year.
+The TMS 1000 is used in Texas Instruments' own Speak & Spell educational toy, the Big Trak programmable toy vehicle and in the electronic game Simon.
+
+
+== History ==
+
+
+=== TMS 0100 series ===
+The Smithsonian Institution says TI engineers Gary Boone and Michael Cochran succeeded in creating the first microcontroller in 1971. The TMS1802NC was a single-chip microcontroller which was announced September 17, 1971 and implemented a four-function calculator. The TMS1802NC, despite its designation, was not part of the TMS 1000 series; it was later redesignated TMS0102 as part of the TMS 0100 series, which was used in the TI Datamath calculator and the Sinclair Executive calculator.
+
+
+=== TMS 1000 series ===
+
+The later TMS 1000 series went on the market in 1974. TI stressed the 4-bit TMS 1000 for use in pre-programmed embedded applications.
+A computer-on-a-chip combines the microprocessor core (CPU), memory, and I/O (input/output) lines onto one chip. The computer-on-a-chip patent, called the "microcomputer patent" at the time, U.S. patent 4,074,351, was awarded to Gary Boone and Michael J. Cochran of TI. Aside from this patent, the standard meaning of microcomputer is a computer using one or more microprocessors as its CPU(s), while the concept defined in the patent is more akin to a microcontroller.
+
+
+== Description ==
+
+The TMS1000 family eventually included variants in both the original PMOS logic and also in NMOS and CMOS. Product variations included different sizes of ROM and RAM, different I/O counts, and ROMless versions intended for development or for use with external ROM. The original TMS1000 had 1024 x 8 bits of ROM, 64 x 4 bits of RAM, and 23 input/output lines.
+The TMS1000 family used mask-programmed ROM. Once the user had a debugged program ready to be committed to production, it would send the program to Texas Instruments who would then make a special mask to program the on-chip ROM. The ROM could not be altered in the field; the contents were fixed by the patterns laid down on the chip by the manufacturer. While this process had a high initial cost, the production cost per unit was low, making it suitable for high volume products (say, more than a few thousand items sold per year).
+All internal data paths of the processor were 4 bits wide. Program ROM and data RAM were separately addressed as in a Harvard architecture; this became a typical characteristic of microcontrollers by many other manufacturers.
+The ALU had a carry flag to indicate overflow and facilitate multiple precision arithmetic. On-chip RAM was addressed by X and Y registers, where Y had 4 bits and X had either 2 or 3 bits depending on the size of RAM on the part. The program counter was 6 bits wide, with "page" and "chapter" registers to address up to 2 KB of ROM program memory.
+No stack was provided, but a register was provided to store the program counter and carry flag to allow for one level of subroutine (some members of the family allowed for 2 or 3 levels). No interrupt facility was provided.
+Some models had as few as 4 I/O lines because they had no on-chip ROM and the limited number of package pins were needed to access off-chip program memory. One version had special outputs for driving a vacuum fluorescent display, and a programmable logic array useful for driving seven segment displays. Four input lines were provided for purposes such as sensing keyboard inputs, and a varying number of output lines were provided to control external devices, or to scan the rows of a keyboard matrix circuit.
+
+PMOS versions ran on -9 or -15 volts and consumed around 6 mA, Output logic levels were therefore not compatible with TTL logic. The NMOS and CMOS parts ran on a TTL-style +5 volts and could interoperate with 5 volt logic.
+Instruction sets varied slightly by model, with 43 instructions in the basic set and 54 available in some family members; instructions were 8 bits long. BCD arithmetic instructions were provided, but no instructions were available for logical AND or OR of registers.
+Each instruction took between 10 and 15 microseconds to execute on the NMOS and PMOS parts, but some CMOS parts could be run as fast as 6 microseconds. The internal oscillator gave an effective clock speed of around 0.3 megahertz.
+The TMS1000 parts were packaged in through-hole dual in-line packages with 28 or 40 pins, but some models for prototyping were in 64-pin packages. All versions had a temperature range of 0 to 70 degrees C.
+Since these were intended as single-chip embedded systems, no special support chips (such as UARTs) were specifically made in the TMS 1000 family.
+
+
+== References ==
+
+
+== Further reading ==

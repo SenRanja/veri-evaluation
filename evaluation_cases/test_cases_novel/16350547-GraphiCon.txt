@@ -1,0 +1,60 @@
+GraphiCon is the largest International conference on computer graphics and computer vision in the countries of the former Soviet Union. Established in 1991.
+The conference is hosted by Moscow State University in association with Keldysh Institute of Applied Mathematics, Russian Center of Computing for Physics and Technology, and the Russian Computer Graphics Society. The Conference is held in close cooperation with Eurographics Association.
+
+
+== Conference topics ==
+The main topics of the conference include (this list is not exhaustive):
+
+Graphics and multimedia:
+Geometry modeling and processing
+Photorealistic rendering techniques
+Scientific visualization
+Image-based techniques
+Computer graphics for mobile devices
+Computer graphics hardware
+Graphics in computer games
+Animation and simulation
+Virtual and augmented reality
+Image and video processing:
+Medical image processing
+Early vision and image representation
+Tracking and surveillance
+Segmentation and grouping
+Image enhancement, restoration and super-resolution
+Computer vision:
+3D reconstruction and acquisition
+Object localization and recognition
+Multi-sensor fusion and 3D registration
+Structure from motion and stereo
+Scene modeling
+Statistical methods and learning
+Applications
+
+
+== Format ==
+The following sections are organized for the event:
+
+Young scientists school courses and master classes
+Full paper presentations
+Work in progress presentations
+STAR reports
+Invited talks
+Industrial presentations
+Multimedia shows
+Round table discussions
+
+
+== Specific GraphiCon conferences ==
+
+
+== See also ==
+Eurographics – the biggest conference on computer graphics in Europe
+SIGGRAPH – the world biggest conference on computer graphics
+List of computer science conferences#Computer_graphics
+
+
+== External links ==
+Official website
+
+
+== References ==

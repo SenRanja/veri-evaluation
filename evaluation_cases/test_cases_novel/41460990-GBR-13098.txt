@@ -1,0 +1,13 @@
+GBR-13098 is a psychostimulant and selective dopamine uptake inhibitor.
+Blocking the endogenous striatal dopamine (DA) transporter with GBR-13098 in mice has been shown to prevent damage to the DA nerve terminals caused by malonate. It was suggested that DA transporter inhibitors like GBR-13098 could be used to prevent or treat neurodegenerative disorders caused by the effect of mitochondrial dysfunction on DA homeostasis.
+
+
+== See also ==
+Vanoxerine
+GBR-12783
+GBR-12935
+GBR-13069
+DBL-583
+
+
+== References ==

@@ -1,0 +1,125 @@
+The BMW M52 is a straight-6 DOHC petrol engine which was produced from 1994 to 2000. It was first released in the E36 320i and E39 520i to replace the M50. In 1998, the BMW M52TÜ "technical update" included a redesigned block and head by adding variable valve timing to the exhaust camshaft. The BMW S52 engine is a high performance variant of the M52 which powered the American and Canadian market E36 M3 from 1996 to 1999.
+The M52 family was replaced by the M54 in late 2000. The M52 and S52 engines were on the Ward's 10 Best Engines list from 1997 to 2000.
+
+
+== Design ==
+In most markets, the M52 switched from the M50's cast iron engine block to a lightweight aluminium engine block. Original M52 engines produced for the United States and Canadian markets (except for those used by the BMW Z3 roadster) retained the M50's cast iron engine block. The largest version of the M52 was increased 2.8L, compared with 2.5L for the M50. As per the later versions of the M50 (the M50TÜ), the M52 uses variable valve timing on the intake camshaft (called "single-VANOS"). The redline remained at 6,500 pm. The 2.5L and 2.8L M52 were detuned slightly compared to the M50 as to comply with the upcoming Euro 2 emissions standard, though the smaller 2L variant remained the same. Despite the lower tuning, the M52 produces an equal peak torque earlier than the M50.
+The M50TÜ and the M52 are likewise extremely similar, with most parts being interchangeable between the two. A common upgrade for the M52 is to swap the inlet manifold for the more free-flowing runners found on the M50 inlet manifold. As the blocks and head are essentially identical, it is a bolt-on replacement for the original.
+All variants of the M52 are OBD-II compliant thanks to the new Siemens MS41 engine management system, carrying over the large 20-pin diagnostics connector found under the bonnet from the M50 (which was only OBD-I compliant). While a different shape than the standard OBD-II connector, it is otherwise electrically identical; and with the correct adaptor, it is trivial to use modern diagnostic and tuning tools.
+
+
+=== Nikasil problems with high sulfur fuels ===
+The aluminum M52 engine received criticism in some markets with high levels of sulfur in the petrol during the late 1990s. Sulfur has a corrosive effect on Nikasil and led to many early M52 and M60 engines having premature bore-liner wear. Countries with high sulfur fuel (such as the United States) received an iron block version of the M52 (except for the M52B28 in the Z3 which was an aluminium block), so the Nikasil problem does not apply to most M52 engines in these countries. The S52 was thus designed as an iron block. Once the Nikasil coating was determined to be the cause of the problem, cast iron cylinder sleeves were used instead starting in 1998. The M52TÜ engine was designed with iron cylinder sleeves from the beginning and thus was not affected by the Nikasil problem.
+
+
+== Models ==
+
+
+=== M52B20 ===
+A 1,991 cc (121 cu in) version was introduced in 1994. Bore is 80 mm (3.1 in) and stroke is 66 mm (2.6 in). The compression ratio is 11.0:1.
+Applications:
+
+1994–1998 E36 320i
+1995–1998 E39 520i
+
+
+=== M52B25 ===
+A 2,494 cc (152 cu in) version introduced in 1995. It produces 125 kW (170 PS; 168 hp). Bore is 84 mm (3.3 in) and stroke 75 mm (3.0 in). The compression ratio is 10.5:1.
+Applications:
+
+1995–1998 E36 323i
+1995–2000 E36/5 323ti
+1995–1998 E39 523i
+
+
+=== M52B28 ===
+The 2,793 cc (170 cu in) version of the M52 debuted in 1995. It has a bore of 84 mm (3.3 in), a stroke of 84 mm (3.3 in) and produces 142 kW (193 PS; 190 hp). The compression ratio is 10.2:1.
+Applications:
+
+1995–1999 E36 328i, 328is
+1995–1998 E39 528i
+1995–1998 E38 728i, 728iL
+1997–1998 E36/7 Z3 2.8
+1997–2000 Land Rover Defender (South Africa only)
+
+
+== M52TÜ ==
+
+With the release of the E46 platform in 1998, the M52TÜ was released, addressing many of the drawbacks in the original M52 design. While labelled as an M52 variant, the head and block design differ from its namesake and are almost identical to the later M54; with most parts being interchangeable and other upgrades to the design were not related to the engine itself at all. 
+
+
+== Design ==
+Compared to the original M52, all variants of the M52TÜ used an aluminium block with iron cylinder sleeves thus avoiding the Nikasil problems found in the M52. It included a hybrid 'fly-by-wire' throttle body, with both an ASC/DSC (traction control) motor built in and the original mechanical throttle linkage as a backup. The block was also changed to include revised coolant passages with an additional drain back passage that allowed the cylinder head to be cooled independently of the block, so coolant would no longer be hot before reaching the head. Additionally, a revised cooling system with push fit hoses and a separate expansion tank plus was added, and a dual length intake manifold that switched between the two runners via a valve (called "DISA") with new 'D'-shaped inlets that were reflected into the redesigned block; although the runners themselves were still oval shaped until the release of the M54. As the engines are otherwise identical, swapping the higher flow M54 manifold is a common bolt-on upgrade for the M52TÜ. As first seen on the S50, the M52TÜ received variable valve timing to the exhaust camshaft (called "double VANOS"), which increased fuel economy and allowed for a linear torque curve that delivered more at lower RPMs. 
+Double VANOS, along with the 'DISA' valve and the same detuning found in the original M52 from the new Siemens MS42 engine management system (that was ultimately reversed with the M54), were also the key factors needed to comply with the upcoming Euro 3 standards for emissions. Like the M52, the M52TÜ is also OBD-II compliant, carrying over the 20-pin connector from the M52 found under the bonnet. Some examples made toward the end of the 2000 model year contained both the 20-pin connector and the now standard modern OBD-II connector in the driver's footwell.
+
+
+== Models ==
+
+
+=== M52TÜB20 ===
+Applications:
+
+1998–2000 E46 320i, 320Ci
+1998–2000 E39 520i
+1999–2000 E36/7 Z3 2.0i
+
+
+=== M52TÜB24 ===
+2.4L. For Thai and other Oceanic markets only (excluding Australia and New Zealand). 
+The bore is 84 mm (3.3 in) and the stroke is 72 mm (2.8 in).
+
+
+=== M52TÜB25 ===
+Applications:
+
+1998–2000 E46 323i, 323Ci
+1998–2000 E39 523i
+1998–2000 E36/7 Z3 2.3i
+
+
+=== M52TÜB28 ===
+Applications:
+
+1998–2000 E46 328i, 328Ci
+1998–2000 E36/7/8 Z3 2.8
+1998–2000 E39 528i
+1998–2000 E38 728i
+
+
+== S52 ==
+
+The S52 is a higher performance version of the M52, which replaced the S50B30US in the post-facelift (1996-1999) North American E36 M3.
+
+
+== Design ==
+Compared to the worldwide-spec S50, the S52 is less powerful. One key difference between the S52 and S50 was the removal of the Double VANOS system in favour of the Single VANOS used in the regular M52. The S52 also shares more in common with the regular M52 engine than the S50 did with the M50, for example sharing the engine block (cast iron, as per North American M52 engines) and cylinder head. Unique to the S52 is a bore of 86.4 mm (3.4 in) and stroke of 89.6 mm (3.5 in) for a total displacement of 3,152 cc. Compression ratio is 10.5:1. Other upgrades over the M52 include lighter camshafts (with increased lift and duration), valve springs and the exhaust system. 
+The S52 produces 240 hp (179 kW; 243 PS) at 6,000 rpm and 320 N⋅m (240 lb⋅ft) of torque at 3,800 rpm. The S52 has a redline of 7,000 rpm while the M52 has a 6,500 rpm redline.
+
+
+=== Alpina B3 ===
+In 1999, Alpina created a handbuilt, enlarged version of the S52 called the Alpina E5/1 which came to 3.3L after increasing both the bore and stroke. Power was increased to 209 kW (284 PS; 280 hp) at 6,300 rpm, and 335 N⋅m (247 lb⋅ft) of tourque at 6,100 rpm and a redline of 7,200 rpm. Other changes include a revised inlet manifold, lightweight pistons, a redesigned cylinder head and camshafts as well as a new crankshaft.
+
+
+== Models ==
+
+
+=== S52B32 ===
+Applications:	
+
+1996–1999 E36 M3 (Canada and United States only)
+1998–2000 E36/7/8 Z3M (Canada and United States only)
+
+
+=== Alpina E5/1 ===
+Applications:
+
+1999-2001 E46 Alpina B3
+
+
+== See also ==
+BMW engines
+BMW M50
+BMW M54
+
+
+== References ==

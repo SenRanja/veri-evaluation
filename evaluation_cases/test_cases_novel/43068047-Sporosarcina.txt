@@ -1,0 +1,37 @@
+Sporosarcina is a genus of bacteria.
+
+
+== Specification ==
+The cells of the species of Sporosarcina are either rod-shaped or coccoid. Sporosarcina forms endospores. The majority species of Sporosarcina is moveable (motile).
+
+
+== Metabolism ==
+All species of Sporosarcina are heterotrophic. They do not perform photosynthesis. A few species are obligate aerobic, they need oxygen. Others are facultative aerobic, they can also perform metabolism in the absence of oxygen.
+
+
+== Ecology ==
+Some species, such as S. ureae have the enzyme urease and are thus able to break down  urea. The species forms the highest population densities in soils that are subject to influence of urine. These include, for example, meadows where cattle are kept. Thus S. ureae plays an important role in the ecosystem.
+
+
+== Molecular Signatures ==
+Analyses of genome sequences of Sporosarcina species identified eight conserved signature indels (CSIs) that are uniquely present in this genus in the proteins aspartate–tRNA ligase, A/G-specific adenine glycosylase, thymidylate synthase, RDD family protein, DEAD/DEAH box helicase, membrane protein insertase YidC, cytochrome b6, and a hypothetical protein. These molecular signatures provide a novel and reliable method to molecularly distinguishing Sporosarcina species from other genera in the family Caryophanaceae and other bacteria.
+
+
+== Phylogeny ==
+The currently accepted taxonomy is based on the List of Prokaryotic names with Standing in Nomenclature (LPSN) and National Center for Biotechnology Information (NCBI)
+
+Unassigned species:
+
+"S. ginsengisoli" Achal et al. 2012
+"S. jeotgali" Yang et al. 2024
+"S. oncorhynchi" Yang et al. 2024
+"S. sphaerica" Gupta & Patel 2019
+"S. trichiuri" Yang et al. 2024
+
+
+== See also ==
+List of bacterial orders
+List of bacteria genera
+
+
+== References ==

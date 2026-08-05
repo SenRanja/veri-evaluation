@@ -1,0 +1,148 @@
+Arcaicam Esperantom or Arqhaicam Esperantom  (English: Archaic Esperanto; Esperanto: arĥaika Esperanto, arkaika Esperanto), is a constructed auxiliary sociolect for translating literature into Esperanto created to act as a fictional 'Old Esperanto', in the vein of languages such as Middle English or the use of Latin citations in modern texts.
+It was created by linguist Manuel Halvelik as part of a range of stylistic variants including Gavaro (slang) and Popido (patois), forming Serio La Sociolekta Triopo.
+Halvelik also compiled a scientific vocabulary closer to Greco-Latin roots and proposed its application to fields such as taxonomy and linguistics. He gave this register of Esperanto the name Uniespo (Uniëspo, Universala Esperanto, 'Universal Esperanto').
+The idea of an "old Esperanto" was proposed by the Hungarian poet Kálmán Kalocsay who in 1931 included a translation of the Funeral Sermon and Prayer, the first Hungarian text (12th century), with hypothetic forms as if Esperanto were a Romance language deriving from Vulgar Latin.
+
+
+== La Sociolekta Triopo ==
+La Sociolekta Triopo (the sociolect triple) does not create new Esperantidos (e.g. Esperanto II), but its sole purpose—including Arcaicam Esperantom—is to reflect styles in literature translated into Esperanto, like the Berlin Middle-German dialect spoken by characters in Carl Zuckmayer's Captain of Köpenick (Popido), or ancient styles in Walter Scott's Ivanhoe (Arcaicam Esperantom).
+La Sociolekta Triopo thus constitutes not three new constructed languages, but constructed auxiliary sociolects for Esperanto, understandable by every reader of Esperanto but still providing the stylistic differences between dialects (Popido), slang (Gavaro), and ancient forms contrasting with Fundamento, standard Esperanto, e.g. in works of Mark Twain (slang and southern dialect) or The Lord of the Rings (Arcaicam Esperantom for the elves, Popido for the Hobbits).
+
+
+== Differences from Esperanto ==
+
+
+=== Spelling ===
+
+The three following rules are also added:
+
+g becomes gu (before e, i) or g (before other letters)
+k becomes qu (before e, i) or c (before other letters)
+ŭ becomes ù (but see below regarding -aŭ adverbs)
+
+
+==== diphthongs ====
+aŭ becomes aù (but see below regarding -aŭ adverbs)
+eŭ becomes eù
+
+
+==== consonant clusters ====
+dz becomes zz
+ks becomes x
+kv becomes cù
+
+
+==== Typography ====
+Halvelik recommends blackletter and uncial types.
+
+
+=== Pronouns ===
+Pronouns are changed as:
+
+*herself/himself/itself/themselves
+
+There is an old pronoun egui which is a personal, sex-neutral pronoun. Its intended use is for referring to deities, angels, animals etc.
+
+
+=== Verbs ===
+The infinitive ends in -ir, rather than in the -i of modern Esperanto.  Ex.: fari becomes pharir.
+The verb endings change according to the subject. So it is not necessary to write the subject pronoun, where there is no ambiguity.
+Example: the modern Esperanto verb esti (to be), present tense:
+
+mi/ci/li/ŝi/ĝi/si/ni/vi/ili estas
+The Arcaicam Esperantom verb estir (to be), present tense:
+
+(mihi) estams
+(tu) estas
+(lùi/eshi/eghi/egui) estat
+(nos) estaims
+(wos) estais
+(ilùi) estait
+The other verb tenses behave the same way, as does the conditional mood:
+
+The future-tense conjugation estos becomes estoms, etc.
+The past-tense conjugation estis becomes estims, etc.
+The conditional-mood conjugation estus becomes estums, etc.
+The imperative mood behaves differently from that pattern:
+
+The imperative form estu stays estu for singular subjects, but becomes estuy for plural subjects.
+
+
+=== Nominals ===
+
+-o becomes om (sg. noun, nominative)
+-oj becomes oy (pl. noun, nominative)
+-on stays -on (sg. noun, accusative). Where Esperanto has a direction accusative, the dative is used. E.g.: Esperanto: Tiu virino la drinkemulon venordonis antaŭ la tribunalon, lit. 'That woman ordered the drunkard to come before the tribunal' becomes Ityu Wirinnom Drinquemulon wenordiguit [sic] antez Tribunalod.
+-ojn becomes -oyn (pl. noun, accusative)
+al x-o becomes x-od (sg. noun, dative – ex.: al domo becomes domod)
+al x-oj becomes x-oyd (pl. noun, dative – ex.: al domoj becomes domoyd)
+de x-o becomes x-es (sg. noun, genitive – ex.: de domo becomes domes)
+de x-oj becomes x-eys (pl. noun, genitive – ex.: de domoj becomes domeys)
+-e becomes -œ (adverb) (This is a new phoneme, not present in modern Esperanto.  It is pronounced like the German ö.)
+-aŭ becomes -ez (-aŭ-adverb such as baldaŭ, etc.)
+-a becomes -am (sg. adjective, nominative)
+-aj becomes -ay (pl. adjective, nominative)
+A noun is always written with a capital letter. Ex: Glawom = (la) glavo.
+The verb infinitive can function as a noun, having the meaning that is carried in modern Esperanto by the root with the suffix -ado.  The infinitive functioning as a noun takes, as does any other noun, both a capital letter and a case ending.  Ex: Leguirom = (la) legado.
+The declension of personal pronouns below, however, differs significantly from declensions of nouns or adjectives. These personal pronouns have their own adjectival forms.
+
+
+=== Correlatives ===
+ki- becomes cuy-
+ti- becomes ity-
+i- becomes hey-
+neni- becomes nemy-
+ĉi- becomes chey-
+ali- becomes altri-
+(Note: Ali-, which in modern Esperanto is not a correlative despite its use in that fashion by some, becomes in Arcaicam Esperantom as altri- a full-fledged correlative.)
+
+-o becomes -om
+-a becomes -am
+-am becomes -ahem
+-e becomes -œ
+-om becomes -ohem
+(-u stays -u)
+(-el stays -el)
+the particle ĉi becomes is- (ĉi tiu = isityu)
+
+
+=== Articles ===
+The definite article la does not exist in Arcaicam Esperantom.  If necessary, a specific person or object can be indicated by means of ityu (in modern Esperanto tiu).
+The indefinite article, which modern Esperanto does not have, does exist in Arcaicam Esperantom.  The indefinite article is unn (which is the same word for the number 1).
+
+
+== Examples ==
+
+
+=== The Lord's Prayer ===
+
+
+=== Romeo and Juliet ===
+
+
+=== Phrases ===
+Salutoyn cheyuyd! Cuyel phartais wos? –'Hello everyone, how are you?'
+Lùi ex Byelostocom wenat. – 'He comes from Białystok.'
+Cuyel nomizzas? – 'What is your name?'
+Nomizzams Petrus. – 'My name is Peter.'
+Ityon comprenams bonœ. – 'I understand that well.'
+Unn Manom altrian Manon lawat. – 'One hand washes the other (hand).'
+Tempom phughat. – 'Tempus fugit' (Vergil)
+Ityel pasat mondes Glorom. – 'Sic transit gloria mundi' (Thomas à Kempis)
+Wenims, widims, wenquims. – 'Veni, vidi, vici' (Julius Caesar)
+Homom Homoyd Lupom estat. – 'Homo homini lupus' (Plautus)
+
+
+== See also ==
+
+Proto-Esperanto
+Esperantido
+
+
+== References ==
+Arkaika Esperanto : Arcaicam Esperantom. Brugge: Sonorilo, 1969. 122 pages.
+Arkaika Esperanto : Arcaicam Esperantom. 2010 edition. 258 pages. Downloadable as a 9MB PDF file.
+
+
+== External links ==
+Arcaicam Esperantom at the Conlang Atlas of Language Structures.

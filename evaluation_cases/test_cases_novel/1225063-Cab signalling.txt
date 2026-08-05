@@ -1,0 +1,75 @@
+Cab signalling is a railway safety system that communicates track status and condition information to the cab, crew compartment or driver's compartment of a locomotive, railcar or multiple unit. The information is continually updated giving an easy to read display to  the train driver or engine driver.
+The simplest systems display the trackside signal, while more sophisticated systems also display allowable speed, location of nearby trains, and dynamic information about the track ahead. Cab signals can also be part of a more comprehensive train protection system that can automatically apply the brakes stopping the train if the operator does not respond appropriately to a dangerous condition.
+The main purpose of a signal system is to enforce a safe separation between trains and to stop or slow trains in advance of a restrictive situation. The cab signal system is an improvement over the wayside signal system, where visual signals beside or above the right-of-way govern the movement of trains, as it provides the train operator with a continuous reminder of the last wayside signal or a continuous indication of the state of the track ahead.
+
+
+== History ==
+The first such systems were installed on an experimental basis in the 1910s in the United Kingdom, in the 1920s in the United States, and in the Netherlands in the 1940s. Modern high-speed rail systems such as those in Japan, France, and Germany were all designed from the start to use in-cab signalling due to the impracticality of sighting wayside signals at the new higher train speeds. Worldwide, legacy rail lines continue to see limited adoption of Cab signalling outside of high density or suburban rail districts and in many cases is precluded by use of older intermittent Automatic Train Stop technology.
+In North America, the coded track circuit system developed by the Pennsylvania Railroad (PRR) and Union Switch & Signal (US&S) became the de facto national standard. Variations of this system are also in use on many rapid transit systems and form the basis for several international cab signalling systems such as CAWS in Ireland, BACC in Italy, ALSN in Russia and the first generation Shinkansen signalling developed by Japan National Railways (JNR).
+In Europe and elsewhere in the world, cab signalling standards were developed on a country by country basis with limited interoperability, however new technologies like the European Rail Traffic Management System (ERTMS) aim to improve interoperability. The train-control component of ERTMS, termed European Train Control System (ETCS), is a functional specification that incorporates some of the former national standards and allows them to be fully interoperable with a few modifications.
+
+
+== Cab signal types ==
+All cab signalling systems must have a continuous in-cab indication to inform the driver of track condition ahead; however, these fall into two main categories. Intermittent cab signals are updated at discrete points along the rail line and between these points the display will reflect information from the last update. Continuous cab signals receive a continuous flow of information about the state of the track ahead and can have the cab indication change at any time to reflect any updates. The majority of cab signalling systems, including those that use coded track circuits, are continuous.
+
+
+=== Intermittent ===
+The German Indusi and Dutch ATB-NG fall into this category. These and other such systems provide constant reminders to drivers of track conditions ahead, but are only updated at discrete points. This can lead to situations where the information displayed to the driver has become out of date. Intermittent cab signalling systems have functional overlap with many other train protection systems such as trip stops, but the distinction is that a driver or automatic operating system makes continuous reference to the last received update.
+
+
+=== Continuous ===
+Continuous systems have the added benefit of fail safe behaviour in the event a train stops receiving the continuous event relied upon by the cab signalling system. Early systems use the rails or loop conductors laid along the track to provide continuous communication between wayside signal systems and the train. These systems provided for the transmission of more information than was typically possible with contemporary intermittent systems and are what enabled the ability to display a miniature signal to the driver; hence the term, "cab signalling". Continuous systems are also more easily paired with automatic train control technology, which can enforce speed restrictions based on information received through the signalling system, because continuous cab signals can change at any time to be more or less restrictive, providing for more efficient operation than intermittent ATC systems.
+
+
+== Information transmission ==
+Cab signals require a means of transmitting information from wayside to train. There are a few main methods to accomplish this information transfer.
+
+
+=== Electric or magnetic ===
+This is popular for early intermittent systems that used the presence of a magnetic field or electric current to designate a hazardous condition. The British Rail Automatic Warning System (AWS) is an example of a two-indication cab signal system transmitting information using a magnetic field.
+
+
+=== Inductive ===
+Inductive systems are non-contact systems that rely on more than the simple presence or absence of a magnetic field to transmit a message. Inductive systems typically require a beacon or an induction loop to be installed at every signal and other intermediate locations. The inductive coil uses a changing magnetic field to transmit messages to the train. Typically, the frequency of pulses in the inductive coil are assigned different meanings.  Continuous inductive systems can be made by using the running rails as one long tuned inductive loop.
+Examples of intermittent inductive systems include the German Indusi system.  Continuous inductive systems include the two-aspect General Railway Signal Company "Automatic Train Control" installed on the Chicago and North Western Railroad among others.
+
+
+=== Coded track circuits ===
+A coded track circuit based system is essentially an inductive system that uses the running rails as information transmitter. The coded track circuits serve a dual purpose: to perform the train detection and rail continuity detection functions of a standard track circuit, and to continuously transmit signal indications to the train. The coded track circuit systems eliminate the need for specialized beacons.
+Examples of coded track circuit systems include the Pennsylvania Railroad standard system, a variation of which was used on the London Underground Victoria line, Later, audio frequency (AF) track circuit systems eventually came to replace "power" frequency systems in rapid transit applications as higher frequency signals could self-attenuate reducing the need for insulated rail joints. Some of the first users of AF cab signal systems include the Washington Metro and Bay Area Rapid Transit. More recently, digital systems have become preferred, transmitting speed information to trains using datagrams instead of simple codes. The French TVM makes use of the running rails to transmit the digital signalling information, while the German LZB system makes use of auxiliary wires strung down the centre of the track to continually transmit the signalling information.
+
+
+=== Transponder ===
+Transponder based systems make use of fixed antenna loops or beacons (called balises) that transmit datagrams or other information to a train as it passes overhead. While similar to intermittent inductive systems, transponder based cab signalling transmit more information and can also receive information from the train to aid traffic management. The low cost of loops and beacons allows for a larger number of information points that may have been possible with older systems as well as finer grained signalling information. The British automatic train protection was one example of this technology along with the more recent Dutch ATB-NG.
+
+
+=== Wireless ===
+Wireless cab signalling systems dispense with all track-based communications infrastructure and instead rely on fixed wireless transmitters to send trains signalling information. This method is most closely associated with communications-based train control. ETCS levels 2 and 3 make use of this system, as do a number of other cab signalling systems under development.
+
+
+== Cab display unit ==
+
+The cab display unit (CDU), (also called a driver machine interface (DMI) in the ERTMS standard) is the interface between the train operator and the cab signalling system. Early CDU's displayed simple warning indications or representations of wayside railway signals. Later, many railways and rapid transit systems would dispense with miniature in-cab signals in favour of an indication of what speed the operator was permitted to travel at. Typically this was in conjunction with some sort of automatic train control speed enforcement system where it becomes more important for operators to run their trains at specific speeds instead of using their judgement based on signal indications. One common innovation was to integrate the speedometer and cab signal display, superimposing or juxtaposing the allowed speed with the current speed. Digital cab signalling systems that make use of datagrams with "distance to target" information can use simple displays that simply inform the driver when they are approaching a speed penalty or have triggered a speed penalty or more complex ones that show a moving graph of the minimum braking curves permitted to reach the speed target.  
+CDU's also inform the operator which, if any, mode the system might be in or if it is active at all. CDU's can also be integrated into the alertness system, providing count-downs to the alertness penalty or a means by which to cancel the alarm.
+
+
+== Cab signalling systems in the United States ==
+Cab signalling in the United States was driven by a 1922 ruling by the Interstate Commerce Commission (ICC) that required 49 railways to install some form of automatic train control in one full passenger division by 1925.  While several large railways, including the  Santa Fe and New York Central, fulfilled the requirement by installing intermittent inductive train stop devices, the PRR saw an opportunity to improve operational efficiency and installed the first continuous cab signal systems, eventually settling on pulse code cab signaling technology supplied by Union Switch and Signal.
+In response to the PRR lead, the ICC mandated that some of the nation's other large railways must equip at least one division with continuous cab signal technology as a test to compare technologies and operating practices. The affected railroads were less than enthusiastic, and many chose to equip one of their more isolated or less trafficked routes to minimize the number of locomotives to be equipped with the apparatus.
+
+Several railways chose the inductive loop system rejected by the PRR. These railways included the Central Railroad of New Jersey (installed on its Southern Division), the Reading Railroad (installed on its Atlantic City Railroad main line), the New York Central, and the Florida East Coast. Both the Chicago and North Western and Illinois Central employed a two-aspect system on select suburban lines near Chicago. The cab signals would display "Clear" or "Restricting" aspects. The CNW went further and eliminated the wayside intermediate signals in the stretch of track between Elmhurst and West Chicago, requiring trains to proceed solely based on the 2-aspect cab signals. The Chicago, Milwaukee, St. Paul and Pacific Railroad had a 3-aspect system operating by 1935 between Portage, Wisconsin and Minneapolis, Minnesota.
+As the Pennsylvania Railroad system was the only one adopted on a large scale, it became a de facto national standard, and most installations of cab signals in the current era have been this type.  Recently, there have been several new types of cab signalling which use communications-based technology to reduce the cost of wayside equipment or supplement existing signal technologies to enforce speed restrictions and absolute stops and to respond to grade crossing malfunctions or incursions.
+The first of these was the Speed Enforcement System (SES) employed by New Jersey Transit on their low-density Pascack Valley Line as a pilot program using a dedicated fleet of 13 GP40PH-2 locomotives.  SES used a system of transponder beacons attached to wayside block signals to enforce signal speed.  SES was disliked by engine crews due to its habit of causing immediate penalty brake applications without first sounding an overspeed alarm and giving the engineer a chance to decelerate.  SES is in the process of being removed from this line, and is being replaced with CSS.
+Amtrak uses the Advanced Civil Speed Enforcement System (ACSES) for its Acela Express high-speed rail service on the NEC. ACSES was an overlay to the existing PRR-type CSS and uses the same SES transponder technology to enforce both permanent and temporary speed restrictions at curves and other geographic features.  The on-board cab signal unit processes both the pulse code "signal speed" and the ACSES "civil speed", then enforces the lower of the two.  ACSES also provides for a positive stop at absolute signals which could be released by a code provided by the dispatcher transmitted from the stopped locomotive via a data radio.  Later this was amended to a simpler "stop release" button on the cab signal display.
+
+
+== See also ==
+North American railroad signals
+Railway signalling
+
+
+== References ==
+
+
+== External links ==
+ Media related to Cab signalling at Wikimedia Commons

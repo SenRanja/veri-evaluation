@@ -1,0 +1,300 @@
+Lewontin's recipe or Lewontin's conditions are a set of three conditions posited by Richard Lewontin in the paper 'The Units of Selection' as necessary conditions for evolution by natural selection to take place. The recipe has been influential, especially for discussions about natural selection above the species level. Lewontin's original principles are:
+
+Different individuals in a population have different morphologies, physiologies, and behaviors (phenotypic variation).
+Different phenotypes have different rates of survival and reproduction in different environments (differential fitness).
+There is a correlation between parents and offspring in the contribution of each to future generations (fitness is heritable).
+
+
+== Connection to the Price Equation ==
+The Price equation describes how a trait or allele changes in population frequency between generations. If the parent has character (average amount of some trait) 
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+ and offspring has character 
+  
+    
+      
+        
+          z
+          ′
+        
+      
+    
+    {\displaystyle z'}
+  
+ then the Price equation expresses the change in average trait value as a sum of two terms
+
+  
+    
+      
+        Δ
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        =
+        C
+        o
+        v
+        (
+        ω
+        ,
+        
+          z
+          ′
+        
+        )
+        +
+        E
+        [
+        Δ
+        z
+        ]
+      
+    
+    {\displaystyle \Delta {\bar {z}}=Cov(\omega ,z')+E[\Delta z]}
+  
+
+Where 
+  
+    
+      
+        
+          ω
+          
+            i
+          
+        
+      
+    
+    {\displaystyle \omega _{i}}
+  
+ is the relative fitness of the 
+  
+    
+      
+        
+          i
+          
+            
+              th
+            
+          
+        
+      
+    
+    {\displaystyle i^{\textrm {th}}}
+  
+ individual. Following Okasha, let 
+  
+    
+      
+        h
+      
+    
+    {\displaystyle h}
+  
+ be the slope of the regression line of 
+  
+    
+      
+        
+          z
+          ′
+        
+      
+    
+    {\displaystyle z'}
+  
+ against 
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+. Then write 
+  
+    
+      
+        C
+        o
+        v
+        (
+        ω
+        ,
+        z
+        )
+        =
+        V
+        a
+        r
+        (
+        z
+        )
+        
+          b
+          
+            ω
+            z
+          
+        
+      
+    
+    {\displaystyle Cov(\omega ,z)=Var(z)b_{\omega z}}
+  
+ where 
+  
+    
+      
+        
+          b
+          
+            ω
+            z
+          
+        
+      
+    
+    {\displaystyle b_{\omega z}}
+  
+ is the regression of 
+  
+    
+      
+        ω
+      
+    
+    {\displaystyle \omega }
+  
+ on  
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+. The Price equation becomes
+
+  
+    
+      
+        Δ
+        
+          
+            
+              z
+              ¯
+            
+          
+        
+        =
+        h
+        V
+        a
+        r
+        (
+        z
+        )
+        
+          b
+          
+            ω
+            z
+          
+        
+        +
+        E
+        [
+        Δ
+        z
+        ]
+      
+    
+    {\displaystyle \Delta {\bar {z}}=hVar(z)b_{\omega z}+E[\Delta z]}
+  
+
+Lewontin's conditions are equivalent to having a non-vanishing first term:
+
+  
+    
+      
+        V
+        a
+        r
+        (
+        z
+        )
+        ≠
+        0
+      
+    
+    {\displaystyle Var(z)\neq 0}
+  
+: there is some phenotypic variation.
+
+  
+    
+      
+        
+          b
+          
+            ω
+            z
+          
+        
+        ≠
+        0
+      
+    
+    {\displaystyle b_{\omega z}\neq 0}
+  
+: the trait differences are associated with fitness differences.
+
+  
+    
+      
+        h
+        ≠
+        0
+      
+    
+    {\displaystyle h\neq 0}
+  
+: 
+  
+    
+      
+        z
+      
+    
+    {\displaystyle z}
+  
+ must be heritable.
+The first term in the Price equation controls selection and if it is non-zero, ENS occurs.
+
+
+== Criticisms ==
+A number of alternative formulations of Lewontin's recipe are summarised by Godfrey-Smith who claims that verbal summaries can lead to imprecision compared to formal or mathematical models. Godfrey-Smith proposes the recipe:
+The following conditions are sufficient for evolution of trait Z by natural selection in a population with discrete generations:
+
+There is variation in Z,
+There is a covariance between Z and the number of offspring left by individuals, where this covariance is partly due to the causal role of Z, and
+The variation is heritable, and inherited without directional bias.
+Hull proposed a different model based on the interactor, replicator concept; however some argue that natural selection does not strictly require reproduction and a modified form of Lewontin's recipe applies in such cases.
+
+
+== References ==

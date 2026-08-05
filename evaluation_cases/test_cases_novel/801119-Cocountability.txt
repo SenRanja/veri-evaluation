@@ -1,0 +1,102 @@
+In mathematics, a cocountable subset of a set 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+ is a subset 
+  
+    
+      
+        Y
+      
+    
+    {\displaystyle Y}
+  
+ whose complement in 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+ is a countable set. In other words, 
+  
+    
+      
+        Y
+      
+    
+    {\displaystyle Y}
+  
+ contains all but countably many elements of 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+. Since the rational numbers are a countable subset of the reals, for example, the irrational numbers are a cocountable subset of the reals. If the complement is finite, then one says 
+  
+    
+      
+        Y
+      
+    
+    {\displaystyle Y}
+  
+ is cofinite.
+
+
+== σ-algebras ==
+The set of all subsets of 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+ that are either countable or cocountable forms a σ-algebra, i.e., it is closed under the operations of countable unions, countable intersections, and complementation. This σ-algebra is the countable-cocountable algebra on 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+. It is the smallest σ-algebra containing every singleton set.
+
+
+== Topology ==
+The cocountable topology (also called the "countable complement topology") on any set 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+ consists of the empty set and all cocountable subsets of 
+  
+    
+      
+        X
+      
+    
+    {\displaystyle X}
+  
+.
+
+
+== References ==

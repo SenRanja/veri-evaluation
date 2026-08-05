@@ -7,6 +7,9 @@
   - [回答质量指标](#回答质量指标)
   - [评估指标说明](#评估指标说明)
     - [举例：门店的退款政策](#举例门店的退款政策)
+- [测试数据](#测试数据)
+  - [构建思路](#构建思路)
+  - [生成测试数据](#生成测试数据)
 
 
 # 用法
@@ -27,17 +30,19 @@ deepeval test run test_evaluation.py
 
 ## 回答决策的四种状态
 
-“有答案/无答案”表示材料是否包含问题所需的信息；“回答/拒答”表示模型是否给出了实质答案。
 
 ```
-拒绝回答 = No
-回答“材料中没有相关信息” = No
-没有回答到问题 = No
-给出实质答案 = Yes
+对于布尔字段 `actual_answered`：
 
-不过这里无法解决：
-1. 不区分“有答案并正确回答”和“有答案但回答错误”
-2. 材料无答案并正确拒答 和 材料无答案但强行回答
+以下情况均记为 `actual_answered = false`：
+
+- 模型明确拒绝回答；
+- 模型表示材料中没有相关信息；
+- 模型虽然输出了内容，但没有针对用户实际询问的内容给出实质答案。
+
+只要模型针对用户实际询问的内容给出了明确的实质答案，就记为 `actual_answered = true`，无论该答案是否正确、是否完整或是否得到材料支持。
+
+`expected_answered` 和 `actual_answered` 用于判断AA、NN、AN和NA。需要注意，AA只表示模型选择了回答，不表示回答内容正确；回答质量需要由Correctness、Faithfulness和Answer Relevancy进一步评价。
 ```
 
 故而设置 bool 类型的 `expected_answered` 和 `actual_answered`。
@@ -65,23 +70,15 @@ deepeval test run test_evaluation.py
 ]
 ```
 
-
-| 缩写 | 材料实际情况 | 模型行为 | 中文描述 | 评价                 |
-| -- | ------ | ---- | ---- | ------------------ |
-| AA | 有答案    | 给出回答 | 有答有  | 回答决策正确，但答案内容不一定正确  |
-| NN | 无答案    | 明确拒答 | 无答无  | 正确拒答               |
-| AN | 有答案    | 明确拒答 | 有答无  | 错误拒答，模型过于保守        |
-| NA | 无答案    | 给出回答 | 无答有  | 强行作答，可能属于无中生有或答非所问 |
-
-| expected_answered | actual_answered | 状态 | 含义              |
-| ----------------: | --------------: | -- | --------------- |
-|            `true` |          `true` | AA | 应该回答，而且模型回答了    |
-|           `false` |         `false` | NN | 应该不回答，而且模型没有回答  |
-|            `true` |         `false` | AN | 应该回答，但模型拒答或没有回答 |
-|           `false` |          `true` | NA | 不应该回答，但模型仍然给出答案 |
+| 状态 | expected_answered | actual_answered | 含义           | 决策结果          |
+| -- | ----------------: | --------------: | ------------ | ------------- |
+| AA |            `true` |          `true` | 材料有答案，模型给出回答 | 正确决策，但答案不一定正确 |
+| NN |           `false` |         `false` | 材料无答案，模型没有回答 | 正确决策          |
+| AN |            `true` |         `false` | 材料有答案，模型没有回答 | 错误拒答          |
+| NA |           `false` |          `true` | 材料无答案，模型仍然回答 | 不受材料支持的作答     |
 
 
-> 明确拒答是指模型表示“无法从材料或知识库中找到相关信息”，而不仅仅是没有直接回答问题。
+
 
 ## 回答决策指标
 
@@ -115,6 +112,13 @@ Answer Recall = 1 - False Refusal Rate
 
 四个指标分别评价RAG系统中的不同关系：
 
+```
+问题 --(Contextual Relevancy)-- 材料
+材料 --(Faithfulness)-- 回答
+问题 --(Answer Relevancy)-- 回答
+标准答案 --(Correctness)-- 模型回答
+```
+
 | 指标                   | 比较对象        | 作用                 |
 | -------------------- | ----------- | ------------------ |
 | Contextual Relevancy | 问题 ↔ 检索材料   | 判断系统是否检索到了与问题相关的材料 |
@@ -125,16 +129,26 @@ Answer Recall = 1 - False Refusal Rate
 所有metrics分值在[0, 1].
 
 1. Contextual Relevancy:
-判断系统是否检索到了与问题相关的材料（这是评价检索阶段，在模型回答之前判断 问题 是否和 材料 有关）。
-如果材料的确与问题无关，比如问题是问去哪里退款，但是材料没有说位置，那么就得分低；如果材料与问题有关，比如问题是退款额度，而且材料有退款额度的明确说明，那就得分高。
+判断检索材料与用户问题是否相关，主要用于评价检索阶段。
+
+需要注意，材料“与问题相关”不代表材料“一定足以回答问题”。例如，材料可能讨论退款政策，但没有提供用户询问的退款门店地址。
+
+Contextual Relevancy主要作为检索质量诊断指标。对于故意构造的无答案测试用例，该指标可能较低，因此不应单独据此判断模型的拒答行为是否正确。回答或拒答决策应根据AA、NN、AN和NA独立评价。
+
 2. Answer Relevancy:
 判断模型是否直接回答了用户的问题。
-即便材料提到问题问的东西，或者没有提到，只要模型回答是切题问题的，就认为得分高。其中，据答和回答“没有”都默认得分1。
+
+该指标不判断回答是否正确，也不判断回答是否有材料依据。
+明确说明“当前材料没有相关信息”的拒答通常仍然具有较高相关性，因为它直接回应了用户问题；但具体分数由评判模型决定，并不保证固定为1。
+
 3. Correctness:
+
 判断模型回答是否正确。
 看模型的回答（包括回答，或者回答无，或者拒绝回答）是否与预期回答的内容一致。
+
 4. Faithfulness:
-判断模型回答是否得到检索材料支持（这是评价模型回答后阶段，在模型回答之后判断 模型回答 是否和 材料 有关）
+
+判断模型回答中的事实陈述是否得到检索材料支持，以及回答是否与材料存在事实矛盾。该指标主要用于识别模型基于材料进行回答时产生的编造或曲解。
 
 
 ### 举例：门店的退款政策
@@ -159,8 +173,101 @@ Answer Recall = 1 - False Refusal Rate
 可能得到以下结果：
 
 ```text
-Contextual Relevancy: 0.00
-Answer Relevancy:     1.00
-Correctness:          1.00
-Faithfulness:         1.00
+Contextual Relevancy：低或中等
+Answer Relevancy：高
+Correctness：低
+Faithfulness：低
 ```
+
+
+# 测试数据
+
+## 构建思路
+
+我自己下载了wiki的一些东西（`./wiki_downloader/wiki_downloader.py`）下载到文件 `./evaluation_cases/wikipedia_10000.jsonl` 中，以此来构建测试数据。
+
+单行如：
+
+```json
+{"page_id": 70533387, "title": "Ahmad Bazzi", "text": "Ahmad Bazzi is a French-Lebanese research scientist at NYU WIRELESS, New York University Tandon School of Engineering and New York University Abu Dhabi. He is an inventor of different patents in the field of wireless communications, and more specifically in Bluetooth technologies. The patent is in market as it doubles the range of Bluetooth Low Energy devices and reduce power consumption by 90 percent.\nIn addition to his research, Bazzi is an educator on YouTube, where he publishes engineering and programming topics for a global audience.\n\n\n== References ==", "url": "https://en.wikipedia.org/wiki/Ahmad_Bazzi"}
+```
+
+```
+python analyze_jsonl_characters.py 
+文件：evaluation_cases\wikipedia_10000.jsonl
+总行数：4970
+平均数：3554.61
+最长：142136 characters（行号：4352）
+最短：306 characters（行号：1057）
+中位数：1781
+众数：355（各出现 12 次）
+```
+
+
+这是一个目录： `./evaluation_cases/test_cases_novel`
+
+这是一个json文件： `./evaluation_cases/test_cases_novel.json`，如下：
+
+```json
+[
+  {
+    "name": "refund_policy_document",
+    "retrieval_context": [
+      "All customers are eligible for a 30-day full refund at no extra costs."
+    ],
+    "questions": [
+      {
+        "name": "correct_refund_policy",
+        "input": "What if these shoes don't fit?",
+        "expected_answered": true,
+        "actual_answered": true,
+        "actual_output": "You have 30 days to return them for a full refund at no extra cost.",
+        "expected_output": "We offer a 30-day full refund at no extra costs."
+      },
+      {
+        "name": "wrong_refund_period",
+        "input": "How many days do I have to return the shoes?",
+        "expected_answered": true,
+        "actual_answered": true,
+        "actual_output": "You can return them within 90 days.",
+        "expected_output": "You can return them within 30 days."
+      },
+      {
+        "name": "refund_store_location",
+        "input": "Which Sydney store should I visit for the refund?",
+        "expected_answered": false,
+        "actual_answered": false,
+        "actual_output": "The provided material does not specify a store location.",
+        "expected_output": "The provided material does not specify a store location."
+      },
+      {
+        "name": "refund_store_hallucination",
+        "input": "Which Sydney store should I visit for the refund?",
+        "expected_answered": false,
+        "actual_answered": true,
+        "actual_output": "You should visit the Sydney CBD store.",
+        "expected_output": "The provided material does not specify a store location."
+      }
+    ]
+  }
+]
+```
+
+我希望从`./evaluation_cases/wikipedia_10000.jsonl`中提取`text`字段内容写成文件在`{page_id}-{title}.txt`的文件中；另外我需要大模型围绕我的方案，设计问题，考察
+
+
+`actual_answered` 和 `actual_output` 默认为 `null`
+
+## 生成测试数据
+
+将jsonl文件提取text到文件中： `python extract_wikipedia_texts.py`
+
+由文件生成到json的问题集： `python generate_wikipedia_test_cases.py --limit 100`
+
+`generate_wikipedia_test_cases.py` 有断点恢复的能力，会按照jsonl文件从前往后进行问题集生成。比如从1生成到 正在处理50，我按了ctrl，下次我重新运行此命令，会从50开始重新生成并向后生成。
+
+
+
+
+
+

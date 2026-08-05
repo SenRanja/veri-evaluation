@@ -1,0 +1,42 @@
+[
+  {
+    "name": "refund_policy_document",
+    "retrieval_context": [
+      "All customers are eligible for a 30-day full refund at no extra costs."
+    ],
+    "questions": [
+      {
+        "name": "correct_refund_policy",
+        "input": "What if these shoes don't fit?",
+        "expected_answered": true,
+        "actual_answered": true,
+        "actual_output": "You have 30 days to return them for a full refund at no extra cost.",
+        "expected_output": "We offer a 30-day full refund at no extra costs."
+      },
+      {
+        "name": "wrong_refund_period",
+        "input": "How many days do I have to return the shoes?",
+        "expected_answered": true,
+        "actual_answered": true,
+        "actual_output": "You can return them within 90 days.",
+        "expected_output": "You can return them within 30 days."
+      },
+      {
+        "name": "refund_store_location",
+        "input": "Which Sydney store should I visit for the refund?",
+        "expected_answered": false,
+        "actual_answered": false,
+        "actual_output": "The provided material does not specify a store location.",
+        "expected_output": "The provided material does not specify a store location."
+      },
+      {
+        "name": "refund_store_hallucination",
+        "input": "Which Sydney store should I visit for the refund?",
+        "expected_answered": false,
+        "actual_answered": true,
+        "actual_output": "You should visit the Sydney CBD store.",
+        "expected_output": "The provided material does not specify a store location."
+      }
+    ]
+  }
+]

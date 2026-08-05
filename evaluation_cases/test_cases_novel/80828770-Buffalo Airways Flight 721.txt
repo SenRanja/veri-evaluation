@@ -1,0 +1,17 @@
+On 13 April, 1987, Buffalo Airways Flight 721, a Boeing 707 operating a national cargo flight in the United States from Oklahoma City Airport, Oklahoma, to Fort Wayne International Airport, Indiana, with stopovers in Wichita, Kansas and Kansas City, Missouri, crashed on approach to its second stopover. All four people on board were killed. The investigation on the crash found out that the accident was a case of controlled flight into terrain, caused mainly by errors of the crew.
+
+
+== Aircraft ==
+The aircraft involved in the accident was a Boeing 707-351C registered as N144SP and manufactured in 1966. The aircraft was owned by Buffalo Airways, a Texan cargo airline, and operated for Burlington Air Express.
+The three crew members on board were 52 years old pilot Clarence Brenner, 40 years old first officer David Lee Zupancic and 22 years old flight engineer Nichols Paul Pannell. On board there was also an airline-authorized passenger, 36 years old John Earl Lemery, that boarded the plane in Wichita.
+
+
+== Accident ==
+Flight 721 departed from Wichita at around 9:22 pm local time, after an uneventful first leg from Oklahoma City, with four crew members and a single passenger on board. The climb and cruise went as planned and at 9:42 pm local time the aircraft started the approach to Kansas City and prepared for a ILS landing. When the crew initiated the descent from the cruising altitude the visibility and weather conditions were normal. Ten minutes after the beginning of the approach the first officer reported to the air traffic controller their descent altitude in 100 feet increments above minimum decision height, just a minute later the aircraft was 200 feet above minimum decision height and so the air traffic controller, after receiving a low altitude alert from his radar, asked to the crew of Flight 721 to check their current altitude. The controller warned the pilots two separate times, and they didn't respond on both occasions. Less than ten seconds before the aircraft impacted the ground, the aircraft's flight recorder recorded an increase of the engine power, in the crew's last attempt to save the plane. The aircraft impacted treetops on a hill located about five and a half kilometers south of the airport in Platte County, then rolled right and finally crashed and burst into flames about 600 meters from the initial impact site. All four occupants on board were killed.
+
+
+== Investigation ==
+The National Transportation Safety Board investigation on the accident found out that the main cause of the crash were errors by the crew that didn't follow the minimum decision height, leading to the aircraft being outside the glideslope path, putting it in a collision course with surrounding terrain. The report cited bad cockpit resource management as the main cause of the errors committed by the crew members. Also the aircraft's ground proximity warning system (GPWS) system failed for unknown reasons, and so didn't warn the pilots in time to adjust the aircraft altitude.
+
+
+== References ==

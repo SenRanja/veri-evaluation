@@ -1,0 +1,39 @@
+The buttered toast phenomenon is an observation that buttered toast tends to land butter-side down after it falls. It is used as an idiom representing pessimistic outlooks. Various people have attempted to determine whether there is an actual tendency for bread to fall in this fashion, with varying results.
+
+
+== Origins ==
+Written accounts can be traced to the mid-19th century. The phenomenon is often attributed to a parodic poem of James Payn from 1884:
+
+I never had a slice of bread,
+Particularly large and wide,
+That did not fall upon the floor,
+And always on the buttered side!
+
+In the past, this has often been considered just a pessimistic belief. A 1991 study by the BBC's television series Q.E.D. found that when toast is tossed into the air, it lands butter-side down just one-half of the time (as would be predicted by chance). However, several scientific studies have found that when toast is dropped from a table (as opposed to being thrown in the air), it more often falls butter-side down. A study on this subject by Robert Matthews won the Ig Nobel Prize for physics in 1996.
+
+
+== Explanation ==
+
+The problem has been studied modelling the toast being pushed from the edge of a table. When toast starts to fall, it does so at an angle, causing the toast to rotate. Given that tables are usually between two and six feet (0.7 to 1.83 meters) tall, there is enough time for the toast to rotate about one-half of a turn, and thus land upside down relative to its original position. Since the original position is usually butter-side up, the toast lands butter-side down. However, if the table is over 10 feet (3.0 meters) tall, the toast will rotate a full 360 degrees, and land butter-side up. If the toast is pushed from the table at a high enough speed (1.6 m/s), it will not rotate enough to land butter-side down. 
+Professor Robert Matthews argued that the phenomenon is ultimately based in fundamental physical constants, reasoning that the height of a table from which toast might fall is directly related to the height of humans, and human height itself derives from chemical bond principles (if a person's skull is higher than three meters from the ground, then a fall will lead to the fracture of its chemical bonds). For this work, Matthews earned the 1996 Ig Nobel Prize for physics.
+
+
+=== Other factors ===
+Although some may expect the weight of the butter on one side to affect the falling process, mathematician Ian Stewart describes its effect on the dynamics and aerodynamics as "negligible", as it is mostly absorbed into the centre of the slice of toast.
+
+
+== Jokes ==
+The buttered cat paradox is a question that asks if toast always lands butter side down and cats always land on their feet, what would happen if a slice of toast were attached butter-side-up to the back of a dropped cat?
+A Wise Man of Chelm joke recounts a housewife being amazed at a slice of bread falling buttered side up one morning, contrary to the idiom. After consulting the elders at the synagogue at some length, she is told: "Madam, the problem is that you have buttered the wrong side of the bread."
+
+
+== See also ==
+Five second rule
+Murphy's law
+Sod's law
+The Butter Battle Book
+Finagle's law § Variants
+Resistentialism § Similar concepts
+
+
+== References ==

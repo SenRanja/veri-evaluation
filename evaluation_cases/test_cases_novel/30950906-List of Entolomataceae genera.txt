@@ -1,0 +1,13 @@
+The mushroom genera in the family Entolomataceae collectively contain over 1500 species, the large majority of which are in Entoloma.  There have been many different classifications of this group, and so the table below includes not only genera which are supposedly current, but also other proposed genera whose names have been important.  For instance several taxa such as Leptonia and Nolanea were defined as independent genera, and are still sometimes used as such, but in recent classifications they have been demoted to being subgenera of Entoloma.
+Previously there was a view that Entolomataceae with angular (polyhedral) spores should be classified in genus Entoloma, those with bumpy spores should be in Rhodocybe, and those with longitudinally ridged spores should be put in Clitopilus.  However DNA studies in 2009 and 2017 have changed this situation for the Rhodocybe/Clitopilus group.  Firstly Clitopilus was found to be a clade embedded within Rhodocybe meaning that to avoid polyphyly these genera have to be merged, and although Clitopilus is much smaller, its name takes precedence and should be used for the combined taxon.  Secondly on further analysis taking account of morphological characteristics, the older genera Clitopilopsis and Rhodophana have been resurrected  and a new genus Clitocella has been created.  Also in 2011 the genus Entocybe was defined and accepted.  These changes are now incorporated in Species Fungorum and so they should be regarded as accepted.  
+In spite of these changes Entoloma is an enormous genus, and it is not surprising that attempts have been made to split it up.
+The photos sometimes show the type species of the group in question, or otherwise another typical species.  Hold the cursor over a photo for more information.
+
+
+== References ==
+
+
+== External links ==
+Machiel Noordeloos on Entoloma & Rhodocybe
+The Entolomataceae Family
+Family: Entolomataceae

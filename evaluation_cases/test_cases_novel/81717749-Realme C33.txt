@@ -1,0 +1,23 @@
+The Realme C33 is an entry-level Android smartphone developed by Realme. It was announced on September 6, 2022, and released on September 12, 2022. It was also released on October 14, 2022 in the Philippines.
+The device features a polycarbonate back panel and was marketed with Realme's "Boundless Sea" design. It was available in three color options: Sandy Gold, Aqua Blue, and Night Sea.
+
+
+== Technical specifications ==
+
+
+=== Hardware ===
+The Realme C33 is powered by a Unisoc Tiger T612 system-on-chip, featuring an octa-core CPU with two Cortex-A75 cores clocked at 1.8 GHz and six Cortex-A55 cores clocked at 1.8 GHz, along with a Mali-G57 GPU. It is equipped with a 5000 mAh battery and supports 10 W wired charging.
+The device features a 6.5-inch IPS LCD display with a resolution of 720 × 1600 pixels, a 20:9 aspect ratio, and a typical brightness of 400 nits.
+The rear camera system consists of a 50-megapixel wide sensor with an auxiliary lens and supports video recording at 1080p at 30 frames per second with 0.3-megapixel depth senor. The front camera uses a 5-megapixel sensor for selfies and video recording.
+The Realme C33 was released in configurations of 3 GB or 4 GB of RAM, with storage options of 32 GB, 64 GB, or 128 GB, expandable via microSD card.
+
+
+=== Software ===
+The Realme C33 ships with Android 12 and Realme UI S.
+
+
+== References ==
+
+
+== External links ==
+Official website

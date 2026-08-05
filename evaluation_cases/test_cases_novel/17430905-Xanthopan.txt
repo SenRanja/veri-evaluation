@@ -1,0 +1,36 @@
+Xanthopan is a monotypic genus of sphinx moth, with Xanthopan morganii (often misspelled as "morgani"), commonly called Morgan's sphinx moth, as its sole species. It is a very large sphinx moth from Southern Africa (Zimbabwe, Zambia, Malawi) and Madagascar. Little is known about its biology, though the adults have been found to visit orchids and are one of the main pollinators of several of the Madagascar endemic baobab (Adansonia) species, such as Adansonia perrieri, or Perrier's baobab.
+
+
+== History of discovery ==
+
+In January 1862 while researching insect pollination of orchids, Charles Darwin received a package of orchids from the distinguished horticulturist James Bateman, and in a follow-up letter with a second package Bateman's son Robert confirmed the names of the specimens, including Angraecum sesquipedale from Madagascar. Darwin was surprised at the defining characteristic of this species: the "astonishing length" of the whip-like green spur forming the nectary of each flower, and remarked to Joseph Hooker "I have just received such a Box full from Mr Bateman with the astounding Angræcum sesquipedalia with a nectary a foot long—Good Heavens what insect can suck it"[?] The spur of the flower is 20–35 cm (7.9–13.8 in) from its tip to the tip of the flower's lip. The name "sesquipedale" is Latin for "one and a half feet", referring to the spur length.
+
+From his observations and experiments with pushing a probe into the spur of the flower, Darwin surmised in his 1862 book Fertilisation of Orchids that there must be a pollinator moth with a proboscis long enough to reach the nectar at the end of the spur. In its attempt to get the nectar at the end of the spur the moth would get pollen rubbed off on its head. The next orchid it visited would then be pollinated in the same manner.
+In 1867 Alfred Russel Wallace published an article in which he supported Darwin's hypothesis, remarking that the African sphinx moth Xanthopan morganii (then known as Macrosila morganii) had a proboscis almost long enough to reach the bottom of the spur. In a footnote to this article Wallace wrote "That such a moth exists in Madagascar may be safely predicted; and naturalists who visit that island should search for it with as much confidence as astronomers searched for the planet Neptune,—and they will be equally successful!"
+Subsequently, the sphingid experts Walter Rothschild and Karl Jordan received one male and one female specimen of Xanthopan morganii (commonly called Morgan's sphinx moth) with an especially long proboscis, collected on Madagascar by Charles Oberthür and Paul Mabille. Since Wallace predicted that the mystery pollinator would turn out to be a sphinx moth, rather than simply a large moth as Darwin had suggested, the Madagascan form was named subspecies praedicta by Walter Rothschild and Karl Jordan, in honour of Wallace's (not Darwin's) prediction. Darwin's earlier, but less specific, prediction was not even mentioned by them.
+
+
+== Evolution ==
+The Madagascan subspecies is known as Wallace's sphinx moth and it differs from the African form by having a pink, rather than white, breast and abdomen and a black apical line on the forewing, which is broader than in mainland specimens. Molecular clock models using either rate- or fossil-based calibrations imply that the Madagascan subspecies X. morganii praedicta and the African subspecies X. morganii morganii diverged 7.4 ± 2.8 Mya, which overlaps the divergence of A. sesquipedale from its sister, A. sororium, namely 7.5 ± 5.2 Mya. Since both these orchids have extremely long spurs, long spurs likely existed before that and were exploited by long-tongued moths similar to Xanthopan morganii praedicta. The long geological separation of the subspecies morganii and praedicta matches their morphological differences in the colour of breast and abdomen. In 2021 it was suggested that Wallace's sphinx moth was so distinct that it should be considered a sister species rather than a subspecies; Xanthopan praedicta.
+
+
+== Behaviour ==
+
+
+=== Feeding ===
+Morgan's sphinx moth approaches a flower to ascertain by scent whether or not it is the correct orchid species. Then the moth backs up over a foot and unrolls its proboscis, then flies forward, inserting it into the orchid's spur.
+The larvae feed on Annona senegalensis, Hexalobus crispiflorus, Uvaria, Ibaria and Xylopia species.
+
+
+=== Sound production ===
+Long tongued sphinx moths are vulnerable to predation by bats when foraging. Some species, such as Wallace's sphinx moth (X. m. praedicta), are capable of producing ultrasonic sounds to deter bat predation. In Wallace's sphinx moth, this occurs by using rapid ultrasonic clicks to jam bat sonar by overwhelming the processing of the bat's echoes. However, only males are capable of doing so. Wallace's sphinx moth does not exhibit this only when exposed to bat sonar, but also when physically handled. The sound production of Wallace's sphinx moth is exceptional amongst sphinx moths. In sphinx moths, the required duty cycle to jam bat sonar is around 20%. The duty cycle of Wallace's sphinx moth is around 29%, amongst the highest of all sphinx moth species. Modulation cycle duration ranks amongst the highest in sphinx moths.
+The frequency range is also remarkably broadband for a sphinx moth, and has one of the lowest dominant frequencies of any sphinx moth, meaning there is potential for it to deter predators other than bats, such as omnivorous lemurs. For the same reason, Wallace's sphinx moth's anti-predator defence can actually be heard by humans.
+
+
+== See also ==
+Pollination of orchids
+
+
+== References ==
+
+Darwin, Charles (1862). On the Various Contrivances by Which British and Foreign Orchids Are Fertilised by Insects, and On the Good Effects of Intercrossing. London: John Murray. Retrieved 2009-02-07.

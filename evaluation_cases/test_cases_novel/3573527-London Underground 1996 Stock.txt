@@ -1,0 +1,66 @@
+The London Underground 1996 Stock is a type of rolling stock used on the Jubilee line of the London Underground. The trains were built by GEC Alstom-Metro-Cammell and entered service in 1997. They are externally similar to the 1995 Stock used on the Northern line.
+The original 59 trains were initially built as six-car trains. In 2005, an additional trailer car was added to lengthen each train to seven-cars and four additional seven-car trains delivered, bringing the total to 63 seven-car trains.
+
+
+== History ==
+The 1996 stock was ordered for the opening of the Jubilee Line Extension (JLE) from Green Park to Stratford. The original plan was to heavily refurbish the original 1983 stock with similar exteriors and interiors to the 1996 stock, and replace the single-leaf doors with double doors, but this proved too expensive and was abandoned. Delays in the construction of the JLE meant that the 1996 stock entered service on the existing Jubilee line, replacing the 1983 stock, well before the JLE was opened. The first train was delivered in July 1996, entering service on 24 December 1997, with the final train entering service on 31 July 2001, although it was several months later than the rest of the fleet had entered service.
+The development of the 1995 stock and the 1996 stock were conducted in parallel. Detailed design was done by Alstom at its Washwood Heath and Rugby facilities, and the first six train sets were manufactured at Alstom's Barcelona factory to the 1996 stock design. All type approvals were conducted on these early train sets. The 1995 stock was produced in the Barcelona factory afterwards, and the balance of the 1996 stock followed. Final assembly and equipping was at Alstom's facility at Washwood Heath on adjacent production lines.
+
+
+== Overview ==
+The 1996 Stock has an identical exterior car body to the 1995 Stock, but the two rolling stocks have different interiors, seating layouts and cabs (designed by Warwick Design Consultants), traction packages and train management systems, and slight differences in tripcock geometry. 1995 Stock units use LED body-side lights, 1996 Stock units use filament bulbs. The most apparent difference is the bogie: 1996 Stock uses an Alstom bogie with a rubber suspension, 1995 Stock has AdTranz bogies with air suspension to cope with the arduous track conditions of the underground portions of the Northern line. The main technical differences arose because 1996 Stock was designed for "cheapest first cost", while 1995 Stock was designed for "life cycle cost", as Alstom had won the contract to act as the service provider and maintainer of this stock. Alstom subsequently won the maintenance contract for 1996 Stock, to be carried out at the new Stratford Market Depot in East London.
+The 1996 Stock was delivered as six-car trains, with 2 three-car units coupled together, each consisting of a Driving Motor car [DM], a Trailer car [T] and an Uncoupling Non-Driving Motor car [UNDM]. The standard train formation was DM–T–UNDM+UNDM–T–DM. Twelve later trailer cars had de-icing equipment; these are referred to as De-Icing Trailer cars [DIT].
+The cars are odd-numbered at one end of the train, even numbers at the other. Each number has five digits: the first two are the stock type (96); the third refers to the car type: 0 or 1 for DM, 2 or 3 for T, 4 or 5 for UNDM, 6 or 7 for ST (special trailers added in 2005) and 8 or 9 for DIT. Thus, for example, a six-car train set would be 96001, 96201, 96401, 96402, 96202, 96002.
+
+
+== Addition of seventh car ==
+Following implementation of the Public-Private-Partnership (PPP) on the Underground in 2003, Tube Lines planned to increase capacity on the Jubilee line by extending trains to 7 carriages. This would increase train capacity by 17%. The 1996 Stock had been future-proofed with the ability to add a seventh car, with platforms already long enough for seven-car trains and the platform-edge doors at the Jubilee Line Extension stations had been built with extra space.
+Tube Lines ordered 87 carriages (59 additional carriages for existing six-car trains and four new seven-car trains) from Alstom in June 2003 at a cost of £150m. The new carriages were manufactured in Alstom's new factory at Santa Perpètua de Mogoda, Barcelona, Spain – as the original factory on the Barcelona seafront had been closed. All carriages were delivered to Stratford Market Depot by November 2005. To allow for the existing trains to be modified, fewer Jubilee line services were run in December 2005 before the entire line was closed from 25 December for 5 days to allow the conversion to be completed. Work involved signalling alterations, signage and software modification to the platform-edge doors. The work was completed ahead of schedule and the line reopened two days early on 29 December. The four new trains subsequently entered service in Spring 2006.
+The new car is a trailer car in the "odd" unit, with design designation "G". An example of a seven-car train set would be 96077, 96277, 96677, 96477, 96478, 96278, 96078 (the seventh car in bold.) The original plan was to hard-wire two cars together so that the onboard computer would "see" them as one car, but this proved unnecessary. The four new trains were built as six-car trains and then modified to seven-car configuration at Stratford Market Depot.
+There were various differences between the new and old cars at the time of introduction:
+
+Amber passenger information displays (PIDs) instead of red, similar to the displays on the 1995 Stock
+Black vestibule floor instead of grey
+Yellow strip on door seal
+Better fitted seat covers
+The ridged vestibule floor extends for the full width of the car
+Following refurbishment, many of these differences are no longer visible. The new cars are numbered 96601 to 96725 (odd numbers only). The step-plate on the new cars reads "Alstom 1996" for continuity reasons, but they feature the newer Alstom logo instead of the original GEC-Alsthom.
+
+
+== Upgrades and refurbishment ==
+
+The trains were originally delivered with seats with a mauve and grey moquette. They formed the letter J for Jubilee (the Northern line's moquette formed the letter N). This was replaced in November 2005 with the new dark blue Tube Lines moquette with multi-coloured and multi-size hollow squares, introduced at the same time on the 1973 and 1995 stock. At the same time, the purple armrests were repainted blue to match the new seats.
+From April 2012, all units received a refresh, with the new Barman moquette being introduced on all units, prior to the 2012 Olympics.
+From 2014 onwards, the external LCD destination displays were replaced with LED units. The new units use orange text, instead of the original yellow.
+Starting in 2017, the 1996 stock underwent refurbishment, some 20 years after first being introduced. New flooring was fitted, with contrasting colours and grooves in the doorways. All grab rails were repainted Jubilee line silver, and new wheelchair backboards were provided in some trailer cars. The interior turquoise blue panels were also repainted white. The external door open/close buttons were also plated over. The first refurbished train entered service on 23 February 2017, and the last one entered service in December 2019, which means that all trains have now been refurbished.
+
+
+== Automatic train operation ==
+It had been intended to open the Jubilee Line Extension with an automatic train operation (ATO) system, however delays and technical difficulties meant that a conventional signalling system was hastily installed, and until 2011 the trains were always driven manually by the driver using a dead man's handle, also known as the Traction-Brake controller.
+Eventually, from 2009 a new signalling system was installed by Thales, called SelTrac. Also known as Transmission-based train control, it allows the trains to be operated automatically, with the driver only responsible for opening and closing the doors, and initiating departure. The system uses inductive track loops, placed between the running rails, to communicate with the train. In order to operate with the new signalling system, all 1996 stock underwent modification, which included the installation of two Vehicle On Board Controllers (VOBC), and a new Train Operators Display (TOD) in the cab.
+From the beginning of January 2011, ATO was introduced on a gradual basis, and since 26 June 2011, the line has been operated entirely under ATO. As a result, the peak service frequency was increased to 27 trains per hour in July 2011, and it has since been increased further to 30 trains per hour.
+
+
+== Roster ==
+
+DM – Driving Motor car
+T – Trailer car (non-powered)
+ST – Special Trailer car (non-powered)
+UNDM – Uncoupling Non-Driving Motor car
+
+
+== See also ==
+London Underground 1995 Stock
+
+
+== References ==
+
+
+== Further reading ==
+"Debut for high-tech Jubilee Line trains". Rail. No. 323. EMAP Apex Publications. 28 January – 10 February 1998. p. 12. ISSN 0953-4563. OCLC 49953699.
+
+
+== External links ==
+
+"1996 Stock". Transport for London. Archived from the original on 22 February 2014.
+1996 Tube Stock – Squarewheels.org.uk

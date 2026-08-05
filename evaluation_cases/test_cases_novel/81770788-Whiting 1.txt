@@ -1,0 +1,10 @@
+Whiting 1 is a faint and unusually young globular cluster in Cetus, in the halo of the Milky Way, having an almost same characteristics as Palomar 1. Many studies shows Whiting 1 to be part of the Sagittarius Dwarf Spheroidal Galaxy. It is a metal-rich cluster. Whiting 1 is 30.1 kilo parsecs away from our Sun and is 34.9 kpc away from our Galactic Center. 
+It was discovered by Alan B. Whiting, G.K.T. Hau and Mike Irwin in 2002. It was identified as a globular cluster by Giovanni Carraro in 2005.
+
+
+== Properties ==
+A study shows that the Metallicity [Fe/H] (dex) of star cluster Whiting 1 is -0.70 and has an age of 5.0 Billion Light Years (Gyr), indicating it is an ancient star cluster from the early universe. The ellipticity of Whiting 1 is 0.18 ± 0.07, indicating that this star cluster is a fairly or almost round star cluster. The radial velocity (ṽr) of Whiting 1 = -130.6 km/s, detected using the Visible Multi Object Spectrograph (VIMOS). But the Radial Velocity Dispersion of Whiting 1 is not stated in the paper, suggesting that this star cluster does not have many bright stars and it is challenging to be observed.
+By using the Gaia data, it presented that the trajectory of Whiting 1 closely matches the orbit of Sagittarius Dwarf Spheroidal Galaxy confirming a physical association of the two systems. Whiting 1 is present in the trailing arm, together with Palomar 12 Star cluster. For Terzan 7, Terzan 8 and Arp 2 are present at the main body, while Messier 54 is at the center of the main body of Sagittarius Dwarf Spheroidal Galaxy (Sgr dSph). Whiting 1 has been recently accreted or detached from the parent galaxy and is now a member of the galactic halo due to tidal stripping of Sagittarius Dwarf Spheroidal Galaxy by the Milky Way Galaxy. The study also suggests that Whiting 1 is losing mass via the tidal stripping by the Milky Way, as the luminosity function and the surface density.
+
+
+== References ==

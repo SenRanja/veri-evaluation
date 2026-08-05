@@ -1,0 +1,31 @@
+Transco plc v Her Majesty's Advocate 2003 HCJAC 67 is a Scots criminal law case  that involved the first Scottish prosecution of a public limited company for culpable homicide. The decision is considered significant in Scots law on corporate criminal liability.
+
+
+== Background ==
+Transco was a public gas utility company, part of the National Grid plc. On 22 December 1999, a gas explosion at a family home in Larkhall resulted in deaths of four people, Andrew and Janette Findlay, and their children Stacey and Daryl. Transco was responsible for providing a gas connection to the Findlay house. Police officers in the area had noticed a strong smell of gas, and informed Transco of a possible gas leak. By the time the area was sealed off, an explosion occurred, damaging five houses in the area, including the Findlay bungalow.
+The Health and Safety Executive investigated the explosion, and subsequently fined Transco £15 million. Transco was also investigated by the Procurator Fiscal, Hamilton for a possible culpable homicide charge in relation to the Findlay deaths. 
+
+
+== Court proceedings ==
+In 2003, the Lord Advocate Colin Boyd charged Transco with culpable homicide and in the alternate, contravening sections 3 and 33(1) of the Health and Safety at Work etc. Act 1974. Transco challenged the culpable homicide charge on the grounds of competence and relevance. A single judge refused the challenge and Transco appealed the decision before the High Court of Justiciary, Appeal Court. Transco maintained that the charge was incompetent and irrelevant: "incompetent" because, under Scots law, a legal person could not be convicted of homicide, and "irrelevant" because, even if the charge was competent and the prosecutor proved their allegations, it would not amount to culpable homicide by Transco.
+A three-judge bench of the Appeal Court was unanimous in their decisions. They held that it was competent for the prosecutor to charge a company with culpable homicide. However, the Court held that the way by which the prosecutor had tried to establish mens rea on the part of Transco was incorrect and that had made the charge irrelevant. Lord Hamilton and Lord Osborne gave concurring decisions. Lord MacLean did not deliver a decision, but concurred with Lord Hamilton's decision.
+The Court ruled that a company could be prosecuted under Scots criminal law. Both Lord Hamilton and Lord Osborne discussed English criminal law as it stood at the time, especially, the House of Lords decision in Tesco Supermarkets Ltd. v Nattrass. In Nattrass, Lord Reid had adopted the "directing mind" theory of corporate liability. Lord Reid had famously noted:
+
+A living person has a mind which can have knowledge or intention or be negligent and he has hands to carry out his intentions. A corporation has none of these: it must act through living persons, though not always one or the same person. Then the person who acts is not speaking or acting for the company. He is acting as the company and his mind which directs his acts is the mind of the company. There is no question of the company being vicariously liable. He is not acting as a servant, representative, agent or delegate. He is an embodiment of the company or, one could say, he hears and speaks through the persona of the company, within his appropriate sphere, and his mind is the mind of the company. If it is a guilty mind then that guilt is
+the guilt of the company.
+Both opinions in Transco concluded that the developments in English law had been incorporated into Scots law. A company could be held guilty, if its "directing mind" was guilty. Transco had argued that the charge was irrelevant, because the prosecution had failed to identify any such "directing mind". The opinions agreed with Transco's relevancy argument.
+
+
+=== Other proceedings ===
+Transco separately appealed the decision to allow the Health and Safety at Work etc. Act 1974 charge. That appeal was refused by the Appeal Court. Transco subsequently made a third appeal, challenging other preliminary decisions made by Lord Carloway as the trial judge. It also challenged Lord Carloway's fitness to preside over the trial on the grounds of apparent bias. The Appeal Court rejected the third appeal as well.
+
+
+== Subsequent developments ==
+In 2007, the UK Parliament passed the Corporate Manslaughter and Corporate Homicide Act 2007, which created the offence of "corporate homicide" in Scotland. Several companies have been prosecuted and convicted under the new law in England (where the offence is called "corporate manslaughter"). As of November 2023, there has not yet been any prosecution for "corporate homicide" in Scotland. However, there have been calls to prosecute NHS Greater Glasgow and Clyde and Scottish Prison Service under the Act.
+
+
+== References ==
+
+
+== Further reading ==
+James Chalmers (2004). "Corporate Culpable Homicide: Transco plc v H M Advocate" (PDF). Edinburgh Law Review. 8 (Sep 2008): 262–266. doi:10.3366/elr.2004.8.2.262.

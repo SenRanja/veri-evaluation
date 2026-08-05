@@ -1,0 +1,31 @@
+Carbohydrazide is the chemical compound with the formula OC(N2H3)2.  It appears as a white solid that is soluble in water, but not in many organic solvents, such as ethanol, ether or benzene. It decomposes upon melting.  A number of carbazides are known where one or more N-H groups are replaced by other substituents.  They occur widely in the drugs, herbicides, plant growth regulators, and dyestuffs.
+
+
+== Production ==
+Industrially the compound is produced by treatment of urea with hydrazine:
+
+OC(NH2)2  +  2 N2H4   →   OC(N2H3)2 +  2 NH3
+It can also be prepared by reactions of other C1-precursors with hydrazine, such as carbonate esters. 
+It can be prepared from phosgene, but this route cogenerates the hydrazinium salt [N2H5]Cl and results in some diformylation.  Carbazic acid is also a suitable precursor:
+
+N2NH3CO2H  +  N2H4   →   OC(N2H3)2 + H2O
+
+
+== Structure ==
+The molecule is nonplanar. All nitrogen centers are at least somewhat pyramidal, indicative of weaker C-N pi-bonding.  The C-N and C-O distances are about 1.36 and 1.25 Å, respectively.
+
+
+== Industrial uses ==
+Oxygen scrubber: carbohydrazide is used to remove oxygen in boiler systems. Oxygen scrubbers prevent corrosion.
+Precursor to polymers:  carbohydrazide can be used as a curing agent for epoxide-type resins.
+Photography: carbohydrazide is used in the silver halide diffusion process as one of the toners. Carbohydrazide is used to stabilize color developers that produce images of the azo-methine and azine classes.
+Jet fuel: carbohydrazine can be used as a component in jet fuels, as a large amount of heat is being produced when the material is burned.
+Carbohydrazide has been used to develop ammunition propellants, stabilize soaps, and is used as a reagent in organic synthesis.
+Salts of carbohydrazide, such as nitrate, dinitrate and perchlorate, can be used as secondary explosives. Complex salts of carbohydrazide, like bis(carbohydrazide)diperchloratocopper(II) and tris(carbohydrazide)nickel(II) perchlorate, can be used as primary explosives in laser detonators.
+
+
+== Hazards ==
+Heating carbohydrazide may result in an explosion. Carbohydrazide is harmful if swallowed, irritating to eyes, respiratory system, and skin. Carbohydrazide is toxic to aquatic organisms.
+
+
+== References ==

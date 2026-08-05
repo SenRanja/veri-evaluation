@@ -1,0 +1,42 @@
+Iguanodontidae is a family of iguanodontians belonging to Styracosterna, a derived clade within Ankylopollexia. The clade is formally defined in the PhyloCode by Daniel Madzia and colleagues in 2021 as "the largest clade containing Iguanodon bernissartensis, but not Hadrosaurus foulkii".
+Characterized by their elongated maxillae, they were herbivorous and typically large in size. This family exhibited locomotive dynamism; there exists evidence for both bipedalism and quadrupedalism within iguanodontid species, supporting the idea that individual organisms were capable of both locomoting exclusively with their hind limbs and locomoting quadrupedally. Iguanodontids possess hoof-like second, third, and fourth digits, and in some cases, a specialized thumb spike and an opposable fifth digit. Their skull construction allows for a strong chewing mechanism called a transverse power stroke. This, paired with their bilateral dental occlusion, made them extremely effective as herbivores.  Members of Iguanodontidae are thought to have had a diet that consisted of both gymnosperms and angiosperms, the latter of which co-evolved with the iguanodontids in the Cretaceous period.
+There is no consensus on the phylogeny of the group. Iguanodontidae is most frequently characterized as paraphyletic with respect to Hadrosauridae, although some researchers advocate for a monophyletic view of the family.
+
+
+== Description ==
+
+
+=== Skull and mandible ===
+The upper surface of a typical iguanodontid skull has a convex curve that extends from the snout to just past the orbit, where the skull flattens out to form a roughly level plane directly above the braincase. The antorbital fenestra, an opening in the skull anterior to the eye sockets, is reduced in size in iguanodontids. Their maxillae are roughly triangular, fairly flat, and sport thickened bony walls. An elongated maxilla is characteristic of the family. Iguanodontid dentaries are very long as well, and become increasingly thick towards the back of the skull.  A pair of bony processes extending from the maxilla insert into the jugal and lacrimal, respectively. The iguanodontid jugal has particularly deep crevices that serve to mediate this contact.  The lacrimal process constitutes the rostral margin of the reduced antorbital fenestra.
+
+
+=== Teeth ===
+Iguanodontids are generally limited to the possession of single replacement tooth at each position, although exceptions exist.  The most primitive example bears positions for 13 maxillary and 14 dentary teeth. More derived forms have a larger number of positions per row. For example, I. bernissartensis is able to accommodate up to 29 maxillary and 25 dentary teeth. Iguanodontids exhibit contact between maxillary and dentary teeth upon closure of the jaw. They have a thick layer of enamel over the lip-facing (labial) surface of the crown, a robust primary ridge beginning at the base of the crown, and a denticulate margin.  Most members of the family have maxillary tooth crowns lanceolate in shape. The labial surface of the teeth has some grooves, while the tongue-facing (lingual) surface is smooth. Iguanodontids have lost their premaxillary teeth.
+
+
+=== Manus and pes ===
+
+The second, third, and fourth digits of the iguanodontid forelimb are close together. In some cases, it is possible that digits three and four were bound into a single structure by layers of skin, a specialized adaptation for quadruped locomotion. In addition, the wrist bones are fused into a block, and the thumb bones are fused into a spike-like point.  In Iguanodon, the fifth digit is long, flexible, and opposable. On the hind limb, digits two, three, and four are wide and short, with blunt claws that resemble hooves.
+
+
+=== Body ===
+All of the cervical vertebrae have ribs attached.  The initial set are linear; the rest are two-headed. Tendons along the neural arches were ossified, limiting mobility in the backbone in exchange for reinforcement.  A similar ossification is seen in the tail. Iguanodontids have a rod-shaped pubis that extends parallel to the ischium.  The paired sternal bones are often hatchet-shaped.  The humerus has a shallow curve, in contrast to the straight ulna and radius.  The ilium is thinner at the anterior end than it is at the posterior.  Evidence suggests that these dinosaurs do not have plated, armored skin.
+
+
+== Classification ==
+In the past, Iguanodontidae became a waste-basket for any ornithopod that did not belong in either Hadrosauridae, or the now defunct Hypsilophodontidae.  A number of studies suggest that Iguanodontidae as traditionally defined is paraphyletic with respect to Hadrosauridae. That is, iguanodontids represent successive steps in the acquisition of advanced hadrosaurian characteristics, and in this view cannot be defined as a single distinct clade.  Nevertheless, some researchers have found support for a monophyletic Iguanodontidae consisting of a handful of genera.  Some other studies, however, fail to recover the group. The left cladogram was recovered in a 2015 analysis that supports a monophyletic Iguanodontidae, whereas the right cladogram from 2012 study finds the group to be paraphyletic:
+
+
+== Palaeobiology ==
+
+
+=== Locomotion ===
+
+Fossilized footprints provide evidence for both quadrupedality and bipedality within iguanodontids.  It is thought that iguanodontids were primarily quadrupedal but could optionally walk on two limbs.  The ossification of tendons along the neural arches may have played a role in facilitating the dynamic pedality of iguanodontids, as the ossified tendons could help withstand the additional stress incurred on the backbone by standing upright.  Some research suggests that organism size plays a role in the determination of pedality, where larger organisms are more likely to choose to walk on all fours than their smaller counterparts.
+
+
+=== Diet ===
+Iguanodontids are low-browsing herbivores that fed extensively on gymnosperms like ferns and horsetails, especially during the early Cretaceous period.  These dinosaurs were very effective as herbivores due in part to their combination of bilateral dental occlusion with the transverse power stroke of their chewing mechanism.  Additionally, iguanodontids lack a rigid secondary palate, which helps to mitigate torsional stresses during occlusion, a feature that enhanced their ability to break down plant matter. Additionally, the iguanodontids co-evolved with the radiation of angiosperms in the Cretaceous period.  Angiosperms typically develop more rapidly and lower to the ground than gymnosperms; their proliferation provided a wealth of easily accessible food for the members of Iguanodontidae.
+
+
+== References ==

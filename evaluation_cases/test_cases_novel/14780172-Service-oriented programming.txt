@@ -1,0 +1,136 @@
+Service-oriented programming (SOP) is a programming paradigm that uses "services" as the unit of computer work, to design and implement integrated business applications and mission critical software programs. Services can represent steps of business processes and thus one of the main applications of this paradigm is the cost-effective delivery of standalone or composite business applications that can "integrate from the inside-out". It inherently promotes service-oriented architecture (SOA), however, it is not the same as SOA. While SOA focuses on communication between systems using "services", SOP provides a new technique to build agile application modules using in-memory services as the unit of work.
+An in-memory service in SOP can be transparently externalized as a web service operation. Due to language and platform independent Web Service standards, SOP embraces all existing programming paradigms, languages and platforms.  In SOP, the design of the programs pivot around the semantics of service calls, logical routing and data flow description across well-defined service interfaces.  All SOP program modules are encapsulated as services and a service can be composed of other nested services in a hierarchical manner with virtually limitless depth to this service stack hierarchy. A composite service can also contain programming constructs some of which are specific and unique to SOP. A service can be an externalized system component that is accessed via any proprietary API or web service standards utilizing an in-memory plug-in technique.
+While SOP supports the basic programming constructs for sequencing, selection and iteration, it is differentiated with a slew of new programming constructs that provide built-in native ability geared towards data list manipulation, data integration, automated multithreading of service modules, declarative context management and synchronization of services.  SOP design enables programmers to semantically synchronize the execution of services in order to guarantee that it is correct, or to declare a service module as a transaction boundary with automated commit/rollback behavior.
+Semantic design tools and runtime automation platforms can be built to support the fundamental concepts of SOP.  For example, a service virtual machine (SVM) that automatically creates service objects as units of work and manages their context can be designed to run based on the SOP program metadata stored in XML and created by a design-time automation tool. In SOA terms, the SVM is both a service producer and a service consumer.
+
+
+== Fundamental concepts ==
+SOP concepts provide a robust base for a semantic approach to programming integration and application logic.  There are three significant benefits to this approach: 
+
+Semantically, it can raise the level of abstraction for creating composite business applications and thus significantly increase responsiveness to change (i.e. business agility).
+Gives rise to the unification of integration and software component development techniques under a single concept and thus significantly reduces the complexity of integration. This unified approach enables "inside-out  integration" without the need to replicate data, therefore, significantly reducing the cost and complexity of the overall explanation.
+Automate multi-threading and virtualization of applications at the granular (unit-of-work) level.
+The following are some of the key concepts of SOP:
+
+
+=== Encapsulation ===
+In SOP, in-memory software modules are strictly encapsulated through well-defined service interfaces that can be externalized on-demand as web service operations. This minimal unit of encapsulation maximizes the opportunities for reusability within other in-memory service modules as well as across existing and legacy software assets.  By using service interfaces for information hiding, SOP extends the service-oriented design principles used in SOA to achieve separation of concerns across in-memory service modules.
+
+
+=== Service interface ===
+A service interface in SOP is an in-memory object that describes a well-defined software task with well-defined input and output data structures. Service interfaces can be grouped into packages. An SOP service interface can be externalized as a WSDL operation and a single service or a package of services can be described using WSDL. Furthermore, service interfaces can be assigned to one or many service groups based on shared properties.
+In SOP, runtime properties stored on the service interface metadata serve as a contract with the service virtual machine (SVM).  One example for the use of runtime properties is that in declarative service synchronization. A service interface can be declared as a fully synchronized interface, meaning that only a single instance of that service can run at any given time. Or, it can be synchronized based on the actual value of key inputs at runtime, meaning that no two service instances of that service with the same value for their key input data can run at the same time. Furthermore, synchronization can be declared across services interfaces that belong to the same service group. For example, if two services, 'CreditAccount" and 'DebitAccount", belong to the same synchronization service group and are synchronized on the accountName input field, then no two instances of 'CreditAccount" and 'DebitAccount" with the same account name can execute at the same time.
+
+
+=== Service invoker ===
+A service invoker makes service requests. It is a pluggable in-memory interface that abstracts the location of a service producer as well as the communication protocol, used between the consumer and producer when going across computer memory, from the SOP runtime environment such as an SVM.  The producer can be in-process (i.e. in-memory), outside the process on the same server machine, or virtualized across a set of networked server machines.  The use of a service invoker in SOP is the key to location transparency and virtualization.  Another significant feature of the service invoker layer is the ability to optimize bandwidth and throughput when communicating across machines.  For example, a "SOAP Invoker" is the default service invoker for remote communication across machines using the web service standards. This invoker can be dynamically swapped out if, for example, the producer and consumer wish to communicate through a packed proprietary API for better security and more efficient use of bandwidth.
+
+
+=== Service listener ===
+A service listener receives service requests. It is a pluggable in-memory interface that abstracts the communication protocol for incoming service requests made to the SOP runtime environment such as the SVM. Through this abstract layer, the SOP runtime environment can be virtually embedded within the memory address of any traditional programming environment or application service.
+
+
+=== Service implementation ===
+In SOP, a service module can be either implemented as a Composite or Atomic service. It is important to note that Service modules built through the SOP paradigm have an extroverted nature and can be transparently externalized through standards such as SOAP or any proprietary protocol.
+
+
+=== Semantic-based approach ===
+One of the most important characteristic of SOP is that it can support a fully semantic-based approach to programming. Furthermore, this semantic-based approach can be layered into a visual environment built on top of a fully metadata-driven layer for storing the service interface and service module definitions. Furthermore, if the SOP runtime is supported by a SVM capable of interpreting the metadata layer, the need for automatic code generation can be eliminated.  The result is tremendous productivity gain during development, ease of testing and significant agility in deployment.
+
+
+=== Service implementation: composite service ===
+A composite service implementation is the semantic definition of a service module based on SOP techniques and concepts.  If you look inside of a black-boxed interface definition of a composite service, you may see other service interfaces connected to each other and connected to SOP programming constructs. A Composite service has a recursive definition meaning that any service inside ("inner service") may be another atomic or composite service. An inner service may be a recursive reference to the same containing composite service.
+
+
+=== Programming constructs ===
+SOP supports the basic programming constructs for sequencing, selection and iteration as well as built-in, advance behavior.  Furthermore, SOP supports semantic constructs for automatic data mapping, translation, manipulation and flow across inner services of a composite service.
+
+
+==== Sequencing ====
+A service inside of the definition of a composite service (an "inner service") is implicitly sequenced through the semantic connectivity of built-in success or failure ports of other inner services with its built-in activation port.  When an inner service runs successfully, all the inner services connected to its success port will run next. If an inner service fails, all the services connected to its failure port will run next.
+
+
+==== Selection ====
+Logical selection is accomplished through data-driven branching constructs and other configurable constructs.  In general, configurable constructs are services built into the SOP platform with inputs and outputs that can assume the input/output shape of other connected services.  For example, a configurable construct used for filtering output data of services can take a list of Sales orders, Purchase orders or any other data structure, and filter its data based on user declared filter properties stored on the interface of that instance of the filter construct.  In this example, the structure to be filtered becomes the input of the particular instance of the filter construct and the same structure representing the filtered data becomes the output of the configurable construct.
+
+
+==== Iteration ====
+A composite service can be declared to loop.  The loop can be bound by a fixed number of iterations with an optional built-in delay between iterations and it can dynamically terminate using a "service exit with success" or "service exit with failure" construct inside of the looping composite service.  Furthermore, any service interface can automatically run in a loop or "foreach" mode, if it is supplied with two or more input components upon automatic preparation. This behavior is supported at design-time when a data list structure from one service is connected to a service that takes a single data structure (i.e. non-plural) as its input. If a runtime property of the composite service interface is declared to support "foreach" in parallel, then the runtime automation environment can automatically multi-thread the loop and run it in parallel. This is an example of how SOP programming constructs provide built-in advanced functionality.
+
+
+==== Data transformation, mapping, and translation ====
+Data mapping, translation, and transformation constructs enable automatic transfer of data across inner services. An inner-service is prepared to run, when it is activated and all of its input dependencies are resolved. All the prepared inner-services within a composite service run in a parallel burst called a "hypercycle". This is one of the means by which automatic parallel-processing is supported in SOP. The definition of a composite service contains an implicit directed graph of inner service dependencies.  The runtime environment for SOP can create an execution graph based on this directed graph by automatically instantiating and running inner services in parallel whenever possible.
+
+
+=== Exception handling ===
+Exception handling is a run-time error in Java. Exception handling in SOP is simply accomplished by connecting the failure port of inner services to another inner service, or to a programming construct. "Exit with failure" and "exit with success" constructs are examples of constructs used for exception handling.  If no action is taken on the failure port of a service, then the outer (parent) service will automatically fail and the standard output messages from the failed inner service will automatically bubble up to the standard output of the parent.
+
+
+=== Transactional boundary ===
+A composite service can be declared as a transaction boundary. The runtime environment for SOP automatically creates and manages a hierarchical context for composite service objects which are used as a transaction boundary. This context automatically commits or rollbacks upon the successful execution of the composite service.
+
+
+=== Service compensation ===
+Special composite services, called compensation services, can be associated with any service within SOP.  When a composite service that is declared as a transaction boundary fails without an exception handling routing, the SOP runtime environment automatically dispatches the compensation services associated with all the inner services which have already executed successfully.
+
+
+=== Service implementation: atomic service ===
+An atomic service is an in-memory extension of the SOP runtime environment through a service native interface (SNI) it is essentially a plug-in mechanism. For example, if SOP is automated through an SVM, a service plug-in is dynamically loaded into the SVM when any associated service is consumed. An example of a service plug-in would be a SOAP communicator plug-in that can on-the-fly translate any in-memory service input data to a Web Service SOAP request, post it to a service producer, and then translate the corresponding SOAP response to in-memory output data on the service.  Another example of a service plug-in is a standard database SQL plug-in that supports data access, modification and query operations.  A further example that can help establish the fundamental importance of atomic services and service plug-ins is using a service invoker as a service plug-in to transparently virtualize services across different instances of an SOP platform.  This unique, component-level virtualization is termed "service grid virtualization" in order to distinguish it from traditional application, or process-level virtualization.
+
+
+== Cross-cutting concerns ==
+SOP presents significant opportunities to support cross-cutting concerns for all applications built using the SOP technique. The following sections define some of these opportunities:
+
+
+=== Service instrumentation ===
+The SOP runtime environment can systematically provide built-in and optimized profiling, logging and metering for all services in real-time.
+
+
+=== Declarative & context-sensitive service caching ===
+Based on declared key input values of a service instance, the outputs of a non time-sensitive inner service can be cached by the SOP runtime environment when running in the context of a particular composite service.  When a service is cached for particular key input values, the SOP runtime environment fetches the cached outputs corresponding to the keyed inputs from its service cache instead of consuming the service.  Availability of this built-in mechanism to the SOP application developer can significantly reduce the load on back-end systems.
+
+
+=== Service triggers ===
+SOP provides a mechanism for associating a special kind of composite service, trigger service, to any other service.  When that service is consumed, the SOP platform automatically creates and consumes an instance of the associated trigger service with an in-memory copy of the inputs of the triggering service.  This consumption is non-intrusive to the execution of the triggering service.  A service trigger can be declared to run upon activation, failure or success completion of the triggering service.
+
+
+=== Inter-service communication ===
+In addition to the ability to call any service, Service Request Events and Shared Memory are two of the SOP built-in mechanisms provided for inter-service communication. The consumption of a service is treated as an Event in SOP. SOP provides a correlation-based event mechanism that results in the pre-emption of a running composite that has declared, through a "wait" construct, the need to wait for one or more other service consumption events to happen with specified input data values. The execution of the composite service continues when services are consumed with specific correlation key inputs associated with the wait construct.  SOP also provides a shared memory space with access control where services can access and update a well-defined data structure that is similar to the input/output structure of services.  The shared memory mechanism within SOP can be programmatically accessed through service interfaces.
+
+
+=== Service overrides ===
+In SOP, customizations are managed through an inventive feature called Service Overrides. Through this feature, a service implementation can be statically or dynamically overridden by one of many possible implementations at runtime.  This feature is analogous to polymorphism in object-oriented programming. Each possible override implementation can be associated to one or more override configuration portfolios in order to manage activation of groups of related overrides throughout different SOP application installations at the time of deployment.
+
+
+=== Consumer account provisioning ===
+Select services can be deployed securely for external programmatic consumption by a presentation (GUI) layer, or other applications.  Once service accounts are defined, the SOP runtime environment automatically manages access through consumer account provisioning mechanisms.
+
+
+=== Security ===
+The SOP runtime environment can systematically provide built-in authentication and service authorization. For the purpose of authorization, SOP development projects, consumer accounts, packages and services are treated as resources with access control.  In this way, the SOP runtime environment can provide built-in authorization. Standards or proprietary authorization and communication security is customized through service overrides, plug-in invoker and service listener modules.
+
+
+=== Virtualization and automatic multithreading ===
+Since all artifacts of SOP are well-encapsulated services and all SOP mechanisms, such as shared memory, can be provided as distributable services, large-scale virtualization can be automated by the SOP runtime environment.  Also, the hierarchical service stack of a composite service with the multiple execution graphs associated to its inner services, at each level, provides tremendous opportunities for automated multi-threading to the SOP runtime environment.
+
+
+== History ==
+The term service-oriented programming was first published in 2002 by Alberto Sillitti, Tullio Vernazza and Giancarlo Succi in a book called "Software Reuse: Methods, Techniques, and Tools."  SOP, as described above, reflects some aspects of the use of the term proposed by  Sillitti, Vernazza and Succi.
+Today, the SOP paradigm is in the early stages of mainstream adoption. There are four market drivers fueling this adoption:
+
+Multi-core Processor Architecture: due to heat dissipation issues with increasing processor clock speeds beyond 4 GHz, the leading processor vendors such as Intel have turned to multi-core architecture to deliver ever increasing performance.  Refer to the article "The Free Lunch Is Over"  This change in design forces a change in the way we develop our software modules and applications: applications must be written for concurrency in order to utilize multi-core processors and writing concurrent programs is a challenging task. SOP provides a built-in opportunity for automated multithreading.
+Application Virtualization: SOP promotes built-in micro control over location transparency of the service constituents of any service module.  This results in automatic and granular virtualization of application components (versus an entire application process) across a cluster or grid of SOP runtime platforms.
+Service-oriented architecture (SOA) and demand for integrated and composite applications:  in the beginning, the adoption of SOP will follow the adoption curve of SOA with a small lag.  This is because services generated through SOA can be easily assembled and consumed through SOP. The more Web services proliferate, the more it makes sense to take advantage of the semantic nature of SOP. On the other hand, since SOA is inherent in SOP, SOP provides a cost-effective way to deliver SOA to mainstream markets.
+Software as a service (SaaS): capabilities of the current SaaS platforms cannot address the customization and integration complexities required by large enterprises. SOP can significantly reduce the complexity of integration and customization. This will drive SOP into the next generation SaaS platforms.
+
+
+== See also ==
+Microservices
+
+
+== References ==
+
+
+== External links ==
+Service-Oriented Programming: A New Paradigm of Software Reuse
+Grid Virtualization and Itanium®-based Solutions

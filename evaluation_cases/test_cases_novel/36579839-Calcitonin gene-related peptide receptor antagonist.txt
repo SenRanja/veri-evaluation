@@ -1,0 +1,49 @@
+Calcitonin gene-related peptide (CGRP) receptor antagonists, commonly known as gepants, are a class of drugs that act as antagonists of the calcitonin gene-related peptide receptor (CGRPR).
+The CGRP family of small proteins are present in the sensory nerves of the head and neck and are involved in transmission of pain. Nerve activation can trigger the release of CGRP and other neuropeptides, leading to inflammation, pain, and swelling in the case of migraine. Several monoclonal antibodies that bind to the CGRP receptor or peptide have been approved for prevention of migraine.  As of March 11, 2024, the American Headache Society issued a statement that "CGRP targeting therapies are a first-line option for migraine prevention" in the United States. The prior use of non-specific migraine preventive medication approaches is therefore no longer required before CGRP treatments can be prescribed. Small molecule CGRPR antagonists have also been approved in the U.S. as antimigraine agents.
+
+
+== Examples of CGRP inhibitors ==
+Small molecule CGRP antagonists are generally administered by mouth as pills. One type is a nasal spray. In contrast, CGRP monoclonal antibodies involve large molecules which must be given intravenously or as injections. Injections can be self-administered with an automatic pen monthly or quarterly, depending on the drug.
+
+
+=== Small molecule CGRP antagonists (gepants) ===
+Ubrogepant is approved for acute treatment of migraines
+Rimegepant (BMS-927711) is approved for acute migraine treatment (since February 2020) and for preventive treatment of episodic migraines (since May 2021).
+Atogepant (AGN-241689) is approved for preventative treatment of migraines
+Zavegepant (BHV- 3500) is a nasal spray approved for acute treatment of migraines.
+Telcagepant (MK-0974), reached phase III clinical trials; development discontinued in 2011.
+Olcegepant (BIBN-4096BS) is a drug candidate
+BI 44370 TA (BI 44370)
+MK-3207
+SB-268262
+
+
+=== Monoclonal antibodies targeting the CGRP receptor ===
+Erenumab (AMG-334) is approved for prevention of migraine.
+
+
+=== Monoclonal antibodies targeting the CGRP molecule ===
+Eptinezumab  (ALD403) is approved for prevention of migraine.
+Fremanezumab (TEV-48125) is approved for prevention of migraine.
+Galcanezumab (LY2951742) is approved for prevention of migraine and cluster headaches.
+
+
+== Medical applications ==
+
+
+=== Migraine ===
+As of 2024, eight blockers of CGRP or its receptor have been approved by the US Food and Drug Administration for the treatment or prevention of migraine.
+These include erenumab, brand name Aimovig, approved in the U.S. for use for migraines in 2018. It interacts by blocking the CGRP receptor. As of 2018, fremanezumab, brand name Ajovy, was approved in the U.S. for use for migraines. It interacts with the CGRP protein expressed during an attack. Galcanezumab, brand name Emgality, was the third treatment to be approved in the U.S. in 2018 for use in migraines. It also interacts with the CGRP protein.
+As of February 2020, eptinezumab (Vyepti) was approved by the FDA for the treatment of migraine via intravenous infusion as well.
+Three small-molecule antagonists have been approved for treatment of migraine: ubrogepant, rimegepant, and atogepant. Ubrogepant and rimegepant are approved for acute treatment. Atogepant and rimegepant are approved for preventative treatment.
+
+
+== Research ==
+Drugs of this class have been investigated for use in osteoarthritis in mice.
+
+
+=== Necrotizing fasciitis ===
+A study has found botox effective against necrotizing fasciitis caused by S. pyogenes in mice.  Its mechanism of action is by blocking CGRP receptor of nerve cells, which trigger intense pain and activate CGRP cascade, which prevents the immune system attacks to control the pathogen.  Botox blocks the CGRP cascade of nerve cells.
+
+
+== References ==

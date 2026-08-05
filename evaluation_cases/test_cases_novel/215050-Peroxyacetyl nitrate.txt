@@ -1,0 +1,34 @@
+Peroxyacetyl nitrate is a peroxyacyl nitrate. It is a secondary pollutant present in photochemical smog and PAN concentrations can be sensitive to precursor emissions. It is thermally unstable and decomposes into peroxyethanoyl radicals and nitrogen dioxide gas. It is a lachrymatory substance, meaning that it irritates the lungs and eyes.
+Peroxyacetyl nitrate, or PAN, is an oxidant that is more stable than ozone. Hence, it is more capable of long-range transport than ozone. It serves as a carrier for oxides of nitrogen (NOx) into rural regions and causes ozone formation in the global troposphere.
+
+
+== Atmospheric chemistry ==
+PAN is produced in the atmosphere via photochemical oxidation of hydrocarbons (e.g. Alkenes, Aromatics, and isoprenes). Carbonyls (oxidized VOCs) create acyl radicals which then become peroxyacetic acid (PA) radicals. Acetaldehyde is the dominant carbonyl species to produce PA radicals followed by Methylglyoxal, combined they can account for up to 80% of PA radical formation. The PA radicals can reversibly react with nitrogen dioxide (NO2) to form PAN. Night-time reaction of acetaldehyde with nitrogen trioxide is another possible source. Since there are no direct PAN emissions, it is a secondary pollutant. Next to ozone and hydrogen peroxide (H2O2), it is one of the most important components of photochemical smog.
+
+R1 : CH3C(O)OO + NO2 + M   ⇌   PAN + M
+R2 : CH3CHO + OH O2→ CH3C(O)OO + H2O
+R2 : CH3COCHO + hv O2→ CH3C(O)OO + HCO
+Other peroxyacyl nitrates in the atmosphere are peroxypropionyl nitrate (PPN), peroxybutyryl nitrate (PBN), and peroxybenzoyl nitrate (PBzN). Chlorinated forms have also been observed. PAN is the most important peroxyacyl nitrate. PAN and its homologues reach about 5 to 20 percent of the concentration of ozone in urban areas. At lower temperatures, these peroxy-nitrates are stable and can be transported over long distances, providing nitrogen oxides to otherwise unpolluted areas. At higher temperatures, they decompose into NO2 and the peroxyacyl radical.
+The decay of PAN in the atmosphere is mainly thermal. Thus, the long-range transport occurs through cold regions of the atmosphere, whereas the decomposition takes place at warmer levels. PAN can also be photolyzed by UV radiation. It is a reservoir gas that serves both as a source and a sink of ROx− and NOx radicals. Nitrogen oxides from PAN decomposition enhance ozone production in the lower troposphere.
+The natural concentration of PAN in the atmosphere is below 0.1 μg/m3. Measurements in German cities showed values up to 25 μg/m3. Peak values above 200 μg/m3 have been measured in Los Angeles in the second half of the 20th century (4.37 μg/m3 of PAN corresponds to one part per billion (ppb)). Due to the complexity of the measurement setup, only sporadic measurements are available. The satellite based Cross-Track Infrared sounder (CrIS) instrument is able to provide mid-tropospheric PAN measurements on a global scale.
+PAN is a greenhouse gas.
+
+
+== Sensitivity ==
+PAN has a sensitivity to precursor emissions, mainly from VOCs and NOx. PANs sensitivity towards VOCs is greater than that of NOx. VOC reductions have more of an effect on PA radicals than on NOx. Notably, global emissions of precursor during Covid-19 demonstrated that PAN concentrations do not always decrease with a decrease in NOx concentrations. Similarly, PAN responds non-linearly to precursor changes. Alkenes and oxidized VOCs strongly influence the formation of PA radicals. Meteorological effects also influence the availability of these radicals and hence PAN formation.
+
+
+== Synthesis ==
+PAN can be produced in a lipophilic solvent from peroxyacetic acid. For the synthesis, concentrated sulfuric acid is added to degassed n-tridecane and peroxyacetic acid in an ice bath. Next, concentrated nitric acid is added.
+As an alternative, PAN can also be synthesized in the gas phase via photolysis of acetone and NO2 with a mercury lamp. Methyl nitrate (CH3ONO2) is created as a by-product.
+
+
+== Atmospheric effects ==
+Seasonal cycles of PAN have been observed. Meteorological effects such as temperatures, wind patterns, and the availability of radicals influence PANs stability as well as transportation in the atmosphere. During the springtime in the northern hemisphere, high concentrations are attributed to an increase in photochemical activity. In addition, concentrations of PAN increase due to it having a relatively large lifetime against thermal decomposition. Transportation of PAN can also occur by wildfire smoke moving it into an otherwise unpolluted region. In the northern hemisphere winter however, PAN levels become limited when there are reduced hydrocarbons, NO2, and low solar radiation.
+
+
+== Toxicity ==
+The toxicity of PAN is similar to that of NO2 but higher than sulfur dioxide (SO2). Populations with pulmonary disease tend to be more sensitive to the toxic effects of PAN. Eye irritation from photochemical smog can be caused by an increase in PAN levels. Concentrations at or above 0.64 mg/m3 increase the likelihood of eye irritation. PAN is a very weak mutagen.
+
+
+== References ==

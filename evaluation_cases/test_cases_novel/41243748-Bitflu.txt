@@ -1,0 +1,27 @@
+Bitflu  is an open-source,  BitTorrent client by Adrian Ulrich. It is available for Unix-like systems and is written in Perl.
+
+
+== Features ==
+Multiple downloads
+IPv6 Support
+Designed to run as a daemon/No GUI: You can connect to the client via telnet and/or http (AJAX)
+Security: The client can chroot itself and drop privileges
+Bandwidth shaping (upload+download)
+Crash-Proof design: Crashes or a full filesystem will never corrupt your downloads again :-)
+Non-Threading/Non-Forking: All connections are handled in non-blocking state using epoll (or kqueue on *BSD)
+
+
+== Reception ==
+Bitflu has received good reviews, both in open-source software sites  and blogs, praising it for being lightweight and feature-complete.
+Even so, Bitflu seems to be largely unknown, reportedly commanding only 0.000025% of the total BitTorrent traffic. According to one reviewer, this could be due to its non-automated, relatively elaborated install procedure, which could be putting off a "majority of users who can't do anything more complicated than a click-next-until-finish install".
+
+
+== See also ==
+Comparison of BitTorrent clients
+
+
+== References ==
+
+
+== External links ==
+Official website

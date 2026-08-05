@@ -1,0 +1,36 @@
+1939 Loretta, provisional designation 1974 UC, is a carbonaceous Themistian asteroid from the outer region of the asteroid belt, approximately 30 kilometers in diameter. It was discovered on 17 October 1974, by American astronomer Charles Kowal at Palomar Observatory in California, who named it after his daughter, Loretta Kowal. The discovery of the asteroid took place during Kowal's follow-up observations of Jupiter's moon Leda, which he had discovered one month prior.
+
+
+== Orbit and classification ==
+Loretta is a member of the Themis family, a dynamical family of main-belt asteroids with nearly coplanar ecliptical orbits. It orbits the Sun in the outer main-belt at a distance of 2.7–3.5 AU once every 5 years and 6 months (2,015 days). Its orbit has an eccentricity of 0.13 and an inclination of 1° with respect to the ecliptic.
+First identified as 1934 JE at the South African Johannesburg Observatory, Loretta's first used observation was made at the Finnish Turku Observatory in 1939, extending the body's observation arc by 35 years prior to its discovery.
+
+
+== Physical characteristics ==
+Loretta has been characterized as a carbonaceous C-type asteroid.
+
+
+=== Diameter and albedo ===
+According to the surveys carried out by the Japanese Akari satellite and NASA's Wide-field Infrared Survey Explorer with its subsequent NEOWISE mission, Loretta measures between 26.3 and 30.4 kilometers in diameter, and its surface has an albedo between 0.092 and 0.101. The Collaborative Asteroid Lightcurve Link derives an albedo of 0.072 and a diameter of 29.8 kilometers with an absolute magnitude of 11.1.
+
+
+=== Rotation period ===
+A fragmentary rotational lightcurve of Loretta was obtained from photometric observations made by French amateur astronomer Pierre Antonini in March 2011. It gave an approximate rotation period of 25 hours with a brightness variation of 0.12 magnitude (U=1).
+
+
+== Naming ==
+This minor planet was named by the discoverer after his daughter, Loretta Kowal. The official naming citation was published by the Minor Planet Center on 1 June 1975 (M.P.C. 3828).
+
+
+== References ==
+ 
+
+
+== External links ==
+Asteroid Lightcurve Database (LCDB), query form (info Archived 21 July 2011 at the Wayback Machine)
+Dictionary of Minor Planet Names, Google books
+Asteroids and comets rotation curves, CdR Archived 29 July 2016 at the Wayback Machine – Observatoire de Genève, Raoul Behrend
+Discovery Circumstances: Numbered Minor Planets (1)-(5000) – Minor Planet Center
+1939 Loretta at AstDyS-2, Asteroids—Dynamic Site
+Ephemeris · Observation prediction · Orbital info · Proper elements · Observational info
+1939 Loretta at the JPL Small-Body Database

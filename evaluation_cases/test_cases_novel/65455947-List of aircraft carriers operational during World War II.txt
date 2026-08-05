@@ -1,0 +1,164 @@
+Naval historians such as Evan Mawdsley, Richard Overy, and Craig Symonds  concluded that World War II's decisive victories on land could not have been won without decisive victories at sea.  Naval battles to keep shipping lanes open for combatant's movement of troops, guns, ammunition, tanks, warships, aircraft, raw materials, and food largely determined the outcome of land battles.  Without the Allied victory in keeping shipping lanes open during the Battle of the Atlantic, Britain could not have fed her people or withstood Axis offensives in Europe and North Africa. Without Britain's survival and without Allied shipments of food and industrial equipment to the Soviet Union, her military and economic power would likely not have rebounded in time for Russian soldiers to prevail at Stalingrad and Kursk.
+Without victories at sea in the Pacific theater, the Allies could not have mounted amphibious assaults on or maintained land forces on Guadalcanal, New Guinea, Saipan, The Philippines, Iwo Jima, or Okinawa. Allied operations in the Atlantic and Pacific war theaters were interconnected because they frequently competed for scarce naval resources for everything from aircraft carriers to transports and landing craft.
+Effective transport of troops and military supplies between the two war theaters required naval protection for shipping routes around the Cape of Good Hope, through the Suez canal, and through the Panama Canal. In both theaters, maritime dominance enabled combatants to use the sea for their own purposes and deprive its use by adversaries.  As naval historian Admiral Herbert Richmond stated, "Sea power did not win the war itself: it enabled the war to be won".
+Aircraft carriers played a major role in winning decisive naval battles,  supporting key amphibious landings, and keeping critical merchant shipping lanes open for transporting military personnel and their equipment to land battle zones.  This article is part of a series that covers World War II from the vantage point of aircraft carrier operations and is focused upon the types and names of the carriers themselves.  It contains complete lists of aircraft carriers that operated at some point during the period from 1937 to 1945.  For each carrier, the list includes date of commissioning and loss, if it was sunk during the war, and its location and operational status at the end of each month during the year after Pearl Harbor was attacked.
+
+
+== Lists of aircraft carriers ==
+Four types of ships are included in the list:  fleet carriers, light carriers, escort carriers, and merchant aircraft carriers.
+Fleet and Light Carriers. The number of each combatant's operational fleet and light carriers provides an indication of that country's offensive naval capability at any point in time.  These carriers, typically with thirty to ninety aircraft, tended to form the core around which naval striking task forces were assembled during World War II.  They could be used effectively in groups capable of launching hundreds of aircraft for massed attacks.  At its peak at Pearl Harbor, Japan's main striking force, the Kidō Butai, included six fleet carriers with a total of over 400 aircraft.  Later in the war, at the Battle of Iwo Jima,  American Task Force 58 included 18 fleet and light carriers carrying more than 1,000 aircraft.
+Escort carriers were smaller and slower than fleet or light carriers, but they were also less expensive to build and could virtually be mass-produced.  Escort carriers typically carried twenty to thirty aircraft and were widely used for transport and defensive operations.  Such operations included ferrying aircraft, troops and supplies and protecting convoys from attacks by submarines, merchant raiders, and land-based aircraft.  Escort carriers were nonetheless highly capable and used for offensive operations as well.  Such operations included providing close air support for ground forces during amphibious invasions, raids on enemy installations, and for hunting down enemy submarines and disrupting their refueling operations.
+Merchant Aircraft Carriers. The British converted several commercial grain transports and oil tankers to merchant aircraft carriers (MACs).  These ships transported critical supplies in their holds but, in addition, typically carried three or four Swordfish torpedo planes for defense.  They had flight decks and were capable of launching and recovering aircraft at sea.  Although these carriers were initially planned as stop gap measures until enough escort carriers became available, MACs proved effective and all but four of them continued in service until the end of the European war.
+The lists includes only ships with flight decks that could launch and retrieve aircraft at sea.  Ships without flight decks but relying upon catapults to launch and cranes to recover aircraft contributed more to defensive scouting and protection against enemy warships, submarines, and aircraft than to offensive operations.  Fighter catapult ships (FACs) and catapult aircraft merchant ships (CAMs)  were used early in the Atlantic Theater for convoy protection as stop-gap measures until more escort carriers became available. In the Pacific Theater, some battleships and cruisers had catapult-launched aircraft principally for scouting.  These ships without flight decks are not included as "aircraft carriers" in the lists.
+US hull numbers are included, when appropriate, to help avoid double-counting of the thirty-eight carriers transferred to Britain under Lend-Lease agreements.  They also help with identifying carriers with the same names, such as Yorktown (CV-5) and Yorktown (CV-19).
+
+
+=== Operational vs. non-operational carriers ===
+The planning and outcomes of naval initiatives involving carriers were a function of the number that were "operational", ready for combat. The lists below indicate the number of carriers that were "operational," not just "afloat".  Carriers are included as non-operational if they are in port being repaired for combat damage or undergoing an overhaul or refitting.  They are also included as non-operational if they have been commissioned but were still undergoing shakedown trials.  Finally, they are included as non-operational if they are in use only as a barracks ship or for storing goods.  Carriers kept in port or otherwise not engaged in naval initiatives because of shortages of aircrews or fuel remain included as "operational."
+The year 1942 was pivotal for the war.  Axis powers worldwide reached their maximum territorial expansion before mid-year but were virtually contained by year-end.  In the global maritime war, the Allies had won decisive victories in the Pacific and had kept the vital shipping lines open in both the Pacific and the Atlantic theaters. Aircraft carriers contributed significantly to this result.  Four of the war's six major carrier battles were fought in 1942.  Twelve of the combatants' fleet and light carriers were sunk, more than any other year and equal to 46% of the total lost during the entire war.  The lists indicate the location, combat activity, and operational status of all carriers during 1942.
+
+
+=== Abbreviations ===
+Letters in these lists indicate the war zone, combat activity, and operational status of each carrier.  For example, a carrier's location is indicated with an "a" if she were in the Atlantic Ocean and an "m" if in the Mediterranean Sea. If she were engaged in one of the six carrier battles during the month, a "B" is included.  If she were lost in combat, an "L" is included.  Entries in the "Carrier Battles" row indicate the month of major carrier battles, specifically Coral Sea (CS), Midway (MI), Eastern Solomons (ES), and Santa Cruz Islands (SC).  Other abbreviations used in the lists are shown below.
+1. Combat action during month
+
+B Engaged in one of the six carrier battles
+C Commissioned
+L Lost due to sinking or scuttling as a result of combat.
+Q Provided air cover for amphibious invasion
+R Engaged in carrier raid
+2. Ship location at end of month
+
+a Atlantic Ocean
+g Arctic Ocean
+i Indian Ocean
+m Mediterranean Sea
+p Pacific Ocean
+3. Operational status at end of month
+
+d Non-operational due to combat-related damaged.
+k Non-operational in use as a barracks or for storage.
+o Non-operational due to being refitted or overhauled.
+s Non-operational due to still in initial shakedown period or in transit to place for completing fitting-out or for initial embarkation of aircraft.  This includes carriers transporting a load of aircraft from US to UK as part of going to UK to undergo completion to become fully operational.
+t Operational as a training vessel and/or engaged only in trials.
+v Non-operational, in reserve.
+x Operational but lacked sufficient crew, aircraft, or fuel to engage in combat operations.
+The Atlantic Ocean, Mediterranean Sea, and Arctic Ocean are included with the "Atlantic theater."  The Pacific Ocean and Indian Oceans are included with the "Pacific theater."
+Entries on the "Operational Carriers" rows indicate separately the total number of carriers available for combat in the Atlantic and Pacific theaters at the end of each month that were afloat and not undergoing repairs due to combat damage, overhauling or refitting to upgrade performance, or otherwise not available for combat activity.
+US hull numbers are included, when appropriate, to help avoid double-counting of the thirty-eight carriers transferred to Britain under Lend-Lease agreements.  They also help with identifying carriers with the same names, such as Yorktown (CV-5) and Yorktown (CV-19).
+
+
+== Operational during World War II ==
+
+
+=== United States ===
+The following table lists all American aircraft carriers that were operational between December 1941 and August 1945.  It also includes information about their combat activity, location, and operational status for the end of each month from November 1941 to December 1942.  The table reflects how America's carriers made hit-and-run raids on Japanese conquests, possessions, and even the homeland itself for the first five months of the war and then engaged in carrier-against-carrier battles.  These four battles resulted in major attrition of naval strength on both sides.  For a short period around the end of October 1942, America did not have an operational aircraft carrier in the Pacific Theater.  But because of the losses inflicted upon Japan's carrier fleet during these battles, America gained the strategic initiative for the rest of the war.
+
+Notes:
+
+1 Long Island-class converted from the C-3 hulled Mormacmail by Sun Shipbuilding and Dry Dock Company, Chester PA.
+2 Charger-class converted from C-3 cargo ship hulls by Sun Shipbuilding and Dry Dock Company, Chester PA.
+3 Bogue-class converted from C-3 cargo ship hulls by Seattle-Tacome Shipbuilding Corp., Tacoma WA, Ingalls Shipbuilding of Pascagoula MS, or Western Pipe and Steel Company, San Francisco CA.
+4 Sangamon-class converted from fast fleet, T3 tanker Cimarron-class oiler hulls by Federal Shipbuilding or Dry Dock Company of Kearney NJ and Sun Shipbuilding and Dry Dock Company, Chester PA.
+5 Casablanca-class (aka Kaiser-class) built on S-4-S2-BB3 merchant hulls by Kaiser Company at its Vancouver Yard in Washington state.
+6 Commencement Bay-class built on T3 tanker hulls at Todd Pacific Tacoma.
+Eight CVEs commissioned after the end of the war or acquired by the Navy but never commissioned are not included in the list.
+
+
+=== United Kingdom ===
+
+British aircraft carriers of all types that had flight decks, were capable of launching and recovering aircraft, and that were operational sometime during the period from September 1939 to August 1945.   Battleships, cruisers, seaplane carriers, seaplane tenders (SPT), catapult aircraft merchant ships (CAM) fighter catapult ships (FCS), and aircraft maintenance carriers (AMC) that launched using catapults and recovered using cranes are not included in the counts.  During the war, the Royal Navy had at least thirty-five CAM, five FCS, one SPC, and one AMC that are not included in the table.
+During the war, two escort carriers – HMS Nabob and Puncher were crewed by Royal Canadian Navy but the aircrews aboard these carriers were British Fleet Air Arm.
+Thirty-eight of Britain's forty-four escort carriers were built in the United States and transferred to Britain under the US Lend-Lease.  These carriers were typically assigned hull numbers and names by the US but these were replaced by British names and pennant numbers.  Notes below the table identify the shipyard from which the ship was launched. A total of one-hundred twenty-eight American-built escort carriers (with US hull numbers BAVG 1 to 6 and CVE 1 to 122) were commissioned during the war, into either the US or UK navy.  Thirty-eight of these were commissioned into the Royal Navy (with UK pennant numbers between D01 and D98) and engaged during World War II.
+
+
+=== Japan ===
+The following table lists all Japanese aircraft carriers that were operational between July 1937 and August 1945.  It also includes information about their combat activity, location, and operational status for the end of each month from November 1941 to December 1942.  The table reflects how Japan's six fleet carriers of the Kidō Butai effectively raided and supported invasions during the first five months of the war, and how battle attrition over the following eight months materially weakened Japan's ability to project naval power.
+
+The Imperial Japanese Navy typically named their aircraft carriers after flying creatures, real and mythical.  Several carriers, however, retained the names they had before being converted to aircraft carriers.  Names and their meanings are included in the following table.  Also included are alternative names/spellings used for the carriers in various publications.
+
+
+=== Other countries ===
+France had one operational fleet carrier during the war, the Béarn. She patrolled in the Atlantic until the fall of France, after which she spent most of the war in Martinique and US ports.  Her aircraft were never launched in combat.  Construction of another carrier, the Joffre was begun but discontinued in 1940 when Germany occupied northern France.  France also had a  seaplane carrier, the Commandant Teste, that provided some aircraft transport service for Vichy France until she was scuttled in November 1942.
+Germany worked on building aircraft carriers during the war but did not complete any in time for combat operations.  The German fleet carrier, Graf Zeppelin, was launched in 1938 but was still under construction in 1945 as the war in Europe was ending.  It was scuttled by the Germans but raised by the Russians, who used it as a target ship, sinking it in 1947.
+Italy worked on but did not complete the aircraft carriers Sparviero and Aquila.
+
+
+== Aircraft carriers sunk ==
+In the early years of the war, the combatants risked and lost a high percentage of their carriers. By October 1942, after the carrier battles for the year, America, Britain, and Japan had, in both theaters, lost 15 fleet and light carriers between them. With new commissionings, they then had 15 such carriers afloat compared with the 18 they had in August 1939 at the beginning of war and 24 in December 1941 when Pearl Harbor was attacked. The following table shows the number of such carriers sunk each year of the war. The total number of escort carriers (CVE) sunk during the war is also shown.
+
+Fleet and Light Carriers.
+Fifty-five new fleet and light carriers were commissioned between September 1939 and August 1945.  Nineteen were operational at the beginning of the war and forty-eight were operational at the end; twenty-six were sunk.
+
+Escort Carriers.
+One-hundred twenty-seven escort carriers were commissioned between September 1939 and August 1945.  Fifteen were sunk.  Only one was operational at the beginning of this period and one-hundred thirteen were operational at the end.  The US constructed and launched 115 escort carriers, 38 of those were transferred to the Royal Navy.
+
+Merchant Aircraft Carriers.  Britain converted a total of nineteen merchant ships to Merchant Aircraft Carriers during the war.  Nine of these were converted Royal Dutch Shell oil tankers, two of which operated under the flag of the Netherlands.  All served in the Atlantic theater and typically carried three or four Fairey Swordfish torpedo bombers.  None were sunk during the war.  Although they were initially envisioned as temporary, stop-gap measures until enough escort carriers became available for convoy protection, all but four served until the end of the war.
+Aircraft Carriers Sunk.  A total of forty-one fleet, light, and escort carriers were sunk between September 1939 and August 1945. The following table shows how they were sunk and the country whose military accomplished the sinking.
+
+Japanese CVEs were frequently attacked, damaged, and sunk by American submarines.  During the war, these five CVEs served mostly as transports for aircraft, troops, and supplies and as cover for convoys doing the same.  They made deliveries to and from destinations within Japan's defensive perimeter as far east as the Marshall Islands and as far west as Singapore. Destinations included Formosa, the Marianas, the Philippines, the Dutch East Indies (Java) the Palaus, and the Carolines (Truk). Four of the five CVEs were sunk by submarines, as were four fleet and light Japanese carriers. During the war, American submariners, while making up less than two percent of American naval personnel, sank over 30% of Japanese warship tonnage and 55% of merchant shipping tonnage.  This effectiveness came at a high price.  Fifty-two American submarines were lost during the war, all but three in Pacific waters.  Over 3,500 men died.  Three British submarines were sunk by the Japanese.
+
+The following table provides some detail for each of the forty-one aircraft carriers sunk during the war.
+
+Abbreviations:
+
+"DB" Indicates Dive Bombers
+"CA" Indicates Carrier Aircraft
+"Ger" Indicates German
+"IJN" indicated Imperial Japanese Navy
+"LBA" Indicates Land-Based Aircraft
+"Sub" Indicates Submarine
+'TB" Indicates Torpedo Bomber
+The following table shows how each combatant's carriers were sunk.
+
+
+== Non-operational aircraft carrier time ==
+
+
+=== Carrier non-operational time due to combat-related damage ===
+The table below shows the combat-related actions during the war that resulted in carriers not being "operational", i.e., not available for combat activity.
+
+The following table shows the causes of carriers becoming non-operational due to combat-related damage and sinkings.
+
+
+=== Carrier non-operational time due to overhauls and refittings ===
+The following table shows the amount of time during the war that each carrier spent being overhauled or refitted.
+
+
+== Operational Aircraft carrier time ==
+
+
+=== Carriers operational at the end of each month ===
+(to be completed)
+
+
+== Footnotes ==
+
+
+== See also ==
+List of aircraft carriers of World War II
+List of United States Navy escort aircraft carriers
+List of aircraft carriers of the Royal Navy
+List of Japanese Navy ships and war vessels in World War II
+List of aircraft carriers of Germany
+
+
+== Citations ==
+
+
+== References ==
+Chen, Peter C. "World War II Database". World War II Database. Lava Development, LLC. Retrieved 4 Apr 2019.
+Mason, Lt. Commander Geoffrey. "Service Histories of 1,000 Royal and Dominion Navy Warships, including British Ships manned by Allied Navies". naval-history.net.
+Morio. "Ships Index". Naval War In The Pacific 1941–1945. Valka. Retrieved 30 Sep 2020.
+Toppan, Andrew. "DANFS Online-Aircraft Carriers". Haze Gray & Underway. Dictionary of American Naval Fighting Ships (US Naval Historical Center, 1959–1991). Retrieved 20 September 2020.
+Tully, Anthony. "Kido Butai". Imperial Japanese Navy Page.
+"Dictionary of American Naval Fighting Ships -- Index". Naval History and Heritage Command.
+
+
+== External links ==
+WW2 Aircraft Carriers
+Aircraft Carriers  at u-boat.net
+WW2 U.S. Navy Aircraft Carriers
+Escort Carriers to Britain Lend Lease 1941–1944
+Japanese Carriers of World War II
+World Aircraft Carriers List: Japanese Seaplane Ships (hazegray)

@@ -1,0 +1,13 @@
+Randall Dougherty (born 1961) is an American mathematician. Dougherty has made contributions in widely varying areas of mathematics, including set theory, 
+logic, real analysis, discrete mathematics, computational geometry, information theory, and coding theory.
+Dougherty is a three-time winner of the U.S.A. Mathematical Olympiad (1976, 1977, 1978) and a three-time medalist in the International Mathematical Olympiad. He is also a three-time Putnam Fellow (1978, 1979, 1980).  Dougherty earned his Ph.D. in 1985 at University of California, Berkeley under the direction of Jack Silver.
+With Matthew Foreman he showed that the Banach-Tarski decomposition is possible with pieces with the Baire property, solving a problem of Marczewski that remained unsolved for more than 60 years.
+With Chris Freiling and Ken Zeger, he showed that linear codes are insufficient to gain the full advantages of network coding.
+
+
+== Selected publications ==
+Dougherty, Randall & Matthew Foreman (1994). "Banach-Tarski decompositions using sets with the property of Baire". Journal of the American Mathematical Society. 7 (1): 75–124. doi:10.2307/2152721. JSTOR 2152721.
+Randall Dougherty, Chris Freiling, and Ken Zeger (2005). "Insufficiency of linear coding in network information flow". IEEE Transactions on Information Theory. 51 (8): 2745–2759. doi:10.1109/tit.2005.851744. S2CID 2543400.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+
+
+== References ==

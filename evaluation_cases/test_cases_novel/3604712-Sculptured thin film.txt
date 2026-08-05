@@ -1,0 +1,22 @@
+Sculptured thin films (STFs) are nanostructured materials  with unidirectionally varying properties that can be designed and realized in a controllable manner using variants of physical vapor deposition. The ability to virtually instantaneously change the growth direction of their columnar morphology,  through simple variations in  the direction of the incident vapor flux, leads to a wide spectrum of columnar forms.
+
+
+== Forms ==
+These forms can be:
+
+two-dimensional, ranging from the simple slanted columns and chevrons to the more complex C- and S-shaped morphologies
+three-dimensional, including simple helixes and superhelixes
+combinations of two- and three-dimensional forms.
+
+
+== Properties ==
+The column diameter and the column separation normal to the thickness direction of any STF are nominally constant. The column diameter can range from  about 10 to 300 nm, while the density may lie between its theoretical maximum value to less than 20% thereof. The crystallinity must be at a scale smaller than the column diameter. The chemical composition is essentially unlimited,  ranging from insulators to semiconductors to metals.  Most recently, polymeric STFs have been deposited by combining physical and chemical vapor deposition processes; and deposition on micropatterned substrates has also been carried out.
+
+
+== Uses ==
+To date, the chief applications of STFs are in optics as polarization filters, Bragg filters, and spectral hole filters. At visible and infrared wavelengths, a single-section STF is a unidirectionally nonhomogeneous continuum with direction-dependent properties. Several sections can be grown consecutively into a multisection STF, which can be conceived of as an optical circuit that can be integrated with electronic circuitry on a chip. Being porous, an STF can act as a sensor of fluids and can be impregnated with liquid crystals for switching applications too. Applications as low-permittivity barrier layers in electronic chips  as well as solar cells have also been suggested. Biomedical applications such as tissue scaffolds, drug-delivery platforms, virus traps, and labs-on-a-chip are also in different stages of development.
+
+
+== References ==
+
+Akhlesh Lakhtakia & Russell Messier (2005). Sculptured Thin Films: Nanoengineered Morphology and Optics. SPIE Press, Bellingham, WA, USA. ISBN 0-8194-5606-3.

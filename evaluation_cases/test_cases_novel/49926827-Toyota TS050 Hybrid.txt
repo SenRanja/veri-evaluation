@@ -1,0 +1,64 @@
+The Toyota TS050 Hybrid is a sports prototype racing car developed for the 2016 Le Mans Prototype rules in the FIA World Endurance Championship. The car is the direct successor of the Toyota TS040 Hybrid, which competed in both the 2014 and 2015 FIA WEC seasons. Drivers that have tested the TS050 include Sam Bird, Thomas Laurent, Pipo Derani, Kenta Yamashita, Nyck de Vries, and Yannick Dalmas. The TS050 was revealed at the Circuit Paul Ricard on 24 March 2016 due to Toyota's two-year cycle policy. The engine is a 2.4-liter twin-turbocharged petrol V6, while the two previous cars used a naturally aspirated petrol V8. It has an 8-megajoule hybrid system, which uses lithium-ion batteries.
+
+
+== Development ==
+An initial shakedown of the car was performed at Aragon in late February 2016, with the car having covered over 22,000 km in testing prior to its public unveiling. On 24 March 2016, ahead of the WEC Prologue, Toyota publicly unveiled the TS050 at the Circuit Paul Ricard. Compared to the TS040, the TS050 features a number of changes, with the naturally-aspirated 3.7-liter V8 engine being replaced by an all-new Toyota H8909 2.4-liter twin-turbocharged V6 engine for greater fuel-efficiency. In addition to this, the capacitor hybrid energy storage system was replaced with a new lithium-ion battery system, with the car now moving to the 8-megajoule LMP1 Hybrid sub-class. Initial photographs revealed that the car used a suspension concept appearing similar to that previously used in the TS040—a double wishbone arrangement with pushrod-actuated internal components paired with torsion bars. Compared to the TS040, the nose was also raised (a trait shared with its rivals, the Audi R18 and the Porsche 919 Hybrid), which allowed for a large opening beneath the nose, and for elements to be placed to tune airflow.
+
+
+== Subsequent alterations ==
+
+
+=== 2017 ===
+
+For the 2017 FIA World Endurance Championship, the TS050 underwent a substantial redesign, with majority of the previous year's bodywork being heavily modified or removed, with the monocoque being the sole piece of bodywork which was carried over. At the front of the car, the nose was raised slightly, while an undercut was made into the sidepod of the car. Internally, the car also underwent changes, with the coolers being relocated and the rear suspension layout being slightly modified.
+Due to new regulations in the championship aimed at reducing the speeds of the cars, the front splitter was raised by 15 mm, while the rear diffuser was narrowed. Other regulations implemented as a form of cost control meant that only two aerodynamic configurations were introduced, down from the previous year's three. The car featured a new 2.4L twin-turbocharged V6 engine, replacing the previous year's design, while the previous year's 8-megajoule hybrid system was upgraded and carried over to the new car. Toyota had reworked the block, head, and combustion chamber on the engine to allow for a higher compression ratio and boost its thermal efficiency.
+The hybrid system of the car was upgraded with smaller and lighter motor-generator units, whilst the lithium-ion battery pack was also modified. Prior to the WEC Prologue pre-season test, it was also revealed by Toyota that the car had undergone 30,000 km in testing, consisting of five tests, at various circuits, including the Circuit Paul Ricard, Ciudad del Motor de Aragón, Algarve International Circuit. Of the five tests, four of these were revealed to be 30-hour endurance tests.
+
+
+== Competition history ==
+
+
+=== 2016 ===
+Toyota started the season with a second place and points finish at Silverstone, and followed up with a good performance at Spa-Francorchamps only to have engine trouble hit both cars, later attributed to the unique forces applied whilst going through the infamous Eau Rouge corner.
+
+
+==== 2016 24 Hours of Le Mans ====
+
+Toyota had a very strong race at Le Mans, qualifying 3rd and 4th behind the two Porsche 919 Hybrids. The cars worked their way into the lead, setting up what seemed like an inevitable victory, which would be the first for the manufacturer, following four previous second-place finishes in 1992, 1994, 1999, and 2013. As the race drew to a close, the #5 Toyota had a lead over the #2 Porsche. With 6:30 left, the gap between the lead #5 Toyota and the #2 Porsche was 1:14, with both cars on the lead lap. Delayed radio transmissions by Kazuki Nakajima revealed at about this time that the #5 was experiencing a severe loss of power on acceleration, and this was evidenced by the #2 rapidly catching it. With 4:30 to go, the gap had been reduced to 37.580 seconds, and Toyota had to decide whether to bring its car into the pits or to keep it on the race track. The team elected to keep the car on track, and Nakajima had to stop the car, but stopped it just after the finish line as the #5 car's power gave out entirely, with 3:25 remaining on the clock. The #2 Porsche passed it a few seconds later to claim the LMP1 and overall victories in what turned out to be the final lap of the race.
+Nakajima held the #5 car stationary just past the start/finish line until the 24 hour clock officially ran out, then pushed the car ahead at whatever speed it could manage to complete the last lap. Officially, it took the #5 Toyota 11:53.815 to complete the final lap of the race, which is above the maximum allowed time of six minutes. This led to the #5 car not being classified in the race results and not earning any championship points.
+
+
+=== 2017 ===
+
+For the first time since the team rejoined the race in 2012, Toyota announced that it would enter 3 cars at the 2017 Le Mans 24 hours. The third car would be driven by Toyota half-retiree Stéphane Sarrazin, Super Formula champion Yuji Kunimoto and Nicolas Lapierre (the latter returning after being dropped from the Toyota squad in 2014). On 15 June 2017, a TS050 driven by Kamui Kobayashi set a lap time record of 3:14.791 during a qualifying session for the 24 Hours of Le Mans. This is the fastest lap ever set at Circuit de la Sarthe since chicanes were added to the Mulsanne Straight in 1990. During the 24 hour race itself, the No. 8 car finished 8th overall, while the No. 9  and the No. 7 cars had their race cut short due to a puncture and an MGU issue respectively.
+
+
+=== 2018 ===
+
+Toyota came into the 2018–19 FIA World Endurance Championship season as the only LMP1 team with hybrid entries. After taking a one-two victory at the 6 Hours of Spa-Francorchamps, they became the second Japanese car manufacturer to win the 24 Hours of Le Mans after Mazda in 1991 with the Mazda 787B, Toyota scoring another 1–2 finish. In Silverstone, the Toyotas were disqualified after originally finishing 1–2. The team moved on to take 1–2 in Fuji and Shanghai.
+
+
+=== 2019 ===
+
+Toyota dominated the 2019 half of Super Season by finishing 1–2 in Sebring, and the 2019 24 Hours of Le Mans, which along with the win in 2019 6 Hours of Spa-Francorchamps, helped them secure the LMP1 World Endurance Championship. The #8 crew secured the Drivers' title with their victory at Le Mans. For the following season, a harsher Equivalence of Technology (EoT) was implemented to allow non-hybrid privateer entries compete effectively against the Toyotas, as well as a success ballast, which aimed to handicap cars based on their points total in the championship. The changes had their desired effects, as the TS050's pace advantage was reduced and the privateer cars found themselves closer as the success ballast was implemented. Toyota was able to secure pole positions and 1–2 finishes in Silverstone and Fuji, but lost on the overall victory in Shanghai to Rebellion, finishing second and third. It was the first time that the TS050 finished a race behind an internal combustion engine privateer. Toyota was able to recover in Bahrain and secure another 1–2 despite missing out on the pole position on the final race of the year.
+
+
+=== 2020 ===
+Toyota entered 2020 in the lead of both championships halfway through the 2019–20 season, but found themselves down on pace against Rebellion's R13, as the success ballast penalized said lead in the championship. Toyota missed again on the victory at the 2020 Lone Star Le Mans in favor of the R13, which took pole and lead from the start. Toyota came back to secure another 1–2 finish in the next race at Spa despite missing out on pole. At the 2020 24 Hours of Le Mans, Toyota took its first pole of the year and the first since Fuji, and the #8 won for the third straight year. The #7 ran on the lead for the first hours of the race until a turbocharger failure during the night caused it to have a lengthy stop. The car recovered and secured third place during the last hour. The Le Mans result clinched the World Endurance LMP1 Championship for Toyota and set a showdown between the two cars at Bahrain for the drivers' title. The #7 took victory in Bahrain in what was the last race for the Toyota TS050 Hybrid and Conway, Kobayashi and López secured the World Endurance LMP Drivers' Championship.
+
+
+== Complete World Endurance Championship results ==
+Results in bold indicate pole position. Results in italics indicate fastest lap. Pink background indicates third manufacturer entry; manufacturer points only awarded at Le Mans. 
+
+1 The two highest-finishing cars for each manufacturer scored points.
+2 Only the highest-finishing car for each manufacturer scored points.
+
+
+== See also ==
+Toyota TS040 Hybrid
+Audi R18 e-tron quattro
+Porsche 919 Hybrid
+Nissan GT-R LM Nismo
+
+
+== References ==

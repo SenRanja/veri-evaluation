@@ -1,0 +1,82 @@
+The Aerfer Sagittario 2 (Italian for sagittarius) was a prototype all-metal single-seat lightweight jet-powered fighter aircraft designed and produced by the Italian aircraft manufacturer Aerfer. It was the first Italian aircraft to fly at supersonic speeds.
+A major impetus for the development of the Sagittario 2 was the issuing of NATO Basic Military Requirement 1 (NBMR-1) in December 1953, which sought a new light tactical support aircraft for NATO air services. Aerfer's design team, headed by the Italian aeronautical engineer Sergio Stefanutti, promptly produced the Sagittario 2 as the company's response. Although the submission was reviewed by NATO officials, the Sagittario 2 was ultimately passed over in favour of other aircraft, these being the Breguet Br.1001 Taon, the Fiat G.91, and the Dassault Mystère XXVI.
+Aefer proceeded to complete and test-fly two prototypes. Accordingly, the Sagittario 2 performed its maiden flight on 19 May 1956. One of the prototypes broke the sound barrier for the first time on 4 December 1956. While the Italian Air Force did evaluate the type, no resulting production order was ever received. While testing of the Sagittario 2 concluded in the late 1950s, development work continued as the Ariete.
+
+
+== Design and development ==
+As a result of experiences from the Korean War alongside newly developed concepts of aerial cooperation, the members of NATO recognised a need to reequip their inventories with suitable jet-powered ground attack aircraft. In December 1953, NATO Supreme Command issued NATO Basic Military Requirement 1 (NBMR-1), calling for a new light tactical support aircraft. Western companies were invited to submit their designs for this requested Light Weight Strike Fighter role. One of the aircraft manufacturers to respond with a design was the Italian firm Aerfer; its design team was headed by the Italian aeronautical engineer Sergio Stefanutti. The resulting aircraft, the Sagittario 2, was based on the company's earlier Sagittario, which was itself a development of the S.7 piston-engined training aircraft that went into service with the Italian Air Force in small numbers. Assembly of the prototypes was performed at Aerfer's facility in Pomigliano d’Arco, Naples.
+The specified requirements of NBMR-1 included a 1,100 m (3,610 ft) takeoff distance over a 15 m (49 ft) obstacle, the capability to operate from semi-prepared grass airstrips and roads, a maximum speed of Mach 0.95, a range of 280 km (170 mi) with ten minutes over the target while possessing a maximum of 2,200 kg (4,850 lb) empty weight and 4,700 kg (10,360 lb) max weight. Equipment requirements were the presence of armoured protection for the pilot and the fuel tanks along with alternative arrangements of 4 × 12.7 mm (.5 in) machine guns or 2 × 20 mm or 30 mm autocannon. These operational specifications were viewed as not being straightforward to fulfil at that time. The challenge of providing an engine that matched the requirements of lightness and power, reliability and ease of maintenance was solved by using the Bristol Siddeley Orpheus turbojet. The development of this engine has been aided by a substantial contribution from the US Mutual Weapons Development Programme. Nine of the ten designs to be subsequently submitted for the competition were powered by the Orpheus engine.
+In order to evaluate the bids that various aircraft manufacturers submitted in response, a special Advisory Group for Aeronautical Research and Development (AGARD) committee conducted extensive evaluations for NBMR-1. The designs were required within two months of the competition, in which time an assortment of submissions were made, mainly by European companies. Besides the Sagittario 2, these included the Northrop N-156, Dassault Mystère XXVI, Sud-Est Baroudeur, Fiat G.91 and the Breguet Br.1001 Taon. On 30 June 1955, the selected projects for the requirement had been announced, and the Sagittario 2 was not amongst them (the winning designs were the Taon, the G.91 and the Mystère XXVI. 
+Nevertheless, Aerfer elected to conduct flight testing of its new aircraft. On 19 May 1956, the prototype Sagittario 2 conducted its maiden flight. On 4 December 1956, while piloted by Lieutenant Colonel Giovanni Franchini, the prototype broke the sound barrier while in controlled flight, having attained a top speed of Mach 1.1 during a dive from 13,725 m (45,000 ft). The Italian Air Force performed their own evaluation of the Sagittario 2, which involved air force pilots test flying the type, but this did not conclude in a production order. Further development continued as the Ariete.
+The Sagittario 2 was a compact all-metal jet-powered aircraft, designed to be operated as either an interceptor or light tactical support aircraft. While the Bristol Siddeley Orpheus turbojet engine had been selected to power the type, it was still in development at the time of its selection; hence, prototype aircraft were instead powered by a single Rolls-Royce Derwent 9 centrifugal-flow turbojet. This engine was mounted within the nose and its exhaust was located underneath the mid-fuselage. The wing and tail surfaces were both highly-swept. The cockpit was moved forward of its position on the Sagittario's predecessors, and equipped with a bubble canopy. A tricycle undercarriage was fitted, with the nose gear retracting underneath the engine.
+
+
+== Operators ==
+ Italy
+Italian Air Force - operated two aircraft for evaluation purposes
+
+
+== Specifications (Sagittario 2) ==
+
+Data from Jane's All the World's Aircraft 1958-59General characteristics
+Crew: 1
+Length: 9.50 m (31 ft 2 in)
+Wingspan: 7.50 m (24 ft 7 in)
+Height: 2.02 m (6 ft 8 in)
+Wing area: 14.73 m2 (158.6 sq ft)
+Aspect ratio: 3.82
+Airfoil: root: laminar symmetric 8.5% thick, tip: laminar symmetric 9.30% thick
+Empty weight: 2,300 kg (5,071 lb) 
+Gross weight: 3,293 kg (7,260 lb)
+Fuel capacity: 1,200 L (320 US gal; 260 imp gal) across four fuselage tanks
+Powerplant: 1 × Rolls-Royce Derwent 9 centrifugal-flow turbojet, 16 kN (3,600 lbf) thrust
+Performance
+
+Maximum speed: 1,006 km/h (625 mph, 543 kn)
+Range: 765 km (475 mi, 413 nmi) 
+Service ceiling: 14,000 m (46,000 ft)
+Rate of climb: 42 m/s (8,300 ft/min)
+Time to altitude: 12,000 m (39,000 ft) in ten minutes
+Wing loading: 227 kg/m2 (46 lb/sq ft)
+Thrust/weight: 0.49
+Armament
+
+Guns: 2 × 30 mm (1.181 in) Hispano-Suiza HSS 825 L/70 cannon with 300 rounds per gun
+Hardpoints: 2 with a capacity of 318 kg (701 lb), with provisions to carry combinations of:
+Bombs: 2 × 227 kg (500 lb) bombs or 2 × 318 kg (701 lb) napalm tanks
+Other: 2 × machine guns or cannon
+Rockets: 12 × 7.62 cm (3 in) rockets
+
+
+== See also ==
+
+Related development
+
+Ambrosini S.7
+Ambrosini Sagittario
+Aerfer Ariete
+Aerfer Leone
+Aircraft of comparable role, configuration, and era
+
+Yak-23
+
+Related lists
+
+List of fighter aircraft
+
+
+== References ==
+
+
+=== Citations ===
+
+
+=== Bibliography ===
+
+Angelucci, Enzo; Matricardi, Paolo (1980). Combat Aircraft 1945–1960. Maidenhead, Berkshire, UK: Sampson Low Guides. ISBN 0-562-00136-0.
+Apostolo, Giorgio (1966). The Fiat G.91. Leatherhead, Surrey, UK: Profile Publications Ltd.
+Bridgman, Leonard, ed. (1958). Jane's All the World's Aircraft 1958-59. London, UK: Jane's All the World's Aircraft Publishing Co. Ltd.
+Buttler, Tony (2015). X-Planes of Europe II: Military Prototype Aircraft from the Golden Age 1946–1974. Manchester, UK: Hikoki Publications. ISBN 978-1-90210-948-0.
+Ciampaglia, Giuseppe (2004). Dal SAI Ambrosini Sagittario all'AERFER Leone [From the SAI Ambrosini Sagittario to the AERFER Leone]. Rome, Italy: IBN Editore. ISBN 978-8875650001.
+Ferrari, Massimo (August 1992). "Addio G.91R". RID (in Italian).
+The Aeroplane. 21 December 1956. p. 924. {{cite magazine}}: Missing or empty |title= (help)
