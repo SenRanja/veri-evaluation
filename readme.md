@@ -269,6 +269,8 @@ python analyze_jsonl_characters.py
 linux上运行:
 
 ```bash
+# install pip requirements
+source .env
 python3 -u generate_wikipedia_test_cases.py \
   --limit 2000 \
   > log_gen_test_case.log 2>&1
