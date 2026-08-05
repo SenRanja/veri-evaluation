@@ -20,7 +20,7 @@
 
 ```bash
 conda activate py312
-pip install deepeval openai pyyaml
+pip install deepeval openai pyyaml pydantic 
 deepeval test run test_evaluation.py
 ```
 
@@ -266,7 +266,13 @@ python analyze_jsonl_characters.py
 
 `generate_wikipedia_test_cases.py` 有断点恢复的能力，会按照jsonl文件从前往后进行问题集生成。比如从1生成到 正在处理50，我按了ctrl，下次我重新运行此命令，会从50开始重新生成并向后生成。
 
+linux上运行:
 
+```bash
+python3 -u generate_wikipedia_test_cases.py \
+  --limit 2000 \
+  > log_gen_test_case.log 2>&1
+```
 
 
 
