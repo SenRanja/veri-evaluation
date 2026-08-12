@@ -1,7 +1,0 @@
-Tokarara-Hohola Urban LLG is a local-level government (LLG) of National Capital District, Papua New Guinea.
-
-
-== References ==
-
-OCHA FISS (2018). "Papua New Guinea administrative level 0, 1, 2, and 3 population statistics and gazetteer". Humanitarian Data Exchange. 1.31.9.
-United Nations in Papua New Guinea (2018). "Papua New Guinea Village Coordinates Lookup". Humanitarian Data Exchange. 1.31.9.

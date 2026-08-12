@@ -1,9 +1,0 @@
-The Bacteroid-trp RNA motif is a conserved RNA element detected by bioinformatics.  It is found in the phylum Bacteroidota in the apparent 5' untranslated regions of genes that encode enzymes used in the synthesis of the amino acid tryptophan.  A short open reading frame is found within the motif that encodes at least two tryptophan codons.  Similar motifs have been identified regulating tryptophan genes in Pseudomonadota (see trp operon), but not in Bacteroidota. However, the Bacteroid-trp RNA motif likely operates via the same mechanism of attenuation.
-
-
-== References ==
-
-
-== External links ==
-
-Page for Bacteroidete tryptophan peptide leader RNA at Rfam
