@@ -18,6 +18,14 @@ from tools.openai_interceptor import OpenAIInterceptor
 
 
 CONFIG_FILE = Path("config.yaml")
+METRIC_METADATA = {
+    "ContextualRelevancyMetric": (
+        "contextual_relevancy",
+        "Contextual Relevancy",
+    ),
+    "AnswerRelevancyMetric": ("answer_relevancy", "Answer Relevancy"),
+    "FaithfulnessMetric": ("faithfulness", "Faithfulness"),
+}
 
 
 def load_yaml(path):
@@ -168,10 +176,21 @@ def build_rate(numerator, denominator):
     }
 
 
-def metric_gates_case(metric_name, actual_answered):
-    if metric_name == "Correctness":
+def get_metric_identity(metric):
+    class_name = metric.__class__.__name__
+    if class_name in METRIC_METADATA:
+        return METRIC_METADATA[class_name]
+
+    display_name = getattr(metric, "name", None) or class_name.removesuffix(
+        "Metric"
+    )
+    return display_name.lower().replace(" ", "_"), display_name
+
+
+def metric_gates_case(metric_id, actual_answered):
+    if metric_id == "correctness":
         return True
-    if metric_name in {"Answer Relevancy", "Faithfulness"}:
+    if metric_id in {"answer_relevancy", "faithfulness"}:
         return actual_answered
     return False
 
@@ -203,16 +222,16 @@ def build_decision_summary(results):
     }
 
 
-def find_metric(result, metric_name):
+def find_metric(result, metric_id):
     return next(
         metric for metric in result["metrics"]
-        if metric["name"] == metric_name
+        if metric["id"] == metric_id
     )
 
 
-def build_metric_mean(results, decision_state, metric_name):
+def build_metric_mean(results, decision_state, metric_id):
     scores = [
-        find_metric(result, metric_name)["score"]
+        find_metric(result, metric_id)["score"]
         for result in results
         if result["decision_state"] == decision_state
     ]
@@ -225,22 +244,22 @@ def build_quality_summary(results):
     ]
     correct_answers = sum(
         result["decision_state"] == "AA"
-        and find_metric(result, "Correctness")["passed"]
+        and find_metric(result, "correctness")["passed"]
         for result in expected_answerable
     )
 
     return {
         "aa_mean_correctness": build_metric_mean(
-            results, "AA", "Correctness"
+            results, "AA", "correctness"
         ),
         "aa_mean_faithfulness": build_metric_mean(
-            results, "AA", "Faithfulness"
+            results, "AA", "faithfulness"
         ),
         "aa_mean_answer_relevancy": build_metric_mean(
-            results, "AA", "Answer Relevancy"
+            results, "AA", "answer_relevancy"
         ),
         "nn_mean_correctness": build_metric_mean(
-            results, "NN", "Correctness"
+            results, "NN", "correctness"
         ),
         "correct_answer_rate": build_rate(
             correct_answers,
@@ -249,7 +268,27 @@ def build_quality_summary(results):
     }
 
 
-async def evaluate_case(case, metrics):
+def new_case_result(case):
+    decision_state = get_decision_state(case)
+    return {
+        "status": "in_progress",
+        "document": case["document"],
+        "name": case["name"],
+        "expected_answered": case["expected_answered"],
+        "actual_answered": case["actual_answered"],
+        "decision_state": decision_state,
+        "decision_passed": decision_state in {"AA", "NN"},
+        "case_passed": None,
+        "passed": None,
+        "input": case["input"],
+        "actual_output": case["actual_output"],
+        "expected_output": case["expected_output"],
+        "retrieval_context": case["retrieval_context"],
+        "metrics": [],
+    }
+
+
+async def evaluate_case(case, metrics, on_metric_response=None):
     test_case = LLMTestCase(
         input=case["input"],
         actual_output=case["actual_output"],
@@ -257,14 +296,10 @@ async def evaluate_case(case, metrics):
         retrieval_context=case["retrieval_context"],
     )
 
-    metric_results = []
+    result = new_case_result(case)
 
-    for metric in metrics:
-        metric_name = getattr(
-            metric,
-            "name",
-            metric.__class__.__name__.removesuffix("Metric"),
-        )
+    for metric_index, metric in enumerate(metrics):
+        metric_id, metric_name = get_metric_identity(metric)
         print(
             f"[{case['name']}] Evaluating {metric_name}...",
             flush=True,
@@ -274,64 +309,115 @@ async def evaluate_case(case, metrics):
         score = float(metric.score)
         threshold = float(metric.threshold)
 
-        metric_results.append(
+        result["metrics"].append(
             {
+                "id": metric_id,
                 "name": metric_name,
                 "score": score,
                 "threshold": threshold,
                 "passed": score >= threshold,
                 "gates_case": metric_gates_case(
-                    metric_name,
+                    metric_id,
                     case["actual_answered"],
                 ),
                 "reason": getattr(metric, "reason", None),
             }
         )
 
-    decision_state = get_decision_state(case)
-    decision_passed = decision_state in {"AA", "NN"}
-    case_passed = decision_passed and all(
-        result["passed"]
-        for result in metric_results
-        if result["gates_case"]
+        if metric_index == len(metrics) - 1:
+            case_passed = result["decision_passed"] and all(
+                metric_result["passed"]
+                for metric_result in result["metrics"]
+                if metric_result["gates_case"]
+            )
+            result["status"] = "completed"
+            result["case_passed"] = case_passed
+            result["passed"] = case_passed
+
+        if on_metric_response is not None:
+            await on_metric_response(result)
+
+    return result
+
+
+def build_live_report(results, total_cases, metrics_per_case):
+    available_results = [result for result in results if result is not None]
+    completed_results = [
+        result for result in available_results
+        if result["status"] == "completed"
+    ]
+    metric_responses = sum(
+        len(result["metrics"]) for result in available_results
     )
 
     return {
-        "document": case["document"],
-        "name": case["name"],
-        "expected_answered": case["expected_answered"],
-        "actual_answered": case["actual_answered"],
-        "decision_state": decision_state,
-        "decision_passed": decision_passed,
-        "case_passed": case_passed,
-        "passed": case_passed,
-        "input": case["input"],
-        "actual_output": case["actual_output"],
-        "expected_output": case["expected_output"],
-        "retrieval_context": case["retrieval_context"],
-        "metrics": metric_results,
+        "progress": {
+            "status": (
+                "completed"
+                if len(completed_results) == total_cases
+                else "running"
+            ),
+            "total_cases": total_cases,
+            "completed_cases": len(completed_results),
+            "metric_responses": metric_responses,
+            "expected_metric_responses": total_cases * metrics_per_case,
+        },
+        "decision_summary": build_decision_summary(completed_results),
+        "quality_summary": build_quality_summary(completed_results),
+        "cases": available_results,
     }
 
 
-async def evaluate_cases(cases, config, max_workers):
+async def evaluate_cases(cases, config, max_workers, results_file):
     """Evaluate cases concurrently on one asyncio event loop."""
     semaphore = asyncio.Semaphore(max_workers)
+    write_lock = asyncio.Lock()
+    results = [None] * len(cases)
+    metrics_per_case = len(build_metrics(config))
 
-    async def evaluate_with_limit(case):
+    save_results(
+        build_live_report(results, len(cases), metrics_per_case),
+        results_file,
+    )
+
+    async def evaluate_with_limit(case_index, case):
         async with semaphore:
             metrics = build_metrics(config)
-            result = await evaluate_case(case, metrics)
-            print_case_result(result)
+
+            async def save_metric_response(result):
+                async with write_lock:
+                    results[case_index] = result
+                    report = build_live_report(
+                        results,
+                        len(cases),
+                        metrics_per_case,
+                    )
+                    save_results(report, results_file)
+                    if result["status"] == "completed":
+                        print_case_result(result)
+                        print_live_summary(report)
+
+            result = await evaluate_case(
+                case,
+                metrics,
+                on_metric_response=save_metric_response,
+            )
             return result
 
     return await asyncio.gather(
-        *(evaluate_with_limit(case) for case in cases)
+        *(
+            evaluate_with_limit(case_index, case)
+            for case_index, case in enumerate(cases)
+        )
     )
 
 
 def save_results(results, output_file):
-    with output_file.open("w", encoding="utf-8") as file:
+    temporary = output_file.with_suffix(output_file.suffix + ".tmp")
+    with temporary.open("w", encoding="utf-8") as file:
         json.dump(results, file, ensure_ascii=False, indent=2)
+        file.write("\n")
+    temporary.replace(output_file)
 
 
 def save_summary_csv(results, output_file):
@@ -343,6 +429,7 @@ def save_summary_csv(results, output_file):
         "decision_state",
         "decision_passed",
         "case_passed",
+        "metric_id",
         "metric",
         "score",
         "threshold",
@@ -366,6 +453,7 @@ def save_summary_csv(results, output_file):
                         "decision_state": case["decision_state"],
                         "decision_passed": case["decision_passed"],
                         "case_passed": case["passed"],
+                        "metric_id": metric["id"],
                         "metric": metric["name"],
                         "score": metric["score"],
                         "threshold": metric["threshold"],
@@ -432,6 +520,25 @@ def print_case_result(result):
         )
 
 
+def print_live_summary(report):
+    progress = report["progress"]
+    decision = report["decision_summary"]
+    quality = report["quality_summary"]
+    passed = sum(
+        result["case_passed"] for result in report["cases"]
+        if result["status"] == "completed"
+    )
+    print(
+        "Live summary: "
+        f"{progress['completed_cases']}/{progress['total_cases']} cases, "
+        f"passed={passed}, "
+        f"decision_accuracy={decision['decision_accuracy']}, "
+        "correct_answer_rate="
+        f"{quality['correct_answer_rate']['value']}",
+        flush=True,
+    )
+
+
 def main():
     config = load_yaml(CONFIG_FILE)
     project_root, run_directory = create_run_directory(config)
@@ -480,18 +587,14 @@ def main():
 
     with interceptor:
         results = asyncio.run(
-            evaluate_cases(cases, config, max_workers)
+            evaluate_cases(cases, config, max_workers, results_file)
         )
 
     decision_summary = build_decision_summary(results)
     quality_summary = build_quality_summary(results)
 
     save_results(
-        {
-            "decision_summary": decision_summary,
-            "quality_summary": quality_summary,
-            "cases": results,
-        },
+        build_live_report(results, len(cases), len(build_metrics(config))),
         results_file,
     )
     save_summary_csv(results, summary_file)

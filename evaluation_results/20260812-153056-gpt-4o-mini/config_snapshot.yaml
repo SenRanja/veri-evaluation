@@ -1,0 +1,32 @@
+project:
+  cases_file: evaluation_cases/test_cases_novel.json
+  results_directory: evaluation_results
+target:
+  model: gpt-4o-mini
+judge:
+  model: gpt-4o-mini
+evaluation:
+  max_workers: 4
+metrics:
+  correctness:
+    threshold: 0.7
+    criteria: Determine whether the actual output is correct based on the expected
+      output. Penalize factual contradictions, missing essential information, and
+      materially incorrect claims.
+  faithfulness:
+    threshold: 0.7
+    include_reason: true
+  answer_relevancy:
+    threshold: 0.7
+    include_reason: true
+  contextual_relevancy:
+    threshold: 0.7
+    include_reason: true
+output:
+  results_json: results.json
+  summary_csv: summary.csv
+  token_summary_json: token_summary.json
+  config_snapshot: config_snapshot.yaml
+openai_interceptor:
+  enabled: true
+  log_file: openai_interactions.jsonl

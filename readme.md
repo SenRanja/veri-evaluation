@@ -112,6 +112,15 @@ Answer Recall = 1 - False Refusal Rate
 | Faithfulness     | `actual_output ↔ retrieval_context` | 模型回答是否受到材料支持？   | 识别与材料矛盾或没有依据的内容   |
 | Answer Relevancy | `actual_output ↔ input`             | 模型是否真正回答了用户的问题？ | 识别答非所问或只提供相邻信息的回答 |
 
+三个指标各自独立打分，互不推导，组合起来才有诊断价值：
+
+| Correctness | Faithfulness | 含义 |
+| --- | --- | --- |
+| 高 | 高 | 正常好回答 |
+| 高 | 低 | 碰巧答对，答案并非来自材料（依赖模型自身知识） |
+| 低 | 高 | 引用了材料但没有答对问题要点 |
+| 低 | 低 | 无依据编造（幻觉） |
+
 ## 指标适用性与用例判定
 
 四个指标并非对所有用例都有意义：
@@ -120,7 +129,7 @@ Answer Recall = 1 - False Refusal Rate
 - 判题模型经常把拒答判为“没有回答问题”，Answer Relevancy 对拒答的打分不可靠；
 - 无答案用例的材料与问题“相关性低”本身就是构造目标，Contextual Relevancy 必然偏低。
 
-如果要求每个用例通过全部四个指标，正确拒答（NN）几乎必然被误判为失败。因此指标是否参与用例判定（gate）由 `actual_answered` 决定：
+如果要求每个用例通过全部四个指标，正确拒答（NN）几乎必然被误判为失败。因此指标是否参与用例判定（gate）由 `actual_answered` 决定——门控条件是“是否实际作答”，而不是“是否答对”：
 
 | 指标 | actual_answered = true | actual_answered = false | 原因 |
 | --- | --- | --- | --- |
@@ -140,6 +149,8 @@ case_passed    = decision_passed 且 所有“参与判定”的指标分数 ≥
 
 `results.json` 中每个指标使用 `gates_case` 标明是否参与当前用例判定；`summary.csv` 使用对应的 `metric_gates_case` 列。`passed` 作为旧字段保留，其值与规范字段 `case_passed` 相同。
 
+指标还包含稳定的机器字段 `id`（`correctness`、`faithfulness`、`answer_relevancy`、`contextual_relevancy`）。判定与汇总按 `id` 工作，`name` 只用于显示，避免 DeepEval 版本差异改变逻辑。
+
 ## 汇总统计
 
 质量分数必须按决策状态条件化统计，避免把“拒答质量”与“作答质量”混为一谈：
@@ -152,7 +163,21 @@ case_passed    = decision_passed 且 所有“参与判定”的指标分数 ≥
 
 Correct Answer Rate 是最贴近用户体验的单一指标：错误拒答（AN）与答错都会拉低它。
 
+Correctness、Faithfulness 与 Answer Relevancy 含义不同，不要把三者直接平均成一个总分。需要最终数据时按此取用：
+
+- 只汇报一个数：Correct Answer Rate；
+- 汇报两个数：再加 Decision Accuracy；
+- 逐用例结论：`case_passed`（决策正确且所有参与判定的指标 ≥ 阈值），其通过率可作总览。
+
 所有统计项输出时附带分子与分母；分母为 0 记为 `null`。
+
+评估运行开始后会立即创建 `results.json`。每收到一个指标响应，程序都会通过临时文件原子替换该 JSON，因此 Ctrl+C 或异常退出时，已经返回的指标不会丢失。文件中的 `progress` 包含：
+
+- `status`：`running` 或 `completed`；
+- `total_cases` / `completed_cases`；
+- `metric_responses` / `expected_metric_responses`。
+
+尚未完成的用例以 `status: in_progress` 保存，`case_passed` 为 `null`；实时 Decision/Quality 汇总只统计 `status: completed` 的用例，防止部分指标污染总体数据。每完成一个用例，终端会即时输出完成数、通过数、Decision Accuracy 和 Correct Answer Rate。
 
 ## 评估指标说明
 

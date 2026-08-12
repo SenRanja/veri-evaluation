@@ -150,9 +150,21 @@ evaluation_results/{timestamp}-{judge_model}/
 
 中断或异常运行可能只留下部分产物。token 汇总只覆盖 DeepEval 的 Chat Completions；生成器和作答器使用 Responses API，不计入该汇总。
 
+`results.json` 是实时快照，而不是仅在运行结束时生成：
+
+- 运行开始即写入空进度与空汇总；
+- 每个 metric 响应返回后，在异步写锁内更新对应用例；
+- 通过 `.tmp` 文件替换保证任意时刻读取到完整 JSON；
+- `progress` 记录用例和 metric 响应进度；
+- `in_progress` 用例保留已返回指标，但不进入总体汇总；
+- 每完成一个用例重新计算决策汇总和条件质量汇总并输出到终端。
+
+指标结果同时保存稳定 `id` 和显示 `name`。门控和汇总只依赖 `id`，避免 DeepEval 指标对象未提供 `name` 时发生逻辑漂移。
+
 ## 可靠性设计
 
 - 生成器和作答器都通过临时文件替换实现原子 JSON 保存。
+- 评估器同样在每个 metric 响应后原子保存实时 `results.json`，并用异步锁串行化并发写入。
 - 每成功生成一道题或取得一个回答后立即保存。
 - 生成器恢复时要求已有 page ID 是当前选择集前缀，且只有最后一篇可以未完成。
 - 抽样由 `--sample` 和 `--seed` 控制；恢复时必须保持 `--start`、`--sample`、`--seed`、题数等选择参数兼容。

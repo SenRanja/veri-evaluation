@@ -12,7 +12,9 @@
 - 152 道题均已有 `gpt-4o-mini` 模型后缀作答字段。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
-- `test_evaluation_logic.py` 的 4 项离线测试曾在上述对齐改动后全部通过。
+- `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。
+- 指标门控和汇总已使用稳定内部 ID，不再依赖 DeepEval 可为空的 `name`。
+- `test_evaluation_logic.py` 的 8 项离线测试已通过，覆盖每响应落盘、真实指标 ID、门控、字段选择和条件汇总。
 - 当时也已通过核心 Python 文件编译和 VS Code 诊断检查。
 
 ## 尚未完成
@@ -22,16 +24,6 @@
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。
 
 ## 已知问题与风险
-
-### 高优先级：指标显示名耦合
-
-截至本状态文档生成时，已安装 DeepEval 版本中的 `ContextualRelevancyMetric`、`AnswerRelevancyMetric` 和 `FaithfulnessMetric` 实例，其 `name` 属性实测为 `None`。`evaluation.py` 当前的门控和质量汇总依赖人类可读指标名精确匹配，因此真实运行可能出现：
-
-- Answer Relevancy/Faithfulness 未按预期参与 AA 用例判定；
-- 条件汇总查找不到 `Answer Relevancy` 或 `Faithfulness`；
-- 评估在完成 API 调用后生成汇总时失败。
-
-此问题已识别但未修复，因为本轮用户只要求写文档。下一次修改代码时应优先引入稳定的内部指标 ID，并用真实 DeepEval 指标对象做离线测试，显示名只用于报告。
 
 ### 数据路径不一致
 
@@ -56,12 +48,10 @@
 
 ## 下一步建议
 
-1. 修复指标内部 ID，消除对 DeepEval `name` 的依赖，并补真实对象离线测试。
-2. 运行 `python -m pytest -q test_evaluation_logic.py` 和核心语法检查。
-3. 用少量用例完成一次付费冒烟评估，确认全部五类产物和新汇总结构。
-4. 评估稳定后再运行 152 题全量评估。
-5. 统一 downloader 与 generator/extractor 的默认 JSONL 路径。
-6. 将网络测试明确标记为 integration，避免默认 `pytest` 触发 API。
+1. 用少量用例完成一次付费冒烟评估，确认实时 JSON、全部五类产物和新汇总结构。
+2. 评估稳定后再运行 152 题全量评估。
+3. 统一 downloader 与 generator/extractor 的默认 JSONL 路径。
+4. 将网络测试明确标记为 integration，避免默认 `pytest` 触发 API。
 
 ## 常用命令
 
