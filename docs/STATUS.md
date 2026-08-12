@@ -11,7 +11,7 @@
 - 当前用例 `evaluation_cases/test_cases_novel.json` 有 4,000 篇文档、16,000 道题；目前全部只有无后缀的 `null` 占位，没有 `gpt-4o-mini` 模型后缀作答字段，因此不能直接评估。
 - `evaluation_cases/test_cases_novel - Copy.json` 有 101 篇文档、401 道题，401 道题均已有完整的 `gpt-4o-mini` 模型后缀作答字段；如需评估它，必须同时将 `config.yaml` 的 `project.cases_file` 指向该文件。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
-- 已新增 `veriai_answer.py`：按文档顺序上传 TXT 到 Veris，保存 `veri_file_id`，再按题保存 `actual_answered_veri` 和 `actual_output_veri`；上传和回答均逐项原子落盘并支持断点恢复。成功响应不受引用校验或 Boolean 判定阻塞，完整输出会追加 `file_id`、文件名和标题来源索引。
+- 已新增 `veriai_answer.py`：按文档顺序上传 TXT 到 Veris，保存 `veri_file_id`，再按题保存 `actual_answered_veri` 和 `actual_output_veri`；上传和回答均逐项原子落盘并支持断点恢复。启动时只索引一次 TXT 目录，不做全量预校验；文档、上传或单题异常会记录后跳过。成功响应不受引用校验或 Boolean 判定阻塞，完整输出会追加 `file_id`、文件名和标题来源索引。
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
 - `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。

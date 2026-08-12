@@ -150,25 +150,23 @@ def save_json(data: list[dict[str, Any]], path: Path) -> None:
     temporary.replace(path)
 
 
-def validate_document(document: dict[str, Any], document_index: int) -> None:
-    if not isinstance(document.get("page_id"), int):
-        raise ValueError(f"Document {document_index} has no valid page_id")
-    if not isinstance(document.get("title"), str) or not document["title"].strip():
-        raise ValueError(f"Document {document_index} has no valid title")
-    if not isinstance(document.get("questions"), list):
-        raise ValueError(f"Document {document_index} has no valid questions array")
-    for question_index, question in enumerate(document["questions"], 1):
-        if not isinstance(question, dict) or not isinstance(question.get("input"), str):
-            raise ValueError(
-                f"Document {document_index}, question {question_index} has no valid input"
-            )
+def index_source_files(directory: Path) -> dict[str, list[Path]]:
+    indexed: dict[str, list[Path]] = {}
+    for source_file in directory.glob("*.txt"):
+        page_id, separator, _ = source_file.name.partition("-")
+        if separator:
+            indexed.setdefault(page_id, []).append(source_file)
+    return indexed
 
 
-def find_source_file(document: dict[str, Any], directory: Path) -> Path:
-    matches = sorted(directory.glob(f"{document['page_id']}-*.txt"))
+def find_source_file(
+    document: dict[str, Any], source_files: dict[str, list[Path]], directory: Path
+) -> Path:
+    page_id = str(document["page_id"])
+    matches = sorted(source_files.get(page_id, []))
     if len(matches) != 1:
         raise ValueError(
-            f"Expected exactly one TXT for page_id {document['page_id']}, "
+            f"Expected exactly one TXT for page_id {page_id}, "
             f"found {len(matches)} in {directory}"
         )
     return matches[0]
@@ -357,9 +355,7 @@ def main() -> None:
         start_index = args.start_document - 1
         end_index = start_index + args.document_limit if args.document_limit else None
         selected = documents[start_index:end_index]
-        for document_index, document in enumerate(selected, args.start_document):
-            validate_document(document, document_index)
-            find_source_file(document, args.files_directory)
+        source_files = index_source_files(args.files_directory)
     except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError, ValueError) as error:
         raise SystemExit(str(error)) from error
 
@@ -370,102 +366,120 @@ def main() -> None:
     uploaded = 0
     answered = 0
     skipped = 0
+    failed_documents = 0
+    failed_questions = 0
     session = requests.Session()
 
     try:
         selection_end = args.start_document + len(selected) - 1
         for document_index, document in enumerate(selected, args.start_document):
-            source_file = find_source_file(document, args.files_directory)
-            file_id = document.get("veri_file_id")
-            if args.reupload or not isinstance(file_id, str) or not file_id.strip():
+            try:
+                source_file = find_source_file(
+                    document, source_files, args.files_directory
+                )
+                file_id = document.get("veri_file_id")
+                if args.reupload or not isinstance(file_id, str) or not file_id.strip():
+                    print(
+                        f"[{document_index}/{selection_end}] Uploading "
+                        f"{source_file.name}"
+                    )
+                    file_id = call_with_retries(
+                        lambda: upload_file(session, api_key, source_file, args.timeout),
+                        args.retries,
+                        "Upload",
+                    )
+                    document["veri_file_id"] = file_id
+                    save_json(documents, args.input)
+                    uploaded += 1
+                    print("  Saved veri_file_id")
+                else:
+                    file_id = file_id.strip()
+                questions = document["questions"]
+                title = document["title"]
+            except Exception as error:
+                failed_documents += 1
                 print(
-                    f"[{document_index}/{selection_end}] Uploading "
-                    f"{source_file.name}"
+                    f"[{document_index}/{selection_end}] Skipped document: {error}"
                 )
-                file_id = call_with_retries(
-                    lambda: upload_file(session, api_key, source_file, args.timeout),
-                    args.retries,
-                    "Upload",
-                )
-                document["veri_file_id"] = file_id
-                save_json(documents, args.input)
-                uploaded += 1
-                print("  Saved veri_file_id")
-            else:
-                file_id = file_id.strip()
+                continue
 
-            for question_index, question in enumerate(document["questions"], 1):
-                complete = (
-                    isinstance(question.get("actual_answered_veri"), bool)
-                    and isinstance(question.get("actual_output_veri"), str)
-                    and bool(question["actual_output_veri"].strip())
-                )
-                has_citation = all(
-                    section in question.get("actual_output_veri", "")
-                    for section in ("【Answer】", "【Cited passage】", "【Source】")
-                )
-                if complete and has_citation and not args.overwrite:
-                    indexed_output = add_source_index(
-                        question["actual_output_veri"],
+            for question_index, question in enumerate(questions, 1):
+                try:
+                    complete = (
+                        isinstance(question.get("actual_answered_veri"), bool)
+                        and isinstance(question.get("actual_output_veri"), str)
+                        and bool(question["actual_output_veri"].strip())
+                    )
+                    has_citation = all(
+                        section in question.get("actual_output_veri", "")
+                        for section in ("【Answer】", "【Cited passage】", "【Source】")
+                    )
+                    if complete and has_citation and not args.overwrite:
+                        indexed_output = add_source_index(
+                            question["actual_output_veri"],
+                            file_id,
+                            title,
+                            source_file.name,
+                        )
+                        if question["actual_output_veri"] != indexed_output:
+                            question["actual_output_veri"] = indexed_output
+                            save_json(documents, args.input)
+                            print(
+                                f"[{document_index}/{selection_end}] Indexed "
+                                f"{question.get('name', f'question_{question_index}')} "
+                                "actual_output_veri"
+                            )
+                        skipped += 1
+                        continue
+
+                    name = question.get("name", f"question_{question_index}")
+                    print(f"[{document_index}/{selection_end}] {title} / {name}")
+                    answer = call_with_retries(
+                        lambda: ask_question(
+                            session,
+                            api_key,
+                            file_id,
+                            question["input"],
+                            title,
+                            source_file.name,
+                            args.timeout,
+                            args.print_api_response,
+                        ),
+                        args.retries,
+                        "Question",
+                    )
+                    answer = add_source_index(
+                        answer,
                         file_id,
-                        document["title"],
+                        title,
                         source_file.name,
                     )
-                    if question["actual_output_veri"] != indexed_output:
-                        question["actual_output_veri"] = indexed_output
-                        save_json(documents, args.input)
-                        print(
-                            f"[{document_index}/{selection_end}] Indexed "
-                            f"{question.get('name', f'question_{question_index}')} "
-                            "actual_output_veri"
-                        )
-                    skipped += 1
+                    question["actual_answered_veri"] = is_answered(answer)
+                    question["actual_output_veri"] = answer
+                    save_json(documents, args.input)
+                    answered += 1
+                    print(
+                        "  Saved actual_answered_veri="
+                        f"{question['actual_answered_veri']} and actual_output_veri"
+                    )
+                except Exception as error:
+                    failed_questions += 1
+                    print(
+                        f"[{document_index}/{selection_end}] Skipped "
+                        f"question_{question_index}: {error}"
+                    )
                     continue
-
-                name = question.get("name", f"question_{question_index}")
-                print(
-                    f"[{document_index}/{selection_end}] "
-                    f"{document['title']} / {name}"
-                )
-                answer = call_with_retries(
-                    lambda: ask_question(
-                        session,
-                        api_key,
-                        file_id,
-                        question["input"],
-                        document["title"],
-                        source_file.name,
-                        args.timeout,
-                        args.print_api_response,
-                    ),
-                    args.retries,
-                    "Question",
-                )
-                answer = add_source_index(
-                    answer,
-                    file_id,
-                    document["title"],
-                    source_file.name,
-                )
-                question["actual_answered_veri"] = is_answered(answer)
-                question["actual_output_veri"] = answer
-                save_json(documents, args.input)
-                answered += 1
-                print(
-                    "  Saved actual_answered_veri="
-                    f"{question['actual_answered_veri']} and actual_output_veri"
-                )
     except KeyboardInterrupt:
         print("\nInterrupted. Every item reported as saved is in the JSON file.")
         raise SystemExit(130) from None
-    except RuntimeError as error:
-        raise SystemExit(str(error)) from error
     finally:
         session.close()
 
     print(f"Uploaded files: {uploaded}")
     print(f"Answered questions: {answered}")
     print(f"Skipped existing questions: {skipped}")
+    print(f"Failed documents skipped: {failed_documents}")
+    print(f"Failed questions skipped: {failed_questions}")
     print(f"Updated file: {args.input}")
 
 
