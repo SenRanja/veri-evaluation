@@ -14,8 +14,9 @@
 | `analyze_jsonl_characters.py` | 统计 JSONL 每行字符数。 |
 | `extract_wikipedia_texts.py` | 将 `text` 提取为 Windows 安全的 `{page_id}-{title}.txt`。TXT 只用于外部上传或人工检查。 |
 | `generate_wikipedia_test_cases.py` | 用 Responses API 生成结构化题目；交替生成 answerable/unanswerable；逐题原子保存并支持断点恢复。 |
-| `gpt-4o-mini_answer.py` | 使用 `target.model` 对每道题作答；严格使用用例内的 `retrieval_context`；逐题写入模型后缀字段。 |
-| `evaluation.py` | 加载目标模型作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
+| `gpt-4o-mini_answer.py` | 使用 `target.model` 对每道题作答；严格使用用例内的 `retrieval_context`；逐题写入模型后缀字段，并跳过已有完整回答以支持续跑。 |
+| `evaluation.py` | 要求全部题目已有有效目标模型作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
+| `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `OPENAI_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
 | `test_evaluation_logic.py` | 不访问网络的核心契约回归测试。 |
 | `test_chatbot.py`、`test_veris.py` | 会访问裁判模型的示例/集成测试，可能产生费用。 |
@@ -88,6 +89,8 @@ flowchart LR
 
 评估器优先读取后缀字段；仅当两者都不存在时，才回退到无后缀旧字段。任一实际作答字段类型无效时应立即失败，而不是猜测。
 
+作答器的输入由 `--input` 指定，默认是 `evaluation_cases/test_cases_novel.json`；评估器的输入由 `config.yaml` 中的 `project.cases_file` 指定。修改数据文件时必须确保两者指向同一份用例，否则可能出现“作答已完成但评估仍报告字段缺失”的情况。
+
 ## 配置契约
 
 `config.yaml` 的核心配置：
@@ -100,6 +103,25 @@ flowchart LR
 - `metrics.*`：阈值和裁判说明。
 - `output.*`：产物文件名。
 - `openai_interceptor.*`：交互日志开关与文件名。
+
+## 运行顺序与恢复语义
+
+标准运行顺序：
+
+```bash
+source .venv/bin/activate
+python gpt-4o-mini_answer.py
+bash evaluation.sh
+```
+
+作答阶段必须先完成。每道题需要包含与 `target.model` 对应的 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>`；评估器在启动时校验全部题目，不支持只评估一份部分作答文件。
+
+两个阶段的恢复语义不同：
+
+- 作答器在每次成功响应后原子保存整个用例 JSON，并默认跳过已有的完整模型后缀字段，因此中断后重复同一命令即可续跑。`--limit` 限制本次处理的未回答题数，适合分批控制成本；`--overwrite` 会重生成已有回答。
+- 评估器在每个指标响应后原子更新当前运行目录的 `results.json`，因此中断时已返回结果仍可检查；但它不会从该快照继续执行。重新运行会创建新的时间戳目录并从第一题开始。
+
+WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY`；不依赖 Conda。
 
 ## 决策与指标逻辑
 
@@ -148,7 +170,7 @@ evaluation_results/{timestamp}-{judge_model}/
 - `config_snapshot.yaml`：运行时配置快照。
 - `openai_interactions.jsonl`：启用拦截器时的完整裁判交互。
 
-中断或异常运行可能只留下部分产物。token 汇总只覆盖 DeepEval 的 Chat Completions；生成器和作答器使用 Responses API，不计入该汇总。
+中断或异常运行可能只留下部分产物；输入校验失败也可能留下空的时间戳目录，因为运行目录在加载用例前创建。token 汇总只覆盖 DeepEval 的 Chat Completions；生成器和作答器使用 Responses API，不计入该汇总。
 
 `results.json` 是实时快照，而不是仅在运行结束时生成：
 
@@ -166,5 +188,6 @@ evaluation_results/{timestamp}-{judge_model}/
 - 生成器和作答器都通过临时文件替换实现原子 JSON 保存。
 - 评估器同样在每个 metric 响应后原子保存实时 `results.json`，并用异步锁串行化并发写入。
 - 每成功生成一道题或取得一个回答后立即保存。
+- 作答器通过跳过已有完整回答实现断点续跑；评估器只保留中断快照，不实现断点续跑。
 - 生成器恢复时要求已有 page ID 是当前选择集前缀，且只有最后一篇可以未完成。
 - 抽样由 `--sample` 和 `--seed` 控制；恢复时必须保持 `--start`、`--sample`、`--seed`、题数等选择参数兼容。
