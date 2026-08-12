@@ -1,0 +1,11 @@
+DQC or .DQC can refer to:
+
+Driver Qualification Card, a card issued to new drivers passing the qualification test; see Driver CPC
+Data Quality Campaign, an American organization focused on data quality
+.DQC, a file format for documents compressed by SQ (program)
+Dynamic Quantum Clustering, a type of quantum clustering in data analysis
+Ormyridae, a family of parasitic wasps
+
+
+== See also ==
+DQC1, the complexity class of problems that can be solved in the One Clean Qubit model of quantum computing

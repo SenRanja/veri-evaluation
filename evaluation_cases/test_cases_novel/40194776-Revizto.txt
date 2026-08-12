@@ -1,0 +1,59 @@
+Revizto, founded in 2008, is a software company based in Lausanne. It is named after its signature product, a cloud-based collaboration software platform designed for BIM collaboration, supporting both 3D and 2D workflows. 
+The Revizto platform enables users to communicate and to collaborate with all project stakeholders within a single software environment. Its software technologies have been used by multiple organizations, including the City Government of Barcelona and the XXII Olympic Winter Games Organizing Committee.
+Its operational subsidiary companies include Revizto Pty Ltd in Australia, Revizto, LLC in Armenia, 3DreamTeam Inc in Americas, and Revizto R&D GmbH in Germany.
+
+
+== History ==
+Revizto was founded in 2008 by Arman Gukasyan as Vizerra.
+In 2015, Revizto moved its headquarters from Silicon Valley, California to Lausanne, Switzerland.
+
+
+== Software ==
+
+
+=== Overview ===
+Revizto was introduced in 2011. Originally, it was a viewing and filtering tool, but later developed into a component of technology stack. Its cloud hub aggregates 2D and 3D project data, providing issue tracking, VR, clash detection, and comprehensive mobile device support.
+Revizto converts Autodesk Revit BIMs and Trimble SketchUp models into interactive 3D environments with tools for collaboration and issue tracking platform.
+Revizto is a cross-platform software that runs on 64-bit Windows, macOS, iOS and Android platforms.
+
+
+=== Features ===
+In 2012, to enhance its utility, Revizto added an issue-tracking component inspired by Atlassian's Jira, and debuted at Autodesk University. Subsequently, it expanded its issue tracker and integrated 2D and 3D capabilities, recognizing the ongoing relevance of 2D for contractual documents.
+In 2015, an automatic overlay feature for 3D models was added, which increased its usage and led to adoption by larger organizations.
+Between 2017 and 2018, Revizto integrated point cloud support and pioneered its accessibility on mobile devices. It also introduced a caching feature, reducing dependency on bandwidth and increasing project accessibility on various devices.
+
+
+==== App ====
+In 2023, Revizto unveiled a mobile app at its inaugural global user conference. The app is compatible with iOS and Android platforms and provides subscribers access to project data, including sheets and 3D models, and facilitated issue tracking, thereby enabling real-time collaboration and review.
+
+
+==== Plugins ====
+Revizto has introduced plugins to extract and optimize data from Revit within Revizto, enabling basic user interaction with design models. The software supports plugins for Revit, ArchiCAD, Tekla Structures, Navisworks, SketchUp, AutoCAD Civil 3D, Vectorworks and MicroStation on its platform.
+
+
+==== Supported formats ====
+The supported formats include IFC, OBJ, FBX, PDF, point cloud (RCP and RCS) and BCF files.
+
+
+=== Version history ===
+In 2013, Revizto 1.2 was released. This version included new features such as X-ray and transparent views, visibility filtering by object type, real-time chat, and an updated user interface. Improvements to navigation were also made, and onscreen cues with a help screen were added to enhance usability. The software's startup time with large models was reduced, compatibility with PCs was maintained, and the handling of files was extended to include both cloud and standalone options. Free applications for iPad and Android devices were also introduced by the developer.
+In 2014, Revizto 3.0 was released, introducing features such as an integrated Issue Tracker with automatic reporting and Revit compatibility; scene merging in the Editor; AutoCAD integration; 2D Map and Ruler functions in the Viewer and Editor; a WebGL Viewer for web use; and the option to add a Watermark in the Viewer.
+In 2016, a significant change marked the release of Revizto 4.0 as the Viewer became the main tool for project management, cloud synchronization, and team collaboration. This version saw the Revizto Editor integrated into the Viewer for optional modifications. Non-3D projects now had the capacity to utilize issue tracking, import 2D PDFs, and annotate within these documents. Revizto 4.0 also brought with it scheduled export functions and improvements to the process of merging projects from different computers.
+The 2020 release of Revizto 5.0 saw a shift in focus towards data-centric operations. This version enabled users to track issues without relying on specific models. It incorporated features that facilitated integration with various data sources and laid the groundwork for potential in-built clash detection.
+
+
+=== Security ===
+Revizto's development process is guided by specific security criteria, including the integration of necessary controls and regular risk assessments, aligned with recognized best practices in systems and project management.
+Testing of Revizto components involves static code analysis during development and testing phases. Development, test, and stage environments are isolated from production environments and from each other.
+User authentication in Revizto is provided via Single Sign-On (SSO), with support for LDAP and OAuth (Google Workspace) and ongoing work on SAML implementation.
+
+
+== RevUP ==
+RevUP is a three-day conference organized by Revizto. It brings together users, partners, and leaders in the AECO industry from around the world. The event features discussions on technological innovations, collaboration, and industry practices. Activities include panel discussions, keynote speeches, and educational sessions focused on workflows and use cases in the AECO field.
+
+
+== Revizto Field Days ==
+Revizto Field Days are events at which members of the Architecture, Engineering, and Construction (AEC) community gather. The focus is on the exchange of strategies related to integrated collaboration platforms and industry best practices in areas such as Building Information Modeling (BIM) Coordination and RealityCapture.
+
+
+== References ==

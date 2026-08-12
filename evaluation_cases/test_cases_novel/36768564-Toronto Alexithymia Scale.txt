@@ -1,0 +1,50 @@
+The Toronto Alexithymia Scale (TAS) is a widely used measure of alexithymia, a personality trait characterised by the difficulty in identifying and describing emotions. The scale provides a standardised, self-report method for assessing emotional awareness and has been used extensively in psychology research and clinical practice. The current version, the TAS-20, includes 20 items addressing three core dimensions of alexithymia.
+The TAS-20 is useful for screening individuals for alexithymia, assisting with clinical formulation and predicting therapy outcomes. High alexithymia scores have been linked to premature termination of psychotherapy, difficulty establishing therapeutic alliances and poorer emotional insight. The scale can act as an early indicator of therapy challenges, allowing clinicians to tailor interventions to address emotional deficits. Research suggests that improving emotional identification and awareness can lead to better emotional regulation and reduced psychological distress.
+Research using the TAS-20 has consistently shown elevated alexithymia scores in individuals with various mental health disorders, including eating disorders, depression, anxiety disorders, substance use disorders and somatoform disorders. These findings have been interpreted as evidence of the association between alexithymia and mental health conditions.  
+The TAS-20 is also used in medical settings to explore links between alexithymia and psychosomatic symptoms, chronic pain and cardiovascular health. This highlights its broader relevance beyond mental health alone.
+However, in recent years, some significant limitations have been noted in the TAS-20 by a number of research groups, including low reliability for one of its subscales and discriminant validity concerns that some parts of the measure appear to assess people's distress levels rather than alexithymia.
+
+
+== Development and History ==
+The current version, known as the 20-item Toronto Alexithymia Scale (TAS-20), was developed in 1994 by Michael Bagby, James Parker and Graeme Taylor, after the previous 26-item Toronto Alexithymia Scale (TAS-26) was found to have psychometric limitations. The revised 20-item version (TAS-20) improved validity and reliability and established a three-factor structure.
+In the years since its publication, the English version of the TAS-20 has been translated into more than 30 languages  (pdfs of translated versions can be found here) and there are many papers on their validity across diverse cultural contexts.
+The TAS-20 is primarily administered to adults as the developers advised caution in diagnosing alexithymia in individuals under 17 years old. A version for children, the Children Alexithymia Scale (CAS), was developed but has demonstrated weaker psychometric properties compared to the adult version.
+
+
+== Structure, Scoring and Interpretation ==
+The TAS-20 is composed of 20 items assessing three different factors, each representing a different subscale:
+
+Difficulty Identifying Feelings (DIF): Items 1, 3, 6, 7, 9, 13, 14.
+Difficulty Describing Feelings (DDF): Items 2, 4, 11, 12, 17.
+Externally Oriented Thinking (EOT): Items 5, 8, 10, 15, 16, 18, 19, 20.
+Respondents rate each item on a five-point Likert scale, ranging from "strongly disagree" to "strongly agree". Five items are reversed scored: 4, 5, 10, 18 and 19. The TAS-20 takes approximately 5-10 minutes to complete and can be administered online or in paper form.
+Examples of TAS-20 items include:
+
+"I am often confused about what emotions I am feeling" (Item 1).
+"It is difficult for me to find the right words for my feelings" (Item 2).
+"I prefer to analyse problems rather than just describe them" (Item 5).
+Total scores range from 20 to 100, with the higher scores indicating greater levels of alexithymia. Interpretation follows these cut-offs:
+
+0 – 51 = No alexithymia
+52 – 60 = Possible alexithymia
+61 – 100 = Present alexithymia
+Subscale scores can provide insight into specific areas of emotional difficulty. The subscale with the higher score indicates the area where the individual experiences the greatest challenge. However, the total score is considered the most reliable estimate of alexithymia. The TAS-20 EOT subscale has consistently been found to have low reliability, with a number of researchers therefore advising against its use.
+
+
+== Psychometric properties ==
+The TAS-20 has demonstrated generally good psychometric properties in both clinical and non-clinical populations. Research has shown that the scale has good levels of internal consistency at the total scale level, indicating that most of the items reliably measure the construct of alexithymia. Studies also support its test-retest reliability, suggesting that individuals' scores remain relatively stable over short intervals of time.
+Research supports the three-factor structure for the scale, reflecting the alexithymia construct, though the EOT subscale factor often has low reliability and some items that have issues in their factor loadings. The TAS-20 scale also shows evidence of convergent validity and concurrent validity.
+Additionally, a small statistically significant difference was found between the mean TAS-20 score for men (51.14) and women (48.99).
+
+
+== Limitations ==
+Despite its widespread use, the TAS-20 has been criticised for several limitations. Research has shown that the Externally Oriented Thinking (EOT) subscale often demonstrates poor internal consistency and factor loadings. This issue is evident in the original English version of the TAS-20, as well as the translated versions of the TAS-20. This pattern has lead to questioning of the use of this factor scale as a subscale and the content of some of its items. 
+Concerns have also been raised about the discriminant validity of the TAS-20, with findings that its DIF subscale may be confounded in measuring how distressed people currently are. Several studies that have compared the TAS-20 to other alexithymia measures have found that this appears to be an issue unique to the TAS-20, leading to some calls for TAS-20 item revisions or exclusions.
+Another limitation is the reliance on self-reported data to assess alexithymia. Critics argue that some individuals high in alexithymia may lack the self-awareness necessary to accurately complete a questionnaire measuring their emotional difficulties. This limitation was also acknowledged by the original authors early on. To address this, the developers suggested supplementing the TAS-20 with interviews and developed the Toronto Structured Interview for Alexithymia.
+
+
+== Related Measures ==
+Other measures of alexithymia have been developed as alternatives to the TAS-20. The 40-item Bermond-Vorst Alexithymia Questionnaire (BVAQ) was introduced in 2001, and assesses alexithymia across five dimensions and includes cognitive and affective components. While the BVAQ offers a broader theoretical scope, the TAS-20 remains more widely used due to its brevity and validated structure. More recently in 2018, the 24-item Perth Alexithymia Questionnaire was introduced, which assesses alexithymia across both negative and positive emotions. Comparatively, the TAS-20 appears to assess alexithymia only for negative emotions. The PAQ has generally demonstrated superior psychometric performance to the TAS-20 across a number of studies in adults and adolescents, including all PAQ subscales across DIF, DDF, and EOT having high levels of reliability and good predictive and discriminant validity. Alexithymia assessment remains an evolving area of research.
+
+
+== References ==

@@ -1,0 +1,45 @@
+Leason Heberling Adams (January 16, 1887 – August 20, 1969) was an American geophysicist and researcher. His principal achievement was his research on the properties of materials exposed to very high pressures, which he used to derive information on the nature of the Earth's interior. He received the William Bowie Medal of the American Geophysical Union in 1950 for his work.
+
+
+== Biography ==
+Born on 16 January 1887,  Adams grew up in central Illinois, where he received his early education in a one-room school. At the age of fifteen he entered the University of Illinois at Urbana–Champaign, graduating in 1906 with a Bachelor of Science degree in chemical engineering.
+After completing his university studies, he worked for the Technology Branch of the United States Geological Survey, first as an industrial chemist and then as a physical chemist. In 1910 he began working at the Geophysical Laboratory of the Carnegie Institution for Science in Washington, D.C. In 1937 he became the director of the Laboratory, and during World War II he served as the director of Division I (ballistics) of the Office of Scientific Research and Development.  He was elected to the United States National Academy of Sciences in 1943.
+Adams retired from the Carnegie Institution in 1952 but continued to carry out research, first as a consultant to the director of the National Bureau of Standards and then from 1958 until 1965 as a professor of geophysics at the University of California, Los Angeles.
+He died on 20 August 1969 in Silver Spring, Maryland.
+
+
+== Research ==
+Adams performed one of his first research projects during World War I, when he produced optical glass. He helped to develop a new method for annealing glass which was effective for large blocks, and then used this technique to make a 200-inch mirror for the Hale Telescope at the Mount Palomar Observatory. For this work, he received the Edward Longstreth Medal of the Franklin Institute.
+
+
+=== Geophysical work ===
+His most enduring work began in 1919, when he was working at the Carnegie Institution for Science to develop new methods for high-pressure measurement. In the late 19th century the prevailing view of the Earth was that it was made up of a thin crust floating on a molten interior. By Adams' day, this view was being challenged, especially by the findings of some seismologists who had found the wave velocities of the Earth at different depths. Wave velocities depend upon the elastic constants of the materials through which they pass, in particular the bulk modulus and stiffness.
+It should be possible to combine the experimentally-determined wave velocities of the various parts of the Earth's interior and the elasticity data from various rocks in order to find out about the Earth's interior. However, by the early 20th century no one had been able to determine the elastic constants of common rocks, because almost all rocks are slightly porous, complicating conventional elasticity measurement methods.
+Adams was able to solve this problem by fashioning rocks into cylinders, putting thin hermetically sealed metal jackets around them, and subjecting them to high pressures while inside a mobile liquid in a pressure vessel. By recording the piston displacement required in order to achieve a given pressure, Adams could find the volume change of the rocks and their bulk modulus.
+
+
+=== Implications ===
+These experiments had important implications for the field of geophysics. Adams used the measured bulk modulus of various rocks to find their wave velocities and then compared his results with the wave velocities of the Earth, which had been determined through seismology. He concluded that the high central density required for the known density of the Earth could not be accounted for by the compression of ordinary silicate minerals; the inner core of the Earth must be composed of a heavy iron-nickel material.
+In addition, research performed by the Croatian seismologist Andrija Mohorovičić indicated that there exists a region of the Earth's interior, the Mohorovičić discontinuity, where high wave velocities coincide with shallow depths. Adams' work showed that only two minerals, dunite and eclogite, could possible make up the discontinuity, and further exploration showed that dunite was a better fit than eclogite.
+Therefore, by combining his own elasticity calculations with current seismographic research, Adams was able to show that the conventional view of the Earth's interior as a uniform molten liquid was false, and that the Earth is in fact composed of a nickel-iron core, a thin crust, and that aside from a thin layer of dunitic material between the Earth's crust and mantle, the rest of the Earth's interior is iron, magnesium, silicon, and oxygen.
+
+
+== Awards and honors ==
+1910: Elected to member of the Philosophical Society of Washington (and president in 1929)
+1921 or 1924: Edward Longstreth Medal of the Franklin Institute
+1943: Elected to member of the U.S. National Academy of Sciences
+1948: Presidential Medal for Merit
+1950: William Bowie Medal of the American Geophysical Union
+
+
+== References ==
+
+
+== Bibliography ==
+R. E. Gibson (1980). "Leason Heberling Adams 1887—1969, A Biographical Memoir" (PDF). National Academy of Sciences. Retrieved November 12, 2011.
+"Leason Heberling Adams papers, 1919-1968" (PDF). Manuscript Division. Library of Congress. 2009. LCCN mm81078279. Retrieved November 13, 2011.
+
+
+== External links ==
+Leason Heberling Adams Papers, Manuscript Division, Library of Congress, Washington, D.C.
+National Academy of Sciences Biographical Memoir

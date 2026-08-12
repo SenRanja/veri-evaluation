@@ -1,0 +1,41 @@
+Lurbinectedin, sold under the brand name Zepzelca, is a medication used for the treatment of small cell lung cancer.
+Lurbinectedin is a synthetic tetrahydropyrrolo [4,3,2-de]quinolin-8(1H)-one alkaloid analogue with potential antineoplastic activity. Lurbinectedin covalently binds to residues lying in the minor groove of DNA, which may result in delayed progression through S phase, cell cycle arrest in the G2/M phase and cell death.
+The most common side effects include leukopenia, lymphopenia, fatigue, anemia, neutropenia, increased creatinine, increased alanine aminotransferase, increased glucose, thrombocytopenia, nausea, decreased appetite, musculoskeletal pain, decreased albumin, constipation, dyspnea, decreased sodium, increased aspartate aminotransferase, vomiting, cough, decreased magnesium and diarrhea.
+Lurbinectedin was approved for medical use in the United States in June 2020.
+
+
+== Medical uses ==
+Lurbinectedin is indicated for the treatment of adults with metastatic small cell lung cancer with disease progression on or after platinum-based chemotherapy.
+In October 2025, the indication for lurbinectedin was expanded to include using lurbinectedin in combination with atezolizumab or in combination with atezolizumab/hyaluronidase for the maintenance treatment of adults with extensive-stage small cell lung cancer whose disease has not progressed after first-line induction therapy with atezolizumab or atezolizumab and hyaluronidase, carboplatin, and etoposide.
+
+
+== Adverse effects ==
+The US prescribing information for lurbinectedin includes warnings and precautions for myelosuppression, hepatotoxicity, extravasation resulting in tissue necrosis, rhabdomyolysis, and embryo-fetal toxicity. The prescribing information for atezolizumab and for atezolizumab/hyaluronidase include warnings and precautions for severe and fatal immune-mediated adverse reactions, infusion-related reactions, complications of allogeneic hematopoietic stem cell transplantation, and embryo-fetal toxicity.
+
+
+== Structure ==
+Lurbinectedin is structurally similar to trabectedin, although the tetrahydroisoquinoline present in trabectedin is replaced with a tetrahydro β-carboline which enables lurbinectedin to exhibit increased antitumor activity compared with trabectedin.
+
+
+== Synthesis ==
+Synthesis of lurbinectedin starts from small, common starting materials that require twenty-six individual steps to produce the drug with overall yield of 1.6%.
+
+
+== Mechanism of action ==
+According to PharmaMar, lurbinectedin inhibits the active transcription of the encoding genes. This has two consequences. It promotes tumor cell death and normalizes the tumor microenvironment. Active transcription is the process by which there are specific signal where information contained in the DNA sequence is transferred to an RNA molecule. This activity depends on the activity of an enzyme called RNA polymerase II. Lurbinectedin inhibits transcription through a very precise mechanism. Firstly, lurbinectedin binds to specific DNA sequences. It is at these precise spots that RNA polymerase II slides down the DNA to produce RNA that is blocked and degraded by lurbinectedin. Lurbinectedin also has important role in tumor microenvironment. The tumor cells act upon macrophages to avoid them from behaving like an activator of the immune system. Macrophages can contribute to tumor growth and progression by promoting tumor cell proliferation and invasion, fostering tumor angiogenesis and suppressing antitumor immune cells.
+
+
+== History ==
+Lurbinectedin was approved for medical use in the United States in June 2020.
+Efficacy was demonstrated in the PM1183-B-005-14 trial (Study B-005; NCT02454972), a multi-center open-label, multi-cohort study enrolling 105 participants with metastatic small cell lung cancer who had disease progression on or after platinum-based chemotherapy. Participants received lurbinectedin 3.2 mg/m2 by intravenous infusion every 21 days until disease progression or unacceptable toxicity. The trial was conducted at 26 sites in the United States, Great Britain, Belgium, France, Italy, Spain and Czech Republic.
+The US Food and Drug Administration (FDA) granted the application for lurbinectedin priority review and orphan drug designations and granted the approval of Zepzelca to Pharma Mar S.A.
+The efficacy of lurbinectedin used in combination with atezolizumab or in combination with atezolizumab/hyaluronidase was evaluated in IMforte (NCT05091567), a randomized, multi-center, open-label trial in participants receiving first-line treatment for extensive-stage small cell lung cancer. In IMforte, 483 participants with extensive-stage small cell lung cancer whose disease had not progressed after completion of four cycles of atezolizumab, carboplatin, and etoposide (induction treatment) were randomized (1:1) to receive either lurbinectedin in combination with atezolizumab administered intravenously or atezolizumab intravenously alone until disease progression or unacceptable toxicity.
+In October 2025, the FDA approved a combination of atezolizumab, hyaluronidase, and lurbinectedin for the treatment of adults with extensive-stage small cell lung cancer.
+
+
+== References ==
+
+
+== External links ==
+"Lurbinectedin". NCI Dictionary of Cancer Terms. National Cancer Institute.
+Clinical trial number NCT02454972 for "Clinical Trial of Lurbinectedin (PM01183) in Selected Advanced Solid Tumors" at ClinicalTrials.gov

@@ -1,0 +1,40 @@
+Forbidden Island is a cooperative board game developed by Matt Leacock and published by Gamewright Games in 2010. Two to four players take the roles of different adventurers, moving around a mysterious island and looking for hidden treasures as the island sinks around them. All players win if they find all the hidden treasures and they all make it back to the helicopter and fly away, and they all lose if they cannot.
+
+
+== Gameplay ==
+
+Players take on the role of adventurers, with preset abilities as dictated by the adventurer selected, trying to retrieve treasures from a rapidly sinking island. They must retrieve four treasures: (The Earth Stone, the Crystal of Fire, the Statue of the Wind, and the Ocean Chalice) and return to the helicopter landing pad ("Fools Landing") before the waters rise covering the entire island. The board consists of a random distribution of 4x4 tiles, with an additional two tiles beyond each side of the square. 
+A deck of cards (the "flood deck") corresponding to the locations of the board drives the game: at the beginning of the game, the locations of the top six cards of that deck are flipped and considered "flooded". After every player's turn, new cards from that deck are drawn and the corresponding tiles are flooded or, if they are already flooded, "sink" by disappearing from the board, thus shrinking the island. Additional cards of this deck ("Waters Rise") increase the "flood meter" on the board.
+On their turn, a player may take up to three actions, of which the player can choose to move to an adjacent tile, shore up an adjacent flooded tile, give a treasure card to another player, collect a treasure, or perform the role-specific action of that player. The player then draws two cards from the "treasure deck"; these cards allow the eventual collecting of the corresponding treasure.
+As the players continue throughout the game, trying to traverse the slowly sinking island and shoring up tiles along the way, the players collect more cards from the “treasure deck”, up to a maximum hand limit of 5 cards, which can be used to collect their corresponding treasure or to perform specific actions as dictated by the card. To collect the four treasures across the island, the player must land on a “temple” space and present 4 of the corresponding treasure cards to collect that treasure.
+The players win if they manage to find all the treasures and escape from the island. They lose if the flood meter reaches its maximum value, if the helicopter pad disappears, if a treasure becomes unattainable, or if a player is on a sunken tile and cannot get to a non-sunken tile.
+
+
+== Sequel games ==
+
+All of the sequels continue to be cooperative board games.
+A sequel to Forbidden Island was released in 2013, titled Forbidden Desert. The game is situated in a desert and retains many of the same mechanics as Forbidden Island. However, there is added difficulty as well as new player roles and mechanics.
+A second sequel, Forbidden Sky was published in 2018, in which players try to repair a rocket in order to escape a floating platform during a thunderstorm. It features more substantial changes to the gameplay, as players now build the map of the platform as they explore and use magnetic metal and plastic pieces to build an actual circuit to activate lights and sound in a model rocket.
+A third sequel, Forbidden Jungle, was published in 2023.
+Players work together to repair a transportation portal and avoid spider-like aliens after their rocket is forced to land at an abandoned spaceport that is in a jungle. 
+
+
+== Reception ==
+In a review of Forbidden Island in Black Gate magazine, Andrew Zimmerman Jones said "Overall, there's really nothing negative I can say about this game. It is an outstanding cooperative game that's fun for all ages, and for experience levels ranging from hard-core gamers to casual gamers to novices. Once you play a couple of times, the set-up is extremely quick and the game itself goes quickly as well."
+
+
+=== Awards ===
+Winner for Golden Geek Best Children's Board Game 2010
+Winner for Mensa Select 2010
+Winner for UK Game Expo Best Family/Children's Game 2011
+Nominee for Spiel des Jahres 2011
+
+
+== References ==
+
+
+== External links ==
+Forbidden Island product page at Gamewright Games
+Forbidden Island page at BoardGameGeek
+Forbidden Island YouTube video on the TableTop web series.
+Forbidden Island Rulebook

@@ -1,0 +1,268 @@
+In mathematical physics, a super Virasoro algebra is an extension of the Virasoro algebra (named after Miguel Ángel Virasoro) to a Lie superalgebra. There are two extensions with particular importance in superstring theory: the Ramond algebra (named after Pierre Ramond)  and the Neveu–Schwarz algebra (named after André Neveu and John Henry Schwarz). Both algebras have N = 1 supersymmetry and an even part given by the Virasoro algebra. They describe the symmetries of a superstring in two different sectors, called the Ramond sector and the Neveu–Schwarz sector.
+
+
+== The N = 1 super Virasoro algebras ==
+There are two minimal extensions of the Virasoro algebra with N = 1 supersymmetry: the Ramond algebra and the Neveu–Schwarz algebra. They are both Lie superalgebras whose even part is the Virasoro algebra: this Lie algebra has a basis consisting of a central element C and generators Lm (for integer m) satisfying
+
+  
+    
+      
+        [
+        
+          L
+          
+            m
+          
+        
+        ,
+        
+          L
+          
+            n
+          
+        
+        ]
+        =
+        (
+        m
+        −
+        n
+        )
+        
+          L
+          
+            m
+            +
+            n
+          
+        
+        +
+        
+          
+            c
+            12
+          
+        
+        m
+        (
+        
+          m
+          
+            2
+          
+        
+        −
+        1
+        )
+        
+          δ
+          
+            m
+            +
+            n
+            ,
+            0
+          
+        
+      
+    
+    {\displaystyle [L_{m},L_{n}]=(m-n)L_{m+n}+{\frac {c}{12}}m(m^{2}-1)\delta _{m+n,0}}
+  
+
+where 
+  
+    
+      
+        
+          δ
+          
+            i
+            ,
+            j
+          
+        
+      
+    
+    {\displaystyle \delta _{i,j}}
+  
+ is the Kronecker delta.
+The odd part of the algebra has basis 
+  
+    
+      
+        
+          G
+          
+            r
+          
+        
+      
+    
+    {\displaystyle G_{r}}
+  
+, where 
+  
+    
+      
+        r
+      
+    
+    {\displaystyle r}
+  
+ is either an integer (the Ramond case), or half an odd integer (the Neveu–Schwarz case). In both cases, 
+  
+    
+      
+        c
+      
+    
+    {\displaystyle c}
+  
+ is central in the superalgebra, and the additional graded brackets are given by
+
+  
+    
+      
+        [
+        
+          L
+          
+            m
+          
+        
+        ,
+        
+          G
+          
+            r
+          
+        
+        ]
+        =
+        
+          (
+          
+            
+              
+                m
+                2
+              
+            
+            −
+            r
+          
+          )
+        
+        
+          G
+          
+            m
+            +
+            r
+          
+        
+      
+    
+    {\displaystyle [L_{m},G_{r}]=\left({\frac {m}{2}}-r\right)G_{m+r}}
+  
+
+  
+    
+      
+        {
+        
+          G
+          
+            r
+          
+        
+        ,
+        
+          G
+          
+            s
+          
+        
+        }
+        =
+        2
+        
+          L
+          
+            r
+            +
+            s
+          
+        
+        +
+        
+          
+            c
+            3
+          
+        
+        
+          (
+          
+            
+              r
+              
+                2
+              
+            
+            −
+            
+              
+                1
+                4
+              
+            
+          
+          )
+        
+        
+          δ
+          
+            r
+            +
+            s
+            ,
+            0
+          
+        
+      
+    
+    {\displaystyle \{G_{r},G_{s}\}=2L_{r+s}+{\frac {c}{3}}\left(r^{2}-{\frac {1}{4}}\right)\delta _{r+s,0}}
+  
+
+Note that this last bracket is an anticommutator, not a commutator, because both generators are odd.
+The Ramond algebra has a presentation in terms of 2 generators and 5 conditions; and the Neveu—Schwarz algebra has a presentation in terms of  2 generators  and 9 conditions.
+
+
+== Representations ==
+The unitary highest weight representations of these algebras have a classification analogous to that for the Virasoro algebra, with a continuum of representations together with an infinite discrete series.   The existence of these discrete series was conjectured by Daniel Friedan, Zongan Qiu, and Stephen Shenker (1984).  It was proven by Peter Goddard, Adrian Kent and David Olive (1986), using a supersymmetric generalisation of the coset construction or GKO construction.
+
+
+== Application to superstring theory ==
+In superstring theory, the fermionic fields on the closed string may be either periodic or anti-periodic on the circle around the string. States in the "Ramond sector" admit one option (periodic conditions are referred to as Ramond boundary conditions), described by the Ramond algebra, while those in the "Neveu–Schwarz sector" admit the other (anti-periodic conditions are referred to as Neveu–Schwarz boundary conditions), described by the Neveu–Schwarz algebra.
+For a fermionic field, the periodicity depends on the choice of coordinates on the worldsheet. In the w-frame, in which the worldsheet of a single string state is described as a long cylinder, states in the Neveu–Schwarz sector are anti-periodic and states in the Ramond sector are periodic. In the z-frame, in which the worldsheet of a single string state is described as an infinite punctured plane, the opposite is true.
+The Neveu–Schwarz sector and Ramond sector are also defined in the open string and depend on the boundary conditions of the fermionic field at the edges of the open string.
+
+
+== See also ==
+N = 2 superconformal algebra
+NS–NS sector
+Ramond–Ramond sector
+Superconformal algebra
+
+
+== Notes ==
+
+
+== References ==
+Becker, K.; Becker, M.; Schwarz, J.H. (2007), String theory and M-theory: A modern introduction, Cambridge University Press, ISBN 978-0-521-86069-7
+Goddard, P.; Kent, A.; Olive, D. (1986), "Unitary representations of the Virasoro and super-Virasoro algebras", Comm. Math. Phys., 103 (1): 105–119, Bibcode:1986CMaPh.103..105G, doi:10.1007/bf01464283, S2CID 91181508{{citation}}:  CS1 maint: deprecated archival service (link)
+Green, Michael B.; Schwarz, John H.; Witten, Edward (1988a), Superstring theory, Volume 1: Introduction, Cambridge University Press, ISBN 0521357527
+Kac, Victor G.; Todorov, Ivan T. (1985), "Superconformal current algebras and their unitary representations", Comm. Math. Phys., 102 (2): 337–347, Bibcode:1985CMaPh.102..337K, doi:10.1007/bf01229384, S2CID 189831973
+Kazama, Yoichi; Suzuki, Hisao (1989), "New N = 2 superconformal field theories and superstring compactification", Nuclear Physics B, 321 (1): 232–268, Bibcode:1989NuPhB.321..232K, doi:10.1016/0550-3213(89)90250-2
+Mezincescu, L.; Nepomechie, I.; Zachos, C. K. (1989). "(Super)conformal algebra on the (super)torus". Nuclear Physics B. 315 (1): 43. Bibcode:1989NuPhB.315...43M. doi:10.1016/0550-3213(89)90448-3.

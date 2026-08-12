@@ -1,0 +1,13 @@
+Hemolin is an immunoglobulin-like protein exclusively found in Lepidoptera (moths and butterflies). It was first discovered in immune-challenged pupae of Hyalophora cecropia  and Manduca sexta.
+Hemolin has a horseshoe crystal structure  with four domains and resembles the developmental protein neuroglian.
+
+Hemolin increases 18-fold up to 7 mg/ml following injection of bacteria in H. cecropia. Induction of Hemolin in moths after bacterial injection have been shown in several species including Antheraea pernyi, Bombyx mori, Helicoverpa zea,  Heliothis virescens,  Hyphantria cunea, and Samia cynthia.
+Hemolin has also been suggested to participate in the immune response to virus infection  and shown to bind to virus particles. It is expressed in response to dsRNA in a dose-dependent manner. Galleria melonella responds to caffeine intake by increased Hemolin protein expression.
+Hemolin is thought to be a gene duplication of the developmental protein neuroglian, but has lost two of the protein domains that neuroglian contains. In the potential function as a developmental protein, Hemolin has been shown to increase close to pupation in Manduca sexta, and is induced during diapause and by 20-Hydroxyecdysone in Lymantria dispar. RNAi of Hemolin causes malformation in H. cecropia.
+
+
+== See also ==
+Host defense in invertebrates
+
+
+== References ==

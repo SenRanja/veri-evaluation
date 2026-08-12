@@ -1,0 +1,22 @@
+Epitherians comprise all the placental mammals except the Xenarthra. They are primarily characterized by having a stirrup-shaped stapes in the middle ear, which allows for passage of a blood vessel. This is in contrast to the column-shaped stapes found in marsupials, monotremes, and xenarthrans. They are also characterized by having a shorter fibula relative to the tibia.
+Epitheria like Xenarthra and Afrotheria originated after the K-Pg boundary 66 million years ago, with the placental diversification occurring within the first hundred thousand years after the K-Pg event and the first modern placental orders began appearing 2–3 million years later. Epitheres are one of the most successful groups of animals.
+The monophyly of Epitheria has been challenged by molecular phylogenetic studies. While preliminary analysis of a set of retroposons shared by both Afrotheria, and Boreoeutheria (presence/absence data) supported the Epitheria clade, more extensive analysis of such transposable element insertions around the time of the divergence of Xenarthra, Afrotheria, and Boreoeutheria strongly support the hypothesis of a near-concomitant origin (trifurcation) of these three superorders of mammals.
+Another analysis suggests that the root of this clade lies between the Atlantogenata and Boreoeutheria.
+
+
+== Alternative hypotheses ==
+Alternative hypotheses place either Atlantogenata and Boreoeutheria, or Afrotheria and Exafroplacentalia (Notolegia) at the base of the tree:
+
+One Bayesian analysis places the root between Atlantogenata and Boreoeutheria.
+
+
+== References ==
+
+
+== External links ==
+Gross, Liza (2006). "Resolving the Family Tree of Placental Mammals". PLOS Biology. 4 (4): e111. doi:10.1371/journal.pbio.0040111. PMC 1395350. PMID 20076552.
+Waddell, P. J.; Kishino, H.; Ota, R. (2001). "A phylogenetic foundation for comparative mammalian genomics". Genome Informatics. 12: 141–154. PMID 11791233. Archived from the original on 2010-04-23.
+Springer, Mark S.; Murphy, William J.; Eizirik, Eduardo; O'Brien, Stephen J. (2003). "Placental mammal diversification and the Cretaceous–Tertiary boundary". Proceedings of the National Academy of Sciences. 100 (3): 1056–1061. Bibcode:2003PNAS..100.1056S. doi:10.1073/pnas.0334222100. PMC 298725. PMID 12552136.
+Wildman, Derek E.; Chen, Caoyi; Erez, Offer; Grossman, Lawrence I.; Goodman, Morris; Romero, Roberto (2006). "Evolution of the mammalian placenta revealed by phylogenetic analysis". Proceedings of the National Academy of Sciences. 103 (9): 3203–3208. Bibcode:2006PNAS..103.3203W. doi:10.1073/pnas.0511344103. PMC 1413940. PMID 16492730.
+Nikolaev, Sergey; Montoya-Burgos, Juan I.; Margulies, Elliott H.; Program, Nisc Comparative Sequencing; Rougemont, Jacques; Nyffeler, Bruno; Antonarakis, Stylianos E. (2007). "Early History of Mammals is Elucidated with the ENCODE Multiple Species Sequencing Data". PLOS Genetics. 3 (1): e2. doi:10.1371/journal.pgen.0030002. PMC 1761045. PMID 17206863. S2CID 1982092.
+Churakov, Gennady; Kriegs, Jan Ole; Baertsch, Robert; Zemann, Anja; Brosius, Jürgen; Schmitz, Jürgen (2009). "Mosaic retroposon insertion patterns in placental mammals". Genome Research. 19 (5): 868–875. doi:10.1101/gr.090647.108. PMC 2675975. PMID 19261842.

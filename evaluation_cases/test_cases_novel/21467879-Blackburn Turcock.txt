@@ -1,0 +1,31 @@
+The Blackburn F.1 Turcock was a British single-seat single-engine biplane fighter built in 1927. Designed to be produced in several variants, only one was completed.
+
+
+== Development ==
+In 1926 Blackburn partially deviated from their practice of building naval aircraft to design an interceptor fighter, intended to meet Air Ministry specifications F.9/26 (day and night fighter) and N.21/26 (fleet fighter). The first fighter from Blackburn under their new numbering system became the F.1; the name Blackcock was applied to the design, but it was intended that each variant, powered by a different engine, should have its own name. Blackburn intended to produce variants with the 446 hp (332 kW) Armstrong Siddeley Jaguar VI radial engine, the 585 hp (436 kW) Bristol Mercury radial and the 510 hp (380 kW) Rolls-Royce Kestrel water-cooled inline engine, though in the event, only the Jaguar-powered aircraft was completed.
+The F.1 emerged as a clean biplane with swept and staggered single-bay wings of unequal span, the upper wing having both greater span and chord. Apart from the front fuselage, the aircraft was fabric-covered over a steel frame for the fuselage and a mixture of steel spars and duralumin ribs in the wings. The fuselage narrowed to the rear, carrying a braced tailplane and a low, wide-chord fin and rudder with a flat top. Underneath, a faired skid provided more fin area; the rudder also projected beneath the fuselage. The main undercarriage was a standard fixed-axle design. The pilot's open cockpit was at the trailing edge of the wing, where a small cutout enhanced his forward and upward view.
+On the only F.1 built, the Jupiter engine was uncowled. The intended armament of two 0.030 in (7.7 mm) machine guns on either side of the fuselage and firing through the two-blade propeller was never fitted.
+
+
+== Operational history ==
+Blackburn won no Air Ministry orders for the F.1 and indeed, no manufacturer received an order under either of the above Ministry contracts, but there was one Jupiter-engined F.1 built for the Turkish government. This aircraft was therefore named the Turcock. It was flown to Turkey under the British registration G-EBVP in January 1928 but was lost in an accident on 13 February. 
+
+
+== Specifications (Turcock) ==
+Data from Jackson 1968, p. 239General characteristics
+Crew: one
+Length: 24 ft 4 in (7.42 m)
+Wingspan: 31 ft 0 in (9.49 m)
+Height: 8 ft 11 in (2.72 m)
+Empty weight: 2,282 lb (1,035 kg)
+Gross weight: 2,726 lb (1,237 kg)
+Powerplant: 1 × Armstrong Siddeley Jaguar VI 14-cylinder twin row radial , 446 hp (332 kW)
+Performance
+
+Maximum speed: 176 mph (283 km/h, 153 kn) at 15,000 ft (4,570 m)
+Endurance: 1.75 hours
+Service ceiling: 27,500 ft (8,380 m)
+Rate of climb: 1,300 ft/min (6.60 m/s) (initial)
+
+
+== References ==

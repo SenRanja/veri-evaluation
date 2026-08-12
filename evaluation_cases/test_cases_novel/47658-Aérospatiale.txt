@@ -1,0 +1,158 @@
+Aérospatiale (French: [aeʁɔspasjal]) was a French state-owned aerospace and defence corporation. It was founded in 1970 as Société Nationale Industrielle Aérospatiale (lit. 'National Aerospace Industrial Company') through the merger of three state-owned aerospace firms: Nord Aviation, SEREB, and Sud Aviation.
+During its existence, Aérospatiale was one of the world's largest aerospace companies. It was Europe's biggest general aeronautics manufacturer and its leading exporter in the industry. Its products included civilian and military aircraft and helicopters, launch vehicles and satellites, as well as weapon systems ranging from intercontinental ballistic missiles to portable anti-tank guided missiles. The company was also a key participant in several high-profile multinational programs, including the Concorde supersonic airliner, the Ariane series of launch vehicles, and the Airbus A300, the world’s first twin-engined wide-body airliner.
+Following the dissolution of the Soviet Union and the ensuing "peace dividend", much of the European aerospace and defence industry began to consolidate. Aérospatiale's breakup was accelerated by the French government's efforts to privatize state-owned companies. In 1992, Aérospatiale and Germany's DASA each spun off their helicopter divisions, which merged to form the Eurocopter Group—later renamed Airbus Helicopters—with the two parent companies holding 70% and 30% stakes, respectively. In 1999, Aérospatiale’s satellite manufacturing division was acquired by Alcatel to form Alcatel Space, later renamed Thales Alenia Space.
+In October 1999, Aérospatiale’s remaining assets were merged with the aerospace, defence, and telecommunications division of the French conglomerate Matra. The merger both consolidated the French aerospace sector and reduced the French government’s shareholding in preparation for a larger consolidation. The merged company, Aérospatiale-Matra, then joined with Germany’s DASA and Spain's CASA on 10 July 2000 to form the European Aeronautic Defence and Space Company (EADS), which was later rebranded Airbus.
+
+
+== History ==
+
+
+=== Formation ===
+
+In 1970, Aérospatiale was created under the name Société Nationale Industrielle Aérospatiale as a result of the merger of several French state-owned companies - Sud Aviation, Nord Aviation and Société d'étude et de réalisation d'engins balistiques (SEREB). The newly formed entity was the largest aerospace company in France. From the onset, the French government owned a controlling stake in Aérospatiale; at one stage, a 97 per cent ownership of the company was held by the government.
+In 1971, Aérospatiale was managed by the French industrialist Henri Ziegler; that same year, the firm's North American marketing and sales arm, which had previously operated under the trading name of the French Aerospace Corporation, was officially rebranded as the European Aerospace Corporation, which was intended to better reflect Aérospatiale's increasing focus on collaborative efforts with its European partners.
+
+
+=== Major activities ===
+Many of Aérospatiale's initial programmes were holdovers from its predecessors, particularly those of Sud Aviation. Perhaps the most high-profile of these programmes was Concorde, a joint French-British attempt to develop and market a supersonic commercial airliner. Initial work on this project had begun at Sud Aviation and the British Aircraft Corporation, its British counterpart. The engines for Concorde were also developed as a joint Anglo-French effort between SNECMA and Bristol Siddeley. However, the programme was highly politicised and encountered considerable cost overruns and delays. Ultimately, it was negatively affected equally by bad political decisions and an oil crisis in the 1970s; thus, only two airlines purchased Concorde.
+Aérospatiale's senior management were keen to avoid the mistakes of the  Concorde program. Their next major effort would be a transnational consortium with British Aerospace and the West German's aircraft company Messerschmitt-Bolkow-Blohm (MBB). The British would eventually withdraw from the discussions, but the French and West Germans would proceed and form Airbus Industrie GIE. It was established with the purpose of building a twin-engined widebody airliner, known as the A300. At first, it was difficult to achieve sales and the outlook for the A300 seemed negative. However, Aérospatiale continued to manufacture the airliner without orders, as it could not reasonably cut back production as French law required that laid-off employees were to receive 90 per cent of their pay for a year as well as to retain their health benefits throughout.
+Sales of the A300 picked up and the type eventually became a major commercial success, subsequently driving both the American Lockheed L-1011 and the McDonnell Douglas DC-10 from the market due to its cheaper operating model. On the back of this success, further airliners would be produced under the Airbus brand and the company would become a world leader in the field of large commercial aircraft during the 1990s.
+Aérospatiale played a leading role in the development of the European space sector. During the 1960s, Sud Aviation had been involved in a multinational European programme to produce the Europa space launch vehicle, this being a three-stage rocket with the separate stages being manufactured in Britain, France, and Germany respectively. However, all of the flight tests conducted were failures; the programme's misfortune has been attributed to there being no central authority responsible for operations. This came as a result of the issue of workshare becoming highly politicized.
+When Aérospatiale stepped in, in 1973, it was determined not to repeat the mistakes of Europa. The company proposed to build a new heavy launch vehicle, which would later be called the Ariane, to take the place of Europa. While other European nations were invited to participate, it would be French officials who would hold primary responsibility, and thus, make the most important decisions. This approach was agreed upon with several other nations; during 1979.
+Ariane was an immediate success, allowing the French to gain a strong advantage over the United States, which had centred its efforts on the Space Shuttle. However, the Challenger disaster during 1986 showed that it was too complex for routine use as a satellite launch platform. Aérospatiale went on to develop more capable versions of the Ariane, which took much of the business of space launches away from the Americans during the 1990s.
+
+
+=== Privatisation and mergers ===
+In 1992, Aérospatiale and the German defense company DaimlerBenz Aerospace AG (DASA) combined their respective helicopter divisions together to form the Eurocopter Group; ownership of this new entity was shared (70% and 30% respectively) between the two parent companies.
+During the late 1990s, French Prime Minister Lionel Jospin's Plural Left government initiated a policy towards the privatization of Aérospatiale. In 1999, the majority of Aérospatiale, except for the satellites activities, merged with French conglomerate Matra's defense wing, Matra Haute Technologie, to form Aérospatiale-Matra. 
+On 10 July 2000, Aérospatiale-Matra merged with DASA and Spanish aviation company Construcciones Aeronáuticas SA and to form the multinational European Aeronautic Defence and Space Company (EADS). EADS would later rebrand itself as Airbus, taking the name of its commercial aircraft division, its primary business.
+During 2001, Aérospatiale-Matra's missile division underwent a further merger with Anglo-French outfit Matra BAe Dynamics and the missile division of Alenia Marconi Systems to form the multinational MBDA entity.
+
+
+== Products ==
+
+
+=== Fixed-wing aircraft ===
+CM.170 Magister
+CM.175 Zephyr
+Concorde (with British Aircraft Corporation)
+N.262
+N.500
+SE 210 Caravelle
+SN 601 Corvette
+TB 30 Epsilon
+Ludion
+
+
+=== Helicopters ===
+
+Chronological prefixes: SE (Sud-Est) > SA (Sud-Aviation) > AS (Aérospatiale) > EC (Eurocopter); below standardized as "AS" with consecutive numbers:
+
+AS.313 Alouette II
+AS.315 Lama
+AS.316 Alouette III
+AS.318 Astazou
+AS.319 Alouette III
+AS.320 Frelon
+AS.321 Super Frelon
+AS.330 Puma
+AS.332 Super Puma
+AS.341 Gazelle
+AS.342 Gazelle
+AS.350 Ecureuil (AStar)
+AS.355 Ecureuil 2 (TwinStar)
+AS.360 Dauphin
+AS.365 Dauphin 2
+SA.366 Dolphin
+AS.505 Gerfaut (Tiger HAP: Helicoptere d'Appui et Protection)
+AS.532 Cougar
+AS.550 Fennec
+AS.565 Panther
+AS.665 Tigre (Tiger HAC: Helicoptere Anti-Char)
+
+
+=== Unmanned aerial vehicles ===
+C.22
+
+
+=== Missiles ===
+
+AS 15 TT
+AS-20
+AS-30
+M1 (missile)
+M20 (missile)
+M45 (missile)
+S1 (missile)
+S2 (missile)
+S3 (missile)
+SS.11
+SS.12/AS.12
+Air-Sol Moyenne Portée
+ENTAC
+Exocet
+Hadès (missile)
+HOT (missile)
+MILAN
+Pluton (missile)
+Roland (missile)
+
+
+=== Space-related products ===
+
+AMC-5 (satellite)
+Arabsat (satellite)
+Arabsat-1A
+Arabsat-1B
+Ariane rocket
+Ariane 1
+Ariane 2
+Ariane 3
+Ariane 4
+Ariane 5
+Astra 5A (satellite)
+Atmospheric Reentry Demonstrator
+Diamant (rocket)
+Hermes spaceplane (not built)
+Huygens (spacecraft)
+Infrared Space Observatory
+INSAT-1C (satellite)
+INSAT-2DT (satellite)
+Meteosat (satellite)
+Nahuel 1A (satellite)
+Proteus (satellite)
+Spacebus (satellite)
+Symphonie (satellite) (satellite)
+Tele-X (satellite)
+Turksat (satellite)
+Turksat 1A
+Turksat 1B
+Turksat 1C
+Topaze (sounding rocket)
+TV-SAT 1 (satellite)
+
+
+== List of CEOs ==
+1970-1973 : Henri Ziegler
+1973-1975 : Charles Cristofini
+1975-1983 : général Jacques Mitterrand, the brother of François Mitterrand
+Henri Martre (1983 - 1992)
+Louis Gallois (1992 - 1996)
+
+
+== See also ==
+Construcciones Aeronáuticas SA
+
+
+== References ==
+
+
+=== Citations ===
+
+
+=== Bibliography ===
+
+
+== External links ==
+
+Helis.com

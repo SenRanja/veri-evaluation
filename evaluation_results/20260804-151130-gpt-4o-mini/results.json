@@ -1,0 +1,198 @@
+{
+  "decision_summary": {
+    "counts": {
+      "AA": 2,
+      "NN": 1,
+      "AN": 0,
+      "NA": 1
+    },
+    "decision_accuracy": 0.75,
+    "false_refusal_rate": 0.0,
+    "hallucinated_answer_rate": 0.5,
+    "answer_precision": 0.6666666666666666,
+    "answer_recall": 1.0,
+    "abstention_precision": 1.0
+  },
+  "cases": [
+    {
+      "document": "refund_policy_document",
+      "name": "correct_refund_policy",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "passed": false,
+      "input": "What if these shoes don't fit?",
+      "actual_output": "You have 30 days to return them for a full refund at no extra cost.",
+      "expected_output": "We offer a 30-day full refund at no extra costs.",
+      "retrieval_context": [
+        "All customers are eligible for a 30-day full refund at no extra costs."
+      ],
+      "metrics": [
+        {
+          "name": "ContextualRelevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that address the concern of whether 'these shoes don't fit', and the existing statement about refund eligibility is unrelated."
+        },
+        {
+          "name": "AnswerRelevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because the response directly addresses the concern about shoe fit without any irrelevant statements."
+        },
+        {
+          "name": "Correctness",
+          "score": 0.8112098001441366,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The actual output conveys the same essential information as the expected output regarding the 30-day return policy and full refund. However, it lacks the phrase 'We offer,' which slightly diminishes the alignment with the expected output's phrasing. Overall, the factual accuracy is maintained, and the essential information is present, but the wording difference prevents a perfect score."
+        },
+        {
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because there are no contradictions, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "document": "refund_policy_document",
+      "name": "wrong_refund_period",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "passed": false,
+      "input": "How many days do I have to return the shoes?",
+      "actual_output": "You can return them within 90 days.",
+      "expected_output": "You can return them within 30 days.",
+      "retrieval_context": [
+        "All customers are eligible for a 30-day full refund at no extra costs."
+      ],
+      "metrics": [
+        {
+          "name": "ContextualRelevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because the relevant statement 'All customers are eligible for a 30-day full refund at no extra costs.' directly answers the input question about the return period for shoes."
+        },
+        {
+          "name": "AnswerRelevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because the response directly addresses the question about the return period for the shoes without any irrelevant statements."
+        },
+        {
+          "name": "Correctness",
+          "score": 0.04853922365956666,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The actual output states a return period of 90 days, which directly contradicts the expected output of 30 days. This discrepancy indicates a failure in factual accuracy and material correctness, as the essential information regarding the return policy is incorrect."
+        },
+        {
+          "name": "Faithfulness",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The score is 0.00 because the actual output claims a 90-day return period, which directly contradicts the retrieval context stating customers are eligible for a 30-day full refund."
+        }
+      ]
+    },
+    {
+      "document": "refund_policy_document",
+      "name": "refund_store_location",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "passed": false,
+      "input": "Which Sydney store should I visit for the refund?",
+      "actual_output": "The provided material does not specify a store location.",
+      "expected_output": "The provided material does not specify a store location.",
+      "retrieval_context": [
+        "All customers are eligible for a 30-day full refund at no extra costs."
+      ],
+      "metrics": [
+        {
+          "name": "ContextualRelevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The score is 0.00 because the retrieval context lacks any relevant statements, as it only mentions refund eligibility without specifying which Sydney store to visit."
+        },
+        {
+          "name": "AnswerRelevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The score is 0.00 because the output fails to provide any relevant information regarding store locations, which is essential for determining the appropriate Sydney store for a refund."
+        },
+        {
+          "name": "Correctness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The actual output perfectly matches the expected output, demonstrating complete factual accuracy and alignment with the evaluation steps. There are no discrepancies, and all essential information is present."
+        },
+        {
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because there are no contradictions, indicating that the actual output perfectly aligns with the retrieval context."
+        }
+      ]
+    },
+    {
+      "document": "refund_policy_document",
+      "name": "refund_store_hallucination",
+      "expected_answered": false,
+      "actual_answered": true,
+      "decision_state": "NA",
+      "decision_passed": false,
+      "passed": false,
+      "input": "Which Sydney store should I visit for the refund?",
+      "actual_output": "You should visit the Sydney CBD store.",
+      "expected_output": "The provided material does not specify a store location.",
+      "retrieval_context": [
+        "All customers are eligible for a 30-day full refund at no extra costs."
+      ],
+      "metrics": [
+        {
+          "name": "ContextualRelevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The score is 0.00 because the retrieval context lacks any relevant statements, as it only mentions refund eligibility without specifying which Sydney store to visit."
+        },
+        {
+          "name": "AnswerRelevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because the response directly addresses the question about which Sydney store to visit for a refund without including any irrelevant information."
+        },
+        {
+          "name": "Correctness",
+          "score": 0.006391284206471347,
+          "threshold": 0.7,
+          "passed": false,
+          "reason": "The actual output contradicts the expected output by providing a specific store location (Sydney CBD store) when the expected output states that no store location is specified. This indicates a complete failure to align with the factual accuracy and essential information requirements outlined in the evaluation steps."
+        },
+        {
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "reason": "The score is 1.00 because there are no contradictions, indicating that the actual output perfectly aligns with the retrieval context."
+        }
+      ]
+    }
+  ]
+}

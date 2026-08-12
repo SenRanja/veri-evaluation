@@ -1,0 +1,18 @@
+CHEB, also known as BRN 0250312 is a convulsant barbiturate. Its mechanism of action is not fully understood.
+
+
+== Pharmacodynamics ==
+CHEB has uncommon action compared to other barbiturates. While other barbiturates such as Barbital are usually anticonvulsants, CHEB is a convulsant.
+CHEB's convulsant action is not fully understood. There may be multiple mechanisms involved in its properties;
+In rats, CHEB stimulates the release of glutamate, an excitatory neurotransmitter.
+In low doses, CHEB can block the action of glycine, thus operating in a strychnine similar way.
+Another study has shown that CHEB could increase the release of acetylcholine. This result was not observed with some other convulsants (S(+)-MPPB, pentylenetetrazol and Ro-5-3663), suggesting that this property is unique.
+Paradoxically, CHEB is able to enhance the binding of GABA, this is a strange property, as compounds that enhance GABA binding usually have anticonvulsant action, such as diazepam.
+
+
+== See also ==
+Diberal (DMBB)
+McN-481
+
+
+== References ==

@@ -1,0 +1,31 @@
+The MS400 (Ukrainian: MC-400) is a turbofan engine developed by the Ukrainian aircraft engine manufacturer Motor Sich. The engine is used for subsonic unmanned air vehicles, and is based on the earlier R-95-300 engine designed for use in the Kh-35/Kh-55 missiles. It was also proposed for the Turkish Gezgin missile.
+
+
+== Specification ==
+The engine's specifications are as follows:
+
+
+==== General characteristics ====
+Type: turbofan
+Length: 846 mm (33.3 in)
+Diameter: 315 mm (12.4 in) with cowling
+Dry weight: 85 kg (187 lb)
+
+
+==== Components ====
+Compressor:
+
+
+==== Performance ====
+Maximum thrust: 3.96 kN (404 kgf; 890 lbf), ISA, SLS
+Specific fuel consumption: 22 g/(kN⋅s) (0.78 lb/(lbf⋅h))
+Thrust-to-weight ratio: 4.75
+
+
+== Use ==
+
+The Luch Design Bureau in Kyiv designed a Ukrainian subsonic cruise missile with all-weather capabilities, the R-360 Neptune, with a range of up to 300 kilometres.
+The MS400 is also studied for the development of Vietnam's VCM-01 cruise missile family.
+
+
+== References ==

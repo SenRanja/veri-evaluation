@@ -1,0 +1,59 @@
+The Forgery and Counterfeiting Act 1981 (c. 45) is an act of the Parliament of the United Kingdom which makes it illegal to make fake versions of many things, including legal documents, contracts, audio and visual recordings, and money of the United Kingdom and certain protected coins. It replaces the Forgery Act 1913 (3 & 4 Geo. 5. c. 27), the Coinage Offences Act 1936  (26 Geo. 5 & 1 Edw. 8. c. 16) and parts of the Forgery Act 1861 (24 & 25 Vict. c. 98). It implements recommendations made by the Law Commission in their report on forgery and counterfeit currency.
+
+
+== Part I – Forgery and kindred offences ==
+These offences are the intentional creation and publication of documents which, if not fake, would have legal force. These sections of the law cover all manner of documents, for example wills, contracts, and promissory notes.
+Section 1 creates the offence of forgery.
+Section 2 creates the offence of copying a false instrument.
+Section 3 creates the offence of using a false instrument.
+Section 4 creates the offence of using a copy of a false instrument.
+Section 13 abolished the common law offence of forgery.
+
+
+== Part II – Counterfeiting and kindred offences ==
+Section 27 defines the expressions "currency note" and "protected coin".
+This section makes it illegal to forge or counterfeit money. In addition to the money of the United Kingdom it explicitly states that certain foreign coins are protected coins under this act, and counterfeiting them is just as great an offence as  counterfeiting coins of the United Kingdom.
+
+
+=== Protected coin ===
+Section 27(1) provides that, in Part II of the act, the expression "protected coin" means any coin which is customarily used as money in any country, or which is specified for the purposes of Part II in an order made by the Treasury.
+The following coins have been specified for the purposes of Part II:
+
+Sovereign
+Half sovereign
+Krugerrand
+Any coin denominated as a fraction of a Krugerrand.
+Maria Theresia thaler bearing the date of 1780
+Any euro coin produced in accordance with Council Regulation No. 975/98/EC (OJ No. L139, 11.5.98, p. 6) by or at the instance of a member state which has adopted the single currency in accordance with the Treaty establishing the European Community
+
+
+=== Orders made under this section ===
+The power conferred on the Treasury by section 27(1) has been exercised by the following orders:
+
+The Forgery and Counterfeiting (Protected Coins) Order 1981 (S.I. 1981/505)
+The Forgery and Counterfeiting (Protected Coins) Order 1999 (S.I. 1999/2095)
+
+
+== Part III – Miscellaneous and general ==
+Section 29 amended section 63 of the Post Office Act 1953. It was repealed on 26 March 2001 by section 127(6) of, and schedule 9 to, the Postal Services Act 2000.
+
+
+== Repealed enactments ==
+Section 30 of the act repealed 55 enactments and instruments, listed in parts I, II and III of the schedule to the act.
+
+
+== See also ==
+Forgery Act
+
+
+== Notes ==
+
+
+== References ==
+Halsbury's Statutes,
+
+
+== External links ==
+ The full text of Forgery and Counterfeiting Act 1981 at Wikisource
+Text of the Forgery and Counterfeiting Act 1981 as in force today (including any amendments) within the United Kingdom, from legislation.gov.uk.
+Text of the Forgery and Counterfeiting Act 1981 as originally enacted or made within the United Kingdom, from legislation.gov.uk.

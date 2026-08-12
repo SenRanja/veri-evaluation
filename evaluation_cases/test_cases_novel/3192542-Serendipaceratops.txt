@@ -1,0 +1,31 @@
+Serendipaceratops (meaning "serendipitous horned face") is a genus of herbivorous ornithischian dinosaur, possibly an ankylosaur, from the early Cretaceous Period of Australia. The type species, S. arthurcclarkei, was named in 2003.
+
+
+== Discovery and species ==
+The first known bone from Serendipaceratops, an ulna (lower arm bone), was in 1993 discovered in Australia near Kilcunda, on the south-east coast of Victoria. The find took place during the "Dinosaur Cove" project, uncovering remains at the basis of a cliff face at the shoreline; the fossil was excavated in the "Arch", a small area of sea-floor protected from the waves by a dam.
+In 2003, the type species Serendipaceratops arthurcclarkei was named and described by Tom Rich and Patricia Vickers-Rich. Initially, the discoverers had not considered the possibility that the fossil might have been ceratopsian in nature as at this would have been the last group of dinosaurs one would have expected to find evidence of in Australia. Instead they had tried to convince themselves it was a theropod bone. Some months later, however, on a visit to the Royal Tyrrell Museum of Palaeontology in Alberta, Canada, colleague Dale Russell pointed out its striking similarity to the ulna of Leptoceratops. Hence the genus name, referring to serendipity and combining this reference with ~ceratops, a common suffix in ceratopsian generic names. The specific name honours science fiction writer Arthur C. Clarke. A personal friend of the couple and author of books such as 2001: A Space Odyssey and Rendezvous with Rama, Clarke first became interested in science as a child because he became fascinated by dinosaurs. Perhaps coincidentally, "Serendip" is a former name for Sri Lanka, Clarke's adoptive country.
+Serendipaceratops is known only from its holotype NMV P186385, a single left ulna found in the Wonthaggi Formation, dating from the early Aptian, in 2003 considered to have been about 115 million years old.
+
+
+== Description ==
+The holotype ulna has a preserved length of about sixteen centimetres. At the rear top, its olecranon process has broken off. The shaft is rather flattened.
+
+
+== Classification ==
+Serendipaceratops was originally described as a member of the Neoceratopsia and one of the earliest known ceratopsian dinosaurs, and the only one known from the southern hemisphere, with the possible exception of the dubious South American genus Notoceratops, which also may be another kind of ornithischian dinosaur. In addition to the holotype ulna, another supposed ceratopsian ulna was found at Dinosaur Cove, in south-west Victoria. It is a little younger at 106 million years old, having been found in the Eumeralla Formation. The scientists who first studied the ulnae said that they most closely resembled those of Leptoceratops, but subsequent studies have shown that this interpretation is likely incorrect.
+In a comprehensive survey of the dinosaurs from Australia and New Zealand, Federico Angolin and colleagues in 2010 found that the ulna did not especially resemble that of a basal ceratopsian any more than of any other quadruped genasaurian ornithischian, lacking ceratopsian synapomorphies, and that in fact it was more generally similar to the ulna of the Australian ankylosaur Minmi. It could thus not be confidently referred to any ornithischian group, and should be considered a nomen dubium. However, in 2014 Rich et al. published a statistical study showing that the proportions of the holotype ulna fell within ceratopsian morphospace and found the taxon to be valid based on a unique combination of characters. Most recently, Rozadilla et al. in 2021 found that while the taxon was valid, the ulna of Serendipaceratops was deformed, making Rich et al's conclusions about its classification invalid. Instead, Rozadilla et al. classified Serendipaceratops as an ankylosaur, because of the ulna's robust proportions.
+
+
+== References ==
+
+
+== External links ==
+
+Geoscience Australia (Department of Australian Government)
+BBC article on 19 July 2005
+Polar Dinos Spotlighted in "Dinosaurs of Darkness" Exhibition National Geographic Article
+Planet Dinosaur
+Dann's Dinosaur Info: Serendipaceratops
+Curiosities of Biological Nomenclature - Etymologies
+www.dinohunter.info
+Dinobase from PALAEONTOLOGY RESEARCH GROUP University Of Bristol Archived 2015-03-16 at the Wayback Machine

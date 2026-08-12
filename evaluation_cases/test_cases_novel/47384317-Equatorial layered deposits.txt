@@ -1,0 +1,37 @@
+Equatorial layered deposits (ELD’s) have been called interior layered deposits (ILDs) in Valles Marineris.   They are often found with the most abundant outcrops of hydrated sulfates on Mars, and thus are likely to preserve a record of liquid water in Martian history since hydrated sulfates are formed in the presence of water. Layering is visible on meter scale, and when the deposits are partly eroded, intricate patterns become visible.
+The layers in the mound in Gale Crater have been extensively studied from orbit by instruments on the Mars Reconnaissance Orbiter.  The Curiosity Rover landed in the crater, and it has brought some ground truth to the observations from satellites.  Many of the layers in ELD’s such as in Gale Crater are composed of fine-grained, easily erodible material as are many other layered deposits. On the basis of albedo, erosion patterns, physical characteristics, and composition, researchers have classified different groups of layers in Gale Crater that seem to be similar to layers in other (ELD’s).  The groups include:  a small yardang unit, a coarse yardang unit,  and a terraced unit.
+Generally, equatorial layered deposits are found ~ ±30°  of the equator.   Equatorial Layered Deposits appear in various geological settings such as cratered terrains (Arabia Terra, Meridiani Planum), chaotic terrains (Aram Chaos, Aureum Chaos), the Valles Marineris chasmata (and surrounding plateaus),     and large impact craters ( Gale, Becquerel, Crommelin).
+
+Some ELD’s have been closely studied in Firsoff Crater. Changes in the level of groundwater seem to be the major factor controlling ELD deposition in and around Firsoff Crater.  The layers inside Firsoff and other nearby craters would likely have started with fluid upwelling through fissures and mounds, which later lead to evaporite precipitation. Spring and playa deposits suggest the presence of a hydrological cycle, driving groundwater upwelling on Mars at surface temperatures above freezing.
+Pictures below show some of the layering in Firsoff Crater, which is a candidate for a rover landing in 2020.
+
+Many depositional processes have been proposed to explain Equatorial Layered Deposits (ELDs) formation, such as volcanoes under ice,  dust from the air,  lake deposits,  and mineral deposits from springs.
+
+Groundwater may have played an important part in forming layers in many locations.  Calculations and simulations show that groundwater carrying dissolved minerals would surface in the same locations that have abundant rock layers.   According to these ideas, deep canyons and large craters would receive water coming from the ground.  Many craters in the Arabia area of Mars contain groups of layers.  Some of these layers may have resulted from climate changes.  The tilt of the rotational axis of Mars has repeatedly changed in the past.  Some changes are large.  Because of these variations of climate, at times the atmosphere of Mars will be much thicker and contain more moisture.  The amount of atmospheric dust also has increased and decreased. It is believed that these frequent changes helped to deposit material in craters and other low places. The rising of mineral-rich ground water cemented these materials. The model also predicts that after a crater is full of layered rocks; additional layers will be laid down in the area around the crater. So, the model predicts that layers may also have formed in intercrater regions, and layers in these regions have been observed.
+Layers can be hardened by the action of groundwater.  Martian ground water probably moved hundreds of kilometers, and in the process it dissolved many minerals from the rock it passed through.  When ground water surfaces in low areas containing sediments, water evaporates in the thin atmosphere and leaves behind minerals as deposits and/or cementing agents. Consequently, layers of dust could not later easily erode away since they were cemented together. On Earth, mineral-rich waters often evaporate forming large deposits of various types of salts and other minerals. Sometimes water flows through Earth's aquifers, and then evaporates at the surface just as is hypothesized for Mars.  One location this occurs on Earth is the Great Artesian Basin of Australia.  On Earth the hardness of many sedimentary rocks, like sandstone, is largely due to the cement that was put in place as water passed through.
+Much strong evidence for groundwater cementing materials comes from the results of the Opportunity Rover.  Some places, examined by Opportunity such as Endurance, Eagle, and Erebus craters have been found to be where the water table breached the surface.,    Also, it was discovered that wind-driven currents of water transported sediment at these locations.  Small surface cracks are thought to have formed during multiple wetting and drying events, so they are evidence that the groundwater rose and fell. Ferric sulfates (such as jarosite) in the rocks of Meridiani Planum indicates that acidic fluids were present.  These acidic liquids could have been produced when water with dissolved Fe(II) was oxidized as it reached the surface. Hydrologic models predict that groundwater should indeed emerge in the Sinus Meridiani region.
+
+
+== See also ==
+Aeolis quadrangle – One of a series of 30 quadrangle maps of Mars
+Arabia quadrangle – Map of Mars
+Aram Chaos – Crater on Mars
+Aureum Chaos – Chaos on Mars
+Becquerel Crater – Crater on Mars
+Climate of Mars
+Coprates quadrangle – Map of Mars
+Gale Crater – Martian craterPages displaying short descriptions of redirect targets
+Geology of Mars – Geology of fourth planet from the Sun
+Groundwater on Mars – Water held in permeable ground
+Impact crater – Circular depression in a solid astronomical body formed by the impact of a smaller object
+List of craters on Mars
+Life on Mars – Assessments of possible life on Mars
+Margaritifer Sinus quadrangle – One of a series of 30 quadrangle maps of Mars
+Oxia Palus quadrangle – Map of Mars
+
+
+== References ==
+
+
+== Further reading ==
+Grotzinger, J. and R. Milliken (eds.).  2012.  Sedimentary Geology of Mars.  SEPM.

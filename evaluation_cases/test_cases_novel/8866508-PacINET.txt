@@ -1,0 +1,20 @@
+The Pacific INET, or PacINET, conference is organised by the Pacific Islands Chapter of the Internet Society, (PICISOC) and is the leading Information and Communications Technology conference in the Pacific Islands.
+PacINET is a regional conference for practitioners, developers, researchers and those interested in Information and Communications Technology (or ICT) from all sectors to exchange information on the system design, enabling technologies, and anecdotal experiences related to the use of Information and Communications Technology in the Pacific Islands. It has evolved to become the Pacific's largest regular Information and Communications Technology conference.
+
+
+== Structure ==
+The PacINET conference is composed of several types of contributions including Paper Presentations, Demonstrations, Tutorials and Workshops, Panel Discussions and Invited Talks. Traditionally PacINET was a technical conference, but due to member requests (and to cater for the different member groups present at every conference), from the 2007 conference onwards, PacINET was split into dedicated technical and non-technical streams. This was deemed to better serve member needs and travel/work schedules.
+Typically, there are various sub-themes centred on the general conference theme and presentations are made on topics of interest to ICT in the Pacific including (but not limited to):
+
+
+== PacINET Forum ==
+The PacINET Forum has been a regular feature since the 2005 conference and features guest panellists discussing issues of relevance to ICT in the Pacific. Past Forum topics include Natural Disasters and how can ICT help? (PacINET 2005) and Building the Digital Pacific (PacINET 2006). Past Panellists have included technologist Vint Cerf, Pacific Community Director General Jimmie Rodgers and Howard Schmidt.
+
+
+== References ==
+
+
+== External links ==
+PICISOC
+IPv6 Forum Pacific Islands
+pacificIT.org Pacific Internet Technology Centre

@@ -1,0 +1,23 @@
+Mary A. Clem (née Mary A. McLaughlin; 1905 – 1979) was an American mathematician, and a human computer. She was a staff member at Iowa State University, and was recognized for inventing the “zero check” technique for detecting errors.
+
+
+== Biography ==
+Clem was born on October 19, 1905 in the small town of Nevada, in Story County, central Iowa. She completed her high school degree and found employment for several years with the Iowa State Highway Commission and Iowa State College as a computing clerk, auditing clerk, and bookkeeper.
+In 1931, she joined the Mathematics Statistical Service of the Mathematics Department of Iowa State College to work as a human computer under the supervision of George Snedecor. Although she complained that mathematics was her poorest subject in high school, she was fascinated with figures and data. Most of her work was done via punch cards, both creating formulas and cards, and running accuracy checks on them. She invented the “zero check” while working in Snedecor’s lab. The “zero check” is a sum that should equal zero if all other numbers had been correctly calculated. These sums helped check for errors in computing algorithms. Clem expressed that her lack of training as a mathematician is what made her notice these sums, as they had often been overlooked by others. In 1940, Clem was advanced to be technician and chief statistical clerk in charge of the Computing Service of the Statistical Laboratory. In 1962, she transferred to the new Computation Center at Iowa State University.
+Clem went on the 2nd Allied Mission to Greece in 1946 as a junior statistician, and there she observed the elections. In 1952, she was a statistical consultant to the Atomic Bomb Casualty Commission in Hiroshima, Japan.
+
+
+== Publications ==
+Homeyer, Paul G.; Clem, Mary A.; and Federer, Walter T. (1947) "Punched card and calculating machine methods for analyzing lattice experiments including lattice squares and the cubic lattice," Research Bulletin (Iowa Agriculture and Home Economics Experiment Station): Vol. 28 : No. 347, Article 1.
+
+
+== See also ==
+Timeline of women in computing
+
+
+== References ==
+
+
+== Further reading ==
+Clem, Mary (June 27, 1969). “Interview with Mary Clem by Uta Merzbach”, Smithsonian.
+“Mary Clem,” Iowa State University Faculty Newsletter, vol. 25, no. 20. February 2, 1979.

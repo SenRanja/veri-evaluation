@@ -1,0 +1,9 @@
+In molecular biology, the KilA-N domain is a conserved DNA-binding domain found at the N-terminus of the poxvirus D6R/NIR proteins. It is also found in a wide range of proteins of large bacterial and eukaryotic DNA viruses. Putative proteins with homology to the KilA-N domain have also been identified in Maverick transposable elements of the parabasalid protozoa Trichomonas vaginalis. The KilA-N domain has been suggested to be homologous to the fungal DNA-binding APSES domain. In all proteins shown to contain the KilA-N domain, it occurs at the extreme amino terminus accompanied by a wide range of distinct carboxy-terminal domains. These carboxy-terminal modules may be enzymes, such as the nuclease domains, or might mediate additional, specific interactions with nucleic acids or proteins, like the RING or CCCH fingers in the poxviruses. The KilA-N domain is predicted to adopt an alpha-beta fold with four conserved strands and at least two conserved helices. Some proteins known to contain a KilA-N domain are listed below:
+
+Bacteriophage P1 protein kilA
+Fowlpox virus (FPV) protein FPV236.
+Trichomonas vaginalis G3 Putative uncharacterised protein
+Vaccinia virus hypothetical 21.7 kDa HindIII-C protein
+
+
+== References ==

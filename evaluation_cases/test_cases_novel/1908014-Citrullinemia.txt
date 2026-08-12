@@ -1,0 +1,40 @@
+Citrullinemia is an autosomal recessive urea cycle disorder that causes ammonia and other toxic substances to accumulate in the blood. 
+Two forms of citrullinemia have been described, both having different signs, symptoms, and management, and are caused by mutations in different genes. Citrullinemia belongs to a class of genetic diseases called urea cycle disorders. The urea cycle is a sequence of chemical reactions taking place in the liver. These reactions convert toxic ammonia, generated during the breakdown of amino acids, into urea, which is excreted by the kidneys.
+
+
+== Type I ==
+Type I citrullinemia (Online Mendelian Inheritance in Man (OMIM): 215700, also known as classic citrullinemia) usually becomes evident in the first few days of life. Affected infants typically appear normal at birth, but as ammonia builds up in the body, they develop a lack of energy (lethargy), poor feeding, vomiting, seizures, and loss of consciousness. These medical problems can be life-threatening in many cases. A milder form of type I citrullinemia is less common in childhood or adulthood. Some people with gene mutations that cause type I citrullinemia never experience signs and symptoms of the disorder.
+Diagnosis of citrullinemia type I is elevated citrulline in the blood.
+Type I citrullinemia is the most common form of the disorder, affecting about one in 57,000 births worldwide. Mutations in the ASS gene cause type I citrullinemia. The enzyme made by this gene, argininosuccinate synthetase (EC 6.3.4.5), is responsible for one step of the urea cycle. Mutations in the ASS gene reduce the activity of the enzyme, which disrupts the urea cycle and prevents the body from processing nitrogen effectively. Excess nitrogen, in the form of ammonia, and other byproducts of the urea cycle, accumulate in the bloodstream, leading to the characteristic features of type I citrullinemia.
+
+
+== Adolescent and adult citrin deficiency (formerly Type II citrullinemia) ==
+Adolescent and adult citrin deficiency (AACD), formerly known as type II citrullinemia (Online Mendelian Inheritance in Man (OMIM): 605814 and Online Mendelian Inheritance in Man (OMIM): 603471) is a clinical phenotype of citrin deficiency, caused by mutations in the SLC25A13 gene that encodes for the mitochondrial transporter citrin. Citrin is highly expressed in the liver in humans and exchanges aspartate from the mitochondrial matrix for cytosolic glutamate plus a proton. Citrin plays a key role in the malate-aspartate shuttle to move reducing equivalents such as NADH from the cytosol to the mitochondrial matrix. Dysfunction of citrin caused by citrin deficiency disrupts multiple biochemical pathways including the urea cycle, glycolysis, gluconeogenesis, tricarboxylic acid (TCA) cycle, beta-oxidation and de novo lipogenesis.
+AACD may manifest in citrin deficiency patients during adolescence or adulthood and represents the most severe form of the condition. Characteristic features include strong food preference for protein/fat-rich foods, aversion to carbohydrates and sweets, hyperlipidemia, fatty liver, and hyperammonemia, with the latter resulting in neurological symptoms (such as confusion, abnormal behavior, aggression, irritability, and hyperactivity, seizures, and coma). Diagnosis of AACD includes biochemical measurements such as raised blood ammonia and citrulline levels, elevated liver function markers, and history of food preference characteristic to citrin deficiency. Genetic testing for SLC25A13 mutations remains the gold standard for confirmatory diagnosis. Known triggers of AACD onset include certain medications, serious infections, and high carbohydrate, sugar or alcohol intake.
+AACD occurs in an estimated one in 100,000 to 230,000 individuals, while the estimated incidence rate of citrin deficiency in Japan is one in 17,000 individuals, suggesting that not all citrin deficiency patients will develop this phenotype.
+
+
+== Treatment ==
+There are multiple treatment methods. For type I citrullinemia, low protein diets are intended to minimize production of ammonia. Arginine, sodium benzoate and sodium phenylacetate help to remove ammonia from the blood. Dialysis may be used to remove ammonia from the blood when it reaches critical levels.
+In some cases, liver transplant has been successful.
+The dietary management of AACD is distinctly different from classical urea cycle disorders, as patients are recommended to follow high-protein, high-fat, and low-carbohydrate diet. Dietary supplementation with medium-chain triglyceride oil is also recommended for AACD patients and has been shown to improve symptoms. Intravenous infusions with high-concentration glucose or glycerol-containing solutions in AACD patients should be avoided, as they have shown to worsen the condition and may be fatal. Infusions with mannitol solutions have been reported to be safe. Ammonia scavengers and L-arginine may be prescribed to manage ammonia levels.
+
+
+== See also ==
+Citrullinemia type I
+Citrin deficiency
+Hyperammonemia
+
+
+== References ==
+
+
+== Further reading ==
+GeneReviews/NCBI/NIH/UW entry on Argininosuccinate Synthetase Deficiency; ASS Deficiency; Argininosuccinic Acid Synthetase Deficiency; CTLN1; Citrullinemia, Classic
+GeneReviews/NIH/UW entry on Citrin deficiency and Citrullinemia Type II
+The U.S. National Library of Medicine
+Citrin Foundation
+Citrin deficiency patient support
+
+
+== External links ==

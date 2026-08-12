@@ -1,0 +1,9 @@
+The Moco RNA motif is a conserved RNA structure  that is presumed to be a riboswitch that binds molybdenum cofactor or the related tungsten cofactor.  Genetic experiments support the hypothesis that the Moco RNA motif corresponds to a genetic control element that responds to changing concentrations of molybdenum or tungsten cofactor.  As these cofactors are not available in purified form, in vitro binding assays cannot be performed.  However, the genetic data, complex structure of the RNA and the failure to detect a protein involved in the regulation suggest that the Moco RNA motif corresponds to a class of riboswitches.
+
+
+== References ==
+
+
+== External links ==
+
+Page for Moco_RNA_motif at Rfam

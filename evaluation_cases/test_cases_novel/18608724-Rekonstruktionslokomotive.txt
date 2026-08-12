@@ -1,0 +1,24 @@
+The German term Rekonstruktionslokomotive (abbreviated to: Rekolokomotive or Rekolok) meant 'reconstruction locomotive' and was introduced in 1957 by the Deutsche Reichsbahn in the  German Democratic Republic (GDR). 
+The term was used for classes of steam locomotive that underwent considerable rebuilding in order to improve performance, rectify design faults and redress wartime austerity features. At the same time, repairs were carried out. The 'reconstruction' included, as a minimum, the installation of a new high performance steam generation system. Consequently, a characteristic feature of these Rekoloks is a combustion chamber boiler with rectangular mixing chamber (Mischkasten) in front of the chimney.
+On individual classes (Class 58.30), completely new driver's cabs were built, instead of just fitting the new end walls needed after the boiler had been replaced. The worn cast cylinder blocks were sometimes replaced by welded cylinders. Unlike the Deutsche Bundesbahn's conversion program, the boilers were not matched to the individual locomotive classes, but the locomotives were matched to the new boilers. The price paid for the easy interchangeability of the steam generation system thus achieved, was the extensive changes now required to the locomotive frame. 
+Also reconstructed were selected vehicles of those locomotive classes that could not be done away with and from which a long period of operational life was expected.
+The first Rekolok, number 50 3501, left Stendal Reichsbahn repair shop (Reichsbahnausbesserungswerk or RAW), which had carried out the work, on 12 November 1957. The first Reko 50, from then on designated as Class 50.35, was assigned to Güsten locomotive shed (Bahnbetriebswerk or Bw). With the delivery of 01 535 by RAW Meiningen on 31 May 1965 the Reko program was initially declared as finished, but in fact it wasn't. For in 1968 the state and party leadership of the GDR tasked the Reichsbahn, to produce a strategic reserve of 45 Class 03 express train locomotives with an 18-ton average axle load. From 1968 to 1972, not just the required 45, but as many as 52 locomotives of this class were fitted with Reko boilers in RAW Meiningen from the largely retired Class 22 (formerly Class 39, Prussian P 10) engines. The Class 58.30 Rekolokomotives were, due to their age and the very extensive repairs and work required on the donor vehicles, the most expensive conversions of the whole programme.
+The following normal gauge steam locomotive classes were reconstructed by the Deutsche Reichsbahn and regrouped into a new class or sub-class:
+
+1962-1965: 35  locomotives of DRG Class 01        to DR Class 01.5
+1969-1972: 52  locomotives of DRG Class 03
+1959: 16  locomotives of DRG Class 03.10
+1958-1962: 85  locomotives of DRG Class 39        to DR Class 22
+1957-1960: 80  locomotives of DRG Class 41        to DR Class 41 (Reko)
+1957-1961: 208 locomotives of DRG Class 50        to DR Class 50.35-37
+1960-1965: 154 locomotives of DRB Class 52        to DR Class 52.80
+1958-1962: 56  locomotives of DRG Class 58 (ex Prussian G 12) to DR Class 58.30
+and as individual vehicles for experimental testing and, sometimes, trials equipment platforms:
+
+1961-1965: 5 experimental locomotives: VES-M Halle DR 18 201, 18 314, 19 015, 19 022, 23 001 (DRG)
+The VES-M Halle in Halle (Saale) was responsible for the reconstruction programme.
+
+
+== See also ==
+History of rail transport in Germany
+Deutsche Reichsbahn

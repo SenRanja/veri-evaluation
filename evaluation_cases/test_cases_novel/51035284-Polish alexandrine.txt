@@ -1,0 +1,26 @@
+Polish alexandrine (Polish: trzynastozgłoskowiec)  is a common metrical line in Polish poetry. It is similar to the French alexandrine. Each line is composed of thirteen syllables with a caesura after the seventh syllable. The main stresses are placed on the sixth and twelfth syllables. Rhymes are feminine.
+
+ 1 2     3   4 5   6 7   1 2   3    4  5 6
+ o o     o   o o   S x | o o   o    o  S x
+Moja wdzięczna Orszulo, bodaj ty mnie była
+
+S=stressed syllable; x=unstressed syllable; o=any syllable.
+
+The Polish alexandrine was introduced in the 15th century. It was borrowed from Latin poetry. It was widely used by Jan Kochanowski, the first great Polish poet, as exemplified in the first two lines of his "Lament 13", with a formal paraphrase in English:
+
+The Polish national epic, Pan Tadeusz by Adam Mickiewicz, is written in this measure. Polish alexandrines replaced hendecasyllables in sonnets: in the 16th century poets like Sebastian Grabowiecki and Mikołaj Sęp-Szarzyński wrote sonnets using 11-syllable metre, but in the 17th century Daniel Naborowski translated one of Petrarch's sonnets using 13-syllable lines:
+
+Adam Mickiewicz composed his famous Crimean Sonnets in 13-syllable lines:
+
+The Polish alexandrine was used by many translators (among others, Franciszek Ksawery Dmochowski) as an equivalent of ancient Greek and Roman dactylic hexameter:
+
+As Polish words are longer than English ones, the 13-syllable line is good for translating English iambic pentameter.
+Nowadays Polish alexandrine lines are often mixed with hendecasyllable ones in one poem.
+
+
+== See also ==
+French alexandrine
+Czech alexandrine
+
+
+== Notes ==

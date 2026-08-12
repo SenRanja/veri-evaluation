@@ -1,0 +1,631 @@
+In theoretical computer science, a circuit is a model of computation in which input values proceed through a sequence of gates, each of which computes a function. Circuits of this kind provide a generalization of Boolean circuits and a mathematical model for digital logic circuits. Circuits are defined by the gates they contain and the values the gates can produce.  For example, the values in a Boolean circuit are Boolean values, and the circuit includes conjunction, disjunction, and negation gates.  The values in an integer circuit are sets of integers and the gates compute set union, set intersection, and set complement, as well as the arithmetic operations addition and multiplication.
+
+
+== Formal definition ==
+A circuit is a triplet 
+  
+    
+      
+        (
+        M
+        ,
+        L
+        ,
+        G
+        )
+      
+    
+    {\displaystyle (M,L,G)}
+  
+, where
+
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ is a set of values,
+
+  
+    
+      
+        L
+      
+    
+    {\displaystyle L}
+  
+ is a set of gate labels, each of which is a function from 
+  
+    
+      
+        
+          M
+          
+            i
+          
+        
+      
+    
+    {\displaystyle M^{i}}
+  
+ to 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ for some non-negative integer 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+ (where 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+ represents the number of inputs to the gate), and
+
+  
+    
+      
+        G
+      
+    
+    {\displaystyle G}
+  
+ is a labelled directed acyclic graph with labels from 
+  
+    
+      
+        L
+      
+    
+    {\displaystyle L}
+  
+.
+The vertices of the graph are called gates. For each gate 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+ of in-degree 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+, the gate 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+ can be labeled by an element 
+  
+    
+      
+        ℓ
+      
+    
+    {\displaystyle \ell }
+  
+ of 
+  
+    
+      
+        L
+      
+    
+    {\displaystyle L}
+  
+ if and only if 
+  
+    
+      
+        ℓ
+      
+    
+    {\displaystyle \ell }
+  
+ is defined on 
+  
+    
+      
+        
+          M
+          
+            i
+          
+        
+        .
+      
+    
+    {\displaystyle M^{i}.}
+  
+
+
+=== Terminology ===
+The gates of in-degree 0 are called inputs or leaves. The gates of out-degree 0 are called outputs. If there is an edge from gate 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+ to gate 
+  
+    
+      
+        h
+      
+    
+    {\displaystyle h}
+  
+ in the graph 
+  
+    
+      
+        G
+      
+    
+    {\displaystyle G}
+  
+ then 
+  
+    
+      
+        h
+      
+    
+    {\displaystyle h}
+  
+ is called a child of 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+. We suppose there is an order on the vertices of the graph, so we can speak of the 
+  
+    
+      
+        k
+      
+    
+    {\displaystyle k}
+  
+th child of a gate when 
+  
+    
+      
+        k
+      
+    
+    {\displaystyle k}
+  
+ is less than or equal to the out-degree of the gate.
+The size of a circuit is the number of nodes of a circuit. The depth of a gate 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+ is the length of the longest path in 
+  
+    
+      
+        G
+      
+    
+    {\displaystyle G}
+  
+ beginning at 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+ up to an output gate. In particular, the gates of out-degree 0 are the only gates of depth 1. The depth of a circuit is the maximum depth of any gate. 
+Level 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+ is the set of all gates of depth 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+. A levelled circuit is a circuit in which the edges to gates of depth 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+ comes only from gates of depth 
+  
+    
+      
+        i
+        +
+        1
+      
+    
+    {\displaystyle i+1}
+  
+ or from the inputs. In other words, edges only exist between adjacent levels of the circuit. The width of a levelled circuit is the maximum size of any level.
+
+
+=== Evaluation ===
+The exact value 
+  
+    
+      
+        V
+        (
+        g
+        )
+      
+    
+    {\displaystyle V(g)}
+  
+ of a gate 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+ with in-degree 
+  
+    
+      
+        i
+      
+    
+    {\displaystyle i}
+  
+ and label 
+  
+    
+      
+        l
+      
+    
+    {\displaystyle l}
+  
+ is defined recursively for all gates 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+.
+
+  
+    
+      
+        V
+        (
+        g
+        )
+        =
+        
+          
+            {
+            
+              
+                
+                  l
+                
+                
+                  
+                    if 
+                  
+                  g
+                  
+                     is an input
+                  
+                
+              
+              
+                
+                  l
+                  (
+                  V
+                  (
+                  
+                    g
+                    
+                      1
+                    
+                  
+                  )
+                  ,
+                  …
+                  ,
+                  V
+                  (
+                  
+                    g
+                    
+                      i
+                    
+                  
+                  )
+                  )
+                
+                
+                  
+                    otherwise,
+                  
+                
+              
+            
+            
+          
+        
+      
+    
+    {\displaystyle V(g)={\begin{cases}l&{\text{if }}g{\text{ is an input}}\\l(V(g_{1}),\dotsc ,V(g_{i}))&{\text{otherwise,}}\end{cases}}}
+  
+
+where each 
+  
+    
+      
+        
+          g
+          
+            j
+          
+        
+      
+    
+    {\displaystyle g_{j}}
+  
+ is a parent of 
+  
+    
+      
+        g
+      
+    
+    {\displaystyle g}
+  
+.
+The value of the circuit is the value of each of the output gates.
+
+
+== Circuits as functions ==
+The labels of the leaves can also be variables which take values in 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+. If there are 
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+ leaves, then the circuit can be seen as a function from  
+  
+    
+      
+        
+          M
+          
+            n
+          
+        
+      
+    
+    {\displaystyle M^{n}}
+  
+ to 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+. It is then usual to consider a family of circuits 
+  
+    
+      
+        (
+        
+          C
+          
+            n
+          
+        
+        
+          )
+          
+            n
+            ∈
+            
+              N
+            
+          
+        
+      
+    
+    {\displaystyle (C_{n})_{n\in \mathbb {N} }}
+  
+, a sequence of circuits indexed by the integers where the circuit 
+  
+    
+      
+        
+          C
+          
+            n
+          
+        
+      
+    
+    {\displaystyle C_{n}}
+  
+ has 
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+ variables. Families of circuits can thus be seen as functions from 
+  
+    
+      
+        
+          M
+          
+            ∗
+          
+        
+      
+    
+    {\displaystyle M^{*}}
+  
+ to 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+.
+The notions of size, depth and width can be naturally extended to families of functions, becoming functions from 
+  
+    
+      
+        
+          N
+        
+      
+    
+    {\displaystyle \mathbb {N} }
+  
+ to 
+  
+    
+      
+        
+          N
+        
+      
+    
+    {\displaystyle \mathbb {N} }
+  
+; for example, 
+  
+    
+      
+        s
+        i
+        z
+        e
+        (
+        n
+        )
+      
+    
+    {\displaystyle size(n)}
+  
+ is the size of the  
+  
+    
+      
+        n
+      
+    
+    {\displaystyle n}
+  
+th circuit of the family.
+
+
+== Complexity and algorithmic problems ==
+Computing the output of a given Boolean circuit on a specific input is a P-complete problem. If the input is an integer circuit, however, it is unknown whether this problem is decidable.
+Circuit complexity attempts to classify Boolean functions with respect to the size or depth of circuits that can compute them.
+
+
+== See also ==
+Arithmetic circuit complexity
+Boolean circuit
+Circuit complexity
+Circuits over sets of natural numbers
+The complexity classes NC, AC and TC
+Quantum circuit and BQP
+
+
+== References ==
+Vollmer, Heribert (1999). Introduction to Circuit Complexity. Berlin: Springer. ISBN 978-3-540-64310-4.
+Yang, Ke (2001). "Integer Circuit Evaluation Is PSPACE-Complete". Journal of Computer and System Sciences. 63 (2, September 2001): 288–303. doi:10.1006/jcss.2001.1768. ISSN 0022-0000.

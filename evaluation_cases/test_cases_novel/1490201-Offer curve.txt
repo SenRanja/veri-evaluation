@@ -1,0 +1,6 @@
+In economics and particularly in international trade, an offer curve shows the quantity of one type of product that an agent will export ("offer") for each quantity of another type of product that it imports. The offer curve was first derived by English economists Edgeworth and Marshall to help explain international trade. 
+The offer curve is derived from the country's PPF. We describe a Country named K which enjoys both goods Y and X. It is slightly better at producing good X, but wants to consume both goods. It wants to consume at point C or higher (above the PPF). Country K starts in Autarky at point C. At point C, country K can produce (and consume) 3 Y for 5 X. As trade begins with another country, and country K begins to specialize in producing good X. When it produces at point B, it can trade with the other country and consume at point S. We now look at our Offer curve and draw a ray at the level 5 Y for 7 X. When full specialization occurs, K then produces at point A, trades and then consumes at point T. The price has reduced to 1 Y for 1 X, and the economy is now at equilibrium. The trade is balanced at the equilibrium.
+
+
+== References ==
+Salvatore, Dominick. "International Economics." John Wiley & Sons, Inc, 2001.

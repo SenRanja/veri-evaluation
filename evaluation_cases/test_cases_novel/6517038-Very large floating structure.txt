@@ -1,0 +1,67 @@
+Very large floating structures (VLFSs) or very large floating platforms (VLFPs) are artificial islands, which may be constructed to create floating airports, bridges, breakwaters, piers and docks, storage facilities (for oil and natural gas), wind and solar power plants, for military purposes, to create industrial space, emergency bases, entertainment facilities (such as casinos), recreation parks, mobile offshore structures and even for habitation. Currently, several different concepts have been proposed for building floating cities or huge living complexes. Some units have been constructed and are presently in operation.
+Floating structures offer several advantages over more permanent structures which might extend from the shore into open water:
+
+they do not damage the marine eco-system;
+they do not cause silt deposition in deep harbors;
+they do not disrupt the ocean currents;
+they are easy to construct, since much of the construction is completed onshore;
+installation is rapid;
+they are immune to seismic shock.
+
+
+== Overview ==
+VLFSs differ from watercraft in that most or all of the usable area is the top surface instead of the internal (hold) areas. Thus a useful VLFS will cover significant area. It can be constructed by joining the necessary number of floating units together. The design of the floating structure must comport with safety and strength requirements, operating conditions, etc. Steel, concrete (prestressed or reinforced hybrid) or steel-concrete composite materials may be used to build the floating structure. The motion of the floating structure due to wind or wave action must be substantially neutralized, to ensure the safety of people and facilities on a VLFS, and to allow useful activities. VLFSs must be securely moored to the ocean bed.
+
+
+== Classification ==
+Current VLFS designs fall into two categories: semi-submersible, and pontoon.
+The semi-submersible-type VLFS has a raised platform above sea level using column tubes; it is more suitable for deployment in high seas with large waves. In open sea, where the waves are relatively large, the semi-submersible VLFS minimizes the effects of waves while maintaining a constant buoyant force. Semi-submersible types are used for petroleum exploration in deep waters. They are fixed in place by column tubes, piles, or other bracing systems.
+The pontoon-type VLFS platform rests on the water surface and is intended for deployment in calm waters such as a cove, a lagoon or a harbor. Its basic element is a simple box structure; it usually offers high stability, low manufacturing cost and easy maintenance and repair. The pontoon type is supported by its buoyancy on the sea surface. The pontoon type is flexible compared to other kinds of offshore structures, so that the elastic deformations are more important than their rigid body motions. Thus, hydroelastic analysis is uppermost in designing the pontoon-type VLFS. Together with the motion of the floating structure, the response of the structure to water waves and the impact on the entire fluid domain have to be studied.
+Pontoon-type VLFSs are also known in the literature as mat-like VLFSs because of their small draft in relation to the length dimensions. Very large pontoon-type floating structures are often called ‘mega-floats'. As a rule, the mega-float is a floating structure having at least one length dimension greater than 60 metres (200 ft) Horizontally large floating structures can be from 500 to 5,000 metres (1,600 to 16,400 ft) in length and 100 to 1,000 metres (330 to 3,280 ft) in width, with typical thickness of 2 to 10 metres (6.6 to 32.8 ft).
+
+
+== Applications ==
+Many large floating structures have been conceptualized, including a golf course,
+a farm, and habitable long-term living complexes (seasteading).
+Some large floating structures that have been built include floating airports and floating landing platforms for returning rockets.
+
+
+=== Floating airport ===
+A Mega-Float floating airport prototype was constructed in Tokyo Bay from 1998 to 1999. It was one kilometer in length and was primarily intended as a test vehicle, to research the loadings and responses of such installations. This project was substituted as a study project to provide more definite information about a proposed floating runway at Kansai International Airport, which was not built (an artificial island was instead constructed to support the runway).  However the choice to build an airport on two islands composed of sand landfill has resulted in the Kansai Airport sinking several centimeters per year. (https://www.smithsonianmag.com/air-space-magazine/how-to-save-a-sinking-airport-180968985/)
+
+
+=== Floating launch vehicle operations platform ===
+In the 2010s, SpaceX contracted with a Louisiana shipyard to build a floating landing platform for reusable orbital launch vehicles. The platform had an approximately 90 by 50 meters (300 ft × 160 ft) landing pad surface and was capable of precision positioning with diesel-powered azimuth thrusters so the platform can hold its position for launch vehicle landing. This platform was first deployed in January 2015 when SpaceX attempted a controlled descent flight test to land the first stage of Falcon 9 Flight 14 on a solid surface after it was used to loft a contracted payload toward Earth orbit. The platform utilizes GPS position information to navigate and hold its precise position. The rocket landing leg span is 18 m (60 ft) and must not only land within the 52 m (170 ft)-wide barge deck, but must also deal with ocean swells and GPS errors.
+SpaceX CEO Elon Musk first displayed a photograph of the "autonomous spaceport drone ship" in November 2014. The ship is designed to hold position to within 3 meters (9.8 ft), even under storm conditions.
+On 8 April 2016, the first stage of the rocket that launched the Dragon CRS-8 spacecraft, successfully landed on the drone ship named Of Course I Still Love You, the first successful landing of a rocket booster on a floating platform.
+As of 2018, Blue Origin is intending to make the first stage boosters of New Glenn be reusable, and recover launched boosters downrange on the Atlantic Ocean via a ship that is underway acting as a floating movable landing platform.  The hydrodynamically stabilized ship increases the likelihood of successful recovery in rough seas.
+
+
+=== Floating parking garage ===
+
+A concept has been patented for a floating automotive parking barge with angled sides to deflect wind shear.
+
+
+=== Floating LNG production facility ===
+The Shell floating LNG plant was constructed to process and liquify offshore natural gas into liquified natural gas for transport and storage. The Shell project was scheduled to begin processing gas in 2016. In December 2018, Shell announced that the wells have been opened and the plant was ready to begin the initial phase of production. In June 2019, it reached a significant milestone, shipping its first liquefied natural gas cargo to customers in Asia.
+
+
+== See also ==
+Floating building
+Floating wind turbine
+Heavy-lift ship
+Aircraft carrier
+Submerged floating tunnel
+Mobile offshore base
+Seasteading
+Aerospace architecture
+Floating cities and islands in fiction
+Accommodation platform
+
+
+== References ==
+
+
+== External links ==
+Hydroelastic Analysis of Very Large Floating Structures, A.I. Andrianov, PhD thesis, Delft University of Technology, 2005
+Clover, Charles (14 August 2015). "Chinese launch floating fortress project". ft.com. Retrieved 15 August 2015.

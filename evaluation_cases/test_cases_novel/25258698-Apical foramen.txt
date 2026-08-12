@@ -1,0 +1,76 @@
+In dental anatomy, the apical foramen, literally translated "small opening of the apex," is the tooth's natural opening, found at the root's very tip—that is, the root apex — whereby an artery, vein, and nerve enter the tooth and commingle with the tooth's internal soft tissue, called pulp.  Additionally, the apical foramen is the point where the pulp meets the periodontal tissues, the connective tissues that surround and support the tooth. The foramen is located 0.5mm to 1.5mm from the apex of the tooth. Each tooth has an apical foramen.
+
+
+== Anatomy ==
+
+
+=== Location and Position ===
+The apical foramen is the principal opening at a tooth's root terminus, serving as the conduit between the root canal system and the periapical tissues. Its location is variable, as it frequently deviates from the anatomical apex—the root's geometric tip. Studies indicate that in a majority of cases, the foramen is positioned laterally, most commonly on the distal aspect. The average deviation is typically less than 1 millimeter, though greater distances are observed in specific teeth such as mandibular canines and molars. The foramen's morphology is often oval but can be circular or irregular. Its precise location and shape can be influenced by ethnic background, age, and physiological changes. In clinical endodontics, accurate identification of the apical foramen, rather than reliance on the radiographic apex alone, is essential for determining the correct working length and ensuring treatment success.
+
+
+=== Shape and Morphology ===
+The shape of the apical foramen exhibits considerable variation across different teeth. While standard instrumentation assumes a circular geometry, the foramen can present as oval, uneven, semilunar, or even flat. Recent studies have identified the round configuration as the most prevalent overall, with reported frequencies ranging from 57% to 65.1% of sampled teeth. Specifically, Manva et al. classified 65.1% of foramina as round and 31% as oval, with rare occurrences of uneven (2.7%), semilunar (0.6%), and flat (0.6%).
+The distribution of these shapes varies by tooth type; for instance, the round shape was most frequently observed in mandibular canines (77.8%), whereas the flat shape was exclusively evident in maxillary second molars.
+Despite the dominance of round shapes in these recent studies, significant controversies exist in the literature. Some researchers have reported round configuration prevalence as high as 94%, while others have found oval shapes to be the most common in posterior teeth, with prevalence rates reaching 71% to 81%. Swathika et al. noted that oval shapes were present in 56.7% of maxillary central incisors but found them to be less common in posterior teeth (27%) than previously thought.
+These morphological variations, particularly oval and irregular shapes, pose clinical challenges during root canal therapy if standard round instruments are used.
+
+
+=== Accessory foramina ===
+Accessory foramina are small openings, distinct from the main physiological foramen, which connect the root canal system to the periapical tissue through accessory canals. In micro-computed tomography (micro-CT) studies, they are often defined quantitatively, such as any apical foramen with a diameter smaller than 0.2 mm.
+Their prevalence varies significantly among different teeth. Research on mandibular canines found that approximately one-third of specimens had at least one accessory foramen. Studies of other tooth types confirm that accessory canals and their foramina are a common anatomical feature, especially in the apical region of roots. Due to their minute size, detailed visualization of accessory foramina is best achieved using high-resolution ex vivo imaging techniques like micro-CT, which is considered a gold standard for such morphological analysis.
+
+
+== Characteristics ==
+The average size of the orifice is 0.3 to 0.4 mm in diameter. There can be two or more foramina separated by a portion of dentin and cementum or by cementum only. If more than one foramen is present on each root, the largest one is designated as the apical foramen and the rest are considered accessory foramina.
+
+
+=== Apical delta ===
+Apical delta refers to the branching pattern of small accessory canals and minor foramina seen at the tip or apex of some tooth roots. The pattern is said to be reminiscent of a river delta when sectioned and viewed using a microscope. Because the anatomy of this area is very small and complex with several portals of entry to the root canal i.e. more than one apical foramen.
+
+
+== Histology ==
+
+
+=== Connective Tissue ===
+The apical foramen is lined by connective tissue that is loosely organised, in which is continuous with the dental pulp and periodontal ligament. This tissue contains fibroblasts, collagen fibres, blood vessels and nerve fibres, as well as occasional immune cells such as macrophages. There is no epithelium in the apical foramen.
+
+
+=== Pulp Tissue Extension ===
+There is  dental pulp extending to the tip of the root, which tapers towards the apical foramen. The Odontoblast processes may extend slightly into the root dentin near the apex. Nerve fibres in this region are mostly unmyelinated, with some myelinated fibres (Aδ and C fibres) entering via the foramen. Blood vessels for example:  arterioles, venules, and capillaries anastomose with vessels in the periodontal ligament.
+
+
+=== Cementum and Periodontal Ligament ===
+Surrounding the apical foramen is apical cementum, often cellular cementum embedded with cementocytes. Sharpey’s fibres from the periodontal ligament insert into this cementum, anchoring the tooth to alveolar bone.
+
+
+=== Apical Delta and Accessory Canals ===
+Many teeth have a complex apical delta, consisting of many small accessory foramina branching from the main apical foramen. Each accessory canal is lined with connective tissue continuous with the pulp and periodontal ligament.
+
+
+=== Apical Constriction and Cementodentinal Junction ===
+The apical constriction is a narrowing of the canal just coronal to the foramen and serves as a histological landmark for endodontic procedures. The cementodentinal junction (CDJ) is located near the apex where cementum meets dentin.
+
+
+=== Age-Related and Pathological Changes ===
+Deposition of secondary cementum may alter the diameter and shape of the apical foramen over time. Pathological conditions such as periodontal diseases can cause widening or resorption of the apical foramen.
+
+
+=== Morphology ===
+The shape of the apical foramen is most commonly rounded while some are  oval. Its position may deviate from the anatomical apex, and size can vary by tooth type and age.
+
+
+== Clinical Significance ==
+
+
+=== Endodontic treatment ===
+It is a point of interest in endodontics, as it is considered necessary to thoroughly chemomechanically debride the pulp space to remove all necrotic tissue and minimise bacterial load in the pulp space. Ideally, this debridement would terminate exactly at the apical foramen. In reality, determining the exact position of the apical foramen is problematic, requiring radiography and/or use of an electronic apex locator to produce a refined estimate. A tooth may have multiple small accessory canals in the root apex area forming an apical delta which can complicate the endodontic problem.
+The presence of an apical delta may make successful endodontic treatment less likely.  The root tip is removed during apicoectomy to eliminate the apical delta and maximise the chance of successful healing.
+An apical constriction is often present. In immature teeth the root is not fully formed, leading to an open apex. This is also seen in some pathological teeth.
+During endodontic treatment, the apical foramen serves to determine the working length. Accurate working length determination is important to decrease or prevent postoperative pain and delayed healing caused by overinstrumentation and overfilling, as well as to avoid inadequate debridement and underfilling of the canal that may result from an under-extended working length short of the apical foramen.
+
+
+=== Spread of Infection ===
+The apical foramen may serve as a pathway for the spread of infection from the root canal system into the surrounding periapical tissues. When the dental pulp becomes necrotic due to caries or trauma, bacteria may extend through the apical foramen into the periodontal ligament and alveolar bone, potentially triggering apical periodontitis. If left untreated, this development may result in the formation of periapical lesions and abscesses
+
+
+== References ==

@@ -1,0 +1,20 @@
+Squalene—hopanol cyclase (EC 4.2.1.129, squalene—hopene cyclase) is an enzyme with systematic name hopan-22-ol hydro-lyase. This enzyme catalyses the following chemical reaction
+
+hopan-22-ol 
+  
+    
+      
+        ⇌
+      
+    
+    {\displaystyle \rightleftharpoons }
+  
+ squalene + H2O
+The enzyme produces the cyclization products hopene and hopanol.
+
+
+== References ==
+
+
+== External links ==
+Squalene---hopanol+cyclase at the U.S. National Library of Medicine Medical Subject Headings (MeSH)

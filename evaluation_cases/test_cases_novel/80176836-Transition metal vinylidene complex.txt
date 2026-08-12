@@ -1,0 +1,48 @@
+A transition metal vinylidene complex is an organometallic compound containing a metal bound to a vinylidene group (i.e. bearing the motif M=C=CRR'). Free vinylidenes (:C=CRR') are the less thermodynamically stable valence tautomers of alkynes, and interconversion between the two species typically requires extremely harsh conditions. However, the presence of a coordinated metal can greatly decrease the kinetic barrier between alkyne-vinylidene interconversion. Furthermore, the equilibrium can be shifted from metal π-alkyne complex to metal vinylidene complex, depending on the identity of the metal, the nature of the ligands, and the alkyne substituents. Since metal vinylidenes have a broad range of reactivities and the conditions for their formation are generally very mild, they have found use in a variety of synthetic organic and organometallic contexts.
+
+
+== Structure ==
+According to the covalent bond classification method, vinylidenes are neutral L-type ligands donating two electrons. From a molecular orbital perspective, there are two primary bonding interactions involved between the vinylidene carbon and the metal: (1) the filled vinylidene carbon sp orbital donating into an unfilled metal d orbital in a σ-fashion, and (2) a filled metal d orbital donating into the empty vinylidene carbon p orbital in a π-fashion. As a result of these two interactions, most texts represent the metal-vinylidene bond as a metal-carbon double bond.
+Some vinylidenes are bridging ligands. In this case, the vinylidene carbon rests as a bridging atom between two metal centers. From an electron counting perspective, the vinylidene counts for only one electron per metal center. From a molecular orbital perspective, the vinylidene carbon is sp2 hybridized, with singly-filled sp2 orbitals overlapping with singly-filled metal orbitals.
+
+
+== Synthesis ==
+
+
+=== From alkynes ===
+Commonly, transition metal vinylidene complexes are synthesized by treating metal electrophiles with terminal alkynes.
+The mechanism of the isomerization process begins with formation of a metal-alkyne complex. It is proposed that "slippage" converts this species to a transient σ complex involving binding of the metal to the C–H bond. For metals with a d6 electron count, such as Mn(I) or Ru(II), a subsequent 1,2-H shift gives the vinylidene complex. For some electron-rich transition metals, such as Co(I), Rh(I), or Ir(I), oxidative addition of the C-H bong give a σ-alkynyl-hydrido metal complex. A subsequent 1,3-H shift (which also reduces the metal center to its starting oxidation state) then gives the transition metal vinylidene complex.
+
+
+=== Other methods ===
+Vinylidene complexes can be prepared by many routes aside from the acetylide route. These more specialized methods include deprotonation of carbyne complexes, dehydration of metal acyl complexes, and rearrangement of vinyl complexes.   An example of the latter case is the α-elimination of a σ-bound alkenyl ligand leads to a vinylidene complex.This path way is exemplified by an molybenum complex of chlorodicyanovinyl.
+
+
+== Reactions ==
+
+
+=== Nucleophilic attack ===
+Metal vinylidenes are usually electrophilic species at the vinylidene carbon, analogous to the electrophilic nature of Fischer carbenes. This can be predicted a priori from the empty p orbital on the vinylidene carbon, which is primed to accept electron density from a nucleophile. Illustrative of this reactivity is the behavior of homo-propargylic alcohols with various mid transition metal carbonyl complexes. The observed products can be justified by the initial formation of a metal vinylidene, followed by nucleophilic attack by the pendent alcohol onto the vinylidene carbon. Finally, proton transfer gives the observed Fischer carbene products.
+
+
+=== Cycloaddition ===
+Cycloadditions can occur on metal vinylidenes at either the M=Cα or Cα=Cβ bonds. These can serve in both [2+2] and [4+2] cycloadditions with a variety of cycloaddition partners. For example, Takanori Matsuda and coworkers reported the transformation of 2,2'-ethynyl-biphenyls into ethynyl-phenanthrenes using ruthenium catalysis. This transformation can be rationalized by the initial formation of a ruthenium vinylidenes, followed by [2+2] cycloaddition onto the pendent alkyne. The formed cyclobutene then undergoes retro-[2+2] to the phenanthrene-substituted ruthenium vinylidene. Lastly, 1,2-H migration and de-coordination of the ruthenium complex (i.e. the steps of ruthenium vinylidene formation in reverse) gives the observed product.
+
+
+=== Electrocyclization ===
+Metal vinylidenes may undergo electrocyclization if they are present within a suitable π-system. For example, Sakae Uemura and coworkers showed that conjugated eneyne-esters react with mid transition metal carbonyl complexes to give cyclized metal pyranylidene products. This can be rationalized by the initial formation of the metal vinylidene, followed by 6π-electrocyclization to form the observed products.
+
+
+== Use in total synthesis ==
+Vinylidene complexes have not proven of any commercial value, but they have been exploited in the total synthesis of various natural products. The route to acetylaranotin involves a vinylidene complex.  Specifically, the seven-membered oxepin ring was constructed using a rhodium-catalyzed cycloisomerization between a terminal alkyne and a pendent alcohol. The mechanism starts with formation of the rhodium vinylidene (likely through oxidative addition to the alkyne C–H and 1,3-H shift as above). The alcohol then attacks the electrophilic vinylidene to form an alkenyl rhodium species. Protodemetallation gives the cycloisomerization product, as well as regenerating the catalyst.
+
+In the synthesis of 3-demethoxyerythratidinone, the angularly fused 6-5-6 A/B/C ring system was constructed using a tandem rhodium-catalyzed alkylation/cycloisomerization. The mechanism of this cascade sequence, starts with formation of the σ-alkynyl hydrido rhodium complex. In the presence of a pendent alkyl iodide and triethylamine as a base, the alkynyl rhodium undergoes β-alkylation and deprotonation to give a rhodium vinylidene. Subsequently, the Rh=Cα bond undergoes [2+2] cycloaddition to the pendent alkene. The formed metallacyclobutene then undergoes β-hydride elimination and reductive elimination to give the final product.
+
+
+== See also ==
+Vinylidene group
+Transition metal carbene complex
+Transition metal carbyne complex
+
+
+== References ==

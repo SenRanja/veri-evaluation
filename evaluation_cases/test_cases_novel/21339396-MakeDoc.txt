@@ -1,0 +1,71 @@
+MakeDoc is a lightweight markup language created in 2000 by Carl Sassenrath for creating documentation and web pages using simple text notations. The language is used extensively in the REBOL community for documentation, websites, and wikis.
+
+
+== Overview ==
+MakeDoc was originally designed to allow authors to create formatted documentation without the need for word processing software. Any ordinary text editor, including web input forms can be used  for input, and the output can be HTML, PDF, or ordinary text.
+An additional goal of MakeDoc was that the text input format itself should be readable—uncluttered with markup notations commonly found in the SGML-based markup languages such as HTML and XML. This was done to enable distribution of documentation for software packages, where often such documents are being viewed (or even created) in text-only command shells.
+
+
+== Basic Format ==
+The format of MakeDoc is intended for input and editing from any text editor, including those often used in shell-environments, such as vi and Emacs.
+
+
+=== Titles, headings, and paragraphs ===
+Title of document
+
+    Optional boiler plate
+    Such as author name, date, etc.
+
+=== Primary headings
+
+This is an example paragraph. All this text will remain in
+the same paragraph until a blank line is reached.
+
+This is a separate paragraph.
+
+--- Subheading
+
+Text continues from here...
+
+
+=== Command Lines ===
+Bullets, numeric lists, definitions, and other special document formats are notated by beginning a line with a special character.
+For example:
+
+*Bullet item
+
+*Another 
+
+#Numbered item
+
+#Another numbered item
+
+Other command lines begin with an equal (=) followed by the command itself.
+For example, to include an image:
+
+=image nyc.jpg
+
+Many other commands are also provided. See the reference links below.
+
+
+=== Special Commands ===
+The language also allows the evaluation (execution) of code sections in order to produce the results for example or output images. This make it possible to accurately generate code sections that contain accurate results.
+For example, if the command:
+
+=view
+
+follows a code example, the processor will automatically generate an image of whatever the code displayed in its window.
+
+
+== Processing the Language ==
+The MakeDoc language is processed using a free script under an open BSD license. Its source code is written in the REBOL language and is only about 17KB.
+The processor is divided into a text-input scanner and an output generator. The scanner output is in REBOL block format and can be input into one of several output formatters.
+The output generator for HTML is included in the standard MakeDoc script. Output generators for PDF are separate.
+
+
+== References ==
+
+
+== See also ==
+Lightweight markup language
+MakeDoc Pro (free extensions to MakeDoc)

@@ -1,0 +1,56 @@
+Cluster 5 is a designation used by the Danish Statens Serum Institut for a virus variant described by the institute in autumn 2020, in connection with investigations of SARS-CoV-2 infection among mink and humans in the north of Jutland, Denmark.
+On 3 November 2020, the institute delivered a risk assessment, in which a preliminary experiment with this virus variant described on one and a half pages, was the basis for an assessment concerning the efficacy of future COVID-19 vaccines.  With reference to this risk assessment, the Danish government on 4 November 2020 mandated the killing all the country's mink. and a lockdown with tightened restrictions was introduced in seven North Jutland municipalities.
+At the time the decision to kill all Danish mink was made, the virus variant had last been detected on 15 September  2020. After subsequent testing and sequencing of positive samples in the seven North Jutland municipalities, the date of the latest finding was still 15 September 2020.
+The World Health Organization wrote on 6 November 2020 with reference to the preliminary experiment, that "Further scientific and laboratory-based studies are required to verify preliminary findings reported and to understand any potential implications of this finding in terms of diagnostics, therapeutics and vaccines in development."
+The Danish Medicines Agency was asked for its assessment of the virus variant, the day after the government  had decided to kill all the country's mink. The agency concludes in its assessment that the mutations that characterize the virus variant are not likely to have substantial impact on the efficacy of first-generation vaccines.
+
+
+== Background ==
+
+In 2019, Denmark was the largest producer of mink fur in the world, with the vast majority of the Danish farms located in northern and western Jutland. In recent years the industry had generally been in decline in the country. Along with bats, pangolins, and humans, minks are one of the many mammal species that can be infected with coronaviruses.
+Although the role of pangolins in the spread of COVID-19 was gradually being dismissed by scientists, several articles claimed that Chinese mink farms may have played a role in the emergence of COVID-19. In partnership with science journalist Yves Sciama, they conducted an investigation for Reporterre between November and December 2020. The day after, transmission of the virus from minks to humans, and mutations related to mink, were documented in the journal Science, which prompted the Dutch government to bring forward to the end of 2020 a ban on mink farming previously scheduled to go into effect in 2024. After the discovery in the Netherlands, the authorities in Denmark initiated a large-scale surveillance program of all mink farms in the country, with regular testing and genomic sequencing. The sequences of the Danish and Dutch mink-related viruses were deposited with the GISAID database.  The U.S. Department of Agriculture (USDA) confirmed that cases of minks ill with COVID-19 had been documented in Utah in August 2020. Additional outbreaks have been detected in Michigan, Wisconsin, and Oregon. As of 29 November 2020, COVID-19 infections in mink have been reported in Denmark, Italy, the Netherlands, Spain, Sweden, and the United States.
+
+
+== Classification ==
+In Denmark, there have been five clusters of mink variants of SARS-CoV-2; the Danish State Serum Institute (SSI) has designated these as clusters 1–5 (Danish: cluster 1–5). In cluster 5, also referred to as ΔFVI‑spike by the SSI, several different mutations in the spike protein of the virus have been confirmed. The specific mutations include 69–70deltaHV (a deletion of the histidine and valine residues at the 69th and 70th position in the protein), Y453F (a change from tyrosine to phenylalanine at position 453, inside the spike protein's receptor-binding domain), I692V (isoleucine to valine at position 692), M1229I (methionine to isoleucine at position 1229), and a non-conservative substitution S1147L.
+Mink-related mutations that partially resemble the mutations discovered in Denmark, although part of a separate genomic group, are known from the Netherlands.
+
+
+== Implications for human health ==
+On 5 November, BBC News reported that 12 cases of human infection with the cluster 5 variant had been detected. A week later, an ECDC rapid risk assessment report indicated that 214 mink-related human cases had occurred, however, few of these, if any, are believed to have been additional cases related to the Cluster 5 outbreak. By 20 November, no further human cases of the Cluster 5 strain were being detected despite widespread genetic sequencing which revealed 750 cases related to mink, and it was assessed that the Cluster 5 variant was no longer circulating in humans.
+
+
+== History ==
+
+
+=== Discovery ===
+By 2 November 2020, the Danish state-owned independent research institute Statens Serum Institut (SSI) detected mutated variants of SARS-CoV-2 that could infect humans and could have dangerous effects in mink farms; human infections were associated with 191 positive mink farms. They publicly reported this on 3 November, calling variants with a known association to three farms "Cluster 5". On 4 November 2020, Prime Minister of Denmark Mette Frederiksen stated that a mutated coronavirus was being transmitted to humans via minks, tied primarily to mink farms in North Jutland. A report by the SSI found that there had been 12 human infections (8 directly associated with mink farms, 4 in the nearby community) involving this mutation in Northern Jutland (being referred to as "cluster 5"), and its Antibody response was weaker. While the institute stated that the mutation appeared to be no more dangerous than other coronaviruses by itself, Kåre Mølbak and Tyra Grove Krause of the SSI warned that the mutation potentially could reduce the effect of COVID-19 vaccines currently under development, although it was unlikely to render them useless. Furthermore, the weaker antibody response was shown to reduce immunity acquired by a prior infection. SSI noted that while cluster 5 was of some concern, they were also worried about potential future mutations that could appear in mink, leading to their recommendation of closing down all the farms in the country.
+
+
+=== Lockdown and culling ===
+
+As a preventative measure, Frederiksen announced that the country was already in the process of culling its mink population of about 14 million (initial reports of 15–17 million were based on estimates from earlier years when the industry was larger). To prevent spread of the mutation, it was also announced on 5 November that a lockdown and movement restrictions would be implemented in the North Jutland municipalities of Brønderslev, Frederikshavn, Hjørring, Jammerbugt, Læsø, Thisted, and Vesthimmerland effective 6 November, All cultural institutions, cinemas, theatres, sports and leisure facilities, and dine-in restaurants were ordered closed, and travel into or out of the municipalities was prohibited. Public transport was suspended 9 November. Mass-testing was initiated (Denmark already had one of the world's highest test rates) and trace programs were further upscaled. The restrictions in Northern Jutland were initially planned to last until 3 December, but they could be reversed earlier depending on the speed of the mink culling and mass-testing of people, and if no new cases of cluster 5 were located.
+The WHO released a statement on the SARS-CoV-2 variants on 6 November. It explained that this cluster had a combination of mutations that had not been previously observed. The variant had moderately decreased sensitivity to neutralizing antibodies, but further studies would be required to understand implications regarding diagnostics, therapeutics and vaccines. This was later echoed in a risk assessment published by the European Centre for Disease Prevention and Control (ECDC), which notes that the risk for the mink-related variants is similar to the general COVID-19 risk, but could be reassessed if the concerns raised regarding immunity, reinfection, vaccination, and treatment are confirmed when it comes to cluster 5 in particular, also noting that virus circulation in mink farms could pose other issues in the future, and providing guidelines for managing the risk. In late November, more than 10 million had been culled.
+
+
+=== International reactions ===
+On 6 November, the United Kingdom announced that Denmark would be removed from the "corridor" whitelist of countries from which travellers may return without self-isolating for 14 days, citing the cluster-5 variant. On 7 November, the United Kingdom announced that it would also prohibit entry by non-residents travelling from Denmark, and non-residents who had been to Denmark within the past 14 days. British citizens were still allowed to return home, but they, as well as all other members of their household, were required to self-isolate for 14 days. This travel ban was to be reviewed after a week. The restrictions were eventually lifted on 28 November.
+
+
+=== Aftermath ===
+Following mass-testing, SSI announced on 19 November 2020 that they had found no new cases of cluster 5 and it was in all probability extinct. The special restrictions placed on some North Jutland municipalities were lifted on 19–20 November (they are still subjected to the standard COVID-19 restrictions that cover the entire country and are unrelated to the mink mutations).
+
+
+==== Political consequences ====
+It was revealed in late November that the Minister for Agriculture, Mogens Jensen, and five other ministers had been made aware in September that the culling of the entire country's mink population, rather than just those in the infected areas, would be illegal. Facing calls for resignation from the parliamentary opposition and sharp public criticism, Prime Minister Frederiksen acknowledged that the order to cull all minks was illegal, and Jensen resigned on 18 November. A deal was later reached to retroactively make the government's order legal. On 21 December 2020, in the Parliament of Denmark, the government and parliament's left wing parties passed a bill outlawing all mink production throughout 2021. The bill does not contain provisions to remove legal responsibility for the previous culling but does retroactively legalize a bonus payout for swifter cullings. The opposition parties (V, C, O, NB, LA) opposed. On 25 January 2021, a majority in the Danish parliament reached an agreement to compensate Danish mink farmers and others making a living off of mink farming for between 15.6 billion and 18.8 billion DKK (c. 2.1 billion EUR – c. 2.5 billion EUR).
+
+
+== See also ==
+COVID-19 pandemic in Denmark
+COVID-19 pandemic and animals
+SARS-CoV-2 Alpha variant
+SARS-CoV-2 Beta variant
+Variants of severe acute respiratory syndrome coronavirus 2
+
+
+== References ==

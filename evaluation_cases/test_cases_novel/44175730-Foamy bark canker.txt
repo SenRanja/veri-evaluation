@@ -1,0 +1,41 @@
+The foamy bark canker is a disease affecting oak trees in California caused by the fungus Geosmithia sp. #41 and spread by the Western oak bark beetle (Pseudopityophthorus pubipennis). This disease is only seen through the symbiosis of the bark beetles and the fungal pathogen. The bark beetles target oak trees and bore holes through the peridermal tissues, making tunnels within the phloem. The fungal spores are brought into these tunnels by the beetles and begin to colonize the damaged cells inside the tunnels.  Symptoms of the developing fungus include wet discoloration seeping from the beetle entry holes as the fungus begins to consume phloem and likely other tissues.  If bark is removed, necrosis of the phloem can be observed surrounding the entry hole(s).  As the disease progresses, a reddish sap and foamy liquid oozes from entry holes, thus giving the disease the name foamy bark canker. Eventually, after the disease has progressed, the tree dies. This disease is important because of its detrimental effects on oak trees and its ability to spread to several new Californian counties in just a couple of years.
+
+
+== Hosts and symptoms ==
+Hosts associated with Geosmithia sp. #41 include a number of tree species, including oak and other hardwoods, pine and spruce trees, depending on the beetle vector. In this case, the western oak bark beetles target live oak trees of the western United States.  Beetles tend to attack stressed trees that are already weakened from drought or injury.  Symptoms causing branch dieback and tree death also include a cinnamon-colored gum seeping from multiple beetle entry holes on the bole, followed by a prolific, cream-colored foamy liquid. These symptoms, as well as signs (entry holes, larvae, beetles) of bark beetles, are key factors in diagnosis.  Necrosis of xylem and phloem tissues underneath bark can be observed.
+Common symptoms include:
+
+Wet discoloration on bark
+Phloem necrosis
+Beetle entry holes
+Reddish sap oozing from entry holes
+Foamy liquid from entry holes
+
+
+== Geosmithia putterillii ==
+
+Geosmithia putterillii, also known as Geosmithia pallida, is a species of fungus of the genus Geosmithia, which was named by Australian mycologist John Pitt in 1979, is widely distributed and contains 10 species.
+
+
+== Disease cycle ==
+The western bark beetle carries Geosmithia sp. #41 and burrows into the host tree, depositing the fungus inside the phloem where the female beetle lays its eggs. As more beetles are produced, the fungus is picked up and transported to other areas of the host or another host. Conidia spores of Geosmithia sp. #41 are known to function in reproduction of the fungus.  Some species of the genus Geosmithia are known to produce apothecia, however it is unclear whether Geosmithia sp. #41 produces this type of spore dispersing structure.  The western oak bark beetle is a known vector for transmission of Geosmithia sp. #41 and is responsible for infecting oak tree hosts with fungal inoculum. The beetles may also be responsible for dispersing conidia spores among coast live oak trees.  However, it is unclear how the fungus becomes associated with the bark beetles that eventually make their way into the phloem of oak trees. It is possible that spores (or spore-producing structures) are picked up on the soil surface, on woody debris, or on the bark of trees as beetles make their way to oak tree hosts.  Spores may attach to the exterior of the beetles, however, this mechanism of association is still unknown.  Once the bark beetles have begun tunneling through and consuming phloem tissue, Geosmithia sp. #41 is "dropped" or dispersed throughout the tunnels and is able to begin growth within damaged tissues nearby. The fungus is then able to continue reproduction (by production of conidia), thereby causing disease, once inside the phloem.
+
+
+== Environment ==
+This disease has been found in the southern coastal regions of California where the climate is mild and constant year-round. A warm, Mediterranean climate is favored by this disease. The pathogen relies on the bark beetle as a vector for dispersal and infection of the host. Bark beetles generally have two or more generations in a single year, leading to disease symptoms in multiple seasons. Because of the multiple generations of bark beetles constantly transporting the fungus, this disease could be considered to be polycyclic if the beetles spread to new hosts.
+
+
+== Management ==
+Control of the beetle vector is the most effective management technique for disease prevention.  Conventional methods of tree thinning and the use of insecticides have been used to combat the western bark beetles, but are only effective before the beetles have colonized and before the fungus has invaded the tree. Other cultural techniques of sanitation and overall health of the oak trees by keeping up with watering, fertilizer or mulch needs, and pruning may help. It is very important to diagnose foamy bark canker disease correctly and promptly in order to manage the disease properly because if a tree is already infected, the removal of the tree is the most effective way to prevent the disease from spreading.
+
+
+== Importance ==
+Although the disease is caused by a relatively new symbiosis, it has already spread to a number of different counties, and is completely wiping out oak trees. As mentioned before, this is partially due to disease symptoms that are similar to other diseases leading to a misdiagnosis; it most resembles bacterial wetwood, polyphagous shot hole borer, and fusarium dieback. With the recent outbreak and growth in population of the western bark beetle, there is concern that the pathogen's range will expand. Oak trees are important for wildlife diversity and for the ecological services they provide like habitat, shelter and food.
+
+
+== References ==
+
+
+== External links ==
+Southern California Oaks blog
+Geosmithia putterillii

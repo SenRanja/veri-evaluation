@@ -1,0 +1,82 @@
+A pan-tilt-zoom camera (PTZ camera) is a mechanical camera capable of panning horizontally (from left to right), tilting vertically (up and down), and zooming (for magnification). PTZ cameras are often positioned at guard posts where active employees may manage them using a remote camera controller. Their primary function is to monitor expansive open regions that need views in the range of 180 or 360 degrees. Depending on the camera or software being used, they may also be set up to automatically monitor motion-activated activities or adhere to a defined schedule.
+
+
+== Functions ==
+A pan-tilt-zoom camera can be controlled remotely via computer software, or manually by a person to recognize patterns and individuals. PTZ cameras can zoom in, pan widely in all directions, and tilt up and down utilizing servomotors to change the image captured.
+The camera's focus triggers a corresponding motorized zoom-in on the subject of the camera's attention. In addition, the lens's versatility allows the camera to capture unique perspectives and details that would otherwise be missed.
+
+
+== Use ==
+In television production, PTZ controls are used with professional video cameras in television studios, sporting events, and other spaces. They are commonly referred to as robes, an abbreviation for robotic cameras. These systems can be remotely controlled by automated systems.
+PTZ cameras are in high demand as a solution because of the diverse range of applications that they can support.  Some examples of these applications are provided below.
+
+
+=== Live-streaming ===
+A PTZ camera is a crucial piece of equipment for live streaming, as it can give the streaming material extra realism. PTZs are very versatile due to their small form factor.
+Being remote-controlled allows for a multi-camera arrangement in which many PTZ cameras may be placed at various locations and used simultaneously. They also have greater zoom and video frame capabilities than a traditional DSLR or mirrorless camera.
+
+
+=== Churches ===
+PTZ cameras are deployed at churches, which tend to be massive buildings with elaborate designs. The compact, unobtrusive nature of PTZ cameras allows churches to keep their buildings' aesthetic value intact while still maintaining security. Instead of taking up valuable floor space with a camera operator stationed at each camera, PTZ cameras are strategically placed to record and broadcast events in high definition on projection screens and social media platforms.
+
+
+=== Construction Monitoring ===
+Their ability to remotely adjust their field of view and zoom allows project managers to inspect specific areas, track equipment, and monitor progress across a large or complex job site from a centralized location. This flexibility in real-time surveillance and historical documentation enhances security, improves project management efficiency, and provides an invaluable record for quality control and dispute resolution.
+
+
+=== Broadcast ===
+The introduction of pan-tilt-zoom cameras has revolutionized television production facilities by allowing producers to consolidate their staff in one place.
+
+
+=== Auto tracking ===
+PTZ cameras are useful in fields such as sports broadcasting and newsgathering because of their auto-tracking and zoom capabilities. It is significantly easier to cover sporting events and competitions. As movements from all directions may be followed using PTZ cameras, it's capable of recording both on-field and in-stadium activity.
+
+
+=== Video surveillance ===
+Modern surveillance systems cannot function without pan-tilt-zoom cameras. Because of their mobility, these cameras can always keep an eye on a certain region while also focusing on any questionable activity. Using PTZ cameras for video surveillance is helpful in a wide variety of settings, including but not limited to guard posts, courtrooms, supermarkets, airports, museums, stores, and restaurants.
+
+
+=== Video conferencing ===
+Video conferences could benefit from the use of PTZ cameras. The recent health crisis has increased the popularity of online events in particular. Remote attendees may tune in to events in real time thanks to pan-tilt-zoom cameras that stream live video to displays at the venue. The main auditorium and the other training rooms are both suitable locations for the installation of PTZ cameras, which may be utilized during seminars and conferences. With this simple arrangement, the whole event may be seen.
+
+
+== Types ==
+Outdoor PTZ cameras can withstand the elements better than their indoor counterparts. Waterproof housings with an IP certification imply that outdoor PTZ cameras can withstand the effects of water, such as rain and snow.
+Wireless PTZ Camera: For video security, wireless PTZ cameras are a common means to transfer data over long distances when installing cable would be costly or inconvenient. In confined areas, wireless PTZ cameras may even provide superior viewing angles to wired alternatives.
+IP PTZ Camera: Internet Protocol (IP) pan-tilt-zoom cameras are preferable to wired analog models for a number of reasons.
+PoE PTZ Camera: A PoE (power over Ethernet) PTZ camera may be powered and connected to the internet with a single Ethernet cable, eliminating the need for additional wiring.
+Analog PTZ Camera: Analog pan-tilt-zoom cameras are used to record surveillance footage, which is then stored in a DVR. DVR functionality is essential for converting, processing, and storing video data.
+
+
+== Differences between PTZ and IP cameras ==
+Both cameras have the same purpose, but they operate in different ways to meet various needs in terms of safety.
+
+Installing: Positioning a PTZ camera takes time and attention. If installed incorrectly, they may not work, and reinstalling them can take a long time.
+Area/Movement: PTZ cameras can be more versatile than IP cameras. IP cameras can't pan, tilt, and zoom like PTZ cameras.
+Resolution: PTZ cameras move and zoom on their own; hence, zooming may generate haze. Shaking doesn't blur these fixed cameras' photos or recordings.
+Operation/Control: For standard PTZ cameras, if the operator is not present, the camera can't be used. IP cameras can solve this by being linked to an internet connection and controlled through IP.
+Cost: PTZ cameras are more expensive than IP cameras. Due to their mobility, PTZ cameras are more prone to damage, requiring regular maintenance that adds to expenses.
+
+
+== Mounting ==
+The installation of a pan-tilt-zoom camera is crucial. PTZ cameras may be mounted or set up in a variety of ways. The cameras installed on walls provide unique, eye-level perspectives. This setup is ideal for use on a veranda to survey large areas. It is possible to find PTZ cameras installed on the ceiling.
+
+
+== Disadvantages ==
+Although pan-tilt-zoom cameras have numerous uses and advantages, they also have certain drawbacks. One drawback of PTZ cameras is the blind spots and coverage holes they might leave behind. Camera functions include panning, tilting, and zooming, but not all at once for comprehensive monitoring.
+The lengthy delay between a command being sent and the camera responding is a common complaint about PTZ cameras. The delay between making a change to the camera's field of vision and seeing that change reflected on the screen is known as "command latency." 
+Another common criticism of PTZ cameras is that they are fragile. Problems are often encountered, according to some people. The costs of ignoring the abovementioned problems might add up over time.
+
+
+== Cost ==
+PTZ cameras have more complex internal technology, allowing them to move and adapt while keeping most or all of the advanced capabilities of traditional security cameras. They function similarly to traditional security cameras, but the owner has significantly more mobility and autonomy thanks to advanced features. The cameras, which perform the same purpose as license plate readers, differ little mechanically from one another. So, the PTZ cameras need extra hardware to allow for panning, tilting, and zooming to serve this purpose. 
+
+
+== See also ==
+Eye in the sky (camera), a pan-tilt-zoom camera encased in a globe that obscures where it is pointing
+IP camera
+List of camera types
+Omnidirectional camera
+
+
+== References ==

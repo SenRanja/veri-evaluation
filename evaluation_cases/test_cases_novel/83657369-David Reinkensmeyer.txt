@@ -1,0 +1,21 @@
+David Jay Reinkensmeyer (born 1966) is an American biomedical engineer. He researches neurorehabilitation, medical robotics, and assistive technology that supports recovery of movement after neurological injury. He is a professor of Mechanical and Aerospace Engineering as well as Anatomy and Neurobiology at the University of California, Irvine (UCI). He was elected to the National Academy of Inventors in 2023.
+
+
+== Education ==
+Reinkensmeyer received a Bachelor of Science in electrical engineering from the Massachusetts Institute of Technology (MIT) in 1988. He was a graduate student at the University of California, Berkeley, where he earned a Master of Science in electrical engineering in 1991.  
+His doctoral research identified neural control strategies for different two-handed tasks, including squeezing and lifting, and developed robotic rehabilitation devices designed to give stroke patients independent access to bimanual therapy. Reinkensmeyer studied under Steven L. Lehman and was also advised by Shankar Sastry and Lawrence Stark. He earned a doctorate in electrical engineering in 1993. 
+
+
+== Career ==
+From 1994 to 1997, Reinkensmeyer carried out postdoctoral research at the Rehabilitation Institute of Chicago and the Feinberg School of Medicine at Northwestern University, where he helped build one of the first robotic devices for movement-rehabilitation therapy in stroke patients. He joined the faculty of the University of California, Irvine as an assistant professor in 1997 and founded the Biorobotics Laboratory. At UCI, he holds his primary appointments in the Department of Mechanical and Aerospace Engineering and the Department of Anatomy and Neurobiology, with joint appointments in Biomedical Engineering, and Physical Medicine and Rehabilitation. 
+Reinkensmeyer's research combines robotics, human–computer interaction, and biomechanics to build devices that support movement recovery after neurological injury such as stroke and spinal cord damage. Among his 12 patents in rehabilitation technology is the T-WREX arm exoskeleton, which the Swiss firm Hocoma licensed and released commercially as the ArmeoSpring; by 2023, it was in use at more than 1,500 clinics treating stroke, spinal cord injury, multiple sclerosis, cerebral palsy, and orthopedic conditions. A related device from his laboratory, the BONES exoskeleton, was tested in a trial comparing approaches to robotic arm training in long-term stroke survivors.
+His research group created the MusicGlove, which pairs sensors on a glove with music-based games to rebuild finger dexterity after stroke. With Daniel Zondervan, Nizan Friedman, and Mark Bachman, Reinkensmeyer turned the device into a product through Flint Rehabilitation Devices, where he serves as clinical advisor; it has since been used by more than 10,000 people.
+Since 2014 he has been on the editorial board the Journal of NeuroEngineering and Rehabilitation. He has also co-edited the textbook Neurorehabilitation Technology in 2022. 
+
+
+== Awards and honors ==
+Fellow, National Academy of Inventors (2023)
+Fellow, American Institute for Medical and Biological Engineering (2019)
+
+
+== References ==

@@ -1,0 +1,60 @@
+"Widsith" (Old English: Wīdsīþ, "far-traveller", lit. "wide-journey"), also known as "The Traveller's Song", is an Old English poem of 143 lines. It survives only in the Exeter Book (pages 84v–87r), a manuscript of Old English poetry compiled in the late-10th century, which contains approximately one-sixth of all surviving Old English poetry. "Widsith" is located between the poems "Vainglory" and "The Fortunes of Men". Since the donation of the Exeter Book in 1076, it has been housed in Exeter Cathedral in southwestern England. The poem is for the most part a survey of the people, kings, and heroes of Europe in the Heroic Age of Northern Europe.
+
+
+== Date of composition ==
+Among the works appearing in the Exeter Book, there are none quite like "Widsith", and there is some controversy as to when "Widsith" was first composed.
+In the second half of the twentieth century, several historians, prominently including John Niles, Joyce Hill, Norman Blake and Bernard Muir, argued that the work was composed in the ninth or tenth century to evoke a glorious past for people in England, and that its author(s) and audiences may have known little about the people and peoples named.
+However, earlier scholars, including R.H. Hodgkin, had thought the poem to be older. In his 1962 edition, Kemp Malone assembled linguistic evidence that "Widsith" took more or less the form that survives in the Exeter Book in the Anglian dialect of Old English by the beginning of the eighth century, arguing that the poem was a close reflection of traditions arising during the Migration Period. This view accrued new support in the twenty-first century. In 2011 the archaeologist Lotte Hedeager argued that "Widsith" goes back to Migration Period-history—at least part of it was composed in the 6th century—and that the author demonstrates familiarity with regions outside of Britain, including Denmark and the Baltic coast. In 2013 Leonard Neidorf argued that "when situated within the history of Anglo-Saxon culture and identity, 'Widsith' clearly belongs to a time prior to the formation of a collective Anglo-Saxon identity, when distinct continental origins were remembered and maintained by the Germanic migrants in the British Isles", and Malone's dating was accepted in 2025 by Ian Shiels.
+"Widsith" may therefore be by far the oldest extant work that gives a historical account of the Battle of the Goths and the Huns, recounted as legends the later Icelandic Hervarar saga.
+
+
+== Contents ==
+Excluding the introduction of the scop Widsith, the closing, and brief comments regarded by some scholars as interpolations, the poem is divided into three 'catalogues', so-called thulas. The first thula runs through a list of the various kings of renown, both contemporary and ancient ("Caesar ruled the Greeks"), the model being '(name of a king) ruled (name of a tribe)'. The second thula contains the names of the peoples the narrator visited, the model being 'With the (name of a tribe) I was, and with the (name of another tribe)'. In the third and final thula, the narrator lists the heroes of myth and legend that he has visited, with the model '(Hero's name) I sought and (hero's name) and (hero's name)'.
+The poem refers to a group of people called the Wicinga cynn, which may be the earliest mention of the word "Viking" (lines 47, 59, 80). It closes with a brief comment on the importance and fame offered by poets like Widsith, with many pointed reminders of the munificent generosity offered to tale-singers by patrons "discerning of songs".
+
+The widely travelled poet Widsith (his name simply means "far journey") claims himself to be of the house of the Myrgings, who had first set out in the retinue of "Ealhild, the beloved weaver of peace, from the east out of Angeln to the home of the king of the glorious Goths, Eormanric, the cruel troth-breaker". The Ostrogoth Eormanric was defeated by the Huns in the 4th century. It is moot whether Widsith literally intends himself, or poetically means his lineage, either as a Myrging or as a poet, as when "the fictive speaker Deor uses the rhetoric of first-person address to insert himself into the same legendary world that he evokes in the earlier parts of the poem through his allusions to Wayland the Smith, Theodoric the Goth, Eormanric the Goth, and other legendary figures of the Germanic past".  Historically, we know that one speaker could not travel to see all of these nations in one lifetime. In a similar vein, "I was with the Lidwicingas, the Leonas, and the Langobards", Widsith boasts,
+
+The forests of the Vistula in the ancient writing tradition (Widsith, v. 121) are the homeland of the Goths, the material remains of which are generally associated with the Wielbark Culture.
+
+The poem that is now similarly titled "Deor", also from the Exeter Book, draws on similar material.
+
+
+== Tribes of Widsith ==
+The list of kings of tribes is sorted by "fame and importance", according to Hedeager, with Attila of the Huns coming first, followed immediately by Eormanric of the Ostrogoths; by contrast, the Byzantine emperor is number five.
+
+
+== Interpretation ==
+Being a list poem, the structure and contents of Widsith have given rise to a range of speculation as to the interpretation of the poem. In particular, the long lifespan of the narrator, the lack of a self-contained narrative, and the broad geographical scope have been noted by critics.
+A major scholarly interpretation has been to understand Widsith as a 'begging poem', meaning that it was composed by a travelling scop (Anglo-Saxon oral poet) to display the breadth of the scop's knowledge of epic and heroic material, in order to attract a patron.
+Leonard Neidorf proposes a connection between the contents of Widsith and the Germanic deity Woden. In particular, Neidorf argues that connecting the poem with the literary tradition of Woden and of Woden-like figures across Germanic mythology can help to explain many features of the narrator, especially his long lifespan, fondness for the transgressive figure of Eormanric, presence at the most important battles of Germanic legendary history, and his geographically extensive wanderings. Neidorf argues that 'Widsith', meaning 'far-travelled (one)', serves as the narrator's byname, and notes that it seems superficially similar to many of the Óðinsheiti, or bynames of the Norse cognate of Woden, Óðinn.
+
+
+== Original Old English text and translation ==
+
+
+== See also ==
+List of Germanic tribes
+
+
+== Notes ==
+
+
+== References ==
+Anglo-Saxon poetry: an anthology of Old English poems tr. S. A. J. Bradley. London: Dent, 1982 (translation into English prose).
+Chambers, R. W. (Ed.). Widsith: A study in Old English heroic legend. Cambridge University Press: Cambridge, 1912.
+Malone, Kemp (Ed.). Widsith. Rosenkilde and Bagger: Copenhagen, 1962.
+Neidorf, Leonard. "The Dating of Widsith and the Study of Germanic Antiquity." Neophilologus 97 (2013): pp. 165–83.
+Pascual, Rafael (April 2016). "Old English Metrical History and the Composition of Widsið". Neophilologus. 100 (2): 289–302. doi:10.1007/s11061-015-9460-6. S2CID 161170093.
+Weiskott, Eric. "The Meter of Widsith and the Distant Past."  Neophilologus 99 (2015): pp. 143–150.
+
+
+== External links ==
+
+Foys, Martin et al. Old English Poetry in Facsimile Project (Center for the History of Print and Digital Culture, University of Wisconsin-Madison, 2019-); digital facsimile edition and Modern English translation
+Old English text, digitised from George Philip Krapp and Elliott Van Kirk Dobbie (eds), The Exeter Book, The Anglo-Saxon Poetic Records, 3 (New York: Columbia University Press, 1936)
+The original text of the verse with a translation.
+A Verse Translation by Douglas B. Killings
+Norton Anthology of English Literature on-line: "The linguistic and literary contexts of Beowulf"
+Niles, John D. (1999). "Widsith and the Anthropology of the Past". Philological Quarterly. 78. Archived from the original on 29 November 2014.
+Niles, John D. (2003). "The Myth of the Anglo-Saxon Oral Poet". Western Folklore. 62 (1/2): 7–61. JSTOR 1500445.
+Shiels, Ian (2025). The matter of Englaland: the story of Offa of Angel, and the narrative world of Widsith (PhD thesis). University of Leeds.

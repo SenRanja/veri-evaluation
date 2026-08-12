@@ -1,0 +1,54 @@
+Grapholinguistics is a branch of linguistics that concerns writing systems, their basic components (i.e. graphemes and graphs) and the rules that define them.
+Graphology examines the specifics of written texts in a certain language and their correspondence to the spoken language. One area is the descriptive analysis of implicit regularities in written words and texts (graphotactics, analogous to phonotactics) to formulate explicit rules (orthography) for the writing system that can be used in prescriptive education or in computer linguistics, e.g. for speech synthesis.
+Study of the graphic units of language is divided into two branches, analogous to the handling of phonemes and phones in phonology and phonetics (the emic and etic areas of research). These are graphematics (sometimes graphemics), which studies systems of graphemes, and graphetics, which studies the distribution and form of graphs (e.g. through typography or elements of palaeography). Different schools of thought consider different entities to be graphemes; major points of divergence are the handling of punctuation, diacritic marks, digraphs or other multigraphs and non-alphabetic scripts.
+
+
+== Name ==
+At the beginning of the development of this area of linguistics, Ignace Gelb coined the term grammatology for this discipline; later some scholars suggested calling it graphology to match phonology, but that name is traditionally used for a pseudo-science. Others therefore suggested renaming the study of language-dependent pronunciation phonemics or phonematics instead, but this did not gain widespread acceptance either, so the terms graphemics and graphematics became more frequent. More recently, the term grapholinguistics has been used in English to imply a larger subfield of linguistics and allow contrast between graphematics and graphetics (though it had previously existed in the German tradition as Schriftlinguistik).
+
+
+=== Grammatology ===
+The term grammatology was first promoted in English by linguist Ignace Gelb in his 1952 book A Study of Writing. The equivalent word is recorded in German and French use long before then. Grammatology examines the typology of scripts, the analysis of the structural properties of scripts, and the relationship between written and spoken language.  In its broadest sense, some scholars also include the study of literacy in grammatology and, indeed, the impact of writing on philosophy, religion, science, administration and other aspects of the organization of society.
+Historian Bruce Trigger associates grammatology with cultural evolution.
+
+
+== Subfields ==
+
+
+=== Graphematics ===
+Graphematics (or graphemics) refers to the study of the systems that organise graphemes, which are realized as graphs, and their relation to phonology.
+
+
+=== Graphetics ===
+Graphetics refers to the study of the physical properties of the glyphs used in writing, and is analogous to the study of the physical properties of phones in phonetics.
+
+
+=== Graphotactics ===
+Graphotactics refers to rules which restrict the allowable sequences of letters in alphabetic languages. A common example is the partially correct "I before E except after C". However, there are exceptions; for example, Edward Carney in his book A Survey of English Spelling refers to the "I before E except after C” rule instead as an example of a "phonotactic rule".
+Graphotactical rules are useful in error detection by optical character recognition systems.
+In studies of Old English, graphotactics is also used to refer to the variable-length spacing between words.
+
+
+== Toronto School of communication theory ==
+
+The scholars most immediately associated with grammatology, understood as the history and theory of writing, include Eric Havelock (The Muse Learns to Write), Walter J. Ong (Orality and Literacy), Jack Goody (Domestication of the Savage Mind), and Marshall McLuhan (The Gutenberg Galaxy). Grammatology brings to any topic a consideration of the contribution of technology and the material and social apparatus of language. A more theoretical treatment of the approach may be seen in the works of Friedrich Kittler (Discourse Networks: 1800/1900) and Avital Ronell (The Telephone Book).
+
+
+== Structuralism and Deconstruction ==
+Swiss linguist Ferdinand de Saussure, who is considered to be a key figure in structural approaches to language, saw speech and writing as 'two distinct systems of signs' with the second having 'the sole purpose of representing the first.', a view further explained in Peter Barry's the Beginning Theory. In the 1960s, with the writings Roland Barthes and Jacques Derrida, critiques have been put forth to this proposed relation.
+In 1967, Jacques Derrida borrowed the term, but put it to different use, in his book Of Grammatology. Derrida aimed to show that writing is not simply a reproduction of speech, but that the way in which thoughts are recorded in writing strongly affects the nature of knowledge. Deconstruction from a grammatological perspective places the history of philosophy in general, and metaphysics in particular, in the context of writing as such. In this perspective metaphysics is understood as a category or classification system relative to the invention of alphabetic writing and its institutionalization in School. Plato's Academy, and Aristotle's Lyceum, are as much a part of the invention of literacy as is the introduction of the vowel to create the Classical Greek alphabet. Gregory Ulmer took up this trajectory, from historical to philosophical grammatology, to add applied grammatology (Applied Grammatology:  Post(e)-Pedagogy from Jacques Derrida to Joseph Beuys, Johns Hopkins, 1985). Ulmer coined the term electracy to call attention to the fact that digital technologies and their elaboration in new media forms are part of an apparatus that is to these inventions what literacy is to alphabetic and print technologies.
+
+
+== See also ==
+Graphocentrism – Focus on written language as "best" language
+Graphonomics – Study of handwriting and drawing
+Deconstruction – Approach to understanding the relationship between text and meaning
+List of writing systems
+Of Grammatology – 1967 book by Jacques Derrida
+Post-structuralism – Philosophical school and tradition
+Structuralism – Intellectual current and methodological approach in the social science
+Writing system – Convention of symbols representing language
+Written language – Persistent representation of languagePages displaying short descriptions of redirect targets
+
+
+== References ==

@@ -1,0 +1,71 @@
+Christoph Walther (born 9 August 1950)
+is a German computer scientist, known for his contributions to automated theorem proving.
+He is Professor emeritus at Darmstadt University of Technology.
+
+
+== Selected publications ==
+
+
+=== On automated theorem proving ===
+Thomas Kolbe; Christoph Walther (1994). "Reusing Proofs". In Anthony Cohn (ed.). Proc. of the 11th European Conf. on Artificial Intelligence (ECAI-11). John Wiley and Sons. pp. 80–84.
+Thomas Kolbe; Christoph Walther (1995). "Adaption of Proofs for Reuse". Proc. AAAI 1995 Fall Symposium on Adaption of Knowledge for Reuse. The AAAI Press. pp. 61–67.
+Thomas Kolbe; Christoph Walther (1995). "Proof Management and Retrieval". Proc. IJCAI- 14 Workshop on Formal Approaches to the Reuse of Plans, Proofs and Programs. Morgan Kaufmann. pp. 1–5.
+Thomas Kolbe; Christoph Walther (1995). "Second-Order Matching modulo Evaluation – A Technique for Reusing Proofs". Proc. 14th Intern. Joint Conf. on Artificial Intelligence (IJCAI-14). Morgan Kaufmann. pp. 190–195.
+Thomas Kolbe; Christoph Walther (1995). "Patching Proofs for Reuse". Proc. of the 8th European Conf. on Machine Learning (ECML-8). LNAI. Vol. 912. Springer. pp. 303–306. doi:10.1007/3-540-59286-5_73.
+Thomas Kolbe; Christoph Walther (1996). "Termination of Theorem Proving by Reuse". In M. A. McRobbie; J. K. Slaney (eds.). Proc. 13th Inter. Conf. on Automated Deduction (CADE-13). LNAI. Vol. 1104. Springer. pp. 106–120. doi:10.1007/3-540-61511-3_72. ISBN 978-3-540-61511-8.
+Thomas Kolbe; Christoph Walther (1996). "Proving Theorems by Mimicking a Human's Skill". AAAI 1996 Spring Symposium on Acquisition, Learning and Demonstration. The AAAI Press. pp. 50–56.
+Thomas Kolbe; Christoph Walther (1998). "Proof Analysis, Generalization and Reuse". In Wolfgang Bibel; Peter Schmitt (eds.). Automated Deduction - A Basis for Applications. Applied Logic Series. Vol. 9. Dordrecht: Kluwer Academic Publishers. pp. 189–219. doi:10.1007/978-94-017-0435-9_8. ISBN 978-90-481-5051-9.
+Christoph Walther; Thomas Kolbe (2000). "On Terminating Lemma Speculations". Information and Computation. 162 (1–2): 96–116. doi:10.1006/inco.1999.2859.
+Christoph Walther; Thomas Kolbe (2000). "Proving theorems by reuse". Artificial Intelligence. 116 (1–2): 17–66. doi:10.1016/S0004-3702(99)00096-X.
+Christoph Walther (2003). "Automatisches Beweisen". In Günther Görz (ed.). Einführung in die Künstliche Intelligenz. Addison-Wesley. pp. 223–263.
+
+
+=== On automated termination analysis ===
+Christoph Walther (1988). "Argument-Bounded Algorithms as a Basis for Automated Termination Proofs". Proc. 9th Conference on Automated Deduction. LNAI. Vol. 310. Springer. pp. 602–621.
+Christoph Walther (1991). "Automatisierung von Terminierungsbeweisen". In Wolfgang Bibel (ed.). Künstliche Intelligenz. Vieweg. pp. 1–254. doi:10.1007/978-3-322-85404-9. ISBN 978-3-528-04771-9.
+Christoph Walther (1991). "On Proving the Termination of Algorithms by Machine". Artificial Intelligence. 70 (1).
+Jürgen Giesl; Christoph Walther; Jürgen Brauburger (1998). "Termination Analysis for Functional Programs". In Wolfgang Bibel; Peter Schmitt (eds.). Automated Deduction - A Basis for Applications. Applied Logic Series. Vol. 10. Dordrecht: Kluwer Academic Publishers. pp. 135–164. doi:10.1007/978-94-017-0437-3_6. ISBN 978-90-481-5052-6.
+Christoph Walther (2000). "Criteria for Termination". In S. Hölldobler (ed.). Intellectics and Computational Logic. Dordrecht: Kluwer Academic Publishers. pp. 361–386.
+Christoph Walther; Stephan Schweitzer (2005). "Automated Termination Analysis for Incompletely Defined Programs". In Franz Baader; Andrei Voronkov (eds.). Proc. 11th Int. Conf. on Logic for Programming, Artificial Intelligence and Reasoning (LPAR). LNAI. Vol. 3452. Springer. pp. 332–346.
+
+
+=== On the VeriFun verification system for functional programs ===
+Christoph Walther and Stephan Schweitzer (2003). "About VeriFun". In Franz Baader (ed.). Proc. 19th Conference on Automated Deduction. LNAI. Vol. 2741. Springer. pp. 322–327.
+Christoph Walther; Stephan Schweitzer (2004). "Verification in the Classroom". Journal of Automated Reasoning. 31 (1): 35–73. doi:10.1016/0004-3702(85)90029-3.
+Christoph Walther; Stephan Schweitzer (2005). "A Machine-Verified Code Generator". In Moshe Y. Vardi; Andrei Voronkov (eds.). Proc. 10th Int. Conf. on Logic for Programming, Artificial Intelligence and Reasoning (LPAR-10). LNAI. Vol. 2850. Springer. pp. 91–106.
+Christoph Walther; Stephan Schweitzer (2005). "Reasoning about Incompletely Defined Programs". In Geoff Sutcliffe; Andrei Voronkov (eds.). Proc. 12th Int. Conf. on Logic for Programming, Artificial Intelligence and Reasoning (LPAR-12). LNAI. Vol. 3835. Springer. pp. 427–442.
+Markus Aderhold; Christoph Walther; Daniel Szallies; Andreas Schlosser (2006). "A Fast Disprover for VeriFun". In Wolfgang Ahrendt; Peter Baumgartner; Hans de Nivelle (eds.). Proc. Workshop on Non-Theorems, Non-Validity, Non-Provability (DISPROVING-06). pp. 59–69.
+Andreas Schlosser; Christoph Walther; Markus Aderhold (2006). "Axiomatic Specifications in VeriFun". In Serge Autexier; Heiko Mantel (eds.). Proc. 6th Verification Workshop (VERIFY-06). pp. 146–163.
+Andreas Schlosser; Christoph Walther; Michael Gonder; Markus Aderhold (2007). "Context Dependent Procedures and Computed Types in VeriFun". Electronic Notes in Theoretical Computer Science. 174 (7): 61–78. doi:10.1016/j.entcs.2006.10.038.
+Christoph Walther; Nathan Wasser (2017). "Fermat, Euler, Wilson - Three Case Studies in Number Theory". Journal of Automated Reasoning. 59 (2): 267–286. doi:10.1007/s10817-016-9387-z.
+Christoph Walther (2018). "Formally Verified Montgomery Multiplication". In Hana Chockler; Georg Weissenbacher (eds.). Proc. of the 30th Intern. Conf. on Computer Aided Verification (CAV 2018). LNAI. Vol. 10982. Springer. pp. 505–522. doi:10.1007/978-3-319-96142-2_30. ISBN 978-3-319-96141-5.
+Christoph Walther (2019). "Verified Newton-Raphson Iteration for Multiplicative Inverses Modulo Powers of Any Base". ACM Transactions on Mathematical Software. 45 (1): 9:1–9:7. doi:10.1145/3301317.
+
+
+=== On many-sorted unification, resolution and paramodulation ===
+Christoph Walther (1983). "A Many-Sorted Calculus based on Resolution and Paramodulation". In Alan Bundy (ed.). Proc. of the 8th Intern. Joint Conf. on Artificial Intelligence (IJCAI-8). Morgan Kaufmann. pp. 882–891.
+Christoph Walther (1984). "A Mechanical Solution of Schubert's Steamroller by Many-Sorted Resolution". Proc. of the 4th National Conf. on Artificial Intelligence (AAAI-4). Morgan Kaufmann. pp. 330–334.
+Christoph Walther (1984). "Unification in Many- Sorted Theories". In Tim O’Shea (ed.). Proc. of the 6th European Conf. on Artificial Intelligence (ECAI-6). North-Holland. pp. 383–392.
+Walther, Christoph (1985). "A Mechanical Solution of Schubert's Steamroller by Many-Sorted Resolution". Artif. Intell. 26 (2): 217–224. doi:10.1016/0004-3702(85)90029-3.
+Christoph Walther (1986). "A Classification of Many-Sorted Unification Problems". In Jörg Siekmann (ed.). Proc. of the 8th Inter. Conf. on Automated Deduction (CADE-8). LNAI. Vol. 230. Springer. pp. 525–537.
+Christoph Walther (1987). A Many-Sorted Calculus Based on Resolution and Paramodulation. Pitman (London) and Morgan Kaufmann (Los Altos). pp. 1–170. ISBN 978-0-273-08718-2.
+Christoph Walther (1988). "Many-Sorted Unification". J. ACM. 35 (1): 1–17. doi:10.1145/42267.45071.
+Christoph Walther (1990). "Many-Sorted Inferences in Automated Theorem Proving". In K.-H. Bläsius; U. Hedtstück; C.-R. Rollinger (eds.). Sorts and Types in Artificial Intelligence. LNAI. Vol. 418. Springer. pp. 18–48.
+Christoph Walther (2016). An Algorithm for Many-Sorted Unification (Errata to Many-Sorted Unification, J. ACM vol 35(1), 1988) (Technical Report). TU Darmstadt.
+
+
+=== On induction proving ===
+Susanne Biundo and Birgit Hummel and Dieter Hutter and Christoph Walther (1986). "The Karlsruhe Induction Theorem Proving System". In J.H. Siekmann (ed.). Proc. 8th CADE. LNAI. Vol. 230. Springer. pp. 672–674.
+Christoph Walther (1992). "Mathematical Induction". In S. C. Shapiro (ed.). Encyclopedia of Artificial Intelligence. John Wiley and Sons. pp. 668–672.
+Christoph Walther (1992). "Computing Induction Axioms" (PDF). In Andrei Voronkov (ed.). Proc. LPAR. LNAI. Vol. 624. Springer. pp. 381–392.
+Christoph Walther (1993). "Combining Induction Axioms by Machine" (PDF). In Ruzena Bajcsy (ed.). Proc. 13th IJCAI. Morgan Kaufmann. pp. 95–101.
+Christoph Walther (1994). "Mathematical Induction" (PDF). In Dov M. Gabbay and C.J. Hogger and J.A. Robinson (ed.). Handbook of Logic in Artificial Intelligence and Logic Programming. Vol. 2. Oxford University Press. pp. 127–227.
+Christoph Walther (2001). "Semantik und Programmverifikation". Teubner Texte zur Informatik. TEUBNER-TEXTE zur Informatik. Vol. 34. Teubner-Wiley. pp. 1–212. doi:10.1007/978-3-322-86768-1. ISBN 978-3-519-00336-6.
+
+
+== References ==
+
+
+== External links ==
+Christoph Walther's home page at Darmstadt University
+VeriFun System at Darmstadt University

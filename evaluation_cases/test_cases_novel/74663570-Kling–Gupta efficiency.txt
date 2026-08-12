@@ -1,0 +1,243 @@
+The Kling–Gupta efficiency (KGE) is a goodness-of-fit indicator widely used in the hydrologic sciences for comparing simulations to observations. It was created by hydrologic scientists Harald Kling and Hoshin Vijai Gupta. Its creators intended for it to improve upon widely used metrics such as the coefficient of determination and the Nash–Sutcliffe model efficiency coefficient.
+
+  
+    
+      
+        
+          KGE
+        
+        =
+        1
+        −
+        
+          
+            (
+            r
+            −
+            1
+            
+              )
+              
+                2
+              
+            
+            +
+            (
+            α
+            −
+            1
+            
+              )
+              
+                2
+              
+            
+            +
+            (
+            β
+            −
+            1
+            
+              )
+              
+                2
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\text{KGE}}=1-{\sqrt {(r-1)^{2}+(\alpha -1)^{2}+(\beta -1)^{2}}}}
+  
+
+where:
+
+  
+    
+      
+        r
+      
+    
+    {\textstyle r}
+  
+ is the Pearson correlation coefficient,
+
+  
+    
+      
+        α
+      
+    
+    {\textstyle \alpha }
+  
+ is a term representing the variability of prediction errors,
+
+  
+    
+      
+        β
+      
+    
+    {\textstyle \beta }
+  
+ is a bias term.
+The terms 
+  
+    
+      
+        α
+      
+    
+    {\textstyle \alpha }
+  
+ and 
+  
+    
+      
+        β
+      
+    
+    {\textstyle \beta }
+  
+ are defined as follows:
+
+  
+    
+      
+        β
+        =
+        
+          
+            
+              μ
+              
+                s
+              
+            
+            
+              μ
+              
+                o
+              
+            
+          
+        
+      
+    
+    {\displaystyle \beta ={\frac {\mu _{s}}{\mu _{o}}}}
+  
+
+where: 
+
+  
+    
+      
+        
+          μ
+          
+            s
+          
+        
+      
+    
+    {\textstyle \mu _{s}}
+  
+ is the mean of the simulated time series (e.g.: flows predicted by the model)
+
+  
+    
+      
+        
+          μ
+          
+            o
+          
+        
+      
+    
+    {\textstyle \mu _{o}}
+  
+ is the mean of the observed time series
+and 
+
+  
+    
+      
+        α
+        =
+        
+          
+            
+              σ
+              
+                s
+              
+            
+            
+              σ
+              
+                o
+              
+            
+          
+        
+      
+    
+    {\displaystyle \alpha ={\frac {\sigma _{s}}{\sigma _{o}}}}
+  
+
+where:
+
+  
+    
+      
+        
+          σ
+          
+            s
+          
+          
+            2
+          
+        
+      
+    
+    {\textstyle \sigma _{s}^{2}}
+  
+ is the variance of the simulated time series, so 
+  
+    
+      
+        
+          σ
+          
+            s
+          
+        
+      
+    
+    {\textstyle \sigma _{s}}
+  
+ is estimated by the standard deviation of simulated data.
+
+  
+    
+      
+        
+          σ
+          
+            o
+          
+          
+            2
+          
+        
+      
+    
+    {\textstyle \sigma _{o}^{2}}
+  
+ is the variance of the observed time series
+A modified version, KGE', was proposed by Kling et al. in 2012.
+
+
+== References ==

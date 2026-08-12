@@ -1,0 +1,98 @@
+A crane vessel, crane ship, crane barge, or floating crane is a ship with a crane specialized in lifting heavy loads, typically exceeding 1,500 t (1,476 long tons; 1,653 short tons) for modern ships. The largest crane vessels are used for offshore construction.
+The cranes are fitted to conventional monohulls and barges, but the largest crane vessels are often catamaran or semi-submersible types which provide enhanced stability and reduced platform motion. Many crane vessels are fitted with one or more rotating cranes. Some of the largest crane vessels use fixed sheerlegs instead; in these designs, the crane cannot rotate relative to the ship, and the vessel must be manoeuvered to place loads. Other vessels use large gantry cranes and straddle the load.
+
+
+== Types ==
+There are several major configurations  of crane vessel, usually with overlapping ranges of functionality, but each has at least one major advantage over the others in some circumstances, and consequently all these arrangements coexist.
+
+
+=== Crane ships ===
+
+Conventional seagoing self propelled monohulls with heavy lift crane equipment.
+
+
+=== Sheer-legs barges ===
+
+A Sheer-legs barge is a barge with sheer-legs mounted at one end, which can lift loads and luff the sheer-legs to adjust the reach, but cannot swing the load independently of the hull orientation. A typical arrangement has a substantial A-frame hinged at the stern, supported by stays to the bow. When the load has been lifted, the barge is maneuvered to the position where the load is to be lowered by onboard thrusters or tugs, and the load is lowered. A sheer-legs barge always keeps the load in the line of maximum static stability, and may use ballasting at the bow to increase longitudinal righting moment to compensate for the load. The sheer-legs arrangement is more economical to manufacture and maintain than a slewing crane, but may be less convenient as the whole vessel must be moved to precise position for lifting and lowering. It is usual to luff the sheer-legs before lifting to a position suitable for both lifting and setting the load, as luffing under load is generally slow, and there is seldom any need.
+
+
+=== Hammerhead crane barges ===
+
+A heavy lift hammerhead crane barge has a fixed hammerhead crane, which neither slews nor luffs, but has a constant reach. They are operated in a similar way to sheer-legs barges. This arrangement may be mounted on a catamaran barge which allows it to straddle a bridge pier to lower a prefabricated section into place.
+
+
+=== Catamaran gantry cranes ===
+
+Catamaran heavy lift barges that consist of two barges connected by gantry cranes across the top have been used in sheltered water like harbours and rivers. To reduce listing moments on the barges, the gantries may be attached to the hulls by pinned joints at the ends, allowing some independent roll. The gantry trusses are usually fitted at both ends of the barges, allowing lifts of long loads.
+
+
+=== Semi-submersibles ===
+
+Semi-submersible crane platforms have advantages where the water is too deep or the bottom composition unsuitable for a jack-up, and the water conditions are frequently too rough for efficient use of conventional hulls. The semi-submersible hull form has a lesser and slower response to waves and swell, due to reduced waterplane area, and stability and righting moment are adjustable by ballasting to suit the load. The gaps between the columns also allow waves to pass between then with little impact on the vessel. Disadvantages are lower inherent stability, and much greater cost and complexity.
+The low waterplane area causes a low heave response, and this can be utilised to function as a tension leg platform by using vertical mooring lines to anchor piles or clump weights on the seabed sufficient to prevent heave in the prevailing sea state. In this configuration heave sensitive operations can be  done with precision and control.
+
+
+=== Revolving derrick barge ===
+
+A revolving derrick barge is a slewing crane mounted on a barge, which can be rotated independently of the hull when carrying a load. These are highly versatile, but also expensive, complex, and have some limitations, particularly in the sea states in which they can safely operate. They are usually operated from a fixed position, and use the slewing and luffing capabilities of the derrick to position the crane tip for picking and setting the load
+The arrangement is a compromise of structural and stability requirements balanced against reach versatility, load capacity, and cost. One of the advantages of the slewing derrick is the ability to reach loads carried on the deck of the vessel itself. Compared to land-based cranes, the additional dynamic loads and motion in a seaway complicate the operation and safety. Position and movement of the boom tip are affected by all six degrees of freedom, magnified by distance from the centres of motion of the vessel, and varying during a lifting operation as the position of the tip is moved relative to the vessel.
+
+
+=== Jack-up construction barge ===
+
+A Jack-up construction barge is a barge fitted with four to eight legs, each with a jacking system that can grip the leg and move it up or down relative to the hull, lock it in place and move back along the leg to grip it again for a further jacking operation. The hull is lifted clear of the wave tops in the working position, and the mass of the barge and any additional load is supported by the bases of the legs, which should preferably spread the load as evenly as possible. During the jack-up operation the barge is secured in place by a taut mooring spread of anchors. Once at working height the legs can be released one at a time and driven deeper with pile driving hammers for greater stability. Removal is basically a similar procedure in reverse, with the legs being pulled out of the bottom ground one at a time after the hull is afloat, while the anchor spread limits side forces imposed by waves. Water jetting, sustained tension, and/or low pressure water injection at the base of the leg may be used to release firmly embedded legs. These rigs are free from motion response to sea conditions, but need occasional calm conditions to move. Performance is strongly dependent on seabed characteristics.
+
+
+== Capacity ==
+The three main measures of capacity are load, reach, and lift height. Other factors of importance are hull draught, depth to which the hook can be lowered (for offshore work), and sea state limits for transit and lifting.
+
+
+== Operation and safety ==
+The interaction of the six degrees of freedom of the vessel, the response to the sea state and wind, and the position and motion of the upper block due to crane geometry and operational motion, can make the upper block describe a complex three-dimensional path in space. The load path is even more complex, and there may be various resonances of vessel, crane and load which must be managed, generally by passing through those conditions as soon as reasonably practicable, but motion compensation systems may help at times. Accelerations, jerk loads and impacts between the load and surroundings must be minimised and limited to levels which do not cause unacceptable damage. Some of these responses are inherent to the combination of vessel, crane and load, and others depend on sea state and wind forces. Pick up and set down are the critical stages for impact loads. During pickup there may be relative movement between the support on which the load stands and the hook, and if the load cannot be lifted clear before the gap closes, there will be impact. Similarly when setting the load down, it should be done as smoothly as possible, and once in contact should be allowed to settle as soon as possible to avoid re-lifting and pounding on the base structure.
+
+
+== Applications ==
+Coastal engineering
+Offshore construction
+Marine salvage
+
+
+== History ==
+
+In medieval Europe, crane vessels which could be flexibly deployed in the whole port basin were introduced as early as the 14th century.
+During the Age of Sail, the sheer hulk was used extensively as a floating crane for tasks that required heavy lift. At the time, the heaviest single components of ships were the main masts, and sheer hulks were essential for removing and replacing them, but they were also used for other purposes. Some crane vessels had engines for propulsion, others needed to be towed with a tugboat.
+
+In 1920, the 1898-built battleship USS Kearsarge was converted to a crane ship when a crane with a capacity of 250 tons was installed. Later it was renamed Crane Ship No. 1. It was used, amongst other things, to place guns and other heavy items on other battleships under construction. Another remarkable feat was the raising of the submarine USS Squalus in 1939.
+In 1942, the crane ships a.k.a. "Heavy Lift Ships" SS Empire Elgar (PQ 16), SS Empire Bard (PQ 15), and SS Empire Purcell (PQ 16) were sent to the Russian Arctic ports of Arkhangelsk, Murmansk and Molotovsk (since renamed Sererodvinsk). Their role was to enable the unloading of the Arctic convoys where port installations were either destroyed by German bombers or were non existent (as at Bakaritsa quay Arkhangelsk).
+In 1949, J. Ray McDermott had Derrick Barge Four built, a barge that was outfitted with a revolving crane capable of lifting 150 tons. The arrival of this type of vessel changed the direction of the offshore construction industry. Instead of constructing oil platforms in parts, jackets and decks could be built onshore as modules. For use in the shallow part of the Gulf of Mexico, the cradle of the offshore industry, these barges sufficed.
+In 1963, Heerema converted a Norwegian tanker, Sunnaas, into a crane vessel with a capacity of 300 tons, the first one in the offshore industry that was ship-shaped. It was renamed Global Adventurer. This type of crane vessel was better adapted to the harsh environment of the North Sea.
+
+
+=== Semi-submersible giants ===
+In 1978, Heerema had two semi-submersible crane vessels built, Hermod and Balder, each with one 2,000 ton and one 3,000 ton crane. Later both were upgraded to a higher capacity. This type of crane vessel was much less sensitive to sea swell, so that it was possible to operate on the North Sea during the winter months. The high stability also allowed for heavier lifts than was possible with a monohull. The larger capacity of the cranes reduced the installation time of a platform from a whole season to a few weeks. Inspired by this success similar vessels were built. In 1985 DB-102 was launched for McDermott, with two cranes with a capacity of 6,000 tons each. Micoperi ordered M7000 in 1986, designed with two cranes of 7,000 tons each.
+However, due to an oil glut in the mid 1980s, the boom in the offshore industry was over, resulting in collaborations. In 1988, a joint venture between Heerema and McDermott was formed, HeereMac. In 1990 Micoperi had to apply for bankruptcy. Saipem – in the beginning of the 1970s a large heavy lift contractor, but only a small player in this field at the end of the 1980s – acquired M7000 from Micoperi in 1995, later renaming it Saipem 7000. In 1997 Heerema took over DB-102 from McDermott after discontinuation of their joint venture. The ship was renamed Thialf and subsequently was upgraded in 2000 to a lifting capacity of twice 7,100 tons.
+Thialf can use both cranes in tandem to lift 14,200 t (14,000 long tons; 15,700 short tons) at a radius of 31.2 m (102 ft); in comparison, Saipem 7000 can use both cranes to lift a smaller load of 14,000 t (14,000 long tons; 15,000 short tons) at a wider radius of 41 m (135 ft).
+
+
+=== Lifting records ===
+A heaviest single lift record was set in 2000 by Thialf for lifting the 11,883 t (11,695-long-ton; 13,099-short-ton) Shearwater topsides for Shell. Saipem 7000 set a new record in October 2004 for the 12,150 t (11,960-long-ton; 13,390-short-ton) lift of Sabratha Deck.
+Under dynamic positioning, Saipem 7000 set another record in 2010 by lifting the 11,600 t (11,400-long-ton; 12,800-short-ton) BP Valhall Production topsides.
+Shortly after it was completed, Sleipnir completed a record lift of 15,300 t (15,100 long tons; 16,900 short tons) for the topsides of the Leviathan project for Noble Energy, in September 2019.
+
+
+== Heavy lift vessels ==
+
+
+== See also ==
+Ajax (crane barge) lift 250 tons used at Panama Canal
+Derrick
+Jackup rig
+List of historical harbour cranes
+
+
+== References ==
+
+
+== External links ==
+
+A Gigantic Muscle of Steel: it picks up a sunken tugboat from the harbor bottom as easily as you'd lift ten pounds off the floor, Popular Science monthly, February 1919, page 67, Scanned by Google Books

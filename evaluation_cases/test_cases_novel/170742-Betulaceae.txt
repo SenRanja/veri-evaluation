@@ -1,0 +1,84 @@
+Betulaceae, the birch family, includes six genera of deciduous nut-bearing trees and shrubs, including the birches, alders, hazels, hornbeams, hazel-hornbeam, and hop-hornbeams, numbering a total of 167 species. They are mostly natives of the temperate Northern Hemisphere, with a few species reaching the Southern Hemisphere in the Andes in South America. Their typical flowers are catkins and often appear before leaves.
+In the past, the family was often divided into two families, Betulaceae (Alnus, Betula) and Corylaceae (the rest). Recent treatments, including the Angiosperm Phylogeny Group, have described these two groups as subfamilies within an expanded Betulaceae: Betuloideae and Coryloideae.
+Betulaceae flowers are monoecious, meaning that they have both male and female flowers on the same tree. Their flowers present as catkins and are small and inconspicuous, often with reduced perianth parts. These flowers have large feathery stamen and produce a high volume of pollen, as they rely on wind pollination. Their leaves are simple, with alternate arrangement and doubly serrate margins.
+
+
+== Evolutionary history ==
+The Betulaceae are believed to have originated at the end of the Cretaceous period (about 70 million years ago) in central China. This region at the time would have had a Mediterranean climate due to the proximity of the Tethys Sea, which covered parts of present-day Tibet and Xinjiang into the early Tertiary period. This point of origin is supported by the fact that all six genera and 52 species are native to this region, many of those being endemic. All six modern genera are believed to have diverged fully by the Oligocene, with all genera in the family (with the exception of Ostryopsis) having a fossil record stretching back at least 20 million years from the present.
+According to molecular phylogeny, the closest relatives of the Betulaceae are the Casuarinaceae, or the she-oaks.
+
+
+== Uses ==
+
+The common hazel (Corylus avellana) and the filbert (Corylus maxima) are important orchard plants, grown for their edible nuts.
+The other genera include a number of popular ornamental trees, widely planted in parks and large gardens; several of the birches are particularly valued for their smooth, brightly coloured bark.
+The wood is generally hard, tough and heavy, hornbeams particularly so; several species were of significant importance in the past where very hard wood capable of withstanding heavy wear was required, such as for cartwheels, water wheels, cog wheels, tool handles, chopping boards, and wooden pegs. In most of these uses, wood has now been replaced by metal or other man-made materials.
+
+
+== Subfamilies and genera ==
+
+
+=== Extant genera ===
+Subfamily Betuloideae
+Genus Alnus Mill. 1754 – alder
+Genus Betula L. 1753 – birch
+Subfamily Coryloideae
+Genus Carpinus L. 1753 – hornbeam
+Genus Corylus L. 1753 – hazel
+Genus Ostrya Scop. 1760 – hop-hornbeam
+Genus Ostryopsis Decne. 1873 – hazel-hornbeam
+
+
+=== Fossil genera ===
+Betuloidea
+†Alnipollenites R. Potonié, 1931 (pollen)
+†Alnoxylon Felix, 1884 (wood)
+†Alnuspollenites Raatz, 1938 (pollen)
+†Betulapollenites R. Potonié, 1937 (pollen)
+†Betulaepollenites R. Potonié, 1934 (pollen)
+†Paralnoxylon Doweld, 2021 (wood)
+Coryloidea
+†Asterocarpinus Manchester & Crane, 1987 (fruits)
+†Coryloides Manchester, 1994 (fruits)
+†Cranea Manchester & Chen, 1998 (fruits, flowers, pollen & Leaves)
+†Corylocarpinus Straus, 1969 (fruits)
+†Craspedodromophyllum P.R. Crane, 1981 (leaves)
+†Kardiasperma Manchester, 1994 (fruits)
+†Palaeocarpinus P.R. Crane, 1981 (fruits)
+†Paracarpinus Manchester & P.R. Crane, 1987 (leaves)
+Incertae sedis
+†Alniphyllum Nathorst, 1886 (leaves)
+†Alnites Göppert, 1837 (leaves, flowers, fruits)
+†Alnophyllum Staub, 1884 (leaves)
+†Betulites Göppert, 1837 (flowers)
+†Betulacites Agranovskaja, Botscharnikova, & Martynova, 1960 (pollen)
+†Betulinium Unger, 1842 (wood)
+†Trivestibulopollenites Pflug & P.W. Thomson, 1953 (pollen)
+†Betuliphyllum Dusén in Nordenskjöld, 1899 (leaves)
+†Betuloidites R. Potonié, Thomson, & Thiergart, 1950 (pollen)
+†Betuloxylon Kaiser, 1880 (wood)
+†Carpinicarpus Nikitin, 1966 (fruits)
+†Carpiniphyllum Nathorst ex Krassilov, 1979 (leaves)
+†Carpinites Göppert & Berendt, 1845 (flowers)
+†Carpinoxylon Vater, 1884 (wood)
+†Carpinuspollenites R. Potonié, Thomson, & Thiergart, 1949 (pollen)
+†Castanopsispollenites Thiergart, 1937 (pollen)
+†Clethrites Beuth, 1776 (wood)
+†Corylipollenites R. Potonié, 1934 (pollen)
+†Corylites Gardner, 1887 (leaves)
+†Coryloidites R. Potonié, Thomson, & Thiergart, 1949 (pollen)
+†Corylophyllum J. Dawson, 1888 (leaves)
+†Coryloxylon U. Prakash, Březinová, & Bůžek, 1971 (wood)
+†Coryluspollenites Raatz, 1938 (pollen)
+†Eucarpinoxylon MuellerStoll & Maedel, 1959 (wood)
+†Ostryoipollenites R. Potonié, 1960 (pollen)
+†Phegites C.N. Lange ex J.F. Krüger, 1825 (wood)
+†Rhizoalnoxylon Conwentz, 1880 (root)
+†Triporopollenites Pflug & P.W. Thomson, 1953 (pollen)
+
+
+== Phylogenetic systematics ==
+Modern molecular phylogenetics suggest the following relationships:
+
+
+== References ==

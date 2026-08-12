@@ -1,0 +1,11 @@
+SGR 0501+4516 is a magnetar that is a soft gamma repeater (SGR).  Currently, the phenomena of SGRs and the related anomalous X-ray pulsars (AXP) are explained as arising from magnetars. SGR 0501+4516 is located approximately 15,000 light years from Earth and has a magnetic field 100 trillion times stronger than the Earth's.
+SGR 0501+4516 is the first SGR to have been discovered after ten years without SGR detections.
+It has been suggested that SGR 0501+4516, together with 1E 1547.0-5408, should be considered as tools for a final  unification  of  SGRs,  AXPs  and  the transient AXPs (TAXPs) into a single class of magnetar candidates.
+
+
+== Discovery ==
+Its existence was reported on August 22, 2008, by NASA's Swift satellite, which reported numerous blasts of radiation from the object. The eruptions were subsequently studied in-depth using the European Space Agency's XMM-Newton and International Gamma-Ray Astrophysics Laboratory (INTEGRAL) satellites. The object had been serendipitously observed before in 1992 by ROSAT.
+A study published in 2025 didn't find any supernova remnants within the area that SGR 0501+4516 had traversed during its expected lifetime. It concluded that some magnetars might be significantly older than expected, or that their progenitors produce low supernova ejecta masses, or that they can be formed by accretion-induced collapse or low-mass neutron star mergers.
+
+
+== References ==

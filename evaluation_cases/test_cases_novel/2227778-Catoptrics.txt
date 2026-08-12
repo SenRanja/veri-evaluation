@@ -1,0 +1,36 @@
+Catoptrics (from Ancient Greek: κατοπτρικός katoptrikós ‘specular’, from Ancient Greek: κάτοπτρον kátoptron ‘mirror’) deals with the phenomena of reflected light and image-forming optical systems using mirrors. A catoptric system is also called a catopter (catoptre).
+
+
+== History ==
+
+
+=== Ancient Texts ===
+Catoptrics is the title of two texts from ancient Greece:
+
+Catoptrics written by "Pseudo-Euclid"; although the book is attributed to Euclid, its contents are a combination of knowledge dating from Euclid's time together with information which dates to the later Roman period. It has been argued that the book may have been compiled by the 4th century mathematician Theon of Alexandria. The book covers the mathematical theory of mirrors, particularly the images formed by plane and spherical concave mirrors.
+Catoptrics written by Hero of Alexandria, this work concerns the practical application of mirrors for visual effects. In the Middle Ages, this work was falsely ascribed to Ptolemy. It only survives in a Latin translation.
+The Latin translation of Alhazen's (Ibn al-Haytham) main work, Book of Optics (Kitab al-Manazir), exerted a great influence on Western science: for example, on the work of Roger Bacon, who cites him by name. His research in catoptrics (the study of optical systems using mirrors) centred on spherical and parabolic mirrors and spherical aberration. He made the observation that the ratio between the angle of incidence and refraction does not remain constant, and investigated the magnifying power of a lens. His work on catoptrics also contains the problem known as "Alhazen's problem". Alhazen's work influenced Averroes' writings on optics, and his legacy was further advanced through the 'reforming' of his Optics by Persian scientist Kamal al-Din al-Farisi (d. c. 1320) in the latter's Kitab Tanqih al-Manazir (The Revision of [Ibn al-Haytham's] Optics).
+
+
+=== Renaissance ===
+16th century Jewish-Ferrarese physicist Rafael Mirami wrote a treatise on the subject, Compendiosa introduttione alla prima parte della specularia, which became influential in a revival of the field, and contributed towards astronomical calculations instigated by Pope Gregory XIII, that led to the creation of the Gregorian Calendar.
+
+
+== Catoptric telescopes ==
+The first practical catoptric telescope (the "Newtonian reflector") was built by Isaac Newton as a solution to the problem of chromatic aberration exhibited in telescopes using lenses as objectives (dioptric telescopes).
+
+
+== See also ==
+Dioptrics
+Catadioptrics
+Optical telescope
+List of telescope types
+Image-forming optical system
+Fresnel lens
+Lighthouse lens
+
+
+== References ==
+
+
+=== Bibliography ===

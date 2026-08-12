@@ -1,0 +1,40 @@
+The Loire-Nieuport 161 was a single-seat, single-engine, all-metal, low-wing monoplane fighter designed and built in France in 1935 to compete for a government contract. Accidents delayed its development and only three prototypes were completed.
+
+
+== Design and development ==
+In 1934 the Ateliers et Chantiers de la Loire and the Société Nieuport-Astra merged to form the Groupement Aviation Loire-Nieuport but maintained separate design offices, leading to some confusion about nomenclature, furthered by their nationalisation in 1936 as S.N.C.A.O.  One of their first products, with the definitive final name Loire-Nieuport 161, was designed to compete for a Service Technique call for a single-seat fighter.  It emerged as a mostly metal, low wing monoplane powered by a supercharged upright V-12 water-cooled engine and with a retractable conventional undercarriage.
+The cantilever wing of the Nieuport 161, as the first prototype was titled, was built in two parts around single spars with stressed skin covering and mounted with marked dihedral. In plan it was strongly straight tapered, with square tips, carrying fabric covered, aerodynamically and statically balanced ailerons. Inboard, there were all-metal split flaps.  At the rear a short, blunt fin carried a cantilever tailplane slightly above the upper fuselage line.  Both fixed surfaces were straight-edged and metal-skinned like the wing; the balanced control surfaces they carried were metal-framed but fabric-covered. The rudder extended down to the keel.
+The Nieuport's fuselage was an all-metal, elliptical cross section monocoque, with a metal skin over hoop frames and stringers. Its single-seat cockpit was behind  the wing trailing edge and had a sliding multi-framed canopy which could be released in an emergency. When the first Nieuport 161 was completed, its intended engine, the  800 hp (597 kW) Hispano-Suiza 12Ycrs, was not ready so it flew with a 600 hp (447 kW) Hispano-Suiza 12Xcrs driving a two-blade, fixed-pitch propeller in October 1935.  This form had the designation Nieuport 160; in March 1936 it flew as the 161 with its Ycrs engine and three-blade, variable-pitch propeller.  There was a pair of shallow inboard underwing radiators. It had a conventional tailwheel undercarriage with its mainwheels mounted on single legs and retracting inwards into the wing and fuselage underside, hydraulically driven via a pair of outboard struts.  The tailwheel also retracted hydraulically into the fuselage.
+The 161 carried both cannon and machine gun armament. Type 77 60° V-12 Hispano-Suiza engines, including the 12 Ycrs model, had an integrated Hispano-Suiza HS.404 20 mm (0.79 in) cannon between the cylinder banks, firing through the hollow propeller shaft, which was raised above the crankshaft by reduction gearing. The two 7.5 mm (0.30 in) machine guns were wing mounted outside the propeller arc.
+Three prototypes were built and flown; the first, the Nieuport 160/1, crashed in September 1936, delaying the flight programme until the flight of the second prototype, the S.N.CA.O 161, on 15 October 1937. In April 1938 this aircraft was also lost, though by then the third prototype, definitively named Loire-Nieuport 161, had been flying for a month.  Development was terminated because the competing Morane-Saulnier MS.405 had been preferred and given a pre-production order in March 1937, leaving the fourth prototype 161 uncompleted.
+
+
+== Specifications (Hispano-Suiza 12Ycrs engine) ==
+Data from Jane's All the World's Aircraft 1938General characteristics
+Crew: 1
+Length: 9.56 m (31 ft 4 in)
+Wingspan: 11.00 m (36 ft 1 in)
+Height: 2.95 m (9 ft 8 in)
+Wing area: 15.00 m2 (161.5 sq ft)
+Empty weight: 1,748 kg (3,854 lb)
+Gross weight: 2,278 kg (5,022 lb)
+Fuel capacity: 360 L (79 Imp gal; 95 US gal)
+Powerplant: 1 × Hispano-Suiza 12Ycrs 12-cylinder upright water-cooled supercharged inline engine, 640 kW (860 hp)   at 4,000 m (13,120 ft)
+Propellers: 3-bladed Hispano-Hamilton variable pitch
+Performance
+
+Maximum speed: 478 km/h (297 mph, 258 kn) at 4,000 m (13,125 ft), its optimum altitude
+Service ceiling: 11,250 m (36,910 ft) absolute
+Time to altitude: 4 min 58 s to 4,000 m (13,125 ft)
+Armament
+
+1× engine mounted 20 mm (0.787 in) calibre cannon
+2× wing mounted 7.5 mm (0.295 in) calibre machine guns
+
+
+== References ==
+
+
+== Further reading ==
+Guilain, François (August 2001). "Courrier des Lecteurs" [Readers' Letters]. Avions: Toute l'Aéronautique et son histoire (in French) (101): 2. ISSN 1243-8650.
+Mombeek, Eric (May 2001). "Les trésors de Cazaux" [The Treasures of Cazaux]. Avions: Toute l'Aéronautique et son histoire (in French) (98): 44–47. ISSN 1243-8650.

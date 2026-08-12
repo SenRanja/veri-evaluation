@@ -1,0 +1,24 @@
+Trachysphaera fructigena is an oomycete affecting bananas and cacao trees. This oomycete is a weak plant pathogen that causes minor diseases in banana, coffee, and cocoa.
+
+
+== Hosts ==
+Trachysphaera fructigena primarily affects banana (cigar-end rot), coffee, and cocoa but is also associated with Mimusops elengi, M. commersoni, and avocado (Persea americana). It can also infect flowers and wounded fruit of Pyrus, Malus, Prunus, and Citrus species under artificial conditions.
+
+
+== Economic importance ==
+T. fructigena generally causes minor economic damage. On bananas, it is most significant during storage, particularly in West Africa, where it impacts fruit quality, rendering them unsellable. The disease is most severe in old or poorly maintained plantations. On cocoa, T. fructigena contributes to mealy pod rot, accelerating decay in pods damaged by vertebrates, but it is considered a minor component of overall pod diseases.
+
+
+== Signs and symptoms ==
+On bananas, the oomycete causes cigar-end rot, forming ash-grey, wrinkled lesions at the flower end, which can progress to black necrosis and mummification during storage or transport. On cocoa, it infects wounded pods, creating brown spreading lesions with dense, coarse-textured conidial masses that turn pinkish-brown. On Liberica coffee, it is linked to the rot of ripe berries. Symptoms of T. fructigena on fruits are easily identified, making it unlikely for infected fruit to enter trade or spread the pathogen. While distinguishing the pathogens causing cigar-end rot requires expertise, the symptoms of cigar-end rot on banana fruit are distinct and unlikely to be mistaken for other banana fruit rots. Only the fruit and flowers are known to carry the pathogen during trade, while other plant parts are not considered carriers.
+
+
+== Morphology ==
+This oomycete produces non-septate, coarse hyphae that spread rapidly through intercellular spaces, with smaller branches penetrating host cell walls, killing the cells and discoloring their contents. Once established in host tissues, the oomycete forms conidia. Hyphae accumulate beneath the epidermis, where dense conidiophores form and rupture the epidermal layer. Conidiophores vary, ranging from simple structures with single conidia to complex forms with terminal vesicles and whorls of conidia or lateral fertile branches. The oomycete produces thick-walled conidia in fruit cavities, resembling chlamydospores, though their germination remains unobserved. Regular conidia germinate readily in water or nutrients, forming mycelium and conidia, allowing easy cultivation and infection experiments. Sexual reproduction involves oogonia characterized by irregular sac-like outgrowths and amphigynous antheridia surrounding their stalks.
+
+
+== Prevention and control ==
+Cultural practices, such as bagging in bananas and inflorescence binding in plantains, have consistently proven effective in reducing the percentage of infected bunches, even under conditions favorable to disease development. Bagging is also widely implemented to protect fruit quality. Additionally, early-stage deflowering and covering of bunches are recommended to minimize infections by T. fructigena. For chemical control, metalaxyl and aluminium tris-(ethyl) phosphonate have shown efficacy in managing cigar-end rot caused by T. fructigena, while copper fungicide sprays have proven effective for disease control in cocoa.
+
+
+== References ==

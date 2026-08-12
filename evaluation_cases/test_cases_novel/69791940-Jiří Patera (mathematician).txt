@@ -1,0 +1,27 @@
+Jiří Patera (10 October 1936 – 3 January 2022) was a Czech-born Canadian mathematician and academic. He taught at the Université de Montréal and was known for his work in group theory, Lie groups, and cryptography.
+
+
+== Life and career ==
+Patera attended secondary school in Děčín and subsequently studied theoretical physics at Moscow State University. There he met and married Tatiana Chalnikova.  In 1964, he earned a doctorate from Charles University, pursued a postdoc at the University of Montreal and returned to Prague in 1966.  In August 1968, with Soviet tanks rolling into Czechoslovakia, he emigrated with Tatiana and their daughter first to the UK and finally settling in Montreal, Canada, a year later.  He joined the Universite de Montreal as an assistant professor and then newly created Centre de Recherches Mathematiques Archived 14 February 2022 at the Wayback Machine at the university.
+Patera began his work in group theory and Lie groups. From 1965 to 1972, he published several works on constructive theories of the representation of compact Lie groups. In 1981, he published Tables de dimensions, d'indices et de règles de branchement pour les représentations d'algèbres de Lie simples and began collaborating with Robert Moody in the field the following year.
+Patera was known for his work on constructive computation prior to the use of software engineering. He wrote a book on Lie algebra representation and primarily worked alongside Robert Moody and Hans Zassenhaus.
+He died in Montreal on 3 January 2022, at the age of 85 with Tatiana at his bedside.
+
+
+== Awards ==
+Canada Council Killam Fellowship (1991)
+Algebraic Methods in Physics: Symposium on the 60th Birthday of Jiří Patera and Pavel Winternitz (1997)
+CAP-CRM Prize in Theoretical and Mathematical Physics (2004)
+Doctor honoris causa of the Czech Technical University in Prague (2005)
+
+
+== Works ==
+Branching rules for representations of simple Lie algebras (1971)
+Tables of dimensions, indices, and branching rules for representations of simple Lie algebras (1981)
+Tables of dominant weight multiplicities for representations of simple Lie algebras (1985)
+simpLie Users Manual: Macintosh software for representations of simple Lie algebras (1990)
+Tables of representations of simple Lie algebras (1990)
+Affine Kac-Moody Algebras, Weight Multiplicities and Branching Rules (1991)
+
+
+== References ==

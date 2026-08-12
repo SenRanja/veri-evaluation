@@ -1,0 +1,34 @@
+Salasvirus (synonyms Phi29-like phages, Phi29-like viruses, Phi29likevirus) is a genus of viruses in the order Caudovirales, in the family Salasmaviridae, in the subfamily Picovirinae. Bacteria serve as natural hosts. There are four species in this genus.
+
+
+== Taxonomy ==
+The following four species are assigned to the genus:
+
+Bacillus virus Goe6
+Bacillus virus Gxv1
+Bacillus virus phi29
+Bacillus virus PZA
+
+
+== Structure ==
+Salasviruses are nonenveloped, with a head and tail. The head has a T=3, Q=5 symmetry, and is approximately 45 nm by 54 nm. The tail is non-contractile and has a collar with twelve appendages.
+
+
+== Genome ==
+Genomes are linear, around 20kb in length. Some of the viruses' genomes have been fully sequenced and are available on NCBI's website. They range between 18k and 22k nucleotides, with 17 to 35 proteins. The complete genomes are available here
+
+
+== Life cycle ==
+Viral replication is cytoplasmic. The virus attaches to the host cell adhesion receptors using its tail fibers, and ejects the viral DNA into the host periplasm. Replication follows the DNA strand displacement model. DNA-templated transcription is the method of transcription. Once the viral DNA has been replicated, the procapsid is assembled and packed, and the tail is assembled. Finally, the mature virions are released via lysis. Bacteria serve as the natural host. Transmission routes are passive diffusion.
+
+
+== History ==
+According to ICTV, the genus Phi29likevirus was first accepted under the name phi29-like phages in 1996, assigned only to family Podoviridae. The family was moved to the newly created order Caudovirales in 1998. In 1999, ICTV's seventh report renamed the genus to phi29-like viruses. The genus was moved to the newly created sub-family Picovirinae in 2009, and again renamed in 2012, this time to Phi29likevirus The genus was later renamed to Salasvirus.
+
+
+== References ==
+
+
+== External links ==
+Viralzone: Phi29likevirus
+ICTV

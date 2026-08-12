@@ -1,0 +1,45 @@
+Louisiana Mayor's Courts are municipal courts in incorporated settlements, such as villages, towns, or even smaller cities in the state of Louisiana. As part of the Louisiana judicial system they are considered base level (lower level) courts with limited jurisdiction over violations of municipal ordinances.
+Louisiana and Ohio are the only two states in the United States that have Mayor's Courts. The difference is that in Ohio, Mayor's Courts are state courts.
+
+
+== Mayor's Courts ==
+Authority for a Mayor's Court is provided for by Louisiana legislative act RS 33:441-442.
+A mayor is considered a lay judge absent any mandate for a mayor to be a lawyer. The court can impose fines, imprisonment, or both according to the offense. Court costs vary widely across the state according to legislation. The court hears misdemeanor and traffic cases, as well as utility debts within the municipality of less than $5,000. The court can impose fines, imprisonment, or both depending on the offense. An officer of the court, mayor, or appointed magistrate has the authority to issue arrest warrants,
+grant bail, issue court summons to include witnesses, conduct trials, with or without a lawyer, depending on the charges, determine innocence or guilt, and administer sentences including fines, jail, or supervised/unsupervised probation, and appoint a public defender in criminal cases.
+A Mayor may request the board of aldermen or municipal council to appoint a magistrate. If accepted the magistrate must be a lawyer and shall exercise the powers and authority of the mayor. A mayor may also request a prosecutor be appointed. (R.S. 33:441 (B1))
+In the United States Louisiana and Ohio are the only states with Mayor's Courts. The two court systems are mentioned in the book The Louisiana Mayor's Court: An Overview and Its Constitutional Problems, the author (a practicing attorney) suggests there are issues of potential bias and unfair convictions in many small villages and towns when the mayor is the prosecutor, judge, and jury, as well as the chief executive officer of an incorporated settlement such as a village, town, and in some cases small cities. When a mayor, who is in charge of city finances, is also over the court that generates revenue there are claims of conflicts of interest that hamper due process and compromise impartiality and fairness.
+
+
+=== Appeals ===
+Any case tried in a municipal Court can be appealed to the district court by verbal or written notification. Any appeals are heard de novo or as brand new. Failure of the prosecution to disclose "in a timely manner" (willfully or inadvertently) admissible evidence that is favorable to the defense (or is impeaching), suppressed material evidence, and evidence with a reasonable probability of changing the outcome of the trial, is a Brady violation (Brady v. Maryland, 373 U.S. 83 (1963)) resulting in prejudice and a violation of due process. Cases that support the Brady rule are Smith v. Cain, 132 S. Ct. 627 (U.S. 2012) and Connick v. Thompson, 131 S. Ct. 1350 (U.S. 2011) 
+Mayor's Courts are not courts of record. Lacking any record, if a defendant pleads guilty or no contest, is sentenced and wishes to appeal, and there is no evidence of proof that a defendant was aware of the privilege against self-incrimination, the right to a jury trial, and the right to confront one's accusers, known as the Boykin Doctrine or rule then there is no valid objection to an appeal. These rights cannot be presumed and must be made voluntarily and with the full understanding of the consequences. Any doubt about a Boykin-Tahl waiver and a plea is invalid, unconstitutional, and must be withdrawn as a result of a Boykin-Tahl error.
+
+
+=== Courts ===
+All 305 municipalities in Louisiana consisting of 127 villages, 111 towns, 65 cities, and 2 parishes are members of the Louisiana Municipal Association (LMA, founded in 1926) which also consists of approximately 250  municipalities with a Mayor's Court.
+The Louisiana Legislative Auditor provides a summary of general principles and guidelines for Mayor's Courts. The Louisiana Judicial College prepared the Comprehensive Guide to Mayor's Courts through the 
+Louisiana Municipal Association (LMA). All elected or appointed mayors and magistrates must, within 90 days of assuming presiding authority, complete Mayor's Court Training and an annual continuing education from the Louisiana Supreme Court and administered by the Louisiana Judicial College.
+
+
+== Justice of the Peace ==
+There are 390 Justices of the Peace in Louisiana serving in 10 districts divided into wards with limited jurisdiction. A Justice of the Peace court has jurisdiction concurrent with the circuit court limited to $5,000 or less. A Justice of the peace is also referred to as a lay judge and the constable of the court generally cannot issue a ticket within a municipality that has a Mayor's Court. Any appeal of a case to a circuit court would be treated De novo or as a new case.
+
+
+== Conflicts of interest and bias ==
+There have been concerns of conflicts of interest and bias concerning a Mayor of a municipality, paid for by municipality funds, that is also the judge, sometimes prosecutor, and jury. On appeal in Ward v. Village of Monroeville, 409 U.S. 57 (1972) the United States Supreme Court reversed the Mayor's Court conviction, that the Ohio Supreme court dismissed on appeal, on a charge for violating the Ohio Prohibition Act. The court decided the "Petitioner was denied a trial before a disinterested and impartial judicial" and that "...the conviction violated the Fourteenth Amendment and due process of law". In Louisiana a state representative is calling for a reform of the present system. After the news broke Tullos and Fenton mayors stepped down as town judges.
+
+
+== See also ==
+Ohio Mayor's Courts
+
+
+== References ==
+
+
+== Further reading ==
+Mayor’s Court (RS 33:441-457): Frequently asked questions and answers and the Louisiana "Attorney General Opinions", from the Louisiana Legislative Auditor, revised August 2024
+
+
+== External links ==
+Mandeville Mayor's Court
+"Mayor's Courts: What You Need to Know". Legal Education and Assistance Program (LEAP), Law Library of Louisiana. Retrieved February 21, 2025.

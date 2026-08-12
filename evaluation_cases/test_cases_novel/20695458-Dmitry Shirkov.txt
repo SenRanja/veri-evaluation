@@ -1,0 +1,41 @@
+Dmitry Vasil'evich Shirkov (Russian: Дми́трий Васи́льевич Ширко́в; 3 March 1928 – 23 January 2016) was a Russian theoretical physicist, known for his contribution to quantum field theory and to the development of the renormalization group method.
+
+
+== Biography ==
+Dmitry Shirkov graduated from the Faculty of Physics at  Moscow State University (MSU) in 1949. In 1954 he obtained PhD degree (Candidate of Sciences) in the area of theory of neutron diffusion. In 1958 he defended his doctoral dissertation "Renormalization group method in quantum field theory" and obtained the Doktor nauk (Doctor of Sciences) degree.
+In 1972—1992 he was appointed as professor at the Department of Quantum Statistics and Field Theory at the MSU Faculty of Physics. Since 1992 he is a professor at the Department of High Energy Physics.
+He worked in the Steklov Mathematical Institute in the period 1952—1958 and in the Mathematical Institute of the Siberian Division of the USSR Academy of Sciences in the period 1960—1969. Since 1969 he works at the Joint Institute for Nuclear Research (JINR), and since 1971 also at  Moscow State University. He was the head of the Theoretical Physics Laboratory at the JINR (1993—1997), where currently he is the Honorary Director.
+Dmitry Shirkov was an Invited Nobel Professor at Lund University, Sweden (1970—1971). He became a corresponding member of the USSR Academy of Sciences in 1960 and an academician of the Russian Academy of Sciences in 1994.
+Dmitry Shirkov was the initiator and the editor for a series of monographs «Books in Theoretical Physics» by Nauka (Science) Publishing Company (1978—1990). He is a jury president for the Bogoliubov Prize for young scientists. He died on 23 January 2016, aged 87.
+
+
+== Research ==
+Shirkov's main works were devoted to quantum field theory, the theory of superconductivity, approximate methods in the theory of slow neutrons, the dynamics of strongly interacting particles at low energies, among many others. He constructed, jointly with Nikolay Bogoliubov, an axiomatic perturbation method for quantum field theory (1954—1958) and developed renormalization group method (1955—1956). He invented and developed the method of quantitative description of elastic and quasi-elastic hadron collisions at low energies (1959—1970).
+
+
+== Publications ==
+
+
+=== Books ===
+N. N. Bogoliubov, V. V. Tolmachev, D. V. Shirkov (1958): A New Method in the Theory of Superconductivity. Moscow: Academy of Sciences Press. (in Russian).
+— Kessinger Publishing, 2007. ISBN 0-548-38410-X, ISBN 978-0-548-38410-7. (in English).
+N. N. Bogoliubov, D. V. Shirkov (1959): Introduction to the Theory of Quantized Fields. New York, Interscience. The first text-book on the renormalization group theory.
+D. V. Shirkov, V. V. Serebryakov, V. A. Mescheryakov (1969): Dispersion Theories of Strong Interactions at Low Energy. North-Holland. ISBN 0-7204-0150-X, ISBN 978-0-7204-0150-9.
+N. N. Bogoliubov, D. V. Shirkov (1980): Introduction to the Theory of Quantized Fields. John Wiley & Sons Inc; 3rd edition. ISBN 0-471-04223-4. ISBN 978-0-471-04223-5.
+N. N. Bogoliubov, D. V. Shirkov (1982): Quantum Fields. Benjamin-Cummings Pub. Co., ISBN 0-8053-0983-7.
+V. V. Belokurov, D. V. Shirkov (1991): The Theory of Particle Interactions. American Institute of Physics. ISBN 0-88318-715-9.
+
+
+=== Selected papers ===
+V. F. Kovalev and D. V. Shirkov. The Bogoliubov renormalization group and solution symmetry in mathematical physics. Phys. Rep., 2001, v. 352, pp. 219–249.
+
+
+== See also ==
+Landau pole
+
+
+== References ==
+
+
+== External links ==
+Biography at the department of Quantum Theory and High Energy Physics at MSU Archived 2009-05-30 at the Wayback Machine (in Russian)

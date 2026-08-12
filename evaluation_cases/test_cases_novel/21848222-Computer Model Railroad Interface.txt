@@ -1,0 +1,22 @@
+C/MRI (Computer/Model Railroad Interface) is a set of electronic modules that allow a computer to monitor and control real world devices, including those used in conjunction with model railroads.
+C/MRI was first introduced by Bruce Chubb in the February 1985 issue of the Model Railroader magazine.
+It appeared again with a four-part series starting with the January 2004 issue titled Signaling Made Easier.
+This series is considered to provide a good and concise introduction to the C/MRI and its application to signaling.
+Additionally, The Sunset Valley Oregon System (Bruce's home model railroad layout) was featured in the February and March 2006 issues of Model Railroader and the 2006 issue of Model Railroad Planning as well as in the March 2007 issue of the NMRA's magazine, Scale Rails.
+
+
+== Books on the subject ==
+Chubb, Bruce A. (1989). Build Your Own Universal Computer Interface (1st ed.). TAB Books. ISBN 9780830631223 (paperback), ISBN 0830631224 (hardcover).
+Chubb, Bruce A. (1997). Build Your Own Universal Computer Interface (2nd ed.). McGraw-Hill. p. 410. ISBN 0-07-912638-3 (hardcover), ISBN 0-07-912639-1 (paperback).
+Chubb, Bruce A. (1999). The Railroader's C/MRI Applications Handbook. 2.1. Grand Rapids, MI: JLC Enterprises. pp. ~250. Spiral-bound (8.5×11 in)
+Chubb, Bruce A. (2000). The Railroader's C/MRI Applications Handbook. 2.2. Grand Rapids, MI: JLC Enterprises. pp. ~250. Spiral-bound (8.5×11 in)
+Chubb, Bruce A. (2003). The Computer/Model Railroad Interface (C/MRI) Users Manual. (version 3.0). Grand Rapids, MI: JLC Enterprises. pp. ~250. Spiral-bound (8.5×11 in)
+Chubb, Bruce A. (2010). The Railroader's C/MRI Applications Handbook. (version 3.0). Vol. 1-System Extensions. Grand Rapids, MI: JLC Enterprises. pp. ~250. Spiral-bound (8.5×11 in)
+Chubb, Bruce A. (2010). The Railroader's C/MRI Applications Handbook. (version 3.0). Vol. 2-Signaling Systems. Grand Rapids, MI: JLC Enterprises. pp. ~250. Spiral-bound (8.5×11 in)
+
+
+== References ==
+
+
+== External links ==
+JLC Enterprises website

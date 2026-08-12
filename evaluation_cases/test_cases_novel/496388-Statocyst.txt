@@ -1,0 +1,20 @@
+The statocyst is a balance sensory receptor present in some aquatic invertebrates, including bivalves, cnidarians, ctenophores, echinoderms, cephalopods,  crustaceans, Proseriata and Catenulida (both are taxonomic groups of flatworms), and gastropods. A similar structure is also found in Xenoturbella. The statocyst consists of a sac-like structure containing a mineralised mass (statolith) and numerous innervated sensory hairs (setae). The statolith's inertia causes it to push against the setae when the animal accelerates.  Deflection of setae by the statolith in response to gravity activates neurons, providing feedback to the animal on change in orientation and allowing balance to be maintained.
+In Mnemiopsis leidyi, volumetric electron microscopy of statocysts found a synaptic nerve net (the aboral nerve net, or ANN) that synapses onto the mechanosensory balancer cells while receiving no input from them. The ANN coordinates the timing of ciliary arrest and re-beat across its four balancer quadrants, with "bridge cells" that span the statocyst providing the only feedback to the network.
+As a result, the statolith shifts as the animal moves. Any movement large enough to throw the organism off balance causes the statolith to brush against tiny bristles which in turn send a message to the brain to correct its balance.
+It may have been present in the common ancestor of cnidarians and bilaterians.
+
+
+== Hearing ==
+In cephalopods like squids, statocysts provide a cochlea-like mechanism to hear. As a result, the longfin inshore squid for instance can hear low-frequency sounds between 30 and 500 Hz when the water temperature is above 8 °C (46 °F).
+
+
+== See also ==
+Accelerometer
+Inertial guidance
+Müllerian vesicle, similar structure in loxodid ciliates
+Otolith, an equivalent structure in vertebrates.
+Statocyte, a similar structure in plants
+Sensory organs of gastropods
+
+
+== References ==

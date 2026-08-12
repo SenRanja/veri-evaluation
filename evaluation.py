@@ -1,3 +1,4 @@
+import asyncio
 import csv
 import json
 from contextlib import nullcontext
@@ -17,6 +18,8 @@ from tools.openai_interceptor import OpenAIInterceptor
 
 
 CONFIG_FILE = Path("config.yaml")
+ACTUAL_ANSWERED_FIELD = "actual_answered_gpt-4o-mini"
+ACTUAL_OUTPUT_FIELD = "actual_output_gpt-4o-mini"
 
 
 def load_yaml(path):
@@ -36,9 +39,25 @@ def load_cases(path):
 
     for document in documents:
         for question in document["questions"]:
+            actual_answered = question.get(ACTUAL_ANSWERED_FIELD)
+            actual_output = question.get(ACTUAL_OUTPUT_FIELD)
+
+            if not isinstance(actual_answered, bool):
+                raise ValueError(
+                    f"{document['name']}/{question['name']} must contain "
+                    f"Boolean {ACTUAL_ANSWERED_FIELD}"
+                )
+            if not isinstance(actual_output, str) or not actual_output.strip():
+                raise ValueError(
+                    f"{document['name']}/{question['name']} must contain "
+                    f"non-empty {ACTUAL_OUTPUT_FIELD}"
+                )
+
             cases.append(
                 {
                     **question,
+                    "actual_answered": actual_answered,
+                    "actual_output": actual_output,
                     "document": document["name"],
                     "retrieval_context": document["retrieval_context"],
                 }
@@ -145,7 +164,7 @@ def build_decision_summary(results):
     }
 
 
-def evaluate_case(case, metrics):
+async def evaluate_case(case, metrics):
     test_case = LLMTestCase(
         input=case["input"],
         actual_output=case["actual_output"],
@@ -156,18 +175,23 @@ def evaluate_case(case, metrics):
     metric_results = []
 
     for metric in metrics:
-        metric.measure(test_case)
+        metric_name = getattr(
+            metric,
+            "name",
+            metric.__class__.__name__.removesuffix("Metric"),
+        )
+        print(
+            f"[{case['name']}] Evaluating {metric_name}...",
+            flush=True,
+        )
+        await metric.a_measure(test_case, _show_indicator=False)
 
         score = float(metric.score)
         threshold = float(metric.threshold)
 
         metric_results.append(
             {
-                "name": getattr(
-                    metric,
-                    "name",
-                    metric.__class__.__name__.removesuffix("Metric"),
-                ),
+                "name": metric_name,
                 "score": score,
                 "threshold": threshold,
                 "passed": score >= threshold,
@@ -195,6 +219,22 @@ def evaluate_case(case, metrics):
         "retrieval_context": case["retrieval_context"],
         "metrics": metric_results,
     }
+
+
+async def evaluate_cases(cases, config, max_workers):
+    """Evaluate cases concurrently on one asyncio event loop."""
+    semaphore = asyncio.Semaphore(max_workers)
+
+    async def evaluate_with_limit(case):
+        async with semaphore:
+            metrics = build_metrics(config)
+            result = await evaluate_case(case, metrics)
+            print_case_result(result)
+            return result
+
+    return await asyncio.gather(
+        *(evaluate_with_limit(case) for case in cases)
+    )
 
 
 def save_results(results, output_file):
@@ -285,7 +325,8 @@ def print_case_result(result):
     status = "PASS" if result["passed"] else "FAIL"
     print(
         f"{result['name']}: {status} "
-        f"(decision={result['decision_state']})"
+        f"(decision={result['decision_state']})",
+        flush=True,
     )
 
     for metric in result["metrics"]:
@@ -302,7 +343,11 @@ def main():
 
     cases_file = project_root / config["project"]["cases_file"]
     cases = load_cases(cases_file)
-    metrics = build_metrics(config)
+    max_workers = config.get("evaluation", {}).get("max_workers", 4)
+    if not isinstance(max_workers, int) or isinstance(max_workers, bool):
+        raise ValueError("evaluation.max_workers must be an integer")
+    if max_workers < 1:
+        raise ValueError("evaluation.max_workers must be at least 1")
 
     output = config["output"]
     interceptor_settings = config["openai_interceptor"]
@@ -319,6 +364,13 @@ def main():
     with config_file.open("w", encoding="utf-8") as file:
         yaml.safe_dump(config, file, allow_unicode=True, sort_keys=False)
 
+    print(
+        f"Evaluating {len(cases)} cases with {max_workers} workers "
+        f"using {config['judge']['model']}.",
+        flush=True,
+    )
+    print(f"Output directory: {run_directory}", flush=True)
+
     interceptor = (
         OpenAIInterceptor(
             log_file=log_file,
@@ -330,13 +382,10 @@ def main():
         else nullcontext()
     )
 
-    results = []
-
     with interceptor:
-        for case in cases:
-            result = evaluate_case(case, metrics)
-            results.append(result)
-            print_case_result(result)
+        results = asyncio.run(
+            evaluate_cases(cases, config, max_workers)
+        )
 
     decision_summary = build_decision_summary(results)
 
