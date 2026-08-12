@@ -15,6 +15,7 @@
 | `extract_wikipedia_texts.py` | 将 `text` 提取为 Windows 安全的 `{page_id}-{title}.txt`。TXT 只用于外部上传或人工检查。 |
 | `generate_wikipedia_test_cases.py` | 用 Responses API 生成结构化题目；交替生成 answerable/unanswerable；逐题原子保存并支持断点恢复。 |
 | `gpt-4o-mini_answer.py` | 使用 `target.model` 对每道题作答；严格使用用例内的 `retrieval_context`；逐题写入模型后缀字段，并跳过已有完整回答以支持续跑。 |
+| `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `evaluation.py` | 要求全部题目已有有效目标模型作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
 | `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `OPENAI_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
@@ -67,6 +68,7 @@ flowchart LR
   "page_id": 70533387,
   "title": "Ahmad Bazzi",
   "retrieval_context": ["Article text..."],
+  "veri_file_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "questions": [
     {
       "name": "research_focus",
@@ -76,7 +78,9 @@ flowchart LR
       "actual_answered": null,
       "actual_output": null,
       "actual_answered_gpt-4o-mini": true,
-      "actual_output_gpt-4o-mini": "Wireless communications."
+      "actual_output_gpt-4o-mini": "Wireless communications.",
+      "actual_answered_veri": true,
+      "actual_output_veri": "【Answer】\\nWireless communications.\\n\\n【Cited passage】\\n...\\n\\n【Source】\\nAhmad Bazzi (filename: 70533387-Ahmad Bazzi.txt)\\n\\n【Source index】\\nfile_id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\\nfilename: 70533387-Ahmad Bazzi.txt\\ntitle: Ahmad Bazzi"
     }
   ]
 }
@@ -90,6 +94,8 @@ flowchart LR
 评估器优先读取后缀字段；仅当两者都不存在时，才回退到无后缀旧字段。任一实际作答字段类型无效时应立即失败，而不是猜测。
 
 作答器的输入由 `--input` 指定，默认是 `evaluation_cases/test_cases_novel.json`；评估器的输入由 `config.yaml` 中的 `project.cases_file` 指定。修改数据文件时必须确保两者指向同一份用例，否则可能出现“作答已完成但评估仍报告字段缺失”的情况。
+
+Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual_answered_veri` 和 `actual_output_veri`。`actual_output_veri` 保存完整文本响应，并追加由当前文档的 `file_id`、文件名和标题组成的 `【Source index】`；模型生成的引用格式或内容不会阻止落盘。`actual_answered_veri` 仅为兼容现有 Boolean 契约而按中英文拒答措辞粗略判定，不作为 Veris 响应是否保存的门控。运行前 `.env` 必须提供 `VERI_API_KEY`。
 
 ## 配置契约
 
@@ -114,11 +120,19 @@ python gpt-4o-mini_answer.py
 bash evaluation.sh
 ```
 
+Veris 小批量运行示例：
+
+```bash
+source .venv/bin/activate
+python veriai_answer.py --document-limit 10
+```
+
 作答阶段必须先完成。每道题需要包含与 `target.model` 对应的 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>`；评估器在启动时校验全部题目，不支持只评估一份部分作答文件。
 
 两个阶段的恢复语义不同：
 
 - 作答器在每次成功响应后原子保存整个用例 JSON，并默认跳过已有的完整模型后缀字段，因此中断后重复同一命令即可续跑。`--limit` 限制本次处理的未回答题数，适合分批控制成本；`--overwrite` 会重生成已有回答。
+- Veris 答题器在每次文件上传和每道题响应后原子保存。重复运行会复用 `veri_file_id`；已有引用区块的回答只补齐来源索引并跳过网络请求，旧格式回答则重新请求。`--document-limit` 限制从 JSON 开头选择的文档数。
 - 评估器在每个指标响应后原子更新当前运行目录的 `results.json`，因此中断时已返回结果仍可检查；但它不会从该快照继续执行。重新运行会创建新的时间戳目录并从第一题开始。
 
 WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY`；不依赖 Conda。
