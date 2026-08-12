@@ -5,6 +5,8 @@
   - [回答决策的四种状态](#回答决策的四种状态)
   - [回答决策指标](#回答决策指标)
   - [回答质量指标](#回答质量指标)
+  - [指标适用性与用例判定](#指标适用性与用例判定)
+  - [汇总统计](#汇总统计)
   - [评估指标说明](#评估指标说明)
     - [举例：门店的退款政策](#举例门店的退款政策)
 - [测试数据](#测试数据)
@@ -20,9 +22,11 @@
 
 ```bash
 conda activate py312
-pip install deepeval openai pyyaml pydantic 
-deepeval test run test_evaluation.py
+pip install -r requirements.txt
+python evaluation.py
 ```
+
+`config.yaml` 中 `target.model` 表示被测模型，决定作答字段后缀；`judge.model` 表示 DeepEval 裁判模型。两者可以不同。
 
 
 
@@ -61,8 +65,8 @@ deepeval test run test_evaluation.py
         "name": "correct_refund_policy",
         "input": "What if these shoes don't fit?",
         "expected_answered": true,
-        "actual_answered": true,
-        "actual_output": "You have 30 days to return them for a full refund at no extra cost.",
+        "actual_answered_gpt-4o-mini": true,
+        "actual_output_gpt-4o-mini": "You have 30 days to return them for a full refund at no extra cost.",
         "expected_output": "We offer a 30-day full refund at no extra costs."
       }
     ]
@@ -77,8 +81,7 @@ deepeval test run test_evaluation.py
 | AN |            `true` |         `false` | 材料有答案，模型没有回答 | 错误拒答          |
 | NA |           `false` |          `true` | 材料无答案，模型仍然回答 | 不受材料支持的作答     |
 
-
-
+字段命名约定：题目生成阶段 `actual_answered` 与 `actual_output` 为 `null` 占位；被测系统作答后，结果根据 `target.model` 写入带模型后缀的字段，例如 `actual_answered_gpt-4o-mini` 与 `actual_output_gpt-4o-mini`。评估器读取同一后缀字段，因此同一份题目集可以同时保存多个被测模型的作答结果。为兼容旧数据，后缀字段不存在时评估器会回退读取无后缀字段。
 
 ## 回答决策指标
 
@@ -97,6 +100,8 @@ deepeval test run test_evaluation.py
 Answer Recall = 1 - False Refusal Rate
 ```
 
+报告比率时必须同时给出各状态的计数。分母为 0 的比率记为 `null`，不得记为 0 或 1。题目数量较少时单个比率波动较大，跨运行比较应结合计数解读。
+
 ## 回答质量指标
 
 “有答有”只表示材料有答案，而且模型选择了回答，并不代表模型一定答对。因此，还需要评估回答本身的质量。
@@ -107,6 +112,47 @@ Answer Recall = 1 - False Refusal Rate
 | Faithfulness     | `actual_output ↔ retrieval_context` | 模型回答是否受到材料支持？   | 识别与材料矛盾或没有依据的内容   |
 | Answer Relevancy | `actual_output ↔ input`             | 模型是否真正回答了用户的问题？ | 识别答非所问或只提供相邻信息的回答 |
 
+## 指标适用性与用例判定
+
+四个指标并非对所有用例都有意义：
+
+- 拒答文本不包含事实主张，Faithfulness 无从校验；
+- 判题模型经常把拒答判为“没有回答问题”，Answer Relevancy 对拒答的打分不可靠；
+- 无答案用例的材料与问题“相关性低”本身就是构造目标，Contextual Relevancy 必然偏低。
+
+如果要求每个用例通过全部四个指标，正确拒答（NN）几乎必然被误判为失败。因此指标是否参与用例判定（gate）由 `actual_answered` 决定：
+
+| 指标 | actual_answered = true | actual_answered = false | 原因 |
+| --- | --- | --- | --- |
+| Correctness | 参与判定 | 参与判定 | 拒答时同样要求拒答表述与预期一致 |
+| Faithfulness | 参与判定 | 仅诊断 | 拒答没有可校验的事实主张 |
+| Answer Relevancy | 参与判定 | 仅诊断 | 对拒答的打分不可靠 |
+| Contextual Relevancy | 仅诊断 | 仅诊断 | 本流程无真实检索器，材料即出题来源 |
+
+判定规则：
+
+```text
+decision_passed = 决策状态 ∈ {AA, NN}
+case_passed    = decision_passed 且 所有“参与判定”的指标分数 ≥ 阈值
+```
+
+“仅诊断”的指标照常计算并写入结果，但不影响 `case_passed`，也不计入下述条件均值。
+
+`results.json` 中每个指标使用 `gates_case` 标明是否参与当前用例判定；`summary.csv` 使用对应的 `metric_gates_case` 列。`passed` 作为旧字段保留，其值与规范字段 `case_passed` 相同。
+
+## 汇总统计
+
+质量分数必须按决策状态条件化统计，避免把“拒答质量”与“作答质量”混为一谈：
+
+| 统计项 | 统计范围 | 含义 |
+| --- | --- | --- |
+| 平均 Correctness、Faithfulness、Answer Relevancy | 仅 AA 用例 | 模型作答且材料有答案时的回答质量 |
+| 平均 Correctness | 仅 NN 用例 | 拒答表述是否符合预期拒答 |
+| Correct Answer Rate | `#(AA 且 Correctness ≥ 阈值) / #(expected_answered = true)` | 端到端正确回答率：既敢答又答对 |
+
+Correct Answer Rate 是最贴近用户体验的单一指标：错误拒答（AN）与答错都会拉低它。
+
+所有统计项输出时附带分子与分母；分母为 0 记为 `null`。
 
 ## 评估指标说明
 
@@ -133,13 +179,13 @@ Answer Recall = 1 - False Refusal Rate
 
 需要注意，材料“与问题相关”不代表材料“一定足以回答问题”。例如，材料可能讨论退款政策，但没有提供用户询问的退款门店地址。
 
-Contextual Relevancy主要作为检索质量诊断指标。对于故意构造的无答案测试用例，该指标可能较低，因此不应单独据此判断模型的拒答行为是否正确。回答或拒答决策应根据AA、NN、AN和NA独立评价。
+Contextual Relevancy主要作为诊断指标。对于故意构造的无答案测试用例，该指标必然偏低；且本流程没有真实检索器，材料即出题来源。因此该指标在任何用例中都不参与 `case_passed` 判定，回答或拒答决策根据AA、NN、AN和NA独立评价。
 
 2. Answer Relevancy:
 判断模型是否直接回答了用户的问题。
 
 该指标不判断回答是否正确，也不判断回答是否有材料依据。
-明确说明“当前材料没有相关信息”的拒答通常仍然具有较高相关性，因为它直接回应了用户问题；但具体分数由评判模型决定，并不保证固定为1。
+实际判题中，明确说明“当前材料没有相关信息”的拒答经常被打为低分甚至 0 分，因此该指标只在 `actual_answered = true` 时参与判定；拒答用例中仅作诊断记录。
 
 3. Correctness:
 
@@ -148,7 +194,7 @@ Contextual Relevancy主要作为检索质量诊断指标。对于故意构造的
 
 4. Faithfulness:
 
-判断模型回答中的事实陈述是否得到检索材料支持，以及回答是否与材料存在事实矛盾。该指标主要用于识别模型基于材料进行回答时产生的编造或曲解。
+判断模型回答中的事实陈述是否得到检索材料支持，以及回答是否与材料存在事实矛盾。该指标主要用于识别模型基于材料进行回答时产生的编造或曲解。拒答不包含事实主张，因此该指标只在 `actual_answered = true` 时参与判定。
 
 
 ### 举例：门店的退款政策
@@ -178,6 +224,8 @@ Answer Relevancy：高
 Correctness：低
 Faithfulness：低
 ```
+
+按上述判定规则：`expected_answered=false` 而模型作答，决策状态为 NA，`decision_passed=false`，用例直接不通过；Correctness 与 Faithfulness 的低分进一步说明该回答属于无依据编造。Contextual Relevancy 只做诊断，不影响判定。
 
 
 # 测试数据
@@ -220,32 +268,32 @@ python analyze_jsonl_characters.py
         "name": "correct_refund_policy",
         "input": "What if these shoes don't fit?",
         "expected_answered": true,
-        "actual_answered": true,
-        "actual_output": "You have 30 days to return them for a full refund at no extra cost.",
+        "actual_answered_gpt-4o-mini": true,
+        "actual_output_gpt-4o-mini": "You have 30 days to return them for a full refund at no extra cost.",
         "expected_output": "We offer a 30-day full refund at no extra costs."
       },
       {
         "name": "wrong_refund_period",
         "input": "How many days do I have to return the shoes?",
         "expected_answered": true,
-        "actual_answered": true,
-        "actual_output": "You can return them within 90 days.",
+        "actual_answered_gpt-4o-mini": true,
+        "actual_output_gpt-4o-mini": "You can return them within 90 days.",
         "expected_output": "You can return them within 30 days."
       },
       {
         "name": "refund_store_location",
         "input": "Which Sydney store should I visit for the refund?",
         "expected_answered": false,
-        "actual_answered": false,
-        "actual_output": "The provided material does not specify a store location.",
+        "actual_answered_gpt-4o-mini": false,
+        "actual_output_gpt-4o-mini": "The provided material does not specify a store location.",
         "expected_output": "The provided material does not specify a store location."
       },
       {
         "name": "refund_store_hallucination",
         "input": "Which Sydney store should I visit for the refund?",
         "expected_answered": false,
-        "actual_answered": true,
-        "actual_output": "You should visit the Sydney CBD store.",
+        "actual_answered_gpt-4o-mini": true,
+        "actual_output_gpt-4o-mini": "You should visit the Sydney CBD store.",
         "expected_output": "The provided material does not specify a store location."
       }
     ]
@@ -256,7 +304,7 @@ python analyze_jsonl_characters.py
 我希望从`./evaluation_cases/wikipedia_10000.jsonl`中提取`text`字段内容写成文件在`{page_id}-{title}.txt`的文件中；另外我需要大模型围绕我的方案，设计问题，考察
 
 
-`actual_answered` 和 `actual_output` 默认为 `null`
+生成时 `actual_answered` 和 `actual_output` 默认为 `null`；被测系统作答后写入 `actual_answered_<model>` 与 `actual_output_<model>` 字段（见上文字段命名约定）
 
 ## 生成测试数据
 
@@ -275,6 +323,13 @@ python3 -u generate_wikipedia_test_cases.py \
   --limit 2000 \
   > log_gen_test_case.log 2>&1
 ```
+
+生成完成后：
+
+1. 让被测系统作答：`python gpt-4o-mini_answer.py`，严格使用每篇题目保存的 `retrieval_context`，并将结果写入 `actual_answered_<target.model>` 与 `actual_output_<target.model>`；
+2. 运行评估：`python evaluation.py`，按[指标适用性与用例判定](#指标适用性与用例判定)规则打分，并输出[汇总统计](#汇总统计)。
+
+提取出的 TXT 文件只用于上传到外部 RAG 系统或人工检查；内置作答脚本不读取 TXT，以免完整文章与生成题目时截断保存的 `retrieval_context` 不一致。
 
 
 

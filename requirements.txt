@@ -1,0 +1,6 @@
+deepeval
+openai
+pydantic
+PyYAML
+requests
+pytest

@@ -2,6 +2,9 @@ project:
   cases_file: "evaluation_cases/test_cases_novel.json"
   results_directory: "evaluation_results"
 
+target:
+  model: "gpt-4o-mini"
+
 judge:
   model: "gpt-4o-mini"
 

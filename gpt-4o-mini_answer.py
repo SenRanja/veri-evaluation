@@ -13,12 +13,8 @@ from typing import Any
 import yaml
 from pydantic import BaseModel, Field
 
-from extract_wikipedia_texts import safe_title
-
-
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEFAULT_INPUT = PROJECT_ROOT / "evaluation_cases" / "test_cases_novel.json"
-DEFAULT_CONTEXT_DIR = PROJECT_ROOT / "evaluation_cases" / "test_cases_novel"
 DEFAULT_CONFIG = PROJECT_ROOT / "config.yaml"
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 
@@ -43,7 +39,6 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
-    parser.add_argument("--context-dir", type=Path, default=DEFAULT_CONTEXT_DIR)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--env-file", type=Path, default=DEFAULT_ENV_FILE)
     parser.add_argument(
@@ -102,17 +97,17 @@ def load_json(path: Path) -> list[dict[str, Any]]:
     return data
 
 
-def load_model(path: Path) -> str:
+def load_target_model(path: Path) -> str:
     with path.open(encoding="utf-8") as file:
         config = yaml.safe_load(file)
 
     try:
-        model = config["judge"]["model"]
+        model = config["target"]["model"]
     except (KeyError, TypeError) as error:
-        raise ValueError(f"Missing judge.model in config: {path}") from error
+        raise ValueError(f"Missing target.model in config: {path}") from error
 
     if not isinstance(model, str) or not model.strip():
-        raise ValueError(f"judge.model must be a non-empty string: {path}")
+        raise ValueError(f"target.model must be a non-empty string: {path}")
     return model.strip()
 
 
@@ -124,35 +119,27 @@ def save_json(data: list[dict[str, Any]], path: Path) -> None:
     temporary.replace(path)
 
 
-def context_path(document: dict[str, Any], context_dir: Path) -> Path:
-    try:
-        page_id = document["page_id"]
-        title = document["title"]
-    except KeyError as error:
-        raise ValueError(f"Document is missing required field: {error.args[0]}") from error
+def retrieval_context(document: dict[str, Any], document_index: int) -> str:
+    contexts = document.get("retrieval_context")
+    if (
+        not isinstance(contexts, list)
+        or not contexts
+        or any(not isinstance(context, str) or not context.strip() for context in contexts)
+    ):
+        raise ValueError(
+            f"Document {document_index} has no valid retrieval_context"
+        )
+    return "\n\n".join(context.strip() for context in contexts)
 
-    return context_dir / f"{page_id}-{safe_title(str(title))}.txt"
 
-
-def validate_documents(
-    documents: list[dict[str, Any]],
-    context_dir: Path,
-) -> dict[str, str]:
-    contexts: dict[str, str] = {}
+def validate_documents(documents: list[dict[str, Any]]) -> None:
 
     for document_index, document in enumerate(documents, 1):
         questions = document.get("questions")
         if not isinstance(questions, list):
             raise ValueError(f"Document {document_index} has no valid questions array")
 
-        path = context_path(document, context_dir)
-        if not path.is_file():
-            raise FileNotFoundError(f"Context file not found: {path}")
-
-        context = path.read_text(encoding="utf-8").strip()
-        if not context:
-            raise ValueError(f"Context file is empty: {path}")
-        contexts[str(path)] = context
+        retrieval_context(document, document_index)
 
         for question_index, question in enumerate(questions, 1):
             if not isinstance(question, dict) or not isinstance(question.get("input"), str):
@@ -160,8 +147,6 @@ def validate_documents(
                     f"Document {document_index}, question {question_index} "
                     "has no valid input"
                 )
-
-    return contexts
 
 
 def ask_question(
@@ -234,9 +219,9 @@ def main() -> None:
 
     try:
         load_env_file(args.env_file)
-        model = load_model(args.config)
+        model = load_target_model(args.config)
         documents = load_json(args.input)
-        contexts = validate_documents(documents, args.context_dir)
+        validate_documents(documents)
     except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError, ValueError) as error:
         raise SystemExit(str(error)) from error
 
@@ -260,8 +245,7 @@ def main() -> None:
 
     try:
         for document_index, document in enumerate(documents, 1):
-            path = context_path(document, args.context_dir)
-            context = contexts[str(path)]
+            context = retrieval_context(document, document_index)
 
             for question_index, question in enumerate(document["questions"], 1):
                 complete = (

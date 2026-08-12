@@ -18,8 +18,6 @@ from tools.openai_interceptor import OpenAIInterceptor
 
 
 CONFIG_FILE = Path("config.yaml")
-ACTUAL_ANSWERED_FIELD = "actual_answered_gpt-4o-mini"
-ACTUAL_OUTPUT_FIELD = "actual_output_gpt-4o-mini"
 
 
 def load_yaml(path):
@@ -32,25 +30,46 @@ def load_json(path):
         return json.load(file)
 
 
-def load_cases(path):
+def get_target_model(config):
+    try:
+        model = config["target"]["model"]
+    except (KeyError, TypeError) as error:
+        raise ValueError("config must contain target.model") from error
+
+    if not isinstance(model, str) or not model.strip():
+        raise ValueError("target.model must be a non-empty string")
+    return model.strip()
+
+
+def load_cases(path, target_model):
     """Turn documents with multiple questions into individual test cases."""
     documents = load_json(path)
     cases = []
+    answered_field = f"actual_answered_{target_model}"
+    output_field = f"actual_output_{target_model}"
 
     for document in documents:
         for question in document["questions"]:
-            actual_answered = question.get(ACTUAL_ANSWERED_FIELD)
-            actual_output = question.get(ACTUAL_OUTPUT_FIELD)
+            if answered_field in question or output_field in question:
+                actual_answered = question.get(answered_field)
+                actual_output = question.get(output_field)
+                selected_answered_field = answered_field
+                selected_output_field = output_field
+            else:
+                actual_answered = question.get("actual_answered")
+                actual_output = question.get("actual_output")
+                selected_answered_field = "actual_answered"
+                selected_output_field = "actual_output"
 
             if not isinstance(actual_answered, bool):
                 raise ValueError(
                     f"{document['name']}/{question['name']} must contain "
-                    f"Boolean {ACTUAL_ANSWERED_FIELD}"
+                    f"Boolean {selected_answered_field}"
                 )
             if not isinstance(actual_output, str) or not actual_output.strip():
                 raise ValueError(
                     f"{document['name']}/{question['name']} must contain "
-                    f"non-empty {ACTUAL_OUTPUT_FIELD}"
+                    f"non-empty {selected_output_field}"
                 )
 
             cases.append(
@@ -141,6 +160,22 @@ def safe_rate(numerator, denominator):
     return numerator / denominator if denominator else None
 
 
+def build_rate(numerator, denominator):
+    return {
+        "numerator": numerator,
+        "denominator": denominator,
+        "value": safe_rate(numerator, denominator),
+    }
+
+
+def metric_gates_case(metric_name, actual_answered):
+    if metric_name == "Correctness":
+        return True
+    if metric_name in {"Answer Relevancy", "Faithfulness"}:
+        return actual_answered
+    return False
+
+
 def build_decision_summary(results):
     counts = {"AA": 0, "NN": 0, "AN": 0, "NA": 0}
 
@@ -152,15 +187,65 @@ def build_decision_summary(results):
     an = counts["AN"]
     na = counts["NA"]
     total = len(results)
+    rate_details = {
+        "decision_accuracy": build_rate(aa + nn, total),
+        "false_refusal_rate": build_rate(an, aa + an),
+        "hallucinated_answer_rate": build_rate(na, nn + na),
+        "answer_precision": build_rate(aa, aa + na),
+        "answer_recall": build_rate(aa, aa + an),
+        "abstention_precision": build_rate(nn, nn + an),
+    }
 
     return {
         "counts": counts,
-        "decision_accuracy": safe_rate(aa + nn, total),
-        "false_refusal_rate": safe_rate(an, aa + an),
-        "hallucinated_answer_rate": safe_rate(na, nn + na),
-        "answer_precision": safe_rate(aa, aa + na),
-        "answer_recall": safe_rate(aa, aa + an),
-        "abstention_precision": safe_rate(nn, nn + an),
+        **{name: detail["value"] for name, detail in rate_details.items()},
+        "rate_details": rate_details,
+    }
+
+
+def find_metric(result, metric_name):
+    return next(
+        metric for metric in result["metrics"]
+        if metric["name"] == metric_name
+    )
+
+
+def build_metric_mean(results, decision_state, metric_name):
+    scores = [
+        find_metric(result, metric_name)["score"]
+        for result in results
+        if result["decision_state"] == decision_state
+    ]
+    return build_rate(sum(scores), len(scores))
+
+
+def build_quality_summary(results):
+    expected_answerable = [
+        result for result in results if result["expected_answered"]
+    ]
+    correct_answers = sum(
+        result["decision_state"] == "AA"
+        and find_metric(result, "Correctness")["passed"]
+        for result in expected_answerable
+    )
+
+    return {
+        "aa_mean_correctness": build_metric_mean(
+            results, "AA", "Correctness"
+        ),
+        "aa_mean_faithfulness": build_metric_mean(
+            results, "AA", "Faithfulness"
+        ),
+        "aa_mean_answer_relevancy": build_metric_mean(
+            results, "AA", "Answer Relevancy"
+        ),
+        "nn_mean_correctness": build_metric_mean(
+            results, "NN", "Correctness"
+        ),
+        "correct_answer_rate": build_rate(
+            correct_answers,
+            len(expected_answerable),
+        ),
     }
 
 
@@ -195,12 +280,21 @@ async def evaluate_case(case, metrics):
                 "score": score,
                 "threshold": threshold,
                 "passed": score >= threshold,
+                "gates_case": metric_gates_case(
+                    metric_name,
+                    case["actual_answered"],
+                ),
                 "reason": getattr(metric, "reason", None),
             }
         )
 
     decision_state = get_decision_state(case)
     decision_passed = decision_state in {"AA", "NN"}
+    case_passed = decision_passed and all(
+        result["passed"]
+        for result in metric_results
+        if result["gates_case"]
+    )
 
     return {
         "document": case["document"],
@@ -209,10 +303,8 @@ async def evaluate_case(case, metrics):
         "actual_answered": case["actual_answered"],
         "decision_state": decision_state,
         "decision_passed": decision_passed,
-        "passed": (
-            decision_passed
-            and all(result["passed"] for result in metric_results)
-        ),
+        "case_passed": case_passed,
+        "passed": case_passed,
         "input": case["input"],
         "actual_output": case["actual_output"],
         "expected_output": case["expected_output"],
@@ -255,6 +347,7 @@ def save_summary_csv(results, output_file):
         "score",
         "threshold",
         "metric_passed",
+        "metric_gates_case",
         "reason",
     ]
 
@@ -277,6 +370,7 @@ def save_summary_csv(results, output_file):
                         "score": metric["score"],
                         "threshold": metric["threshold"],
                         "metric_passed": metric["passed"],
+                        "metric_gates_case": metric["gates_case"],
                         "reason": metric["reason"],
                     }
                 )
@@ -331,9 +425,10 @@ def print_case_result(result):
 
     for metric in result["metrics"]:
         metric_status = "PASS" if metric["passed"] else "FAIL"
+        applicability = "GATE" if metric["gates_case"] else "DIAGNOSTIC"
         print(
             f"  {metric['name']}: {metric['score']:.4f} "
-            f"[{metric_status}]"
+            f"[{metric_status}, {applicability}]"
         )
 
 
@@ -342,7 +437,8 @@ def main():
     project_root, run_directory = create_run_directory(config)
 
     cases_file = project_root / config["project"]["cases_file"]
-    cases = load_cases(cases_file)
+    target_model = get_target_model(config)
+    cases = load_cases(cases_file, target_model)
     max_workers = config.get("evaluation", {}).get("max_workers", 4)
     if not isinstance(max_workers, int) or isinstance(max_workers, bool):
         raise ValueError("evaluation.max_workers must be an integer")
@@ -366,7 +462,7 @@ def main():
 
     print(
         f"Evaluating {len(cases)} cases with {max_workers} workers "
-        f"using {config['judge']['model']}.",
+        f"for {target_model} using judge {config['judge']['model']}.",
         flush=True,
     )
     print(f"Output directory: {run_directory}", flush=True)
@@ -388,10 +484,12 @@ def main():
         )
 
     decision_summary = build_decision_summary(results)
+    quality_summary = build_quality_summary(results)
 
     save_results(
         {
             "decision_summary": decision_summary,
+            "quality_summary": quality_summary,
             "cases": results,
         },
         results_file,
@@ -415,6 +513,10 @@ def main():
     print(
         "Decision accuracy: "
         f"{decision_summary['decision_accuracy']}"
+    )
+    print(
+        "Correct answer rate: "
+        f"{quality_summary['correct_answer_rate']['value']}"
     )
     print(f"Output: {run_directory}")
 
