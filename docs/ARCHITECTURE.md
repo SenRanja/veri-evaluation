@@ -15,6 +15,7 @@
 | `extract_wikipedia_texts.py` | 将 `text` 提取为 Windows 安全的 `{page_id}-{title}.txt`。TXT 只用于外部上传或人工检查。 |
 | `generate_wikipedia_test_cases.py` | 用 Responses API 生成结构化题目；交替生成 answerable/unanswerable；逐题原子保存并支持断点恢复。 |
 | `gpt-4o-mini_answer.py` | 使用 `target.model` 对每道题作答；严格使用用例内的 `retrieval_context`；逐题写入模型后缀字段，并跳过已有完整回答以支持续跑。 |
+| `genimi-3.5-flash_answer.py` | 使用 Gemini 3.5 Flash 和结构化输出逐题写入 `actual_answered_gemini-3.5-flash`、`actual_output_gemini-3.5-flash`；严格使用用例内上下文并逐题原子保存。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
 | `evaluation.py` | 要求全部题目已有有效目标模型作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
@@ -128,6 +129,15 @@ Veris 小批量运行示例：
 source .venv/bin/activate
 python veriai_answer.py --document-limit 10
 ```
+
+Gemini 3.5 Flash 小批量运行示例（`.env` 需提供 `GEMINI_API_KEY`）：
+
+```bash
+source .venv/bin/activate
+python -u genimi-3.5-flash_answer.py --limit 20
+```
+
+重复运行会跳过已有完整 Gemini 字段；确认小批量输出后，不带 `--limit` 即可续跑全部。需要评估 Gemini 时，再将 `gemini-3.5-flash` 加入 `target.models`。
 
 Veris 决策重判与双目标评估：
 
