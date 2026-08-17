@@ -11,6 +11,7 @@ from evaluation import (
     evaluate_cases,
     get_metric_identity,
     get_decision_state,
+    get_target_models,
     load_cases,
 )
 
@@ -142,6 +143,15 @@ def test_model_specific_fields_take_priority_with_legacy_fallback(tmp_path):
     del question["actual_output_target-model"]
     path.write_text(json.dumps([document]), encoding="utf-8")
     assert load_cases(path, "target-model")[0]["actual_output"] == "Legacy."
+
+
+def test_target_models_supports_dual_targets_and_legacy_single_target():
+    assert get_target_models(
+        {"target": {"models": ["gpt-4o-mini", "veri"]}}
+    ) == ["gpt-4o-mini", "veri"]
+    assert get_target_models({"target": {"model": "gpt-4o-mini"}}) == [
+        "gpt-4o-mini"
+    ]
 
 
 def test_conditional_summaries_and_zero_denominators():

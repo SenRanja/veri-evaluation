@@ -39,14 +39,27 @@ def load_json(path):
 
 
 def get_target_model(config):
-    try:
-        model = config["target"]["model"]
-    except (KeyError, TypeError) as error:
-        raise ValueError("config must contain target.model") from error
+    return get_target_models(config)[0]
 
-    if not isinstance(model, str) or not model.strip():
-        raise ValueError("target.model must be a non-empty string")
-    return model.strip()
+
+def get_target_models(config):
+    try:
+        target = config["target"]
+    except (KeyError, TypeError) as error:
+        raise ValueError("config must contain target") from error
+
+    models = target.get("models")
+    if models is None:
+        models = [target.get("model")]
+    if not isinstance(models, list) or not models:
+        raise ValueError("target.models must be a non-empty list")
+    if any(not isinstance(model, str) or not model.strip() for model in models):
+        raise ValueError("every target.models entry must be a non-empty string")
+
+    normalized = [model.strip() for model in models]
+    if len(set(normalized)) != len(normalized):
+        raise ValueError("target.models must not contain duplicates")
+    return normalized
 
 
 def load_cases(path, target_model):
@@ -93,13 +106,14 @@ def load_cases(path, target_model):
     return cases
 
 
-def create_run_directory(config):
+def create_run_directory(config, target_model):
     project_root = CONFIG_FILE.resolve().parent
     results_root = project_root / config["project"]["results_directory"]
-    model_name = config["judge"]["model"].replace("/", "-")
+    target_name = target_model.replace("/", "-")
+    judge_name = config["judge"]["model"].replace("/", "-")
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
 
-    run_directory = results_root / f"{timestamp}-{model_name}"
+    run_directory = results_root / f"{timestamp}-{target_name}-judge-{judge_name}"
     run_directory.mkdir(parents=True)
 
     return project_root, run_directory
@@ -539,19 +553,10 @@ def print_live_summary(report):
     )
 
 
-def main():
-    config = load_yaml(CONFIG_FILE)
-    project_root, run_directory = create_run_directory(config)
-
+def evaluate_target(config, project_root, target_model, max_workers):
+    _, run_directory = create_run_directory(config, target_model)
     cases_file = project_root / config["project"]["cases_file"]
-    target_model = get_target_model(config)
     cases = load_cases(cases_file, target_model)
-    max_workers = config.get("evaluation", {}).get("max_workers", 4)
-    if not isinstance(max_workers, int) or isinstance(max_workers, bool):
-        raise ValueError("evaluation.max_workers must be an integer")
-    if max_workers < 1:
-        raise ValueError("evaluation.max_workers must be at least 1")
-
     output = config["output"]
     interceptor_settings = config["openai_interceptor"]
 
@@ -565,7 +570,12 @@ def main():
     )
 
     with config_file.open("w", encoding="utf-8") as file:
-        yaml.safe_dump(config, file, allow_unicode=True, sort_keys=False)
+        yaml.safe_dump(
+            {**config, "active_target_model": target_model},
+            file,
+            allow_unicode=True,
+            sort_keys=False,
+        )
 
     print(
         f"Evaluating {len(cases)} cases with {max_workers} workers "
@@ -622,6 +632,20 @@ def main():
         f"{quality_summary['correct_answer_rate']['value']}"
     )
     print(f"Output: {run_directory}")
+
+
+def main():
+    config = load_yaml(CONFIG_FILE)
+    project_root = CONFIG_FILE.resolve().parent
+    target_models = get_target_models(config)
+    max_workers = config.get("evaluation", {}).get("max_workers", 4)
+    if not isinstance(max_workers, int) or isinstance(max_workers, bool):
+        raise ValueError("evaluation.max_workers must be an integer")
+    if max_workers < 1:
+        raise ValueError("evaluation.max_workers must be at least 1")
+
+    for target_model in target_models:
+        evaluate_target(config, project_root, target_model, max_workers)
 
 
 if __name__ == "__main__":

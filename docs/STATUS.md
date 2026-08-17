@@ -1,18 +1,20 @@
 # 项目状态
 
-更新日期：2026-08-12
+更新日期：2026-08-17
 
 ## 当前可用状态
 
 - Python 依赖已写入根目录 `requirements.txt`。
 - 本地 `.venv` 使用 Python 3.12.13，核心依赖可导入。
-- `config.yaml` 当前设置：`target.model=gpt-4o-mini`、`judge.model=gpt-4o-mini`、`evaluation.max_workers=4`、四项阈值均为 0.7。
+- `config.yaml` 当前设置：作答模型 `target.model=gpt-4o-mini`，评估目标 `target.models=[gpt-4o-mini, veri]`，`judge.model=gpt-4o-mini`，`evaluation.max_workers=4`，四项阈值均为 0.7。
 - Wikipedia 源数据 `evaluation_cases/wikipedia_10000.jsonl` 当前有 4,970 行。
-- 当前用例 `evaluation_cases/test_cases_novel.json` 有 4,000 篇文档、16,000 道题；目前全部只有无后缀的 `null` 占位，没有 `gpt-4o-mini` 模型后缀作答字段，因此不能直接评估。
+- 当前用例 `evaluation_cases/test_cases_novel.json` 有 4,000 篇文档、16,000 道题；16,000 题均有完整的 `gpt-4o-mini` 和 Veris 模型后缀输出字段。
 - `evaluation_cases/test_cases_novel - Copy.json` 有 101 篇文档、401 道题，401 道题均已有完整的 `gpt-4o-mini` 模型后缀作答字段；如需评估它，必须同时将 `config.yaml` 的 `project.cases_file` 指向该文件。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
 - 已新增 `veriai_answer.py`：按文档顺序上传 TXT 到 Veris，保存 `veri_file_id`，再按题保存 `actual_answered_veri` 和 `actual_output_veri`；上传和回答均逐项原子落盘并支持断点恢复。启动时只索引一次 TXT 目录，不做全量预校验；文档、上传或单题异常会记录后跳过。成功响应不受引用校验或 Boolean 判定阻塞，完整输出会追加 `file_id`、文件名和标题来源索引。
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
+- 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
+- 评估器支持 `target.models` 多目标列表，当前会依次评估 `gpt-4o-mini` 与 `veri`，并分别写入带目标模型名称的结果目录。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
 - `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。
 - 指标门控和汇总已使用稳定内部 ID，不再依赖 DeepEval 可为空的 `name`。
@@ -24,8 +26,7 @@
 
 ## 尚未完成
 
-- 当前 16,000 道题尚未运行 `gpt-4o-mini_answer.py`，因此 `evaluation.py` 会在首题校验时报 `must contain Boolean actual_answered`。
-- Veris 目前只完成前 10 篇文档；其余文档尚未上传或作答。`config.yaml` 当前目标模型仍是 `gpt-4o-mini`，因此评估器不会读取 `_veri` 字段。
+- 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
 - 当前 16,000 题数据尚未进行全量评估；作答和四指标评估都会产生大量 API 调用、费用和运行时间，应先用 `--limit` 分批作答并检查成本。
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。
 

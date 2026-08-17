@@ -16,6 +16,7 @@
 | `generate_wikipedia_test_cases.py` | 用 Responses API 生成结构化题目；交替生成 answerable/unanswerable；逐题原子保存并支持断点恢复。 |
 | `gpt-4o-mini_answer.py` | 使用 `target.model` 对每道题作答；严格使用用例内的 `retrieval_context`；逐题写入模型后缀字段，并跳过已有完整回答以支持续跑。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
+| `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
 | `evaluation.py` | 要求全部题目已有有效目标模型作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
 | `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `OPENAI_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
@@ -86,7 +87,7 @@ flowchart LR
 }
 ```
 
-`target.model` 决定后缀，例如 `gpt-4o-mini` 对应：
+`target.model` 决定作答器写入的后缀；`target.models` 决定评估器依次评估的一个或多个后缀。例如 `gpt-4o-mini` 对应：
 
 - `actual_answered_gpt-4o-mini`
 - `actual_output_gpt-4o-mini`
@@ -103,7 +104,8 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 
 - `project.cases_file`：用例 JSON。
 - `project.results_directory`：评估输出根目录。
-- `target.model`：被测模型及实际字段后缀。
+- `target.model`：作答器使用的被测模型及实际字段后缀。
+- `target.models`：评估器依次读取的模型字段后缀列表；未设置时兼容回退到 `target.model`。
 - `judge.model`：DeepEval 裁判模型。
 - `evaluation.max_workers`：并发数；越高越容易触发限流并扩大瞬时费用。
 - `metrics.*`：阈值和裁判说明。
@@ -127,12 +129,21 @@ source .venv/bin/activate
 python veriai_answer.py --document-limit 10
 ```
 
+Veris 决策重判与双目标评估：
+
+```bash
+source .venv/bin/activate
+python -u judge_veri_answered.py
+bash evaluation.sh
+```
+
 作答阶段必须先完成。每道题需要包含与 `target.model` 对应的 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>`；评估器在启动时校验全部题目，不支持只评估一份部分作答文件。
 
 两个阶段的恢复语义不同：
 
 - 作答器在每次成功响应后原子保存整个用例 JSON，并默认跳过已有的完整模型后缀字段，因此中断后重复同一命令即可续跑。`--limit` 限制本次处理的未回答题数，适合分批控制成本；`--overwrite` 会重生成已有回答。
 - Veris 答题器启动时只为 TXT 目录建立一次索引，不执行全量逐文档预校验；文档、上传或单题异常会记录并跳过，继续处理后续项目。每次文件上传和每道题响应后仍原子保存。重复运行会复用 `veri_file_id`；已有引用区块的回答只补齐来源索引并跳过网络请求，旧格式回答则重新请求。`--document-limit` 限制从 JSON 开头选择的文档数。
+- Veris 决策重判器只判断输出是否实际尝试回答，不判断答案事实正确性；逐题原子保存 `actual_answered_veri` 和 `actual_answered_veri_judged_by`。重复运行会跳过已由当前 `judge.model` 判定的题目，`--limit` 可用于小批量成本检查。
 - 评估器在每个指标响应后原子更新当前运行目录的 `results.json`，因此中断时已返回结果仍可检查；但它不会从该快照继续执行。重新运行会创建新的时间戳目录并从第一题开始。
 
 WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY`；不依赖 Conda。
@@ -173,7 +184,7 @@ Correct Answer Rate = #(AA 且 Correctness 通过) / #(expected_answered = true)
 成功完成的评估运行创建：
 
 ```text
-evaluation_results/{timestamp}-{judge_model}/
+evaluation_results/{timestamp}-{target_model}-judge-{judge_model}/
 ```
 
 包含：

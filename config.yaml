@@ -4,6 +4,9 @@ project:
 
 target:
   model: "gpt-4o-mini"
+  models:
+    - "gpt-4o-mini"
+    - "veri"
 
 judge:
   model: "gpt-4o-mini"
