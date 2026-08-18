@@ -62,7 +62,7 @@ def get_target_models(config):
     return normalized
 
 
-def load_cases(path, target_model):
+def load_cases(path, target_model, allow_partial=True):
     """Turn documents with multiple questions into individual test cases."""
     documents = load_json(path)
     cases = []
@@ -76,6 +76,8 @@ def load_cases(path, target_model):
                 actual_output = question.get(output_field)
                 selected_answered_field = answered_field
                 selected_output_field = output_field
+            elif allow_partial:
+                continue
             else:
                 actual_answered = question.get("actual_answered")
                 actual_output = question.get("actual_output")
@@ -302,7 +304,12 @@ def new_case_result(case):
     }
 
 
-async def evaluate_case(case, metrics, on_metric_response=None):
+async def evaluate_case(
+    case,
+    metrics,
+    on_metric_response=None,
+    metric_retries=3,
+):
     test_case = LLMTestCase(
         input=case["input"],
         actual_output=case["actual_output"],
@@ -314,11 +321,31 @@ async def evaluate_case(case, metrics, on_metric_response=None):
 
     for metric_index, metric in enumerate(metrics):
         metric_id, metric_name = get_metric_identity(metric)
-        print(
-            f"[{case['name']}] Evaluating {metric_name}...",
-            flush=True,
-        )
-        await metric.a_measure(test_case, _show_indicator=False)
+        for attempt in range(1, metric_retries + 1):
+            print(
+                f"[{case['name']}] Evaluating {metric_name} "
+                f"(attempt {attempt}/{metric_retries})...",
+                flush=True,
+            )
+            try:
+                await metric.a_measure(test_case, _show_indicator=False)
+                break
+            except Exception as error:
+                if attempt == metric_retries:
+                    result["status"] = "failed"
+                    result["error"] = (
+                        f"{metric_name} failed after {metric_retries} "
+                        f"attempts: {error}"
+                    )
+                    if on_metric_response is not None:
+                        await on_metric_response(result)
+                    return result
+                print(
+                    f"[{case['name']}] {metric_name} attempt {attempt} "
+                    f"failed: {error}; retrying.",
+                    flush=True,
+                )
+                await asyncio.sleep(2 ** (attempt - 1))
 
         score = float(metric.score)
         threshold = float(metric.threshold)
@@ -360,6 +387,10 @@ def build_live_report(results, total_cases, metrics_per_case):
         result for result in available_results
         if result["status"] == "completed"
     ]
+    failed_results = [
+        result for result in available_results
+        if result["status"] == "failed"
+    ]
     metric_responses = sum(
         len(result["metrics"]) for result in available_results
     )
@@ -367,12 +398,15 @@ def build_live_report(results, total_cases, metrics_per_case):
     return {
         "progress": {
             "status": (
-                "completed"
+                "completed_with_errors"
+                if failed_results and len(completed_results) + len(failed_results) == total_cases
+                else "completed"
                 if len(completed_results) == total_cases
                 else "running"
             ),
             "total_cases": total_cases,
             "completed_cases": len(completed_results),
+            "failed_cases": len(failed_results),
             "metric_responses": metric_responses,
             "expected_metric_responses": total_cases * metrics_per_case,
         },
@@ -388,6 +422,7 @@ async def evaluate_cases(cases, config, max_workers, results_file):
     write_lock = asyncio.Lock()
     results = [None] * len(cases)
     metrics_per_case = len(build_metrics(config))
+    metric_retries = config.get("evaluation", {}).get("metric_retries", 3)
 
     save_results(
         build_live_report(results, len(cases), metrics_per_case),
@@ -410,11 +445,19 @@ async def evaluate_cases(cases, config, max_workers, results_file):
                     if result["status"] == "completed":
                         print_case_result(result)
                         print_live_summary(report)
+                    elif result["status"] == "failed":
+                        print(
+                            f"{result['name']}: EVALUATION ERROR - "
+                            f"{result['error']}",
+                            flush=True,
+                        )
+                        print_live_summary(report)
 
             result = await evaluate_case(
                 case,
                 metrics,
                 on_metric_response=save_metric_response,
+                metric_retries=metric_retries,
             )
             return result
 
@@ -545,6 +588,7 @@ def print_live_summary(report):
     print(
         "Live summary: "
         f"{progress['completed_cases']}/{progress['total_cases']} cases, "
+        f"failed={progress['failed_cases']}, "
         f"passed={passed}, "
         f"decision_accuracy={decision['decision_accuracy']}, "
         "correct_answer_rate="
@@ -554,9 +598,12 @@ def print_live_summary(report):
 
 
 def evaluate_target(config, project_root, target_model, max_workers):
-    _, run_directory = create_run_directory(config, target_model)
     cases_file = project_root / config["project"]["cases_file"]
     cases = load_cases(cases_file, target_model)
+    if not cases:
+        print(f"Skipping {target_model}: no complete target outputs.", flush=True)
+        return
+    _, run_directory = create_run_directory(config, target_model)
     output = config["output"]
     interceptor_settings = config["openai_interceptor"]
 
@@ -600,8 +647,14 @@ def evaluate_target(config, project_root, target_model, max_workers):
             evaluate_cases(cases, config, max_workers, results_file)
         )
 
-    decision_summary = build_decision_summary(results)
-    quality_summary = build_quality_summary(results)
+    completed_results = [
+        result for result in results if result["status"] == "completed"
+    ]
+    failed_results = [
+        result for result in results if result["status"] == "failed"
+    ]
+    decision_summary = build_decision_summary(completed_results)
+    quality_summary = build_quality_summary(completed_results)
 
     save_results(
         build_live_report(results, len(cases), len(build_metrics(config))),
@@ -612,12 +665,14 @@ def evaluate_target(config, project_root, target_model, max_workers):
     token_summary = build_token_summary(log_file)
     save_results(token_summary, token_file)
 
-    passed = sum(result["passed"] for result in results)
+    passed = sum(result["passed"] for result in completed_results)
 
     print("\nEvaluation summary")
     print(f"Cases:  {len(results)}")
+    print(f"Evaluated: {len(completed_results)}")
+    print(f"Evaluation errors: {len(failed_results)}")
     print(f"Passed: {passed}")
-    print(f"Failed: {len(results) - passed}")
+    print(f"Failed quality/decision: {len(completed_results) - passed}")
     print(f"Tokens: {token_summary['total_tokens']}")
     print(f"AA:     {decision_summary['counts']['AA']}")
     print(f"NN:     {decision_summary['counts']['NN']}")
@@ -643,6 +698,11 @@ def main():
         raise ValueError("evaluation.max_workers must be an integer")
     if max_workers < 1:
         raise ValueError("evaluation.max_workers must be at least 1")
+    metric_retries = config.get("evaluation", {}).get("metric_retries", 3)
+    if not isinstance(metric_retries, int) or isinstance(metric_retries, bool):
+        raise ValueError("evaluation.metric_retries must be an integer")
+    if metric_retries < 1:
+        raise ValueError("evaluation.metric_retries must be at least 1")
 
     for target_model in target_models:
         evaluate_target(config, project_root, target_model, max_workers)

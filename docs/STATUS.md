@@ -6,16 +6,17 @@
 
 - Python 依赖已写入根目录 `requirements.txt`。
 - 本地 `.venv` 使用 Python 3.12.13，核心依赖可导入。
-- `config.yaml` 当前设置：作答模型 `target.model=gpt-4o-mini`，评估目标 `target.models=[gpt-4o-mini, veri]`，`judge.model=gpt-4o-mini`，`evaluation.max_workers=4`，四项阈值均为 0.7。
+- `config.yaml` 当前设置：作答模型 `target.model=gpt-4o-mini`，评估目标 `target.models=[gpt-4o-mini, veri, gemini-3.5-flash]`，`judge.model=gpt-4o-mini`，`evaluation.max_workers=4`，指标失败重试 3 次，四项阈值均为 0.7。
 - Wikipedia 源数据 `evaluation_cases/wikipedia_10000.jsonl` 当前有 4,970 行。
-- 当前用例 `evaluation_cases/test_cases_novel.json` 有 4,000 篇文档、16,000 道题；16,000 题均有完整的 `gpt-4o-mini` 和 Veris 模型后缀输出字段。
+- 当前用例 `evaluation_cases/test_cases_novel.json` 有 4,000 篇文档、16,000 道题；GPT 和 Veris 各有 16,000 条完整目标记录，Gemini 3.5 Flash 有 2,965 条完整目标记录且无半残字段。评估器按目标仅加载完整记录，因此 Gemini 缺失题目不进入统计。
 - `evaluation_cases/test_cases_novel - Copy.json` 有 101 篇文档、401 道题，401 道题均已有完整的 `gpt-4o-mini` 模型后缀作答字段；如需评估它，必须同时将 `config.yaml` 的 `project.cases_file` 指向该文件。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
 - 已新增 `genimi-3.5-flash_answer.py`，通过官方 `google-genai` SDK 调用稳定模型 `gemini-3.5-flash`，以结构化输出逐题保存 Gemini 专属 Boolean 和文本字段，并支持原子断点恢复、限量、重试和覆盖。
 - 已新增 `veriai_answer.py`：按文档顺序上传 TXT 到 Veris，保存 `veri_file_id`，再按题保存 `actual_answered_veri` 和 `actual_output_veri`；上传和回答均逐项原子落盘并支持断点恢复。启动时只索引一次 TXT 目录，不做全量预校验；文档、上传或单题异常会记录后跳过。成功响应不受引用校验或 Boolean 判定阻塞，完整输出会追加 `file_id`、文件名和标题来源索引。
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
 - 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
-- 评估器支持 `target.models` 多目标列表，当前会依次评估 `gpt-4o-mini` 与 `veri`，并分别写入带目标模型名称的结果目录。
+- 评估器支持 `target.models` 多目标列表，当前会依次评估 `gpt-4o-mini`、`veri` 与 `gemini-3.5-flash`，并分别写入带目标模型名称的结果目录。
+- 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
 - `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。
 - 指标门控和汇总已使用稳定内部 ID，不再依赖 DeepEval 可为空的 `name`。
@@ -42,6 +43,7 @@
 - `generate_wikipedia_test_cases.py`、`gpt-4o-mini_answer.py`、`evaluation.py` 都会调用 API。
 - 完整评估每题运行四项 LLM 指标；当前 16,000 题理论上需要 64,000 个指标结果，成本远高于已完成的 152 题运行。
 - 之前以 16 并发运行时留下未完成目录；当前已降为 4。中断时实时 `results.json` 会保留已返回结果，但评估器本身不续跑，重新执行会创建新的时间戳目录并从头评估。
+- `20260818-104954-gpt-4o-mini-judge-gpt-4o-mini` 在 Contextual Relevancy 阶段因裁判把合法 JSON 包在 Markdown `json` 代码围栏中而触发 DeepEval 解析异常；对应 `sullivan_family_background`，用例 JSON 和内部 13 条 verdict 均有效。现已通过指标重试和单题技术失败隔离避免整批退出。
 - 作答器每题原子保存，并默认跳过已有的完整模型后缀字段；可通过重复执行安全续跑。不要使用 `--overwrite`，除非明确需要重生成已有回答。
 - `test_chatbot.py` 和 `test_veris.py` 是网络测试，其中存在硬编码裁判模型，不应作为默认离线测试运行。
 

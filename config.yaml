@@ -7,12 +7,14 @@ target:
   models:
     - "gpt-4o-mini"
     - "veri"
+    - "gemini-3.5-flash"
 
 judge:
   model: "gpt-4o-mini"
 
 evaluation:
   max_workers: 4
+  metric_retries: 3
 
 metrics:
   correctness:

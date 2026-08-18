@@ -2,6 +2,7 @@ import asyncio
 import json
 
 import evaluation
+import pytest
 from evaluation import (
     build_decision_summary,
     build_live_report,
@@ -24,6 +25,19 @@ class FakeMetric:
         self.reason = None
 
     async def a_measure(self, test_case, _show_indicator=False):
+        return self.score
+
+
+class FlakyMetric(FakeMetric):
+    def __init__(self, name, score, failures):
+        super().__init__(name, score)
+        self.failures = failures
+        self.attempts = 0
+
+    async def a_measure(self, test_case, _show_indicator=False):
+        self.attempts += 1
+        if self.attempts <= self.failures:
+            raise ValueError("invalid judge JSON")
         return self.score
 
 
@@ -142,7 +156,44 @@ def test_model_specific_fields_take_priority_with_legacy_fallback(tmp_path):
     del question["actual_answered_target-model"]
     del question["actual_output_target-model"]
     path.write_text(json.dumps([document]), encoding="utf-8")
-    assert load_cases(path, "target-model")[0]["actual_output"] == "Legacy."
+    assert load_cases(path, "target-model") == []
+    assert load_cases(path, "target-model", allow_partial=False)[0][
+        "actual_output"
+    ] == "Legacy."
+
+
+def test_partial_target_skips_missing_fields_but_rejects_invalid_present_fields(
+    tmp_path,
+):
+    document = {
+        "name": "document",
+        "retrieval_context": ["Context."],
+        "questions": [
+            {
+                "name": "complete",
+                "input": "Question?",
+                "expected_answered": True,
+                "expected_output": "Expected.",
+                "actual_answered_target": True,
+                "actual_output_target": "Answer.",
+            },
+            {
+                "name": "missing",
+                "input": "Question?",
+                "expected_answered": True,
+                "expected_output": "Expected.",
+            },
+        ],
+    }
+    path = tmp_path / "cases.json"
+    path.write_text(json.dumps([document]), encoding="utf-8")
+
+    assert [case["name"] for case in load_cases(path, "target")] == ["complete"]
+
+    document["questions"][1]["actual_answered_target"] = True
+    path.write_text(json.dumps([document]), encoding="utf-8")
+    with pytest.raises(ValueError, match="actual_output_target"):
+        load_cases(path, "target")
 
 
 def test_target_models_supports_dual_targets_and_legacy_single_target():
@@ -203,6 +254,7 @@ def test_live_report_excludes_partial_cases_from_summaries():
         "status": "running",
         "total_cases": 2,
         "completed_cases": 1,
+        "failed_cases": 0,
         "metric_responses": 5,
         "expected_metric_responses": 8,
     }
@@ -247,3 +299,40 @@ def test_evaluate_cases_writes_json_after_every_response(tmp_path, monkeypatch):
     assert saved["progress"]["status"] == "completed"
     assert saved["progress"]["completed_cases"] == 1
     assert not output.with_suffix(".json.tmp").exists()
+
+
+def test_metric_invalid_json_retries_then_succeeds():
+    flaky = FlakyMetric("Contextual Relevancy", 1.0, failures=1)
+    result = asyncio.run(
+        evaluate_case(
+            make_case(True, True),
+            [flaky],
+            metric_retries=2,
+        )
+    )
+
+    assert flaky.attempts == 2
+    assert result["status"] == "completed"
+
+
+def test_metric_retry_exhaustion_marks_only_case_failed():
+    flaky = FlakyMetric("Contextual Relevancy", 1.0, failures=3)
+    result = asyncio.run(
+        evaluate_case(
+            make_case(True, True),
+            [flaky],
+            metric_retries=2,
+        )
+    )
+    report = build_live_report([result], 1, 1)
+
+    assert result["status"] == "failed"
+    assert "invalid judge JSON" in result["error"]
+    assert report["progress"]["status"] == "completed_with_errors"
+    assert report["progress"]["failed_cases"] == 1
+    assert report["decision_summary"]["counts"] == {
+        "AA": 0,
+        "NN": 0,
+        "AN": 0,
+        "NA": 0,
+    }

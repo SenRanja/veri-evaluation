@@ -18,7 +18,7 @@
 | `genimi-3.5-flash_answer.py` | 使用 Gemini 3.5 Flash 和结构化输出逐题写入 `actual_answered_gemini-3.5-flash`、`actual_output_gemini-3.5-flash`；严格使用用例内上下文并逐题原子保存。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
-| `evaluation.py` | 要求全部题目已有有效目标模型作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
+| `evaluation.py` | 按目标加载已有完整作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
 | `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `OPENAI_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
 | `test_evaluation_logic.py` | 不访问网络的核心契约回归测试。 |
@@ -93,7 +93,7 @@ flowchart LR
 - `actual_answered_gpt-4o-mini`
 - `actual_output_gpt-4o-mini`
 
-评估器优先读取后缀字段；仅当两者都不存在时，才回退到无后缀旧字段。任一实际作答字段类型无效时应立即失败，而不是猜测。
+评估器按 `target.models` 分别读取后缀字段。某个目标的两项后缀字段都不存在时，该题不进入该目标的评估样本或统计分母；只出现一个字段、Boolean 类型错误或输出为空时仍立即失败，避免静默接受损坏的部分结果。显式使用 `allow_partial=False` 时才兼容回退到无后缀旧字段。
 
 作答器的输入由 `--input` 指定，默认是 `evaluation_cases/test_cases_novel.json`；评估器的输入由 `config.yaml` 中的 `project.cases_file` 指定。修改数据文件时必须确保两者指向同一份用例，否则可能出现“作答已完成但评估仍报告字段缺失”的情况。
 
@@ -137,7 +137,7 @@ source .venv/bin/activate
 python -u genimi-3.5-flash_answer.py --limit 20
 ```
 
-重复运行会跳过已有完整 Gemini 字段；确认小批量输出后，不带 `--limit` 即可续跑全部。需要评估 Gemini 时，再将 `gemini-3.5-flash` 加入 `target.models`。
+重复运行会跳过已有完整 Gemini 字段；确认小批量输出后，不带 `--limit` 即可续跑全部。当前 `gemini-3.5-flash` 已在 `target.models` 中，因此评估时会自动加载已有的完整 Gemini 记录。
 
 Veris 决策重判与双目标评估：
 
@@ -147,14 +147,14 @@ python -u judge_veri_answered.py
 bash evaluation.sh
 ```
 
-作答阶段必须先完成。每道题需要包含与 `target.model` 对应的 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>`；评估器在启动时校验全部题目，不支持只评估一份部分作答文件。
+每个目标只评估同时包含 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>` 的题目，因此允许对部分作答文件进行评估；缺字段题目不计入该目标的任何统计。
 
 两个阶段的恢复语义不同：
 
 - 作答器在每次成功响应后原子保存整个用例 JSON，并默认跳过已有的完整模型后缀字段，因此中断后重复同一命令即可续跑。`--limit` 限制本次处理的未回答题数，适合分批控制成本；`--overwrite` 会重生成已有回答。
 - Veris 答题器启动时只为 TXT 目录建立一次索引，不执行全量逐文档预校验；文档、上传或单题异常会记录并跳过，继续处理后续项目。每次文件上传和每道题响应后仍原子保存。重复运行会复用 `veri_file_id`；已有引用区块的回答只补齐来源索引并跳过网络请求，旧格式回答则重新请求。`--document-limit` 限制从 JSON 开头选择的文档数。
 - Veris 决策重判器只判断输出是否实际尝试回答，不判断答案事实正确性；逐题原子保存 `actual_answered_veri` 和 `actual_answered_veri_judged_by`。重复运行会跳过已由当前 `judge.model` 判定的题目，`--limit` 可用于小批量成本检查。
-- 评估器在每个指标响应后原子更新当前运行目录的 `results.json`，因此中断时已返回结果仍可检查；但它不会从该快照继续执行。重新运行会创建新的时间戳目录并从第一题开始。
+- 评估器在每个指标响应后原子更新当前运行目录的 `results.json`。单个指标失败时按 `evaluation.metric_retries` 重试；耗尽后仅将该题标记为技术失败并继续，技术失败题不进入模型质量或决策统计。中断时已返回结果仍可检查，但评估器不会从该快照继续执行。
 
 WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY`；不依赖 Conda。
 
