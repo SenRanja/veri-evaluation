@@ -173,7 +173,7 @@ Correctness、Faithfulness 与 Answer Relevancy 含义不同，不要把三者�
 
 ## 参考答案审计
 
-三模型历史结果出现决策不一致，或三者一致得到 NA/AN 时，可以调用审核脚本检查 golden label：
+GPT、Gemini、Veri 中至少两个模型有完整历史结果，且可用模型出现决策不一致或一致得到 NA/AN 时，可以调用审核脚本检查 golden label。Gemini 没有作答的题目仍会使用 GPT 与 Veri 结果进入候选：
 
 ```bash
 source .venv/bin/activate

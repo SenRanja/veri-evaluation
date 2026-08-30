@@ -15,7 +15,7 @@
 - 已新增 `veriai_answer.py`：按文档顺序上传 TXT 到 Veris，保存 `veri_file_id`，再按题保存 `actual_answered_veri` 和 `actual_output_veri`；上传和回答均逐项原子落盘并支持断点恢复。启动时只索引一次 TXT 目录，不做全量预校验；文档、上传或单题异常会记录后跳过。成功响应不受引用校验或 Boolean 判定阻塞，完整输出会追加 `file_id`、文件名和标题来源索引。
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
 - 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
-- 已新增 `revise_reference_answers.py`：从三模型共同完成的结果中筛选决策不一致及一致 NA/AN 用例，上传完整 Wikipedia TXT，并同时提供精确 `retrieval_context` 和三模型历史回答供审核模型修订 golden answer。默认只写原子审计快照，`--apply` 只应用高置信、无歧义且无需人工复核的建议。
+- 已新增 `revise_reference_answers.py`：从 GPT、Gemini、Veri 中至少两个模型有完整结果的题目里筛选决策不一致及一致 NA/AN 用例，上传完整 Wikipedia TXT，并同时提供精确 `retrieval_context` 和可用模型历史回答供审核模型修订 golden answer；Gemini 缺失不会排除题目。默认只写原子审计快照，`--apply` 只应用高置信、无歧义且无需人工复核的建议。
 - 评估器支持 `target.models` 多目标列表，当前会依次评估 `gpt-4o-mini`、`veri` 与 `gemini-3.5-flash`，并分别写入带目标模型名称的结果目录。
 - 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
@@ -32,7 +32,7 @@
 
 ## 尚未完成
 
-- 尚未实际运行参考答案审核 API。现有三模型共同结果中有 309 个决策不一致用例、119 个一致 NA 和 9 个一致 AN，默认去重后共 437 个候选；应先用 `--limit 10` 检查质量和成本，再续跑并人工检查审计文件。
+- 尚未完成参考答案审核 API 全量运行。按至少两个可用模型筛选，现有结果中有 1,310 个决策不一致用例、860 个一致 NA 和 57 个一致 AN，去重后共 2,227 个候选；其中 1,790 个没有 Gemini 结果。应先用 `--limit 10` 检查质量和成本，再续跑并人工检查审计文件。
 - 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
 - Gemini 当前只有 2,965 条完整目标记录，三模型报告因此使用 2,959 道共同成功用例；补齐 Gemini 或重跑统一输入评估都会产生大量 API 调用、费用和运行时间。
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。

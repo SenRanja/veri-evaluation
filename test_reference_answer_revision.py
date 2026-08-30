@@ -4,6 +4,7 @@ from revise_reference_answers import (
     ReferenceRevision,
     apply_completed_reviews,
     candidate_reasons,
+    load_or_create_audit,
     review_candidate,
 )
 
@@ -34,6 +35,11 @@ def test_candidate_reasons_include_disagreement_and_unanimous_mismatches() -> No
     unanimous_na = all_models(model_case("NA", True, False))
     unanimous_an = all_models(model_case("AN", False, True))
     unanimous_aa = all_models(model_case("AA", True, True))
+    without_gemini = {
+        "gpt-4o-mini": model_case("NN", False, False),
+        "veri": model_case("NA", True, False),
+    }
+    only_veri = {"veri": model_case("NA", True, False)}
 
     assert candidate_reasons(disagreement, False) == [
         "model_decision_disagreement"
@@ -42,6 +48,10 @@ def test_candidate_reasons_include_disagreement_and_unanimous_mismatches() -> No
     assert candidate_reasons(unanimous_an, False) == ["unanimous_AN"]
     assert candidate_reasons(unanimous_na, True) == []
     assert candidate_reasons(unanimous_aa, False) == []
+    assert candidate_reasons(without_gemini, False) == [
+        "model_decision_disagreement"
+    ]
+    assert candidate_reasons(only_veri, False) == []
 
 
 class FakeResponses:
@@ -81,7 +91,7 @@ def test_review_candidate_sends_file_context_and_all_model_answers() -> None:
         },
         "model_cases": {
             model: model_case("NA", True, False)
-            for model in ("gpt-4o-mini", "gemini-3.5-flash", "veri")
+            for model in ("gpt-4o-mini", "veri")
         },
     }
 
@@ -96,8 +106,53 @@ def test_review_candidate_sends_file_context_and_all_model_answers() -> None:
     assert "supported evidence" in prompt
     assert "gpt-4o-mini" in prompt
     assert "gemini-3.5-flash" in prompt
+    assert "result: unavailable" in prompt
     assert "veri" in prompt
     assert "authoritative scope" in prompt
+
+
+def test_load_or_create_audit_migrates_all_model_selection(tmp_path) -> None:
+    audit_path = tmp_path / "audit.json"
+    cases_path = tmp_path / "cases.json"
+    result_files = {
+        model: tmp_path / f"{model}.json"
+        for model in ("gpt-4o-mini", "gemini-3.5-flash", "veri")
+    }
+    audit_path.write_text(
+        __import__("json").dumps(
+            {
+                "schema_version": 1,
+                "cases_file": str(cases_path),
+                "judge_model": "gpt-4o",
+                "selection": {
+                    "requires_all_models": [
+                        "gpt-4o-mini",
+                        "gemini-3.5-flash",
+                        "veri",
+                    ],
+                    "disagreements_only": False,
+                },
+                "result_files": {
+                    model: str(path) for model, path in result_files.items()
+                },
+                "uploaded_files": {},
+                "reviews": [{"status": "completed"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    audit = load_or_create_audit(
+        audit_path,
+        cases_path,
+        result_files,
+        "gpt-4o",
+        False,
+    )
+
+    assert audit["schema_version"] == 2
+    assert audit["selection"]["minimum_model_results"] == 2
+    assert audit["reviews"] == [{"status": "completed"}]
 
 
 def test_apply_completed_reviews_updates_only_eligible_golden_fields() -> None:

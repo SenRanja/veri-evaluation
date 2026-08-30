@@ -18,7 +18,7 @@
 | `genimi-3.5-flash_answer.py` | 使用 Gemini 3.5 Flash 和结构化输出逐题写入 `actual_answered_gemini-3.5-flash`、`actual_output_gemini-3.5-flash`；严格使用用例内上下文并逐题原子保存。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
-| `revise_reference_answers.py` | 从三模型历史结果筛选决策不一致及一致 NA/AN 用例，向审核模型同时提供完整 TXT、精确 `retrieval_context` 和三模型回答，逐题保存参考答案修订审计；仅在 `--apply` 时应用高置信建议。 |
+| `revise_reference_answers.py` | 从至少两个可用模型的历史结果中筛选决策不一致及一致 NA/AN 用例，向审核模型同时提供完整 TXT、精确 `retrieval_context` 和可用模型回答，逐题保存参考答案修订审计；仅在 `--apply` 时应用高置信建议。 |
 | `evaluation.py` | 按目标加载已有完整作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
 | `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `OPENAI_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
@@ -154,7 +154,7 @@ bash evaluation.sh
 
 ```bash
 source .venv/bin/activate
-# 先小批量生成审计建议，不修改用例；当前有 437 个候选
+# 先小批量生成审计建议，不修改用例；当前有 2,227 个候选
 python -u revise_reference_answers.py --model gpt-4o --limit 10
 # 检查 evaluation_results/reference_answer_revision_audit.json 后续跑全部
 python -u revise_reference_answers.py --model gpt-4o
@@ -164,7 +164,7 @@ python -u revise_reference_answers.py --model gpt-4o --apply
 bash evaluation.sh
 ```
 
-默认候选要求 GPT、Gemini 和 Veri 三者都有完整历史结果，包括三者决策状态不一致，以及三者一致为 NA 或 AN 的异常用例。后两类不能省略，因为错误 golden label 可能让所有模型同时得到同一错误状态。审计文件保存上传文件 ID 和逐题结果，可重复同一命令断点续跑；`--disagreements-only` 只检查不一致样本，会漏掉已知类型的标签污染。
+默认候选要求 GPT、Gemini、Veri 中至少两个模型有完整历史结果，包括可用模型的决策状态不一致，以及可用模型一致为 NA 或 AN 的异常用例。Gemini 缺失不会排除题目；审核提示会明确标记该结果不可用。后两类不能省略，因为错误 golden label 可能让所有可用模型同时得到同一错误状态。审计文件保存上传文件 ID 和逐题结果，可重复同一命令断点续跑；旧版要求三模型齐全的审计文件会自动迁移并保留已完成记录。`--disagreements-only` 只检查不一致样本，会漏掉已知类型的标签污染。
 
 每个目标只评估同时包含 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>` 的题目，因此允许对部分作答文件进行评估；缺字段题目不计入该目标的任何统计。
 

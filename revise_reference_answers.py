@@ -23,6 +23,7 @@ DEFAULT_CONFIG = PROJECT_ROOT / "config.yaml"
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 DEFAULT_AUDIT = DEFAULT_RESULTS / "reference_answer_revision_audit.json"
 TARGET_MODELS = ("gpt-4o-mini", "gemini-3.5-flash", "veri")
+MINIMUM_MODEL_RESULTS = 2
 
 
 class ReferenceRevision(BaseModel):
@@ -214,7 +215,7 @@ def index_result_cases(result_files: dict[str, Path]) -> dict[str, dict[tuple[st
 
 
 def candidate_reasons(model_cases: dict[str, dict], disagreements_only: bool) -> list[str]:
-    if set(model_cases) != set(TARGET_MODELS):
+    if len(model_cases) < MINIMUM_MODEL_RESULTS:
         return []
     states = {case.get("decision_state") for case in model_cases.values()}
     actuals = {case.get("actual_answered") for case in model_cases.values()}
@@ -275,11 +276,12 @@ def new_audit(
     disagreements_only: bool,
 ) -> dict:
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "cases_file": str(cases_path),
         "judge_model": judge_model,
         "selection": {
-            "requires_all_models": list(TARGET_MODELS),
+            "eligible_models": list(TARGET_MODELS),
+            "minimum_model_results": MINIMUM_MODEL_RESULTS,
             "disagreements_only": disagreements_only,
         },
         "result_files": {model: str(path) for model, path in result_files.items()},
@@ -301,6 +303,13 @@ def load_or_create_audit(
     expected = new_audit(
         cases_path, result_files, judge_model, disagreements_only
     )
+    legacy_selection = {
+        "requires_all_models": list(TARGET_MODELS),
+        "disagreements_only": disagreements_only,
+    }
+    if audit.get("schema_version") == 1 and audit.get("selection") == legacy_selection:
+        audit["schema_version"] = expected["schema_version"]
+        audit["selection"] = expected["selection"]
     for field in ("schema_version", "cases_file", "judge_model", "selection", "result_files"):
         if audit.get(field) != expected[field]:
             raise ValueError(
@@ -326,13 +335,16 @@ def build_review_prompt(candidate: dict) -> str:
     context = "\n\n".join(document["retrieval_context"])
     answers = []
     for model in TARGET_MODELS:
-        result = candidate["model_cases"][model]
-        answers.append(
-            f"Model: {model}\n"
-            f"actual_answered: {result.get('actual_answered')}\n"
-            f"decision_state: {result.get('decision_state')}\n"
-            f"answer:\n{result.get('actual_output')}"
-        )
+        result = candidate["model_cases"].get(model)
+        if result is None:
+            answers.append(f"Model: {model}\nresult: unavailable")
+        else:
+            answers.append(
+                f"Model: {model}\n"
+                f"actual_answered: {result.get('actual_answered')}\n"
+                f"decision_state: {result.get('decision_state')}\n"
+                f"answer:\n{result.get('actual_output')}"
+            )
     return (
         "Audit one RAG evaluation reference answer. The uploaded TXT is the full "
         "Wikipedia document. The retrieval context below is the exact, possibly "
