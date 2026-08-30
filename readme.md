@@ -177,9 +177,9 @@ GPT、Gemini、Veri 中至少两个模型有完整历史结果，且可用模型
 
 ```bash
 source .venv/bin/activate
-python -u revise_reference_answers.py --model gpt-4o --limit 10
-python -u revise_reference_answers.py --model gpt-4o
-python -u revise_reference_answers.py --model gpt-4o --apply
+python -u revise_reference_answers.py --model gpt-4o-mini --limit 10
+python -u revise_reference_answers.py --model gpt-4o-mini
+python -u revise_reference_answers.py --model gpt-4o-mini --apply
 bash evaluation.sh
 ```
 

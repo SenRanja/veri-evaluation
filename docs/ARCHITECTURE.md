@@ -155,11 +155,11 @@ bash evaluation.sh
 ```bash
 source .venv/bin/activate
 # 先小批量生成审计建议，不修改用例；当前有 2,227 个候选
-python -u revise_reference_answers.py --model gpt-4o --limit 10
+python -u revise_reference_answers.py --model gpt-4o-mini --limit 10
 # 检查 evaluation_results/reference_answer_revision_audit.json 后续跑全部
-python -u revise_reference_answers.py --model gpt-4o
+python -u revise_reference_answers.py --model gpt-4o-mini
 # 仅高置信、无歧义且无需人工复核的建议会被应用
-python -u revise_reference_answers.py --model gpt-4o --apply
+python -u revise_reference_answers.py --model gpt-4o-mini --apply
 # 历史 results.json 不会自动变化，必须重新评估
 bash evaluation.sh
 ```
