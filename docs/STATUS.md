@@ -1,6 +1,6 @@
 # 项目状态
 
-更新日期：2026-08-17
+更新日期：2026-08-25
 
 ## 当前可用状态
 
@@ -24,12 +24,14 @@
 - `test_veriai_answer_logic.py` 的 13 项离线测试已通过，覆盖聊天响应解析、中英文拒答判定、宽松引用归一化和来源索引去重。
 - 当时也已通过核心 Python 文件编译和 VS Code 诊断检查。
 - 已完成一次 152 题全量评估：`evaluation_results/20260812-153056-gpt-4o-mini/` 含全部五类产物，共收到 608 个指标结果；Decision Accuracy 为 93.42%，Correct Answer Rate 为 81.58%。该结果对应之前的 152 题数据快照，不代表当前 16,000 题文件。
+- 已基于 GPT、Veri 和 Gemini 的现有结果生成中文横向/纵向报告；主比较集为三模型共同完成的 2,959 道题，报告位于 `evaluation_results/20260822-173203-gemini-3.5-flash-judge-gpt-4o-mini/veri_vs_models_comparison_report.md`。
+- Veri 全量运行完成 15,991 道题，纯决策状态为 AA 7,482、NN 6,681、AN 512、NA 1,316；NN 成功率按 `NN / (NN + NA)` 计算为 83.54%，不使用 NN Correctness 或拒答文案。报告与逐题明细位于 `evaluation_results/20260820-122750-veri-judge-gpt-4o-mini/`。
 - WSL 可直接运行 `bash evaluation.sh`；RackNerd 的 `/root/veri-evaluation` 已建立 Python 3.12 `.venv` 并安装依赖，但同样必须先为当前用例生成目标模型作答。
 
 ## 尚未完成
 
 - 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
-- 当前 16,000 题数据尚未进行全量评估；作答和四指标评估都会产生大量 API 调用、费用和运行时间，应先用 `--limit` 分批作答并检查成本。
+- Gemini 当前只有 2,965 条完整目标记录，三模型报告因此使用 2,959 道共同成功用例；补齐 Gemini 或重跑统一输入评估都会产生大量 API 调用、费用和运行时间。
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。
 
 ## 已知问题与风险
@@ -37,6 +39,10 @@
 ### 数据路径不一致
 
 `wiki_downloader/wiki_downloader.py` 默认写入 `wiki_downloader/data/wikipedia_10000.jsonl`，而生成器和提取器默认读取 `evaluation_cases/wikipedia_10000.jsonl`。新下载流程需要手动移动/指定路径，或后续统一默认值。
+
+### Veri 历史运行输入边界
+
+`20260820-122750-veri-judge-gpt-4o-mini` 对应的 Veri 作答曾上传完整 Wikipedia TXT，而 GPT/Gemini 使用 JSON 中保存的 `retrieval_context`。在 Veri 的 7,997 道无答案题中，TXT 长于上下文的文档组 NA 率为 32.24%，输入一致组为 15.63%。后续受控复测必须只向 Veri 提供 `retrieval_context`；现有报告已单列输入一致子集和该风险。
 
 ### 成本和稳定性
 
