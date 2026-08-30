@@ -18,7 +18,6 @@ from pydantic import BaseModel, Field
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEFAULT_CASES = PROJECT_ROOT / "evaluation_cases" / "test_cases_novel.json"
 DEFAULT_RESULTS = PROJECT_ROOT / "evaluation_results"
-DEFAULT_SOURCES = PROJECT_ROOT / "evaluation_cases" / "test_cases_novel"
 DEFAULT_CONFIG = PROJECT_ROOT / "config.yaml"
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 DEFAULT_AUDIT = DEFAULT_RESULTS / "reference_answer_revision_audit.json"
@@ -39,17 +38,6 @@ class ReferenceRevision(BaseModel):
     retrieval_context_evidence: list[str] = Field(
         description="Short verbatim quotes from the retrieval context"
     )
-    full_document_answerable: bool = Field(
-        description="Whether the uploaded full document answers the question"
-    )
-    full_document_answer: str = Field(
-        description="The answer from the full document, or an insufficient-information statement"
-    )
-    scope_mismatch: bool = Field(
-        description=(
-            "True only when answerability differs between retrieval context and full document"
-        )
-    )
     ambiguous_question: bool
     confidence: Literal["high", "medium", "low"]
     needs_human_review: bool
@@ -65,7 +53,6 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--cases", type=Path, default=DEFAULT_CASES)
     parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS)
-    parser.add_argument("--source-dir", type=Path, default=DEFAULT_SOURCES)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--env-file", type=Path, default=DEFAULT_ENV_FILE)
     parser.add_argument("--audit", type=Path, default=DEFAULT_AUDIT)
@@ -96,11 +83,6 @@ def parse_args() -> argparse.Namespace:
         "--apply",
         action="store_true",
         help="Apply completed high-confidence, non-ambiguous revisions to the case file.",
-    )
-    parser.add_argument(
-        "--reupload",
-        action="store_true",
-        help="Upload full source TXT files again instead of reusing audit file IDs.",
     )
     return parser.parse_args()
 
@@ -259,16 +241,6 @@ def build_candidates(
     return candidates
 
 
-def index_source_files(source_dir: Path) -> dict[str, Path]:
-    sources: dict[str, Path] = {}
-    for path in source_dir.glob("*.txt"):
-        page_id = path.name.partition("-")[0]
-        if page_id in sources:
-            raise ValueError(f"Multiple source files found for page_id={page_id}")
-        sources[page_id] = path
-    return sources
-
-
 def new_audit(
     cases_path: Path,
     result_files: dict[str, Path],
@@ -276,7 +248,7 @@ def new_audit(
     disagreements_only: bool,
 ) -> dict:
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "cases_file": str(cases_path),
         "judge_model": judge_model,
         "selection": {
@@ -285,7 +257,6 @@ def new_audit(
             "disagreements_only": disagreements_only,
         },
         "result_files": {model: str(path) for model, path in result_files.items()},
-        "uploaded_files": {},
         "reviews": [],
     }
 
@@ -303,30 +274,13 @@ def load_or_create_audit(
     expected = new_audit(
         cases_path, result_files, judge_model, disagreements_only
     )
-    legacy_selection = {
-        "requires_all_models": list(TARGET_MODELS),
-        "disagreements_only": disagreements_only,
-    }
-    if audit.get("schema_version") == 1 and audit.get("selection") == legacy_selection:
-        audit["schema_version"] = expected["schema_version"]
-        audit["selection"] = expected["selection"]
     for field in ("schema_version", "cases_file", "judge_model", "selection", "result_files"):
         if audit.get(field) != expected[field]:
             raise ValueError(
-                f"Existing audit {path} has different {field}; use a different --audit path"
+                f"Existing audit {path} uses an incompatible {field}; remove it "
+                "or use a different --audit path"
             )
     return audit
-
-
-def upload_source(client: Any, path: Path) -> str:
-    if path.stat().st_size >= 50 * 1024 * 1024:
-        raise ValueError(f"Source file exceeds the 50 MB file-input limit: {path}")
-    with path.open("rb") as file:
-        uploaded = client.files.create(file=file, purpose="user_data")
-    file_id = getattr(uploaded, "id", None)
-    if not isinstance(file_id, str) or not file_id:
-        raise ValueError(f"Upload returned no file ID for {path}")
-    return file_id
 
 
 def build_review_prompt(candidate: dict) -> str:
@@ -346,12 +300,11 @@ def build_review_prompt(candidate: dict) -> str:
                 f"answer:\n{result.get('actual_output')}"
             )
     return (
-        "Audit one RAG evaluation reference answer. The uploaded TXT is the full "
-        "Wikipedia document. The retrieval context below is the exact, possibly "
-        "truncated material shown to GPT and Gemini; it is the authoritative scope "
-        "for expected_answered and corrected_expected_output. The full document is "
-        "provided only to diagnose scope mismatch. Prior model answers are untrusted "
-        "clues, not votes. Verify every claim against the texts. Do not preserve an "
+        "Audit one RAG evaluation reference answer. The article below is the exact "
+        "retrieval context shown to the evaluated models and is the only authoritative "
+        "source for expected_answered and corrected_expected_output. Prior model "
+        "answers are untrusted clues, not votes. Verify every claim against the "
+        "article. Do not preserve an "
         "incorrect reference merely because it agrees with a prior judge. Mark "
         "needs_human_review for ambiguity, conflicting evidence, or low confidence.\n\n"
         f"Document: {document.get('title')}\n"
@@ -366,7 +319,6 @@ def build_review_prompt(candidate: dict) -> str:
 def review_candidate(
     client: Any,
     model: str,
-    file_id: str,
     candidate: dict,
 ) -> ReferenceRevision:
     response = client.responses.parse(
@@ -381,10 +333,7 @@ def review_candidate(
             },
             {
                 "role": "user",
-                "content": [
-                    {"type": "input_file", "file_id": file_id},
-                    {"type": "input_text", "text": build_review_prompt(candidate)},
-                ],
+                "content": build_review_prompt(candidate),
             },
         ],
         text_format=ReferenceRevision,
@@ -394,10 +343,6 @@ def review_candidate(
     revision = response.output_parsed
     if not revision.corrected_expected_output.strip():
         raise ValueError("Judge returned an empty corrected_expected_output")
-    if revision.scope_mismatch != (
-        revision.retrieval_context_answerable != revision.full_document_answerable
-    ):
-        raise ValueError("Judge returned inconsistent scope_mismatch")
     if revision.retrieval_context_answerable and not revision.retrieval_context_evidence:
         raise ValueError("Answerable revision must include retrieval-context evidence")
     return revision
@@ -406,14 +351,13 @@ def review_candidate(
 def review_with_retries(
     client: Any,
     model: str,
-    file_id: str,
     candidate: dict,
     retries: int,
 ) -> ReferenceRevision:
     last_error: Exception | None = None
     for attempt in range(1, retries + 1):
         try:
-            return review_candidate(client, model, file_id, candidate)
+            return review_candidate(client, model, candidate)
         except Exception as error:
             last_error = error
             if attempt < retries:
@@ -513,7 +457,6 @@ def summarize(audit: dict, candidates: list[dict]) -> dict:
             != review["revision"]["retrieval_context_answerable"]
             for review in reviews
         ),
-        "scope_mismatches": sum(review["revision"]["scope_mismatch"] for review in reviews),
         "needs_human_review": sum(
             review["revision"]["needs_human_review"]
             or review["revision"]["ambiguous_question"]
@@ -546,7 +489,6 @@ def main() -> None:
         candidates = build_candidates(
             documents, result_indexes, args.disagreements_only
         )
-        sources = index_source_files(args.source_dir)
         audit = load_or_create_audit(
             args.audit,
             args.cases,
@@ -580,30 +522,9 @@ def main() -> None:
             review_identity(review): index
             for index, review in enumerate(audit["reviews"])
         }
-        reuploaded_documents = set()
         try:
             for position, candidate in enumerate(pending, 1):
                 document = candidate["document"]
-                page_id = str(document["page_id"])
-                source = sources.get(page_id)
-                if source is None:
-                    raise ValueError(f"No full source TXT found for page_id={page_id}")
-                uploaded = audit["uploaded_files"].get(document["name"])
-                should_upload = not isinstance(uploaded, dict) or (
-                    args.reupload and document["name"] not in reuploaded_documents
-                )
-                if should_upload:
-                    file_id = upload_source(client, source)
-                    audit["uploaded_files"][document["name"]] = {
-                        "file_id": file_id,
-                        "path": str(source),
-                        "size": source.stat().st_size,
-                    }
-                    reuploaded_documents.add(document["name"])
-                    save_json_atomic(audit, args.audit)
-                else:
-                    file_id = uploaded["file_id"]
-
                 print(
                     f"[{position}/{len(pending)}] {document['title']} / "
                     f"{candidate['question']['name']}",
@@ -613,7 +534,6 @@ def main() -> None:
                     revision = review_with_retries(
                         client,
                         judge_model,
-                        file_id,
                         candidate,
                         args.retries,
                     )

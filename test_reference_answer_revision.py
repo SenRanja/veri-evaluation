@@ -4,7 +4,6 @@ from revise_reference_answers import (
     ReferenceRevision,
     apply_completed_reviews,
     candidate_reasons,
-    load_or_create_audit,
     review_candidate,
 )
 
@@ -64,14 +63,11 @@ class FakeResponses:
         return SimpleNamespace(output_parsed=self.revision)
 
 
-def test_review_candidate_sends_file_context_and_all_model_answers() -> None:
+def test_review_candidate_sends_inline_context_and_all_model_answers() -> None:
     revision = ReferenceRevision(
         retrieval_context_answerable=True,
         corrected_expected_output="The supported answer.",
         retrieval_context_evidence=["supported evidence"],
-        full_document_answerable=True,
-        full_document_answer="The supported answer.",
-        scope_mismatch=False,
         ambiguous_question=False,
         confidence="high",
         needs_human_review=False,
@@ -95,64 +91,20 @@ def test_review_candidate_sends_file_context_and_all_model_answers() -> None:
         },
     }
 
-    result = review_candidate(client, "gpt-4o-mini", "file-123", candidate)
+    result = review_candidate(client, "gpt-4o-mini", candidate)
 
     assert result is revision
     request = responses.request
     assert request["model"] == "gpt-4o-mini"
-    content = request["input"][1]["content"]
-    assert content[0] == {"type": "input_file", "file_id": "file-123"}
-    prompt = content[1]["text"]
+    prompt = request["input"][1]["content"]
+    assert isinstance(prompt, str)
+    assert "input_file" not in prompt
     assert "supported evidence" in prompt
     assert "gpt-4o-mini" in prompt
     assert "gemini-3.5-flash" in prompt
     assert "result: unavailable" in prompt
     assert "veri" in prompt
-    assert "authoritative scope" in prompt
-
-
-def test_load_or_create_audit_migrates_all_model_selection(tmp_path) -> None:
-    audit_path = tmp_path / "audit.json"
-    cases_path = tmp_path / "cases.json"
-    result_files = {
-        model: tmp_path / f"{model}.json"
-        for model in ("gpt-4o-mini", "gemini-3.5-flash", "veri")
-    }
-    audit_path.write_text(
-        __import__("json").dumps(
-            {
-                "schema_version": 1,
-                "cases_file": str(cases_path),
-                "judge_model": "gpt-4o",
-                "selection": {
-                    "requires_all_models": [
-                        "gpt-4o-mini",
-                        "gemini-3.5-flash",
-                        "veri",
-                    ],
-                    "disagreements_only": False,
-                },
-                "result_files": {
-                    model: str(path) for model, path in result_files.items()
-                },
-                "uploaded_files": {},
-                "reviews": [{"status": "completed"}],
-            }
-        ),
-        encoding="utf-8",
-    )
-
-    audit = load_or_create_audit(
-        audit_path,
-        cases_path,
-        result_files,
-        "gpt-4o",
-        False,
-    )
-
-    assert audit["schema_version"] == 2
-    assert audit["selection"]["minimum_model_results"] == 2
-    assert audit["reviews"] == [{"status": "completed"}]
+    assert "only authoritative source" in prompt
 
 
 def test_apply_completed_reviews_updates_only_eligible_golden_fields() -> None:

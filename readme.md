@@ -183,7 +183,7 @@ python -u revise_reference_answers.py --model gpt-4o --apply
 bash evaluation.sh
 ```
 
-前两条命令只更新 `evaluation_results/reference_answer_revision_audit.json`，不会修改用例。`--apply` 只应用审核模型标为高置信、无歧义且无需人工复核的建议，并原子更新 `test_cases_novel.json`。脚本把完整 Wikipedia TXT、用例中的精确 `retrieval_context` 和 GPT/Gemini/Veri 历史回答一起交给审核模型，但 golden 字段仍严格以 `retrieval_context` 为准；全文只用于识别输入范围不一致。
+前两条命令只更新 `evaluation_results/reference_answer_revision_audit.json`，不会修改用例。`--apply` 只应用审核模型标为高置信、无歧义且无需人工复核的建议，并原子更新 `test_cases_novel.json`。脚本不上传文件，只把用例中的精确 `retrieval_context`、当前参考答案和 GPT/Gemini/Veri 的可用历史回答作为文本交给审核模型，golden 字段严格以 `retrieval_context` 为准。
 
 修订用例不会改变历史 `results.json`。应用后必须重新运行 `evaluation.sh`，才能得到基于新参考答案的三个目标模型评估结果。
 
