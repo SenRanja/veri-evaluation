@@ -28,3 +28,5 @@ dist/
 # /evaluation_results/*
 
 
+evaluation_results/*/openai_interactions.jsonl
+evaluation_results/*/openai_interactions.jsonl
