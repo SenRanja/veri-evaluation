@@ -30,3 +30,4 @@ dist/
 
 evaluation_results/*/openai_interactions.jsonl
 evaluation_results/*/openai_interactions.jsonl
+evaluation_results/20260830-merged-all-output/results.json

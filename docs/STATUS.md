@@ -1,6 +1,6 @@
 # 项目状态
 
-更新日期：2026-08-25
+更新日期：2026-08-30
 
 ## 当前可用状态
 
@@ -15,6 +15,7 @@
 - 已新增 `veriai_answer.py`：按文档顺序上传 TXT 到 Veris，保存 `veri_file_id`，再按题保存 `actual_answered_veri` 和 `actual_output_veri`；上传和回答均逐项原子落盘并支持断点恢复。启动时只索引一次 TXT 目录，不做全量预校验；文档、上传或单题异常会记录后跳过。成功响应不受引用校验或 Boolean 判定阻塞，完整输出会追加 `file_id`、文件名和标题来源索引。
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
 - 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
+- 已新增 `revise_reference_answers.py`：从三模型共同完成的结果中筛选决策不一致及一致 NA/AN 用例，上传完整 Wikipedia TXT，并同时提供精确 `retrieval_context` 和三模型历史回答供审核模型修订 golden answer。默认只写原子审计快照，`--apply` 只应用高置信、无歧义且无需人工复核的建议。
 - 评估器支持 `target.models` 多目标列表，当前会依次评估 `gpt-4o-mini`、`veri` 与 `gemini-3.5-flash`，并分别写入带目标模型名称的结果目录。
 - 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
@@ -22,6 +23,7 @@
 - 指标门控和汇总已使用稳定内部 ID，不再依赖 DeepEval 可为空的 `name`。
 - `test_evaluation_logic.py` 的 8 项离线测试已通过，覆盖每响应落盘、真实指标 ID、门控、字段选择和条件汇总。
 - `test_veriai_answer_logic.py` 的 13 项离线测试已通过，覆盖聊天响应解析、中英文拒答判定、宽松引用归一化和来源索引去重。
+- `test_reference_answer_revision.py` 的 3 项离线测试已通过，覆盖候选筛选、完整文件输入请求和受保护的 golden answer 应用。
 - 当时也已通过核心 Python 文件编译和 VS Code 诊断检查。
 - 已完成一次 152 题全量评估：`evaluation_results/20260812-153056-gpt-4o-mini/` 含全部五类产物，共收到 608 个指标结果；Decision Accuracy 为 93.42%，Correct Answer Rate 为 81.58%。该结果对应之前的 152 题数据快照，不代表当前 16,000 题文件。
 - 已基于 GPT、Veri 和 Gemini 的现有结果生成中文横向/纵向报告；主比较集为三模型共同完成的 2,959 道题，报告位于 `evaluation_results/20260822-173203-gemini-3.5-flash-judge-gpt-4o-mini/veri_vs_models_comparison_report.md`。
@@ -30,6 +32,7 @@
 
 ## 尚未完成
 
+- 尚未实际运行参考答案审核 API。现有三模型共同结果中有 309 个决策不一致用例、119 个一致 NA 和 9 个一致 AN，默认去重后共 437 个候选；应先用 `--limit 10` 检查质量和成本，再续跑并人工检查审计文件。
 - 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
 - Gemini 当前只有 2,965 条完整目标记录，三模型报告因此使用 2,959 道共同成功用例；补齐 Gemini 或重跑统一输入评估都会产生大量 API 调用、费用和运行时间。
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。
@@ -43,6 +46,8 @@
 ### Veri 历史运行输入边界
 
 `20260820-122750-veri-judge-gpt-4o-mini` 对应的 Veri 作答曾上传完整 Wikipedia TXT，而 GPT/Gemini 使用 JSON 中保存的 `retrieval_context`。在 Veri 的 7,997 道无答案题中，TXT 长于上下文的文档组 NA 率为 32.24%，输入一致组为 15.63%。后续受控复测必须只向 Veri 提供 `retrieval_context`；现有报告已单列输入一致子集和该风险。
+
+参考答案审核虽然上传完整 TXT，但会分别判断全文和 `retrieval_context` 的可回答性；只有后者可写入 golden 字段。`scope_mismatch` 只用于诊断输入不一致。
 
 ### 成本和稳定性
 

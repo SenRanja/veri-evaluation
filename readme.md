@@ -171,6 +171,22 @@ Correctness、Faithfulness 与 Answer Relevancy 含义不同，不要把三者�
 
 所有统计项输出时附带分子与分母；分母为 0 记为 `null`。
 
+## 参考答案审计
+
+三模型历史结果出现决策不一致，或三者一致得到 NA/AN 时，可以调用审核脚本检查 golden label：
+
+```bash
+source .venv/bin/activate
+python -u revise_reference_answers.py --model gpt-4o --limit 10
+python -u revise_reference_answers.py --model gpt-4o
+python -u revise_reference_answers.py --model gpt-4o --apply
+bash evaluation.sh
+```
+
+前两条命令只更新 `evaluation_results/reference_answer_revision_audit.json`，不会修改用例。`--apply` 只应用审核模型标为高置信、无歧义且无需人工复核的建议，并原子更新 `test_cases_novel.json`。脚本把完整 Wikipedia TXT、用例中的精确 `retrieval_context` 和 GPT/Gemini/Veri 历史回答一起交给审核模型，但 golden 字段仍严格以 `retrieval_context` 为准；全文只用于识别输入范围不一致。
+
+修订用例不会改变历史 `results.json`。应用后必须重新运行 `evaluation.sh`，才能得到基于新参考答案的三个目标模型评估结果。
+
 评估运行开始后会立即创建 `results.json`。每收到一个指标响应，程序都会通过临时文件原子替换该 JSON，因此 Ctrl+C 或异常退出时，已经返回的指标不会丢失。文件中的 `progress` 包含：
 
 - `status`：`running` 或 `completed`；

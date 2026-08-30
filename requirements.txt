@@ -1,6 +1,7 @@
 deepeval
 google-genai
 openai
+openpyxl
 pydantic
 PyYAML
 requests
