@@ -25,6 +25,7 @@
 - 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
 - `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。
+- 评估器现支持 `--resume <运行目录>` 原地断点恢复；已完成题直接跳过，部分完成或技术失败题保留已成功指标并继续剩余指标。可用 `--max-workers 1` 临时降低恢复并发，避免持续触发裁判限流。
 - 指标门控和汇总已使用稳定内部 ID，不再依赖 DeepEval 可为空的 `name`。
 - `test_evaluation_logic.py` 的 8 项离线测试已通过，覆盖每响应落盘、真实指标 ID、门控、字段选择和条件汇总。
 - `test_veriai_answer_logic.py` 的 13 项离线测试已通过，覆盖聊天响应解析、中英文拒答判定、宽松引用归一化和来源索引去重。
@@ -62,7 +63,7 @@
 
 - `generate_wikipedia_test_cases.py`、`answer_models.py`、`calibrate_reference_answers.py`、`veriai_answer.py` 和 `evaluation.py` 都会调用 API。
 - 完整评估每题运行四项 LLM 指标；当前 16,000 题理论上需要 64,000 个指标结果，成本远高于已完成的 152 题运行。
-- 之前以 16 并发运行时留下未完成目录；当前已降为 4。中断时实时 `results.json` 会保留已返回结果，但评估器本身不续跑，重新执行会创建新的时间戳目录并从头评估。
+- 之前以 16 并发运行时留下未完成目录；当前默认已降为 4。DeepEval 指标可能为单题发起多次裁判请求，4 个用例同步重试仍可能触发 RPM/TPM 限流。中断时实时 `results.json` 会保留已返回结果，可用 `--resume` 原地继续；限流恢复建议同时使用 `--max-workers 1`。
 - `20260818-104954-gpt-4o-mini-judge-gpt-4o-mini` 在 Contextual Relevancy 阶段因裁判把合法 JSON 包在 Markdown `json` 代码围栏中而触发 DeepEval 解析异常；对应 `sullivan_family_background`，用例 JSON 和内部 13 条 verdict 均有效。现已通过指标重试和单题技术失败隔离避免整批退出。
 - 作答器每题原子保存，并默认跳过已有的完整模型后缀字段；可通过重复执行安全续跑。不要使用 `--overwrite`，除非明确需要重生成已有回答。
 - `test_chatbot.py` 和 `test_veris.py` 是网络测试，其中存在硬编码裁判模型，不应作为默认离线测试运行。

@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import csv
 import json
@@ -384,11 +385,37 @@ def new_case_result(case):
     }
 
 
+def format_metric_error(error):
+    root_error = error
+    seen = set()
+    while id(root_error) not in seen:
+        seen.add(id(root_error))
+        nested = None
+        last_attempt = getattr(root_error, "last_attempt", None)
+        if last_attempt is not None:
+            try:
+                nested = last_attempt.exception()
+            except Exception:
+                nested = None
+        nested = nested or root_error.__cause__ or root_error.__context__
+        if not isinstance(nested, BaseException):
+            break
+        root_error = nested
+
+    summary = f"{type(error).__name__}: {error}"
+    if root_error is not error:
+        summary += (
+            f"; root cause: {type(root_error).__name__}: {root_error}"
+        )
+    return summary
+
+
 async def evaluate_case(
     case,
     metrics,
     on_metric_response=None,
     metric_retries=3,
+    existing_result=None,
 ):
     test_case = LLMTestCase(
         input=case["input"],
@@ -397,9 +424,29 @@ async def evaluate_case(
         retrieval_context=case["retrieval_context"],
     )
 
-    result = new_case_result(case)
+    result = (
+        {
+            **existing_result,
+            "status": "in_progress",
+            "case_passed": None,
+            "passed": None,
+            "metrics": list(existing_result["metrics"]),
+        }
+        if existing_result is not None
+        else new_case_result(case)
+    )
+    result.pop("error", None)
+    completed_metric_ids = [metric["id"] for metric in result["metrics"]]
+    expected_metric_ids = [get_metric_identity(metric)[0] for metric in metrics]
+    if completed_metric_ids != expected_metric_ids[:len(completed_metric_ids)]:
+        raise ValueError(
+            f"Cannot resume {case['document']}/{case['name']}: saved metrics "
+            "are not a prefix of the configured metrics"
+        )
 
     for metric_index, metric in enumerate(metrics):
+        if metric_index < len(completed_metric_ids):
+            continue
         metric_id, metric_name = get_metric_identity(metric)
         for attempt in range(1, metric_retries + 1):
             print(
@@ -411,18 +458,19 @@ async def evaluate_case(
                 await metric.a_measure(test_case, _show_indicator=False)
                 break
             except Exception as error:
+                error_summary = format_metric_error(error)
                 if attempt == metric_retries:
                     result["status"] = "failed"
                     result["error"] = (
                         f"{metric_name} failed after {metric_retries} "
-                        f"attempts: {error}"
+                        f"attempts: {error_summary}"
                     )
                     if on_metric_response is not None:
                         await on_metric_response(result)
                     return result
                 print(
                     f"[{case['name']}] {metric_name} attempt {attempt} "
-                    f"failed: {error}; retrying.",
+                    f"failed: {error_summary}; retrying.",
                     flush=True,
                 )
                 await asyncio.sleep(2 ** (attempt - 1))
@@ -502,13 +550,23 @@ async def evaluate_cases(
     max_workers,
     results_file,
     judge_model=None,
+    existing_report=None,
+    judge_id="unknown",
 ):
     """Evaluate cases concurrently on one asyncio event loop."""
     semaphore = asyncio.Semaphore(max_workers)
     write_lock = asyncio.Lock()
-    results = [None] * len(cases)
-    metrics_per_case = len(configured_metrics(config, judge_model))
+    expected_metric_ids = [
+        get_metric_identity(metric)[0]
+        for metric in configured_metrics(config, judge_model)
+    ]
+    metrics_per_case = len(expected_metric_ids)
     metric_retries = config.get("evaluation", {}).get("metric_retries", 3)
+    results = (
+        restore_saved_results(cases, existing_report, expected_metric_ids)
+        if existing_report is not None
+        else [None] * len(cases)
+    )
 
     save_results(
         build_live_report(results, len(cases), metrics_per_case),
@@ -533,7 +591,8 @@ async def evaluate_cases(
                         print_live_summary(report)
                     elif result["status"] == "failed":
                         print(
-                            f"{result['name']}: EVALUATION ERROR - "
+                            f"{result['name']}: EVALUATION ERROR "
+                            f"(judge={judge_id}) - "
                             f"{result['error']}",
                             flush=True,
                         )
@@ -544,15 +603,86 @@ async def evaluate_cases(
                 metrics,
                 on_metric_response=save_metric_response,
                 metric_retries=metric_retries,
+                existing_result=results[case_index],
             )
             return result
 
-    return await asyncio.gather(
+    pending = [
+        (case_index, case)
+        for case_index, case in enumerate(cases)
+        if results[case_index] is None
+        or results[case_index]["status"] != "completed"
+    ]
+    if existing_report is not None:
+        print(
+            f"Resume checkpoint: {len(cases) - len(pending)} completed, "
+            f"{len(pending)} remaining.",
+            flush=True,
+        )
+
+    await asyncio.gather(
         *(
             evaluate_with_limit(case_index, case)
-            for case_index, case in enumerate(cases)
+            for case_index, case in pending
         )
     )
+    return results
+
+
+def restore_saved_results(cases, report, expected_metric_ids):
+    if not isinstance(report, dict) or not isinstance(report.get("cases"), list):
+        raise ValueError("Resume results.json must contain a cases list")
+    progress = report.get("progress") or {}
+    if progress.get("total_cases") != len(cases):
+        raise ValueError(
+            "Cannot resume because the checkpoint case count does not match "
+            "the current input"
+        )
+
+    case_indexes = {}
+    for index, case in enumerate(cases):
+        key = (case["document"], case["name"])
+        if key in case_indexes:
+            raise ValueError(f"Duplicate current case identity: {key}")
+        case_indexes[key] = index
+
+    results = [None] * len(cases)
+    comparable_fields = (
+        "expected_answered",
+        "actual_answered",
+        "input",
+        "actual_output",
+        "expected_output",
+        "retrieval_context",
+    )
+    for saved in report["cases"]:
+        key = (saved.get("document"), saved.get("name"))
+        if key not in case_indexes:
+            raise ValueError(f"Resume checkpoint contains unknown case: {key}")
+        index = case_indexes[key]
+        if results[index] is not None:
+            raise ValueError(f"Resume checkpoint contains duplicate case: {key}")
+        current = new_case_result(cases[index])
+        if any(saved.get(field) != current[field] for field in comparable_fields):
+            raise ValueError(
+                f"Cannot resume {key[0]}/{key[1]} because its input or answer "
+                "data changed"
+            )
+        metrics = saved.get("metrics")
+        if not isinstance(metrics, list) or len(metrics) > len(expected_metric_ids):
+            raise ValueError(f"Resume checkpoint has invalid metrics for {key}")
+        saved_metric_ids = [metric.get("id") for metric in metrics]
+        if saved_metric_ids != expected_metric_ids[:len(saved_metric_ids)]:
+            raise ValueError(
+                f"Resume checkpoint metrics do not match the configuration: {key}"
+            )
+        if (
+            saved.get("status") == "completed"
+            and len(metrics) != len(expected_metric_ids)
+        ):
+            raise ValueError(f"Completed resume case has missing metrics: {key}")
+        results[index] = saved
+    return results
 
 
 def save_results(results, output_file):
@@ -690,13 +820,16 @@ def evaluate_target(
     judge,
     judge_model,
     max_workers,
+    run_directory=None,
 ):
     cases_file = project_root / config["project"]["cases_file"]
     cases = load_cases(cases_file, target_model)
     if not cases:
         print(f"Skipping {target_model}: no complete target outputs.", flush=True)
         return
-    _, run_directory = create_run_directory(config, target_model, judge["id"])
+    is_resume = run_directory is not None
+    if run_directory is None:
+        _, run_directory = create_run_directory(config, target_model, judge["id"])
     output = config["output"]
     interceptor_settings = config["openai_interceptor"]
 
@@ -709,20 +842,22 @@ def evaluate_target(
         "config_snapshot.yaml",
     )
 
-    with config_file.open("w", encoding="utf-8") as file:
-        yaml.safe_dump(
-            {
-                **config,
-                "active_target_model": target_model,
-                "active_judge": judge,
-            },
-            file,
-            allow_unicode=True,
-            sort_keys=False,
-        )
+    if not is_resume:
+        with config_file.open("w", encoding="utf-8") as file:
+            yaml.safe_dump(
+                {
+                    **config,
+                    "active_target_model": target_model,
+                    "active_judge": judge,
+                },
+                file,
+                allow_unicode=True,
+                sort_keys=False,
+            )
 
     print(
-        f"Evaluating {len(cases)} cases with {max_workers} workers "
+        f"{'Resuming' if is_resume else 'Evaluating'} {len(cases)} cases "
+        f"with {max_workers} workers "
         f"for {target_model} using judge {judge['id']}.",
         flush=True,
     )
@@ -731,7 +866,7 @@ def evaluate_target(
     interceptor = (
         OpenAIInterceptor(
             log_file=log_file,
-            clear_existing=True,
+            clear_existing=not is_resume,
             capture_full_messages=True,
             capture_full_response=True,
         )
@@ -747,6 +882,8 @@ def evaluate_target(
                 max_workers,
                 results_file,
                 judge_model,
+                load_json(results_file) if is_resume else None,
+                judge["id"],
             )
         )
 
@@ -796,16 +933,78 @@ def evaluate_target(
     print(f"Output: {run_directory}")
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--resume",
+        type=Path,
+        help="Resume one interrupted run directory in place.",
+    )
+    parser.add_argument(
+        "--max-workers",
+        type=int,
+        help="Override evaluation.max_workers for this invocation.",
+    )
+    return parser.parse_args()
+
+
+def validate_max_workers(value):
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise ValueError("evaluation.max_workers must be an integer")
+    if value < 1:
+        raise ValueError("evaluation.max_workers must be at least 1")
+
+
 def main():
+    args = parse_args()
     config = load_yaml(CONFIG_FILE)
     project_root = CONFIG_FILE.resolve().parent
+    if args.resume is not None:
+        run_directory = args.resume
+        if not run_directory.is_absolute():
+            run_directory = project_root / run_directory
+        run_directory = run_directory.resolve()
+        config_file = run_directory / config["output"].get(
+            "config_snapshot",
+            "config_snapshot.yaml",
+        )
+        results_file = run_directory / config["output"]["results_json"]
+        if not config_file.is_file() or not results_file.is_file():
+            raise ValueError(
+                "Resume directory must contain config_snapshot.yaml and "
+                "results.json"
+            )
+        config = load_yaml(config_file)
+        target_model = config.get("active_target_model")
+        judge = config.get("active_judge")
+        if not isinstance(target_model, str) or not isinstance(judge, dict):
+            raise ValueError(
+                "Resume config snapshot is missing active target or judge"
+            )
+        max_workers = args.max_workers or config.get("evaluation", {}).get(
+            "max_workers",
+            4,
+        )
+        validate_max_workers(max_workers)
+        judge_model = create_judge_model(judge)
+        evaluate_target(
+            config,
+            project_root,
+            target_model,
+            judge,
+            judge_model,
+            max_workers,
+            run_directory=run_directory,
+        )
+        return
+
     target_models = get_target_models(config)
     judges = get_judge_models(config)
-    max_workers = config.get("evaluation", {}).get("max_workers", 4)
-    if not isinstance(max_workers, int) or isinstance(max_workers, bool):
-        raise ValueError("evaluation.max_workers must be an integer")
-    if max_workers < 1:
-        raise ValueError("evaluation.max_workers must be at least 1")
+    max_workers = args.max_workers or config.get("evaluation", {}).get(
+        "max_workers",
+        4,
+    )
+    validate_max_workers(max_workers)
     metric_retries = config.get("evaluation", {}).get("metric_retries", 3)
     if not isinstance(metric_retries, int) or isinstance(metric_retries, bool):
         raise ValueError("evaluation.metric_retries must be an integer")

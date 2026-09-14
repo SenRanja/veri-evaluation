@@ -192,7 +192,7 @@ python -u calibrate_reference_answers.py --apply
 - 统一 API 作答器的 `--limit` 以“模型 × 问题”任务计数。网络请求在线程池并发执行，但线程不接触共享文档；主线程收到完整结构化响应后才一次写入 Boolean 与输出字段，并通过临时文件替换完成原子保存。
 - Veris 答题器启动时只为 TXT 目录建立一次索引，不执行全量逐文档预校验；文档、上传或单题异常会记录并跳过，继续处理后续项目。每次文件上传和每道题响应后仍原子保存。重复运行会复用 `veri_file_id`；已有引用区块的回答只补齐来源索引并跳过网络请求，旧格式回答则重新请求。`--document-limit` 限制从 JSON 开头选择的文档数。
 - Veris 决策重判器只判断输出是否实际尝试回答，不判断答案事实正确性；逐题原子保存 `actual_answered_veri` 和 `actual_answered_veri_judged_by`。重复运行会跳过已由当前 `judge.model` 判定的题目，`--limit` 可用于小批量成本检查。
-- 评估器在每个指标响应后原子更新当前运行目录的 `results.json`。单个指标失败时按 `evaluation.metric_retries` 重试；耗尽后仅将该题标记为技术失败并继续，技术失败题不进入模型质量或决策统计。中断时已返回结果仍可检查，但评估器不会从该快照继续执行。
+- 评估器在每个指标响应后原子更新当前运行目录的 `results.json`。单个指标失败时按 `evaluation.metric_retries` 重试；耗尽后仅将该题标记为技术失败并继续，技术失败题不进入模型质量或决策统计。使用 `--resume <运行目录>` 可原地恢复：完整题直接跳过，部分完成或技术失败题保留已成功的指标前缀并从下一个指标继续。恢复前会校验目标、裁判、题数、题目输入、答案和指标顺序，防止混用不兼容快照。
 
 WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY` 和 `DEEPSEEK_API_KEY`；不依赖 Conda。
 
@@ -245,6 +245,14 @@ evaluation_results/{timestamp}-{target_model}-judge-{judge_model}/
 
 中断或异常运行可能只留下部分产物；输入校验失败也可能留下空的时间戳目录，因为运行目录在加载用例前创建。token 汇总只覆盖 DeepEval 的 Chat Completions；生成器和作答器使用 Responses API，不计入该汇总。
 
+恢复中断运行时，建议先降低并发以避免再次触发裁判 API 限流：
+
+```bash
+bash evaluation.sh --resume evaluation_results/<运行目录> --max-workers 1
+```
+
+恢复会继续写入原目录，不创建新时间戳目录。裁判身份从该目录的 `config_snapshot.yaml` 读取，不受当前 `config.yaml` 中模型列表顺序影响。
+
 `results.json` 是实时快照，而不是仅在运行结束时生成：
 
 - 运行开始即写入空进度与空汇总；
@@ -261,6 +269,6 @@ evaluation_results/{timestamp}-{target_model}-judge-{judge_model}/
 - 生成器和作答器都通过临时文件替换实现原子 JSON 保存。
 - 评估器同样在每个 metric 响应后原子保存实时 `results.json`，并用异步锁串行化并发写入。
 - 每成功生成一道题或取得一个回答后立即保存。
-- 作答器通过跳过已有完整回答实现断点续跑；评估器只保留中断快照，不实现断点续跑。
+- 作答器通过跳过已有完整回答实现断点续跑；评估器通过显式 `--resume` 从中断快照续跑，并拒绝输入、答案、指标顺序或运行身份不兼容的快照。
 - 生成器恢复时校验已有 page ID 与当前选择集一致；允许多个案例因 API 或校验失败而暂时缺题，重复运行会仅补齐这些缺口。
 - 抽样由 `--sample` 和 `--seed` 控制；恢复时必须保持 `--start`、`--sample`、`--seed`、题数等选择参数兼容。

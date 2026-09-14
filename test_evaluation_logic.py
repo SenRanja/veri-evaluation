@@ -11,6 +11,7 @@ from evaluation import (
     create_judge_model,
     evaluate_case,
     evaluate_cases,
+    format_metric_error,
     get_metric_identity,
     get_decision_state,
     get_judge_models,
@@ -401,3 +402,115 @@ def test_metric_retry_exhaustion_marks_only_case_failed():
         "AN": 0,
         "NA": 0,
     }
+
+
+def test_metric_error_includes_wrapped_root_cause():
+    root_error = RuntimeError("tokens per minute exceeded")
+    wrapper = ValueError("retry exhausted")
+    wrapper.__cause__ = root_error
+
+    assert format_metric_error(wrapper) == (
+        "ValueError: retry exhausted; root cause: RuntimeError: "
+        "tokens per minute exceeded"
+    )
+
+
+def test_resume_skips_completed_case_and_continues_partial_metrics(
+    tmp_path,
+    monkeypatch,
+):
+    output = tmp_path / "results.json"
+    cases = [
+        {**make_case(True, True), "name": "completed"},
+        {**make_case(True, True), "name": "partial"},
+    ]
+    completed = asyncio.run(
+        evaluate_case(cases[0], make_metrics(1.0, 1.0, 1.0, contextual=1.0))
+    )
+    partial = asyncio.run(
+        evaluate_case(cases[1], make_metrics(1.0, 1.0, 1.0, contextual=1.0))
+    )
+    partial["status"] = "in_progress"
+    partial["case_passed"] = None
+    partial["passed"] = None
+    partial["metrics"] = partial["metrics"][:2]
+    report = build_live_report([completed, partial], 2, 4)
+
+    resumed_metrics = make_metrics(1.0, 1.0, 1.0, contextual=1.0)
+    monkeypatch.setattr(evaluation, "build_metrics", lambda config: resumed_metrics)
+    results = asyncio.run(
+        evaluate_cases(
+            cases,
+            config={},
+            max_workers=1,
+            results_file=output,
+            existing_report=report,
+        )
+    )
+
+    assert results[0] == completed
+    assert results[1]["status"] == "completed"
+    assert len(results[1]["metrics"]) == 4
+    assert [metric.attempts if isinstance(metric, FlakyMetric) else 0 for metric in resumed_metrics] == [0, 0, 0, 0]
+
+
+def test_resume_retries_failed_metric_without_losing_saved_prefix(
+    tmp_path,
+    monkeypatch,
+):
+    output = tmp_path / "results.json"
+    case = make_case(True, True)
+    new_saved = asyncio.run(
+        evaluate_case(case, make_metrics(1.0, 1.0, 1.0, contextual=1.0))
+    )
+    saved = {**new_saved, "status": "failed", "case_passed": None, "passed": None}
+    saved["metrics"] = saved["metrics"][:1]
+    saved["error"] = "Answer Relevancy failed after 3 attempts: rate limit"
+    report = build_live_report([saved], 1, 4)
+
+    resumed_metrics = [
+        FlakyMetric("Contextual Relevancy", 1.0, failures=99),
+        FlakyMetric("Answer Relevancy", 1.0, failures=0),
+        FlakyMetric("Correctness", 1.0, failures=0),
+        FlakyMetric("Faithfulness", 1.0, failures=0),
+    ]
+    monkeypatch.setattr(evaluation, "build_metrics", lambda config: resumed_metrics)
+    results = asyncio.run(
+        evaluate_cases(
+            [case],
+            config={"evaluation": {"metric_retries": 1}},
+            max_workers=1,
+            results_file=output,
+            existing_report=report,
+        )
+    )
+
+    assert results[0]["status"] == "completed"
+    assert "error" not in results[0]
+    assert [metric.attempts for metric in resumed_metrics] == [0, 1, 1, 1]
+
+
+def test_resume_rejects_changed_case_data(tmp_path, monkeypatch):
+    output = tmp_path / "results.json"
+    case = make_case(True, True)
+    completed = asyncio.run(
+        evaluate_case(case, make_metrics(1.0, 1.0, 1.0, contextual=1.0))
+    )
+    report = build_live_report([completed], 1, 4)
+    changed = {**case, "actual_output": "Changed answer."}
+    monkeypatch.setattr(
+        evaluation,
+        "build_metrics",
+        lambda config: make_metrics(1.0, 1.0, 1.0, contextual=1.0),
+    )
+
+    with pytest.raises(ValueError, match="input or answer data changed"):
+        asyncio.run(
+            evaluate_cases(
+                [changed],
+                config={},
+                max_workers=1,
+                results_file=output,
+                existing_report=report,
+            )
+        )
