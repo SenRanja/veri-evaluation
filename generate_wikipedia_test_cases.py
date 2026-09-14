@@ -18,6 +18,7 @@ if TYPE_CHECKING:
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
+DEFAULT_CASE_COUNT = 200
 DEFAULT_SOURCE = (
     PROJECT_ROOT / "evaluation_cases" / "test_cases_novel.retired-16000.json"
 )
@@ -60,8 +61,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--limit",
         type=int,
-        default=50,
-        help="继承案例素材数量；默认 50 个案例，即最终 200 道题。",
+        default=DEFAULT_CASE_COUNT,
+        help="继承案例素材数量；默认 200 个案例，即最终 800 道题。",
     )
     parser.add_argument("--start", type=int, default=0, help="跳过开头多少篇文章。")
     parser.add_argument("--retries", type=int, default=5)
@@ -233,7 +234,6 @@ def build_prompt(
     question_start_number: int,
     question_count: int,
     existing_questions: list[dict[str, Any]],
-    legacy_questions: list[dict[str, Any]],
     validation_feedback: str | None = None,
 ) -> str:
     previous = (
@@ -242,13 +242,6 @@ def build_prompt(
     )
     numbered_context = "\n\n".join(
         f"[E{index}] {passage}" for index, passage in enumerate(passages, 1)
-    )
-    retired = (
-        "\n".join(
-            f"- {question.get('name', '')}: {question.get('input', '')}"
-            for question in legacy_questions
-        )
-        or "(none)"
     )
     retry_instruction = (
         f"\nA previous attempt failed validation: {validation_feedback}\n"
@@ -274,13 +267,9 @@ Requirements:
     supports the answer. Do not include the E prefix.
 - Use a descriptive snake_case name that differs from previous names.
 - Do not repeat or closely paraphrase a previous question.
-- This replaces a retired dataset. Do not reuse any retired name or question.
 
 Previous questions for this article:
 {previous}
-
-Retired questions that must not be reused:
-{retired}
 
 Retrieval context:
 ---
@@ -294,7 +283,6 @@ def validate_generated_question(
     title: str,
     passages: list[str],
     existing_questions: list[dict[str, Any]],
-    legacy_questions: list[dict[str, Any]],
 ) -> None:
     if not question.input.strip() or not question.answer.strip():
         raise ValueError("模型返回了空问题或空答案")
@@ -304,23 +292,11 @@ def validate_generated_question(
     normalized_name = normalize_name(question.name, "question")
     if normalized_name in {item["name"] for item in existing_questions}:
         raise ValueError(f"模型生成了重复名称：{normalized_name}")
-    legacy_names = {
-        normalize_name(str(item.get("name", "")), "legacy_question")
-        for item in legacy_questions
-    }
-    if normalized_name in legacy_names:
-        raise ValueError(f"模型复用了退役题目名称：{normalized_name}")
     normalized_input = normalize_text(question.input).casefold()
     if normalized_input in {
         normalize_text(item["input"]).casefold() for item in existing_questions
     }:
         raise ValueError("模型生成了重复问题")
-    legacy_inputs = {
-        normalize_text(str(item.get("input", ""))).casefold()
-        for item in legacy_questions
-    }
-    if normalized_input in legacy_inputs:
-        raise ValueError("模型复用了退役问题")
 
     if not 1 <= question.evidence_id <= len(passages):
         raise ValueError(
@@ -336,7 +312,6 @@ def generate_questions(
     question_start_number: int,
     question_count: int,
     existing_questions: list[dict[str, Any]],
-    legacy_questions: list[dict[str, Any]],
     validation_feedback: str | None = None,
 ) -> GeneratedQuestionBatch:
     response = client.responses.parse(
@@ -358,7 +333,6 @@ def generate_questions(
                     question_start_number,
                     question_count,
                     existing_questions,
-                    legacy_questions,
                     validation_feedback,
                 ),
             },
@@ -374,7 +348,6 @@ def call_with_retries(
     client: Any,
     args: argparse.Namespace,
     document: dict[str, Any],
-    legacy_questions: list[dict[str, Any]],
 ) -> list[GeneratedQuestion]:
     context = "\n\n".join(document["retrieval_context"])
     passages = split_evidence_passages(context)
@@ -394,7 +367,6 @@ def call_with_retries(
                 question_start_number,
                 question_count,
                 document["questions"],
-                legacy_questions,
                 validation_feedback,
             )
             if len(batch.questions) != question_count:
@@ -408,7 +380,6 @@ def call_with_retries(
                     str(document["title"]),
                     passages,
                     validated_questions,
-                    legacy_questions,
                 )
                 validated_questions.append(
                     {
@@ -498,43 +469,6 @@ def add_mismatched_questions(documents: list[dict[str, Any]]) -> None:
             )
 
 
-def remove_legacy_overlaps(
-    documents: list[dict[str, Any]], source_documents: list[dict[str, Any]]
-) -> int:
-    overlapping: set[tuple[int, int]] = set()
-    for document_index, (document, source) in enumerate(
-        zip(documents, source_documents, strict=True)
-    ):
-        legacy_questions = source.get("questions", [])
-        legacy_names = {
-            normalize_name(str(item.get("name", "")), "legacy_question")
-            for item in legacy_questions
-        }
-        legacy_inputs = {
-            normalize_text(str(item.get("input", ""))).casefold()
-            for item in legacy_questions
-        }
-        for question_index, question in enumerate(
-            document.get("questions", [])[:ANSWERABLE_QUESTIONS_PER_DOCUMENT]
-        ):
-            name = normalize_name(str(question.get("name", "")), "question")
-            question_input = normalize_text(str(question.get("input", ""))).casefold()
-            if name in legacy_names or question_input in legacy_inputs:
-                overlapping.add((document_index, question_index))
-
-    if not overlapping:
-        return 0
-
-    for document_index, document in enumerate(documents):
-        answerable = document["questions"][:ANSWERABLE_QUESTIONS_PER_DOCUMENT]
-        document["questions"] = [
-            question
-            for question_index, question in enumerate(answerable)
-            if (document_index, question_index) not in overlapping
-        ]
-    return len(overlapping)
-
-
 def main() -> None:
     args = parse_args()
     if args.retries < 1:
@@ -549,11 +483,6 @@ def main() -> None:
         raise SystemExit(f"找不到文件：{error.filename}") from error
     except (json.JSONDecodeError, ValueError) as error:
         raise SystemExit(str(error)) from error
-
-    removed_overlap_count = remove_legacy_overlaps(documents, selected)
-    if removed_overlap_count:
-        save_json(documents, args.output)
-        print(f"已移除与退役题库重合的可回答题：{removed_overlap_count}")
 
     if all(
         len(document["questions"]) == TOTAL_QUESTIONS_PER_DOCUMENT
@@ -591,7 +520,6 @@ def main() -> None:
                         client,
                         args,
                         document,
-                        selected[document_index].get("questions", []),
                     )
                     context = "\n\n".join(document["retrieval_context"])
                     passages = split_evidence_passages(context)

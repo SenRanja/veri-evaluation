@@ -351,13 +351,13 @@ python analyze_jsonl_characters.py
 
 将jsonl文件提取text到文件中： `python extract_wikipedia_texts.py`
 
-旧的 16,000 题文件已归档为 `evaluation_cases/test_cases_novel.retired-16000.json`。运行以下命令会继承其中前 50 篇材料、上下文和 `veri_file_id`，重新生成 `evaluation_cases/test_cases_novel.json`：
+旧的 16,000 题文件已归档为 `evaluation_cases/test_cases_novel.retired-16000.json`。运行以下命令会继承其中前 200 篇材料、上下文和 `veri_file_id`，重新生成 `evaluation_cases/test_cases_novel.json`：
 
 ```bash
 python generate_wikipedia_test_cases.py
 ```
 
-生成器只让 ChatGPT 编写 100 道可回答题。每道参考答案都包含可在 `retrieval_context` 中逐字定位的 `Source citation`，并另存 `reference_citation`。全部可回答题完成后，脚本从不同文章各错配 2 道题，得到 100 道不可回答题。最终共 50 篇、每篇 4 题（2 道可回答、2 道不可回答），合计 200 题。
+生成器对每个案例只请求 ChatGPT 一次，同时生成 2 道可回答题。每道参考答案都包含可在 `retrieval_context` 中逐字定位的 `Source citation`，并另存 `reference_citation`。全部可回答题完成后，脚本从不同案例各错配 2 道题。最终共 200 个案例、每案例 4 题（2 道可回答、2 道不可回答），合计 800 题。
 
 脚本逐道保存可回答题并支持断点恢复；模型不会被要求直接编写不可回答问题。错配题带 `mismatched_from_page_id` 和 `mismatched_from_title`，便于审计来源。
 

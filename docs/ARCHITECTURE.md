@@ -16,7 +16,7 @@
 | `generate_wikipedia_test_cases.py` | 从退役题库继承材料与 `veri_file_id`；每篇一次请求生成 2 道带逐字引用的可回答题，再跨文章错配得到 2 道不可回答题；逐案例原子保存并支持断点恢复。 |
 | `answer_models.py` | 按 `answering.models` 并发调用 GPT 与 DeepSeek；共用配置中的可追溯回答提示词；工作线程只请求 API，主线程串行合并完整字段对并原子保存。 |
 | `gpt-4o-mini_answer.py` | 兼容入口，委托 `answer_models.py` 只运行 GPT-4o-mini。 |
-| `genimi-3.5-flash_answer.py` | 历史 Gemini 作答器；当前评估目标已移除 Gemini，不用于新 200 题流程。 |
+| `genimi-3.5-flash_answer.py` | 历史 Gemini 作答器；当前评估目标已移除 Gemini，不用于新 800 题流程。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
 | `revise_reference_answers.py` | 从至少两个可用模型的历史结果中筛选决策不一致及一致 NA/AN 用例，向审核模型直接提供 `retrieval_context`、当前参考答案和可用模型回答，逐题保存参考答案修订审计；不上传文件，仅在 `--apply` 时应用高置信建议。 |
@@ -47,7 +47,7 @@ flowchart LR
 
 关键原则：生成、作答和评估共享用例 JSON 中保存的同一份 `retrieval_context`。新题库直接继承退役题库的上下文与上传文件 ID，不读取完整 TXT，也不重新上传材料。
 
-新题库固定使用 50 篇文章、每篇 4 题，共 200 题。ChatGPT 对每篇文章只生成 2 道明确可回答的问题、简洁答案和可在上下文中逐字定位的引用；另外 2 道题来自其他文章的可回答题。错配源文章标题不得出现在目标上下文中，且两道错配题来自不同文章。模型不直接生成不可回答问题。
+新题库固定使用 200 个案例素材、每个案例 4 题，共 800 题。ChatGPT 对每个案例只用一次请求生成 2 道明确可回答的问题、简洁答案和可在上下文中逐字定位的引用；另外 2 道题来自其他案例的可回答题。错配源文章标题不得出现在目标上下文中，且两道错配题来自不同案例。模型不直接生成不可回答问题。
 
 每篇文章的 2 道可回答题在一次结构化请求中返回并整组校验。某篇达到重试上限时只保留该篇缺口并继续后续文章；所有文章都具备 2 道可回答题后才统一构造错配题。重复运行同一命令会跳过完整文章并补齐缺口。
 
@@ -141,7 +141,7 @@ python judge_veri_answered.py
 bash evaluation.sh
 ```
 
-生成器默认从 `evaluation_cases/test_cases_novel.retired-16000.json` 的前 50 篇继承材料和 `veri_file_id`，生成新的 `evaluation_cases/test_cases_novel.json`。默认结果为 100 道可回答题和 100 道跨文章错配的不可回答题。
+生成器默认从 `evaluation_cases/test_cases_novel.retired-16000.json` 的前 200 篇继承材料和 `veri_file_id`，生成新的 `evaluation_cases/test_cases_novel.json`。默认结果为 400 道可回答题和 400 道跨案例错配的不可回答题。
 
 Veris 小批量运行示例：
 
