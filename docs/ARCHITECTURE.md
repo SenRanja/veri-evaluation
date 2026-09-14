@@ -2,7 +2,7 @@
 
 ## 目标与边界
 
-本仓库提供一条离线数据流水线：获取 Wikipedia 材料，生成可回答/不可回答问题，让目标模型作答，再由 DeepEval 裁判模型计算决策指标和回答质量指标。
+本仓库提供一条离线数据流水线：获取 Wikipedia 材料，生成带原文引用的可回答问题，通过跨文章错配构造不可回答问题，让目标模型作答，再由 DeepEval 裁判模型计算决策指标和回答质量指标。
 
 内置脚本可调用 OpenAI 兼容模型，但不会自动上传文档或调用 Veris 等外部 RAG 系统。外部系统需自行接入并按相同字段契约回写结果。
 
@@ -13,14 +13,15 @@
 | `wiki_downloader/wiki_downloader.py` | 随机下载英文 Wikipedia 页面、去重、过滤短文并追加 JSONL；可按已有 page ID 续传。 |
 | `analyze_jsonl_characters.py` | 统计 JSONL 每行字符数。 |
 | `extract_wikipedia_texts.py` | 将 `text` 提取为 Windows 安全的 `{page_id}-{title}.txt`。TXT 只用于外部上传或人工检查。 |
-| `generate_wikipedia_test_cases.py` | 用 Responses API 生成结构化题目；交替生成 answerable/unanswerable；逐题原子保存并支持断点恢复。 |
-| `gpt-4o-mini_answer.py` | 使用 `target.model` 对每道题作答；严格使用用例内的 `retrieval_context`；逐题写入模型后缀字段，并跳过已有完整回答以支持续跑。 |
-| `genimi-3.5-flash_answer.py` | 使用 Gemini 3.5 Flash 和结构化输出逐题写入 `actual_answered_gemini-3.5-flash`、`actual_output_gemini-3.5-flash`；严格使用用例内上下文并逐题原子保存。 |
+| `generate_wikipedia_test_cases.py` | 从退役题库继承材料与 `veri_file_id`；用 Responses API 只生成带逐字引用的可回答题，再跨文章错配得到不可回答题；逐题原子保存并支持断点恢复。 |
+| `answer_models.py` | 按 `answering.models` 并发调用 GPT 与 DeepSeek；共用配置中的可追溯回答提示词；工作线程只请求 API，主线程串行合并完整字段对并原子保存。 |
+| `gpt-4o-mini_answer.py` | 兼容入口，委托 `answer_models.py` 只运行 GPT-4o-mini。 |
+| `genimi-3.5-flash_answer.py` | 历史 Gemini 作答器；当前评估目标已移除 Gemini，不用于新 200 题流程。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
 | `revise_reference_answers.py` | 从至少两个可用模型的历史结果中筛选决策不一致及一致 NA/AN 用例，向审核模型直接提供 `retrieval_context`、当前参考答案和可用模型回答，逐题保存参考答案修订审计；不上传文件，仅在 `--apply` 时应用高置信建议。 |
-| `evaluation.py` | 按目标加载已有完整作答，构建四项 DeepEval 指标，并发评估，输出决策和条件质量汇总。 |
-| `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `OPENAI_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
+| `evaluation.py` | 按目标加载已有完整作答，对 `target.models × judge.models` 的每个组合独立构建四项 DeepEval 指标、并发评估并输出汇总。 |
+| `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv`、`OPENAI_API_KEY` 与 `DEEPSEEK_API_KEY`，再用 `.venv/bin/python -u` 启动双裁判评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
 | `test_evaluation_logic.py` | 不访问网络的核心契约回归测试。 |
 | `test_chatbot.py`、`test_veris.py` | 会访问裁判模型的示例/集成测试，可能产生费用。 |
@@ -44,7 +45,9 @@ flowchart LR
     V --> O[timestamped artifacts]
 ```
 
-关键原则：生成、作答和评估共享用例 JSON 中保存的同一份 `retrieval_context`。生成器默认最多保存每篇文章前 12,000 个字符，因此完整 TXT 可能包含额外信息，不能作为内置作答器的上下文。
+关键原则：生成、作答和评估共享用例 JSON 中保存的同一份 `retrieval_context`。新题库直接继承退役题库的上下文与上传文件 ID，不读取完整 TXT，也不重新上传材料。
+
+新题库固定使用 50 篇文章、每篇 4 题，共 200 题。ChatGPT 对每篇文章只生成 2 道明确可回答的问题、简洁答案和可在上下文中逐字定位的引用；另外 2 道题来自其他文章的可回答题。错配源文章标题不得出现在目标上下文中，且两道错配题来自不同文章。模型不直接生成不可回答问题。
 
 参考答案审核只发送实际提供给被测模型的 `retrieval_context`，不上传完整 TXT。`expected_answered` 和 `expected_output` 因此严格依据同一输入边界修订，同时避免每题重复处理完整文件带来的 token 成本。
 
@@ -79,7 +82,8 @@ flowchart LR
       "name": "research_focus",
       "input": "What field does Ahmad Bazzi specialize in?",
       "expected_answered": true,
-      "expected_output": "Wireless communications.",
+      "expected_output": "Wireless communications.\n\nSource citation: \"His research focuses on wireless communications.\"",
+      "reference_citation": "His research focuses on wireless communications.",
       "actual_answered": null,
       "actual_output": null,
       "actual_answered_gpt-4o-mini": true,
@@ -91,7 +95,9 @@ flowchart LR
 }
 ```
 
-`target.model` 决定作答器写入的后缀；`target.models` 决定评估器依次评估的一个或多个后缀。例如 `gpt-4o-mini` 对应：
+错配题保持相同核心字段，并额外保存 `mismatched_from_page_id` 和 `mismatched_from_title` 供审计；其 `expected_answered` 为 `false`，参考输出说明当前材料不足。生成阶段不写任何考生模型后缀字段。
+
+`answering.models[].id` 决定统一作答器写入的后缀；`target.models` 决定评估器读取的一个或多个后缀。例如 `gpt-4o-mini` 对应：
 
 - `actual_answered_gpt-4o-mini`
 - `actual_output_gpt-4o-mini`
@@ -108,13 +114,17 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 
 - `project.cases_file`：用例 JSON。
 - `project.results_directory`：评估输出根目录。
-- `target.model`：作答器使用的被测模型及实际字段后缀。
+- `answering.models`：API 考生列表。每项包含稳定字段后缀 `id`、API 模型名、key 环境变量和可选 `base_url`。
+- `answering.prompt`：GPT 与 DeepSeek 共用的作答提示词；要求仅依据上下文回答，并在实际回答时附上逐字原文引用。
+- `answering.max_workers`：跨模型、跨问题的 API 工作线程数。工作线程不写共享 JSON，主线程逐结果原子保存，避免条件竞争和顺序损坏。
+- `target.model`：旧作答脚本兼容值。
 - `target.models`：评估器依次读取的模型字段后缀列表；未设置时兼容回退到 `target.model`。
-- `judge.model`：DeepEval 裁判模型。
+- `judge.model`：Veri 决策重判等旧脚本使用的兼容裁判。
+- `judge.models`：质量评估裁判列表。当前分别通过 OpenAI 和 DeepSeek provider 使用 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`）。
 - `evaluation.max_workers`：并发数；越高越容易触发限流并扩大瞬时费用。
 - `metrics.*`：阈值和裁判说明。
 - `output.*`：产物文件名。
-- `openai_interceptor.*`：交互日志开关与文件名。
+- `openai_interceptor.*`：交互日志开关与文件名；当前关闭，不再写入完整 OpenAI 交互。
 
 ## 运行顺序与恢复语义
 
@@ -122,9 +132,14 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 
 ```bash
 source .venv/bin/activate
-python gpt-4o-mini_answer.py
+python generate_wikipedia_test_cases.py
+python answer_models.py
+python veriai_answer.py
+python judge_veri_answered.py
 bash evaluation.sh
 ```
+
+生成器默认从 `evaluation_cases/test_cases_novel.retired-16000.json` 的前 50 篇继承材料和 `veri_file_id`，生成新的 `evaluation_cases/test_cases_novel.json`。默认结果为 100 道可回答题和 100 道跨文章错配的不可回答题。
 
 Veris 小批量运行示例：
 
@@ -133,14 +148,7 @@ source .venv/bin/activate
 python veriai_answer.py --document-limit 10
 ```
 
-Gemini 3.5 Flash 小批量运行示例（`.env` 需提供 `GEMINI_API_KEY`）：
-
-```bash
-source .venv/bin/activate
-python -u genimi-3.5-flash_answer.py --limit 20
-```
-
-重复运行会跳过已有完整 Gemini 字段；确认小批量输出后，不带 `--limit` 即可续跑全部。当前 `gemini-3.5-flash` 已在 `target.models` 中，因此评估时会自动加载已有的完整 Gemini 记录。
+当前 `answering.models` 会同时处理 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），分别只写 `actual_answered_<id>` 和 `actual_output_<id>`。`veri` 使用专用作答器。当前 `target.models` 为 `gpt-4o-mini`、`veri` 和 `deepseek`；`judge.models` 也使用 GPT-4o-mini 和 DeepSeek-V4.1-Flash，因此完整评估会为每个已有考生输出分别创建两个裁判结果目录。
 
 Veris 决策重判与双目标评估：
 
@@ -164,18 +172,19 @@ python -u revise_reference_answers.py --model gpt-4o-mini --apply
 bash evaluation.sh
 ```
 
-默认候选要求 GPT、Gemini、Veri 中至少两个模型有完整历史结果，包括可用模型的决策状态不一致，以及可用模型一致为 NA 或 AN 的异常用例。Gemini 缺失不会排除题目；审核提示会明确标记该结果不可用。后两类不能省略，因为错误 golden label 可能让所有可用模型同时得到同一错误状态。审计文件逐题原子保存，可重复同一命令断点续跑。文件上传版旧审计与当前 schema 不兼容，重跑前需删除或改名；`--disagreements-only` 只检查不一致样本，会漏掉已知类型的标签污染。
+默认候选要求 GPT、DeepSeek、Veri 中至少两个模型有完整结果，包括可用模型的决策状态不一致，以及可用模型一致为 NA 或 AN 的异常用例。模型结果缺失不会排除题目；审核提示会明确标记该结果不可用。后两类不能省略，因为错误 golden label 可能让所有可用模型同时得到同一错误状态。审计文件逐题原子保存，可重复同一命令断点续跑。文件上传版旧审计与当前 schema 不兼容，重跑前需删除或改名；`--disagreements-only` 只检查不一致样本，会漏掉已知类型的标签污染。
 
 每个目标只评估同时包含 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>` 的题目，因此允许对部分作答文件进行评估；缺字段题目不计入该目标的任何统计。
 
 两个阶段的恢复语义不同：
 
 - 作答器在每次成功响应后原子保存整个用例 JSON，并默认跳过已有的完整模型后缀字段，因此中断后重复同一命令即可续跑。`--limit` 限制本次处理的未回答题数，适合分批控制成本；`--overwrite` 会重生成已有回答。
+- 统一 API 作答器的 `--limit` 以“模型 × 问题”任务计数。网络请求在线程池并发执行，但线程不接触共享文档；主线程收到完整结构化响应后才一次写入 Boolean 与输出字段，并通过临时文件替换完成原子保存。
 - Veris 答题器启动时只为 TXT 目录建立一次索引，不执行全量逐文档预校验；文档、上传或单题异常会记录并跳过，继续处理后续项目。每次文件上传和每道题响应后仍原子保存。重复运行会复用 `veri_file_id`；已有引用区块的回答只补齐来源索引并跳过网络请求，旧格式回答则重新请求。`--document-limit` 限制从 JSON 开头选择的文档数。
 - Veris 决策重判器只判断输出是否实际尝试回答，不判断答案事实正确性；逐题原子保存 `actual_answered_veri` 和 `actual_answered_veri_judged_by`。重复运行会跳过已由当前 `judge.model` 判定的题目，`--limit` 可用于小批量成本检查。
 - 评估器在每个指标响应后原子更新当前运行目录的 `results.json`。单个指标失败时按 `evaluation.metric_retries` 重试；耗尽后仅将该题标记为技术失败并继续，技术失败题不进入模型质量或决策统计。中断时已返回结果仍可检查，但评估器不会从该快照继续执行。
 
-WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY`；不依赖 Conda。
+WSL 与 RackNerd 使用相同脚本和顺序，只需进入各自项目目录。`.env` 必须提供 `OPENAI_API_KEY` 和 `DEEPSEEK_API_KEY`；不依赖 Conda。
 
 ## 决策与指标逻辑
 
@@ -210,7 +219,7 @@ Correct Answer Rate = #(AA 且 Correctness 通过) / #(expected_answered = true)
 
 ## 运行产物
 
-成功完成的评估运行创建：
+成功完成的每个考生/裁判组合创建：
 
 ```text
 evaluation_results/{timestamp}-{target_model}-judge-{judge_model}/
@@ -222,7 +231,7 @@ evaluation_results/{timestamp}-{target_model}-judge-{judge_model}/
 - `summary.csv`：每个用例/指标一行，包含是否参与用例判定。
 - `token_summary.json`：拦截到的裁判请求 token 汇总。
 - `config_snapshot.yaml`：运行时配置快照。
-- `openai_interactions.jsonl`：启用拦截器时的完整裁判交互。
+- `openai_interactions.jsonl`：仅在显式启用拦截器时生成；当前配置关闭。
 
 中断或异常运行可能只留下部分产物；输入校验失败也可能留下空的时间戳目录，因为运行目录在加载用例前创建。token 汇总只覆盖 DeepEval 的 Chat Completions；生成器和作答器使用 Responses API，不计入该汇总。
 

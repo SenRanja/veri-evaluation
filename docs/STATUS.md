@@ -1,14 +1,17 @@
 # 项目状态
 
-更新日期：2026-08-30
+更新日期：2026-09-14
 
 ## 当前可用状态
 
 - Python 依赖已写入根目录 `requirements.txt`。
 - 本地 `.venv` 使用 Python 3.12.13，核心依赖可导入。
-- `config.yaml` 当前设置：作答模型 `target.model=gpt-4o-mini`，评估目标 `target.models=[gpt-4o-mini, veri, gemini-3.5-flash]`，`judge.model=gpt-4o-mini`，`evaluation.max_workers=4`，指标失败重试 3 次，四项阈值均为 0.7。
+- `config.yaml` 当前设置：API 考生为 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），评估目标为 `[gpt-4o-mini, veri, deepseek]`，质量裁判同样为 GPT-4o-mini 与 DeepSeek-V4.1-Flash，完整 OpenAI 交互日志关闭。
 - Wikipedia 源数据 `evaluation_cases/wikipedia_10000.jsonl` 当前有 4,970 行。
-- 当前用例 `evaluation_cases/test_cases_novel.json` 有 4,000 篇文档、16,000 道题；GPT 和 Veris 各有 16,000 条完整目标记录，Gemini 3.5 Flash 有 2,965 条完整目标记录且无半残字段。评估器按目标仅加载完整记录，因此 Gemini 缺失题目不进入统计。
+- 原 4,000 篇、16,000 题用例已归档为 `evaluation_cases/test_cases_novel.retired-16000.json`，不再作为当前评估输入。新题库从其前 50 篇继承 `retrieval_context`、文章元数据和已有 `veri_file_id`。
+- 生成器现在只调用 ChatGPT 生成 100 道可回答题，并强制参考答案保存上下文逐字引用；随后从不同文章错配得到 100 道不可回答题。最终固定为 50 篇、每篇 2 道可回答和 2 道不可回答，共 200 题。
+- 新 `test_cases_novel.json` 已完成：50 篇、200 道全新问题、100 道可回答与 100 道跨文章错配不可回答题；可回答题引用均能在对应 `retrieval_context` 中逐字定位，且题面、名称和参考答案与同素材旧题无完全重合。
+- 已新增 `answer_models.py`：按配置并发运行 GPT 与 DeepSeek，统一要求回答附逐字原文引用；工作线程只做 API 请求，主线程写入每个模型的两项后缀字段并逐响应原子保存。
 - `evaluation_cases/test_cases_novel - Copy.json` 有 101 篇文档、401 道题，401 道题均已有完整的 `gpt-4o-mini` 模型后缀作答字段；如需评估它，必须同时将 `config.yaml` 的 `project.cases_file` 指向该文件。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
 - 已新增 `genimi-3.5-flash_answer.py`，通过官方 `google-genai` SDK 调用稳定模型 `gemini-3.5-flash`，以结构化输出逐题保存 Gemini 专属 Boolean 和文本字段，并支持原子断点恢复、限量、重试和覆盖。
@@ -16,7 +19,7 @@
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
 - 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
 - 已新增 `revise_reference_answers.py`：从 GPT、Gemini、Veri 中至少两个模型有完整结果的题目里筛选决策不一致及一致 NA/AN 用例，直接提供精确 `retrieval_context`、当前参考答案和可用模型历史回答供审核模型修订 golden answer；Gemini 缺失不会排除题目，且不再上传完整文件。默认只写原子审计快照，`--apply` 只应用高置信、无歧义且无需人工复核的建议。
-- 评估器支持 `target.models` 多目标列表，当前会依次评估 `gpt-4o-mini`、`veri` 与 `gemini-3.5-flash`，并分别写入带目标模型名称的结果目录。
+- 评估器支持 GPT 与 DeepSeek 双裁判，会为每个已有考生输出分别创建独立结果目录；考生模型只生成两项回答字段，不参与质量打分。
 - 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
 - `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。
@@ -28,9 +31,13 @@
 - 已完成一次 152 题全量评估：`evaluation_results/20260812-153056-gpt-4o-mini/` 含全部五类产物，共收到 608 个指标结果；Decision Accuracy 为 93.42%，Correct Answer Rate 为 81.58%。该结果对应之前的 152 题数据快照，不代表当前 16,000 题文件。
 - 已基于 GPT、Veri 和 Gemini 的现有结果生成中文横向/纵向报告；主比较集为三模型共同完成的 2,959 道题，报告位于 `evaluation_results/20260822-173203-gemini-3.5-flash-judge-gpt-4o-mini/veri_vs_models_comparison_report.md`。
 - Veri 全量运行完成 15,991 道题，纯决策状态为 AA 7,482、NN 6,681、AN 512、NA 1,316；NN 成功率按 `NN / (NN + NA)` 计算为 83.54%，不使用 NN Correctness 或拒答文案。报告与逐题明细位于 `evaluation_results/20260820-122750-veri-judge-gpt-4o-mini/`。
+- 参考答案修订后已重新评估 Veri：`20260830-122059-veri-judge-gpt-4o-mini` 成功 15,985 题，AA 8,450、NN 6,553、AN 634、NA 348，Decision Accuracy 为 93.86%，NN 决策成功率为 94.96%，Correct Answer Rate 为 80.56%。中文报告位于该目录的 `veri_evaluation_report.md`。
+- 新旧 Veri 运行的 15,982 道共同成功用例中，`actual_answered`、`actual_output` 和 `retrieval_context` 均未变化；1,157 道 `expected_answered` 和 1,219 道 `expected_output` 发生变化。因此新指标主要反映 golden 修订后的重新计分，不代表 Veri 模型或输出升级。
 - WSL 可直接运行 `bash evaluation.sh`；RackNerd 的 `/root/veri-evaluation` 已建立 Python 3.12 `.venv` 并安装依赖，但同样必须先为当前用例生成目标模型作答。
 
 ## 尚未完成
+
+- 新 200 题题库尚未运行 GPT、Veri 和 DeepSeek 考生作答，也尚未执行双裁判质量评估；这些步骤会产生 API 成本。
 
 - 尚未完成参考答案审核 API 全量运行。按至少两个可用模型筛选，现有结果中有 1,310 个决策不一致用例、860 个一致 NA 和 57 个一致 AN，去重后共 2,227 个候选；其中 1,790 个没有 Gemini 结果。应先用 `--limit 10` 检查质量和成本，再续跑并人工检查审计文件。
 - 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
@@ -51,7 +58,7 @@
 
 ### 成本和稳定性
 
-- `generate_wikipedia_test_cases.py`、`gpt-4o-mini_answer.py`、`evaluation.py` 都会调用 API。
+- `generate_wikipedia_test_cases.py`、`answer_models.py`、`veriai_answer.py` 和 `evaluation.py` 都会调用 API。
 - 完整评估每题运行四项 LLM 指标；当前 16,000 题理论上需要 64,000 个指标结果，成本远高于已完成的 152 题运行。
 - 之前以 16 并发运行时留下未完成目录；当前已降为 4。中断时实时 `results.json` 会保留已返回结果，但评估器本身不续跑，重新执行会创建新的时间戳目录并从头评估。
 - `20260818-104954-gpt-4o-mini-judge-gpt-4o-mini` 在 Contextual Relevancy 阶段因裁判把合法 JSON 包在 Markdown `json` 代码围栏中而触发 DeepEval 解析异常；对应 `sullivan_family_background`，用例 JSON 和内部 13 条 verdict 均有效。现已通过指标重试和单题技术失败隔离避免整批退出。
@@ -70,7 +77,7 @@
 
 ## 下一步建议
 
-1. 使用 `python gpt-4o-mini_answer.py --limit <小批量>` 为当前数据分批生成回答，确认字段、速率和成本；重复运行会跳过已完成题目。
+1. 使用 `python answer_models.py --limit <小批量>` 并发为 GPT 与 DeepSeek 生成回答，确认字段、引用、速率和成本；重复运行会跳过已完成任务。
 2. 只有在 `config.yaml` 所指文件中的所有题目都包含完整目标模型后缀字段后，才运行 `bash evaluation.sh`；评估器不接受部分作答文件。
 3. 统一 downloader 与 generator/extractor 的默认 JSONL 路径。
 4. 将网络测试明确标记为 integration，避免默认 `pytest` 触发 API。
@@ -82,16 +89,16 @@
 ```bash
 source .venv/bin/activate
 python -m pytest -q test_evaluation_logic.py
-python -m py_compile evaluation.py gpt-4o-mini_answer.py generate_wikipedia_test_cases.py
+python -m py_compile evaluation.py answer_models.py generate_wikipedia_test_cases.py
 ```
 
 生成与作答（有 API 成本）：
 
 ```bash
 python generate_wikipedia_test_cases.py --limit 100
-python gpt-4o-mini_answer.py --limit 100
-# 重复执行会跳过已完成题目；去掉 --limit 可处理全部剩余题目
-python gpt-4o-mini_answer.py
+python answer_models.py --limit 20
+# 重复执行会跳过已完成模型-题目任务；去掉 --limit 可处理全部剩余任务
+python answer_models.py
 ```
 
 评估（有较高 API 成本）：
@@ -100,4 +107,4 @@ python gpt-4o-mini_answer.py
 bash evaluation.sh
 ```
 
-WSL 与 RackNerd 使用相同顺序：先进入项目目录并确保 `.env` 中有 `OPENAI_API_KEY`，再运行作答器，全部回答完成后运行 `bash evaluation.sh`。WSL 项目目录当前为 `/home/jayd/code/veri-evaluation`；RackNerd 项目目录当前为 `/root/veri-evaluation`。
+WSL 与 RackNerd 使用相同顺序：先进入项目目录并确保 `.env` 中有 `OPENAI_API_KEY` 和 `DEEPSEEK_API_KEY`，再运行作答器，全部回答完成后运行 `bash evaluation.sh`。WSL 项目目录当前为 `/home/jayd/code/veri-evaluation`；RackNerd 项目目录当前为 `/root/veri-evaluation`。

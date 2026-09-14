@@ -21,7 +21,7 @@ DEFAULT_RESULTS = PROJECT_ROOT / "evaluation_results"
 DEFAULT_CONFIG = PROJECT_ROOT / "config.yaml"
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 DEFAULT_AUDIT = DEFAULT_RESULTS / "reference_answer_revision_audit.json"
-TARGET_MODELS = ("gpt-4o-mini", "gemini-3.5-flash", "veri")
+TARGET_MODELS = ("gpt-4o-mini", "deepseek", "veri")
 MINIMUM_MODEL_RESULTS = 2
 
 

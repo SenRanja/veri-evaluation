@@ -1,6 +1,7 @@
 import asyncio
 import csv
 import json
+import os
 from contextlib import nullcontext
 from datetime import datetime
 from pathlib import Path
@@ -12,6 +13,7 @@ from deepeval.metrics import (
     FaithfulnessMetric,
     GEval,
 )
+from deepeval.models import DeepSeekModel, OpenAIModel
 from deepeval.test_case import LLMTestCase, SingleTurnParams
 
 from tools.openai_interceptor import OpenAIInterceptor
@@ -62,6 +64,78 @@ def get_target_models(config):
     return normalized
 
 
+def get_judge_models(config):
+    try:
+        judge = config["judge"]
+    except (KeyError, TypeError) as error:
+        raise ValueError("config must contain judge") from error
+
+    models = judge.get("models")
+    if models is None:
+        model = judge.get("model")
+        if not isinstance(model, str) or not model.strip():
+            raise ValueError("judge.model must be a non-empty string")
+        return [
+            {
+                "id": model.strip(),
+                "provider": "openai",
+                "model": model.strip(),
+                "api_key_env": "OPENAI_API_KEY",
+            }
+        ]
+    if not isinstance(models, list) or not models:
+        raise ValueError("judge.models must be a non-empty list")
+
+    normalized = []
+    for index, item in enumerate(models, 1):
+        if not isinstance(item, dict):
+            raise ValueError(f"judge.models item {index} must be an object")
+        values = {key: item.get(key) for key in ("id", "provider", "model")}
+        if any(
+            not isinstance(value, str) or not value.strip()
+            for value in values.values()
+        ):
+            raise ValueError(
+                f"judge.models item {index} requires id, provider and model"
+            )
+        provider = values["provider"].strip().lower()
+        if provider not in {"openai", "deepseek"}:
+            raise ValueError(
+                f"judge.models item {index} has unsupported provider {provider}"
+            )
+        api_key_env = item.get(
+            "api_key_env",
+            "OPENAI_API_KEY" if provider == "openai" else "DEEPSEEK_API_KEY",
+        )
+        if not isinstance(api_key_env, str) or not api_key_env.strip():
+            raise ValueError(f"judge.models item {index} has invalid api_key_env")
+        normalized.append(
+            {
+                "id": values["id"].strip(),
+                "provider": provider,
+                "model": values["model"].strip(),
+                "api_key_env": api_key_env.strip(),
+            }
+        )
+
+    ids = [item["id"] for item in normalized]
+    if len(ids) != len(set(ids)):
+        raise ValueError("judge.models IDs must not contain duplicates")
+    return normalized
+
+
+def create_judge_model(judge):
+    api_key = os.environ.get(judge["api_key_env"])
+    if not api_key:
+        raise ValueError(
+            f"Missing environment variable {judge['api_key_env']} "
+            f"for judge {judge['id']}"
+        )
+    if judge["provider"] == "deepseek":
+        return DeepSeekModel(model=judge["model"], api_key=api_key)
+    return OpenAIModel(model=judge["model"], api_key=api_key)
+
+
 def load_cases(path, target_model, allow_partial=True):
     """Turn documents with multiple questions into individual test cases."""
     documents = load_json(path)
@@ -108,11 +182,11 @@ def load_cases(path, target_model, allow_partial=True):
     return cases
 
 
-def create_run_directory(config, target_model):
+def create_run_directory(config, target_model, judge_id=None):
     project_root = CONFIG_FILE.resolve().parent
     results_root = project_root / config["project"]["results_directory"]
     target_name = target_model.replace("/", "-")
-    judge_name = config["judge"]["model"].replace("/", "-")
+    judge_name = (judge_id or config["judge"]["model"]).replace("/", "-")
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
 
     run_directory = results_root / f"{timestamp}-{target_name}-judge-{judge_name}"
@@ -121,9 +195,9 @@ def create_run_directory(config, target_model):
     return project_root, run_directory
 
 
-def build_metrics(config):
+def build_metrics(config, judge_model=None):
     """Create the four metrics used in this evaluation."""
-    model = config["judge"]["model"]
+    model = judge_model or config["judge"]["model"]
     settings = config["metrics"]
 
     contextual = settings.get("contextual_relevancy", {})
@@ -165,6 +239,12 @@ def build_metrics(config):
             include_reason=faithfulness.get("include_reason", True),
         ),
     ]
+
+
+def configured_metrics(config, judge_model=None):
+    if judge_model is None:
+        return build_metrics(config)
+    return build_metrics(config, judge_model)
 
 
 def get_decision_state(case):
@@ -416,12 +496,18 @@ def build_live_report(results, total_cases, metrics_per_case):
     }
 
 
-async def evaluate_cases(cases, config, max_workers, results_file):
+async def evaluate_cases(
+    cases,
+    config,
+    max_workers,
+    results_file,
+    judge_model=None,
+):
     """Evaluate cases concurrently on one asyncio event loop."""
     semaphore = asyncio.Semaphore(max_workers)
     write_lock = asyncio.Lock()
     results = [None] * len(cases)
-    metrics_per_case = len(build_metrics(config))
+    metrics_per_case = len(configured_metrics(config, judge_model))
     metric_retries = config.get("evaluation", {}).get("metric_retries", 3)
 
     save_results(
@@ -431,7 +517,7 @@ async def evaluate_cases(cases, config, max_workers, results_file):
 
     async def evaluate_with_limit(case_index, case):
         async with semaphore:
-            metrics = build_metrics(config)
+            metrics = configured_metrics(config, judge_model)
 
             async def save_metric_response(result):
                 async with write_lock:
@@ -597,13 +683,20 @@ def print_live_summary(report):
     )
 
 
-def evaluate_target(config, project_root, target_model, max_workers):
+def evaluate_target(
+    config,
+    project_root,
+    target_model,
+    judge,
+    judge_model,
+    max_workers,
+):
     cases_file = project_root / config["project"]["cases_file"]
     cases = load_cases(cases_file, target_model)
     if not cases:
         print(f"Skipping {target_model}: no complete target outputs.", flush=True)
         return
-    _, run_directory = create_run_directory(config, target_model)
+    _, run_directory = create_run_directory(config, target_model, judge["id"])
     output = config["output"]
     interceptor_settings = config["openai_interceptor"]
 
@@ -618,7 +711,11 @@ def evaluate_target(config, project_root, target_model, max_workers):
 
     with config_file.open("w", encoding="utf-8") as file:
         yaml.safe_dump(
-            {**config, "active_target_model": target_model},
+            {
+                **config,
+                "active_target_model": target_model,
+                "active_judge": judge,
+            },
             file,
             allow_unicode=True,
             sort_keys=False,
@@ -626,7 +723,7 @@ def evaluate_target(config, project_root, target_model, max_workers):
 
     print(
         f"Evaluating {len(cases)} cases with {max_workers} workers "
-        f"for {target_model} using judge {config['judge']['model']}.",
+        f"for {target_model} using judge {judge['id']}.",
         flush=True,
     )
     print(f"Output directory: {run_directory}", flush=True)
@@ -644,7 +741,13 @@ def evaluate_target(config, project_root, target_model, max_workers):
 
     with interceptor:
         results = asyncio.run(
-            evaluate_cases(cases, config, max_workers, results_file)
+            evaluate_cases(
+                cases,
+                config,
+                max_workers,
+                results_file,
+                judge_model,
+            )
         )
 
     completed_results = [
@@ -657,7 +760,11 @@ def evaluate_target(config, project_root, target_model, max_workers):
     quality_summary = build_quality_summary(completed_results)
 
     save_results(
-        build_live_report(results, len(cases), len(build_metrics(config))),
+        build_live_report(
+            results,
+            len(cases),
+            len(configured_metrics(config, judge_model)),
+        ),
         results_file,
     )
     save_summary_csv(results, summary_file)
@@ -693,6 +800,7 @@ def main():
     config = load_yaml(CONFIG_FILE)
     project_root = CONFIG_FILE.resolve().parent
     target_models = get_target_models(config)
+    judges = get_judge_models(config)
     max_workers = config.get("evaluation", {}).get("max_workers", 4)
     if not isinstance(max_workers, int) or isinstance(max_workers, bool):
         raise ValueError("evaluation.max_workers must be an integer")
@@ -704,8 +812,17 @@ def main():
     if metric_retries < 1:
         raise ValueError("evaluation.metric_retries must be at least 1")
 
-    for target_model in target_models:
-        evaluate_target(config, project_root, target_model, max_workers)
+    for judge in judges:
+        judge_model = create_judge_model(judge)
+        for target_model in target_models:
+            evaluate_target(
+                config,
+                project_root,
+                target_model,
+                judge,
+                judge_model,
+                max_workers,
+            )
 
 
 if __name__ == "__main__":

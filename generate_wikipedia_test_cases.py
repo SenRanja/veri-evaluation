@@ -1,15 +1,15 @@
-"""Generate answerable and unanswerable QA cases from Wikipedia JSONL records."""
+"""Generate cited answerable questions, then cross-pair them as unanswerable cases."""
 
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
-import random
 import re
 import time
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Literal
+from typing import TYPE_CHECKING, Any
 
 from pydantic import BaseModel, Field
 
@@ -17,96 +17,91 @@ if TYPE_CHECKING:
     from openai import OpenAI
 
 
-DEFAULT_INPUT = Path("./evaluation_cases/wikipedia_10000.jsonl")
-DEFAULT_OUTPUT = Path("./evaluation_cases/test_cases_novel.json")
+PROJECT_ROOT = Path(__file__).resolve().parent
+DEFAULT_SOURCE = (
+    PROJECT_ROOT / "evaluation_cases" / "test_cases_novel.retired-16000.json"
+)
+DEFAULT_OUTPUT = PROJECT_ROOT / "evaluation_cases" / "test_cases_novel.json"
+DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
+ANSWERABLE_QUESTIONS_PER_DOCUMENT = 2
+TOTAL_QUESTIONS_PER_DOCUMENT = 4
+UNANSWERABLE_REFERENCE = (
+    "The supplied retrieval context does not contain the information needed "
+    "to answer this question."
+)
 
 
 class GeneratedQuestion(BaseModel):
     name: str = Field(description="A unique, short snake_case test-case name")
-    input: str = Field(description="The question shown to the QA system")
-    expected_answered: bool
-    expected_output: str = Field(description="A concise reference answer")
-    category: Literal["answerable", "unanswerable"]
+    input: str = Field(description="A self-contained answerable question")
+    answer: str = Field(description="A concise answer supported by the context")
+    evidence_id: int = Field(
+        description="The numbered source passage that directly supports the answer"
+    )
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="调用 OpenAI API，从 Wikipedia 材料生成问答评估数据。"
+        description=(
+            "从退役题库继承材料和 Veri 文件 ID，让 OpenAI 只生成可回答问题，"
+            "再通过跨文章错配构造不可回答问题。"
+        )
     )
-    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
+    parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--env-file", type=Path, default=DEFAULT_ENV_FILE)
     parser.add_argument("--model", default="gpt-4o-mini")
     parser.add_argument(
         "--limit",
         type=int,
-        default=10,
-        help="处理文章数量；使用 0 表示处理全部文章（默认：10）。",
+        default=50,
+        help="继承文章数量；默认 50 篇，即最终 200 道题。",
     )
     parser.add_argument("--start", type=int, default=0, help="跳过开头多少篇文章。")
-    parser.add_argument(
-        "--questions-per-document",
-        type=int,
-        default=4,
-        help="每篇文章生成的题目数，必须是大于等于 2 的偶数（默认：4）。",
-    )
-    parser.add_argument(
-        "--max-context-chars",
-        type=int,
-        default=12_000,
-        help="每篇文章最多送入模型并写入 retrieval_context 的字符数。",
-    )
-    parser.add_argument(
-        "--sample",
-        action="store_true",
-        help="随机抽样，而不是按 JSONL 原顺序选择文章。",
-    )
-    parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument(
         "--overwrite",
         action="store_true",
-        help="覆盖输出文件；默认从已有 JSON 的最后一道已保存题目继续。",
+        help="覆盖已有新题库；默认从已保存的可回答题继续。",
     )
     return parser.parse_args()
 
 
-def load_records(path: Path) -> list[dict]:
-    records = []
-    with path.open("r", encoding="utf-8") as file:
-        for line_number, line in enumerate(file, 1):
-            if not line.strip():
+def load_env_file(path: Path) -> None:
+    """Load simple KEY=VALUE entries without replacing exported variables."""
+    if not path.exists():
+        return
+
+    with path.open(encoding="utf-8") as file:
+        for line_number, raw_line in enumerate(file, 1):
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
                 continue
+            if line.startswith("export "):
+                line = line[7:].lstrip()
 
-            try:
-                record = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise ValueError(f"第 {line_number} 行不是合法 JSON：{error}") from error
+            key, separator, value = line.partition("=")
+            key = key.strip()
+            if not separator or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", key):
+                raise ValueError(f"Invalid .env entry at {path}:{line_number}")
 
-            missing = {key for key in ("page_id", "title", "text") if key not in record}
-            if missing:
-                names = ", ".join(sorted(missing))
-                raise ValueError(f"第 {line_number} 行缺少字段：{names}")
-            if not isinstance(record["text"], str) or not record["text"].strip():
-                raise ValueError(f"第 {line_number} 行的 text 不是非空字符串")
-
-            records.append(record)
-
-    return records
+            value = value.strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+                value = value[1:-1]
+            elif " #" in value:
+                value = value.split(" #", 1)[0].rstrip()
+            os.environ.setdefault(key, value)
 
 
-def load_existing(path: Path, overwrite: bool) -> list[dict]:
-    if overwrite or not path.exists():
-        return []
-
-    with path.open("r", encoding="utf-8") as file:
+def load_cases(path: Path) -> list[dict[str, Any]]:
+    with path.open(encoding="utf-8") as file:
         data = json.load(file)
-
     if not isinstance(data, list):
-        raise ValueError(f"已有输出文件必须是 JSON 数组：{path}")
+        raise ValueError(f"题库必须是 JSON 数组：{path}")
     return data
 
 
-def save_json(data: list[dict], path: Path) -> None:
+def save_json(data: list[dict[str, Any]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     with temporary.open("w", encoding="utf-8") as file:
@@ -120,106 +115,218 @@ def normalize_name(value: str, fallback: str) -> str:
     return value[:80] or fallback
 
 
+def normalize_text(value: str) -> str:
+    return " ".join(value.split())
+
+
+def split_evidence_passages(context: str, max_chars: int = 800) -> list[str]:
+    passages = []
+    for paragraph in re.split(r"\n\s*\n", context):
+        paragraph = paragraph.strip()
+        if not paragraph:
+            continue
+        sentences = re.split(r"(?<=[.!?])\s+", paragraph)
+        current = ""
+        for sentence in sentences:
+            sentence = sentence.strip()
+            if not sentence:
+                continue
+            if current and len(current) + 1 + len(sentence) > max_chars:
+                passages.append(current)
+                current = sentence
+            else:
+                current = f"{current} {sentence}".strip()
+        if current:
+            passages.append(current)
+    return passages
+
+
+def validate_source_document(document: dict[str, Any], index: int) -> None:
+    missing = {
+        key
+        for key in ("name", "page_id", "title", "retrieval_context", "veri_file_id")
+        if key not in document
+    }
+    if missing:
+        raise ValueError(
+            f"源题库第 {index + 1} 篇缺少字段：{', '.join(sorted(missing))}"
+        )
+    contexts = document["retrieval_context"]
+    if (
+        not isinstance(contexts, list)
+        or not contexts
+        or any(not isinstance(context, str) or not context.strip() for context in contexts)
+    ):
+        raise ValueError(f"源题库第 {index + 1} 篇 retrieval_context 无效")
+    if not isinstance(document["veri_file_id"], str) or not document[
+        "veri_file_id"
+    ].strip():
+        raise ValueError(f"源题库第 {index + 1} 篇 veri_file_id 无效")
+
+
+def select_source_documents(
+    source_documents: list[dict[str, Any]], start: int, limit: int
+) -> list[dict[str, Any]]:
+    if start < 0:
+        raise ValueError("--start 不能小于 0")
+    if limit < 3:
+        raise ValueError("--limit 不能小于 3，跨文章错配至少需要 3 篇材料")
+    selected = source_documents[start : start + limit]
+    if len(selected) != limit:
+        raise ValueError(f"源题库只有 {len(selected)} 篇可选，少于 --limit={limit}")
+    for index, document in enumerate(selected):
+        validate_source_document(document, index)
+    return selected
+
+
+def new_document(source: dict[str, Any]) -> dict[str, Any]:
+    document = copy.deepcopy(source)
+    document["questions"] = []
+    return document
+
+
+def load_or_initialize_output(
+    path: Path,
+    selected: list[dict[str, Any]],
+    overwrite: bool,
+) -> list[dict[str, Any]]:
+    if overwrite or not path.exists():
+        return [new_document(document) for document in selected]
+
+    documents = load_cases(path)
+    if len(documents) != len(selected):
+        raise ValueError(
+            f"已有输出包含 {len(documents)} 篇，当前选择 {len(selected)} 篇；"
+            "请保持相同 --start/--limit，或明确使用 --overwrite。"
+        )
+
+    question_counts = []
+    for index, (document, source) in enumerate(zip(documents, selected, strict=True)):
+        if str(document.get("page_id")) != str(source["page_id"]):
+            raise ValueError(f"已有输出第 {index + 1} 篇与源题库 page_id 不一致")
+        if document.get("veri_file_id") != source["veri_file_id"]:
+            raise ValueError(f"已有输出第 {index + 1} 篇 veri_file_id 不一致")
+        questions = document.get("questions")
+        if not isinstance(questions, list):
+            raise ValueError(f"已有输出第 {index + 1} 篇 questions 不是数组")
+        if len(questions) not in (0, 1, 2, 4):
+            raise ValueError(f"已有输出第 {index + 1} 篇问题数量无效")
+        question_counts.append(len(questions))
+
+    if any(count == TOTAL_QUESTIONS_PER_DOCUMENT for count in question_counts) and not all(
+        count == TOTAL_QUESTIONS_PER_DOCUMENT for count in question_counts
+    ):
+        raise ValueError("已有输出混合了完成和未完成的错配状态")
+    return documents
+
+
 def build_prompt(
     title: str,
-    context: str,
+    passages: list[str],
     question_number: int,
-    question_count: int,
-    category: Literal["answerable", "unanswerable"],
-    existing_questions: list[dict],
+    existing_questions: list[dict[str, Any]],
+    legacy_questions: list[dict[str, Any]],
+    validation_feedback: str | None = None,
 ) -> str:
-    expected_answered = category == "answerable"
     previous = (
+        "\n".join(f"- {question['input']}" for question in existing_questions)
+        or "(none)"
+    )
+    numbered_context = "\n\n".join(
+        f"[E{index}] {passage}" for index, passage in enumerate(passages, 1)
+    )
+    retired = (
         "\n".join(
-            f"- {question['name']}: {question['input']}"
-            for question in existing_questions
+            f"- {question.get('name', '')}: {question.get('input', '')}"
+            for question in legacy_questions
         )
         or "(none)"
     )
-
-    if expected_answered:
-        category_instructions = """
-Create an answerable question. The supplied context must contain enough
-information for a clear substantive answer. Set expected_answered to true and
-write a concise expected_output supported entirely by the context.
-""".strip()
-    else:
-        category_instructions = """
-Create an unanswerable question. It must be topically plausible and related to
-the article, but the requested fact must genuinely be absent from the supplied
-context. Set expected_answered to false. The expected_output must clearly state
-that the supplied material does not specify the requested fact and must not
-invent the missing answer.
-""".strip()
-
+    retry_instruction = (
+        f"\nA previous attempt failed validation: {validation_feedback}\n"
+        "Generate a new response that explicitly corrects this problem.\n"
+        if validation_feedback
+        else ""
+    )
     return f"""
-Create question {question_number} of {question_count} for an English QA
-evaluation dataset, using only the supplied retrieval context for the Wikipedia
-article {title!r}.
-
-Required category: {category}
-{category_instructions}
+Create answerable question {question_number} of 2 for an English RAG evaluation
+dataset about the Wikipedia article {title!r}. Use only the retrieval context.
+{retry_instruction}
 
 Requirements:
-- Each question tests one information need only.
-- Do not use outside knowledge, even if you know the subject.
-- Do not create trick questions whose premise contradicts the context.
-- Do not ask subjective, opinion, yes/no, or ambiguous questions.
-- category must agree with expected_answered.
-- name must be descriptive snake_case and different from previous names.
-- Do not repeat or closely paraphrase any previous question listed below.
-- Vary direct lookup, paraphrase, and simple supported inference where possible.
+- The question must be directly and unambiguously answerable from the context.
+- The question must explicitly name the article subject exactly as {title!r} so
+  it remains self-contained when paired with another document.
+- Ask for one objective fact. Do not ask yes/no, subjective, trick, or ambiguous
+  questions, and do not require outside knowledge.
+- Give a concise substantive answer.
+- evidence_id must be the integer from the [E<number>] passage that most directly
+    supports the answer. Do not include the E prefix.
+- Use a descriptive snake_case name that differs from previous names.
+- Do not repeat or closely paraphrase a previous question.
+- This replaces a retired dataset. Do not reuse any retired name or question.
 
 Previous questions for this article:
 {previous}
 
+Retired questions that must not be reused:
+{retired}
+
 Retrieval context:
 ---
-{context}
+{numbered_context}
 ---
 """.strip()
 
 
-def category_for_index(index: int) -> Literal["answerable", "unanswerable"]:
-    """Alternate categories so partial runs remain as balanced as possible."""
-    return "answerable" if index % 2 == 0 else "unanswerable"
-
-
-def validate_question(
+def validate_generated_question(
     question: GeneratedQuestion,
-    expected_category: Literal["answerable", "unanswerable"],
-    existing_questions: list[dict],
+    title: str,
+    passages: list[str],
+    existing_questions: list[dict[str, Any]],
+    legacy_questions: list[dict[str, Any]],
 ) -> None:
-    expected_answered = expected_category == "answerable"
-    if question.category != expected_category:
-        raise ValueError(
-            f"模型返回 category={question.category}，要求 {expected_category}"
-        )
-    if question.expected_answered != expected_answered:
-        raise ValueError("category 与 expected_answered 不一致")
+    if not question.input.strip() or not question.answer.strip():
+        raise ValueError("模型返回了空问题或空答案")
+    if normalize_text(title).casefold() not in normalize_text(question.input).casefold():
+        raise ValueError("问题没有明确写出文章标题")
 
     normalized_name = normalize_name(question.name, "question")
-    existing_names = {item["name"] for item in existing_questions}
-    if normalized_name in existing_names:
+    if normalized_name in {item["name"] for item in existing_questions}:
         raise ValueError(f"模型生成了重复名称：{normalized_name}")
-
-    normalized_input = " ".join(question.input.lower().split())
-    existing_inputs = {
-        " ".join(item["input"].lower().split()) for item in existing_questions
+    legacy_names = {
+        normalize_name(str(item.get("name", "")), "legacy_question")
+        for item in legacy_questions
     }
-    if normalized_input in existing_inputs:
+    if normalized_name in legacy_names:
+        raise ValueError(f"模型复用了退役题目名称：{normalized_name}")
+    normalized_input = normalize_text(question.input).casefold()
+    if normalized_input in {
+        normalize_text(item["input"]).casefold() for item in existing_questions
+    }:
         raise ValueError("模型生成了重复问题")
+    legacy_inputs = {
+        normalize_text(str(item.get("input", ""))).casefold()
+        for item in legacy_questions
+    }
+    if normalized_input in legacy_inputs:
+        raise ValueError("模型复用了退役问题")
+
+    if not 1 <= question.evidence_id <= len(passages):
+        raise ValueError(
+            f"evidence_id={question.evidence_id} 超出 1..{len(passages)} 范围"
+        )
 
 
 def generate_question(
     client: Any,
     model: str,
     title: str,
-    context: str,
+    passages: list[str],
     question_number: int,
-    question_count: int,
-    category: Literal["answerable", "unanswerable"],
-    existing_questions: list[dict],
+    existing_questions: list[dict[str, Any]],
+    legacy_questions: list[dict[str, Any]],
+    validation_feedback: str | None = None,
 ) -> GeneratedQuestion:
     response = client.responses.parse(
         model=model,
@@ -227,25 +334,25 @@ def generate_question(
             {
                 "role": "system",
                 "content": (
-                    "You design closed-book RAG evaluation datasets. Treat the "
-                    "provided retrieval context as the only permitted source of truth."
+                    "You create reliable RAG test questions. Every generated "
+                    "question must be answerable and linked to the numbered source "
+                    "passage that directly supports it."
                 ),
             },
             {
                 "role": "user",
                 "content": build_prompt(
                     title,
-                    context,
+                    passages,
                     question_number,
-                    question_count,
-                    category,
                     existing_questions,
+                    legacy_questions,
+                    validation_feedback,
                 ),
             },
         ],
         text_format=GeneratedQuestion,
     )
-
     if response.output_parsed is None:
         raise ValueError("模型没有返回可解析的结构化结果")
     return response.output_parsed
@@ -254,29 +361,39 @@ def generate_question(
 def call_with_retries(
     client: Any,
     args: argparse.Namespace,
-    record: dict,
-    context: str,
-    question_index: int,
-    existing_questions: list[dict],
+    document: dict[str, Any],
+    legacy_questions: list[dict[str, Any]],
 ) -> GeneratedQuestion:
-    category = category_for_index(question_index)
+    context = "\n\n".join(document["retrieval_context"])
+    passages = split_evidence_passages(context)
+    if not passages:
+        raise RuntimeError("retrieval_context 无法切分出证据段")
+    question_number = len(document["questions"]) + 1
     last_error: Exception | None = None
+    validation_feedback = None
     for attempt in range(1, args.retries + 1):
         try:
             question = generate_question(
                 client,
                 args.model,
-                str(record["title"]),
-                context,
-                question_index + 1,
-                args.questions_per_document,
-                category,
-                existing_questions,
+                str(document["title"]),
+                passages,
+                question_number,
+                document["questions"],
+                legacy_questions,
+                validation_feedback,
             )
-            validate_question(question, category, existing_questions)
+            validate_generated_question(
+                question,
+                str(document["title"]),
+                passages,
+                document["questions"],
+                legacy_questions,
+            )
             return question
-        except Exception as error:  # API and validation failures are retryable here.
+        except Exception as error:  # API and validation failures are retryable.
             last_error = error
+            validation_feedback = str(error)
             if attempt < args.retries:
                 wait_seconds = 2 ** (attempt - 1)
                 print(
@@ -284,177 +401,175 @@ def call_with_retries(
                     f"{wait_seconds} 秒后重试。"
                 )
                 time.sleep(wait_seconds)
-
     raise RuntimeError(f"达到最大重试次数：{last_error}") from last_error
 
 
-def new_document(record: dict, context: str) -> dict:
+def to_answerable_question(
+    generated: GeneratedQuestion, question_index: int, citation: str
+) -> dict[str, Any]:
+    answer = generated.answer.strip()
     return {
-        "name": f"wikipedia_{record['page_id']}_{normalize_name(str(record['title']), 'page')}",
-        "page_id": record["page_id"],
-        "title": record["title"],
-        "url": record.get("url"),
-        "retrieval_context": [context],
-        "questions": [],
-    }
-
-
-def to_question(generated: GeneratedQuestion, question_index: int) -> dict:
-    return {
-        "name": normalize_name(generated.name, f"question_{question_index + 1}"),
+        "name": normalize_name(generated.name, f"answerable_{question_index + 1}"),
         "input": generated.input.strip(),
-        "expected_answered": generated.expected_answered,
+        "expected_answered": True,
         "actual_answered": None,
         "actual_output": None,
-        "expected_output": generated.expected_output.strip(),
+        "expected_output": f'{answer}\n\nSource citation: "{citation}"',
+        "reference_citation": citation,
     }
 
 
-def validate_resume_prefix(
-    documents: list[dict],
-    selected: list[dict],
-    args: argparse.Namespace,
-) -> None:
-    if len(documents) > len(selected):
-        raise ValueError(
-            "已有输出文章数超过本次选择范围；请使用与首次运行相同的 "
-            "--start、--sample 和 --seed，并确保 --limit 不小于原进度。"
-        )
+def find_mismatch_sources(
+    documents: list[dict[str, Any]], target_index: int
+) -> list[int]:
+    target_context = normalize_text(
+        "\n\n".join(documents[target_index]["retrieval_context"])
+    ).casefold()
+    sources = []
+    for offset in range(1, len(documents)):
+        source_index = (target_index + offset) % len(documents)
+        source_title = normalize_text(str(documents[source_index]["title"])).casefold()
+        if source_title and source_title not in target_context:
+            sources.append(source_index)
+        if len(sources) == ANSWERABLE_QUESTIONS_PER_DOCUMENT:
+            return sources
+    raise ValueError(
+        f"无法为 page_id={documents[target_index]['page_id']} 找到两个安全错配来源"
+    )
 
-    for index, document in enumerate(documents):
-        expected_page_id = str(selected[index]["page_id"])
-        actual_page_id = str(document.get("page_id"))
-        if actual_page_id != expected_page_id:
-            raise ValueError(
-                f"断点顺序不一致：输出第 {index + 1} 篇是 page_id="
-                f"{actual_page_id}，但本次输入对应 page_id={expected_page_id}。"
+
+def add_mismatched_questions(documents: list[dict[str, Any]]) -> None:
+    if any(
+        len(document["questions"]) != ANSWERABLE_QUESTIONS_PER_DOCUMENT
+        for document in documents
+    ):
+        raise ValueError("必须先为每篇文章生成两道可回答问题，才能执行错配")
+
+    answerable_questions = [
+        copy.deepcopy(document["questions"]) for document in documents
+    ]
+    for target_index, document in enumerate(documents):
+        for source_question_index, source_index in enumerate(
+            find_mismatch_sources(documents, target_index)
+        ):
+            source_document = documents[source_index]
+            source_question = answerable_questions[source_index][source_question_index]
+            document["questions"].append(
+                {
+                    "name": normalize_name(
+                        f"mismatched_{source_document['page_id']}_"
+                        f"{source_question['name']}",
+                        f"mismatched_{source_index}_{source_question_index}",
+                    ),
+                    "input": source_question["input"],
+                    "expected_answered": False,
+                    "actual_answered": None,
+                    "actual_output": None,
+                    "expected_output": UNANSWERABLE_REFERENCE,
+                    "mismatched_from_page_id": source_document["page_id"],
+                    "mismatched_from_title": source_document["title"],
+                }
             )
 
-        questions = document.get("questions")
-        if not isinstance(questions, list):
-            raise ValueError(f"page_id={actual_page_id} 的 questions 必须是数组")
-        if len(questions) > args.questions_per_document:
-            raise ValueError(
-                f"page_id={actual_page_id} 已有 {len(questions)} 题，超过本次设置的 "
-                f"{args.questions_per_document} 题。"
-            )
 
-        if index < len(documents) - 1 and len(questions) != args.questions_per_document:
-            raise ValueError(
-                f"只有最后一篇文章可以处于未完成状态；page_id={actual_page_id} "
-                f"目前只有 {len(questions)} 题。"
-            )
+def remove_legacy_overlaps(
+    documents: list[dict[str, Any]], source_documents: list[dict[str, Any]]
+) -> int:
+    overlapping: set[tuple[int, int]] = set()
+    for document_index, (document, source) in enumerate(
+        zip(documents, source_documents, strict=True)
+    ):
+        legacy_questions = source.get("questions", [])
+        legacy_names = {
+            normalize_name(str(item.get("name", "")), "legacy_question")
+            for item in legacy_questions
+        }
+        legacy_inputs = {
+            normalize_text(str(item.get("input", ""))).casefold()
+            for item in legacy_questions
+        }
+        for question_index, question in enumerate(
+            document.get("questions", [])[:ANSWERABLE_QUESTIONS_PER_DOCUMENT]
+        ):
+            name = normalize_name(str(question.get("name", "")), "question")
+            question_input = normalize_text(str(question.get("input", ""))).casefold()
+            if name in legacy_names or question_input in legacy_inputs:
+                overlapping.add((document_index, question_index))
 
+    if not overlapping:
+        return 0
 
-def select_records(records: list[dict], args: argparse.Namespace) -> list[dict]:
-    if args.start < 0:
-        raise ValueError("--start 不能小于 0")
-    if args.limit < 0:
-        raise ValueError("--limit 不能小于 0")
-
-    candidates = records[args.start :]
-    if args.sample:
-        random.Random(args.seed).shuffle(candidates)
-    return candidates if args.limit == 0 else candidates[: args.limit]
+    for document_index, document in enumerate(documents):
+        answerable = document["questions"][:ANSWERABLE_QUESTIONS_PER_DOCUMENT]
+        document["questions"] = [
+            question
+            for question_index, question in enumerate(answerable)
+            if (document_index, question_index) not in overlapping
+        ]
+    return len(overlapping)
 
 
 def main() -> None:
     args = parse_args()
-
-    if args.questions_per_document < 2 or args.questions_per_document % 2:
-        raise SystemExit("--questions-per-document 必须是大于等于 2 的偶数")
-    if args.max_context_chars < 500:
-        raise SystemExit("--max-context-chars 不能小于 500")
     if args.retries < 1:
         raise SystemExit("--retries 不能小于 1")
-    if not os.environ.get("OPENAI_API_KEY"):
-        raise SystemExit("缺少环境变量 OPENAI_API_KEY")
 
     try:
-        records = load_records(args.input)
-        selected = select_records(records, args)
-        documents = load_existing(args.output, args.overwrite)
-        validate_resume_prefix(documents, selected, args)
-    except FileNotFoundError:
-        raise SystemExit(f"找不到输入文件：{args.input}")
+        load_env_file(args.env_file)
+        source_documents = load_cases(args.source)
+        selected = select_source_documents(source_documents, args.start, args.limit)
+        documents = load_or_initialize_output(args.output, selected, args.overwrite)
+    except FileNotFoundError as error:
+        raise SystemExit(f"找不到文件：{error.filename}") from error
     except (json.JSONDecodeError, ValueError) as error:
         raise SystemExit(str(error)) from error
+
+    removed_overlap_count = remove_legacy_overlaps(documents, selected)
+    if removed_overlap_count:
+        save_json(documents, args.output)
+        print(f"已移除与退役题库重合的可回答题：{removed_overlap_count}")
+
+    if all(
+        len(document["questions"]) == TOTAL_QUESTIONS_PER_DOCUMENT
+        for document in documents
+    ):
+        print(f"题库已完成：{args.output}")
+        return
+    if not os.environ.get("OPENAI_API_KEY"):
+        raise SystemExit(f"OPENAI_API_KEY 未设置或不存在于 {args.env_file}")
 
     try:
         from openai import OpenAI
     except ImportError as error:
-        raise SystemExit(
-            "缺少 openai 包，请先执行：pip install openai pydantic"
-        ) from error
+        raise SystemExit("缺少 openai 包，请先执行：pip install openai pydantic") from error
 
+    save_json(documents, args.output)
     client = OpenAI()
     generated_question_count = 0
-
     try:
-        for record_index, record in enumerate(selected):
-            position = record_index + 1
-            page_id = str(record["page_id"])
-
-            if record_index < len(documents):
-                document = documents[record_index]
-                retrieval_context = document.get("retrieval_context")
-                if (
-                    not isinstance(retrieval_context, list)
-                    or len(retrieval_context) != 1
-                    or not isinstance(retrieval_context[0], str)
-                ):
-                    raise SystemExit(
-                        f"page_id={page_id} 的 retrieval_context 格式无效"
-                    )
-                # Resume against exactly the same context saved on the first run,
-                # even if --max-context-chars is changed accidentally later.
-                context = retrieval_context[0]
-                if len(document["questions"]) == args.questions_per_document:
-                    print(
-                        f"[{position}/{len(selected)}] 跳过已完成页面："
-                        f"{record['title']}"
-                    )
-                    continue
-            else:
-                context = record["text"][: args.max_context_chars]
-                document = new_document(record, context)
-
-            start_question = len(document["questions"])
-            print(
-                f"[{position}/{len(selected)}] 页面：{record['title']} ({page_id})；"
-                f"从第 {start_question + 1} 题继续"
-            )
-
-            for question_index in range(
-                start_question,
-                args.questions_per_document,
-            ):
-                category = category_for_index(question_index)
+        for document_index, document in enumerate(documents):
+            position = document_index + 1
+            while len(document["questions"]) < ANSWERABLE_QUESTIONS_PER_DOCUMENT:
+                question_number = len(document["questions"]) + 1
                 print(
-                    f"  生成第 {question_index + 1}/"
-                    f"{args.questions_per_document} 题（{category}）..."
+                    f"[{position}/{len(documents)}] {document['title']}："
+                    f"生成可回答题 {question_number}/2..."
                 )
-
                 generated = call_with_retries(
                     client,
                     args,
-                    record,
-                    context,
-                    question_index,
-                    document["questions"],
+                    document,
+                    selected[document_index].get("questions", []),
                 )
+                context = "\n\n".join(document["retrieval_context"])
+                passages = split_evidence_passages(context)
+                citation = passages[generated.evidence_id - 1]
                 document["questions"].append(
-                    to_question(generated, question_index)
+                    to_answerable_question(generated, question_number - 1, citation)
                 )
-
-                if record_index == len(documents):
-                    documents.append(document)
                 save_json(documents, args.output)
                 generated_question_count += 1
-                print(
-                    f"  已保存第 {question_index + 1} 题："
-                    f"{document['questions'][-1]['name']}"
-                )
+                print(f"  已保存：{document['questions'][-1]['name']}")
     except KeyboardInterrupt:
         print("\n收到 Ctrl+C。所有已显示“已保存”的问题都已写入 JSON。")
         print(f"输出文件：{args.output}")
@@ -462,8 +577,10 @@ def main() -> None:
     except RuntimeError as error:
         raise SystemExit(f"生成失败：{error}") from error
 
+    add_mismatched_questions(documents)
+    save_json(documents, args.output)
     print(f"输出文件：{args.output}")
-    print(f"本次生成问题：{generated_question_count}")
+    print(f"本次调用模型生成可回答题：{generated_question_count}")
     print(f"累计文章：{len(documents)}")
     print(f"累计问题：{sum(len(item['questions']) for item in documents)}")
 

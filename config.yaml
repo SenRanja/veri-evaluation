@@ -7,10 +7,40 @@ target:
   models:
     - "gpt-4o-mini"
     - "veri"
-    - "gemini-3.5-flash"
+    - "deepseek"
+
+answering:
+  max_workers: 4
+  models:
+    - id: "gpt-4o-mini"
+      model: "gpt-4o-mini"
+      api_key_env: "OPENAI_API_KEY"
+    - id: "deepseek"
+      model: "deepseek-flash"
+      api_key_env: "DEEPSEEK_API_KEY"
+      base_url: "https://api.deepseek.com"
+  prompt: >-
+    Answer the question using only the supplied retrieval context. Return one
+    JSON object containing exactly actual_answered (Boolean) and actual_output
+    (string), with no additional fields. Set actual_answered to true only when
+    the context directly supports a substantive answer. When true, format
+    actual_output as "Answer: <concise answer>\nSource citation: \"<exact,
+    uninterrupted, verbatim excerpt from the context>\"". Never paraphrase the
+    citation or use outside knowledge. When the context is insufficient, set
+    actual_answered to false and make actual_output a concise statement that the
+    supplied context does not specify the requested information.
 
 judge:
   model: "gpt-4o-mini"
+  models:
+    - id: "gpt-4o-mini"
+      provider: "openai"
+      model: "gpt-4o-mini"
+      api_key_env: "OPENAI_API_KEY"
+    - id: "deepseek"
+      provider: "deepseek"
+      model: "deepseek-flash"
+      api_key_env: "DEEPSEEK_API_KEY"
 
 evaluation:
   max_workers: 4
@@ -45,5 +75,5 @@ output:
   config_snapshot: "config_snapshot.yaml"
 
 openai_interceptor:
-  enabled: true
+  enabled: false
   log_file: "openai_interactions.jsonl"

@@ -26,7 +26,7 @@ pip install -r requirements.txt
 python evaluation.py
 ```
 
-`config.yaml` 中 `target.model` 表示被测模型，决定作答字段后缀；`judge.model` 表示 DeepEval 裁判模型。两者可以不同。
+`config.yaml` 中 `answering.models` 定义 API 考生和字段后缀，`target.models` 定义待评估考生，`judge.models` 定义质量裁判。当前 API 考生为 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），质量裁判也使用这两个模型。
 
 
 
@@ -173,7 +173,7 @@ Correctness、Faithfulness 与 Answer Relevancy 含义不同，不要把三者�
 
 ## 参考答案审计
 
-GPT、Gemini、Veri 中至少两个模型有完整历史结果，且可用模型出现决策不一致或一致得到 NA/AN 时，可以调用审核脚本检查 golden label。Gemini 没有作答的题目仍会使用 GPT 与 Veri 结果进入候选：
+GPT、DeepSeek、Veri 中至少两个模型有完整结果，且可用模型出现决策不一致或一致得到 NA/AN 时，可以调用审核脚本检查 golden label。模型结果缺失时仍可使用其余两个结果进入候选：
 
 ```bash
 source .venv/bin/activate
@@ -183,7 +183,7 @@ python -u revise_reference_answers.py --model gpt-4o-mini --apply
 bash evaluation.sh
 ```
 
-前两条命令只更新 `evaluation_results/reference_answer_revision_audit.json`，不会修改用例。`--apply` 只应用审核模型标为高置信、无歧义且无需人工复核的建议，并原子更新 `test_cases_novel.json`。脚本不上传文件，只把用例中的精确 `retrieval_context`、当前参考答案和 GPT/Gemini/Veri 的可用历史回答作为文本交给审核模型，golden 字段严格以 `retrieval_context` 为准。
+前两条命令只更新 `evaluation_results/reference_answer_revision_audit.json`，不会修改用例。`--apply` 只应用审核模型标为高置信、无歧义且无需人工复核的建议，并原子更新 `test_cases_novel.json`。脚本不上传文件，只把用例中的精确 `retrieval_context`、当前参考答案和 GPT/DeepSeek/Veri 的可用历史回答作为文本交给审核模型，golden 字段严格以 `retrieval_context` 为准。
 
 修订用例不会改变历史 `results.json`。应用后必须重新运行 `evaluation.sh`，才能得到基于新参考答案的三个目标模型评估结果。
 
@@ -351,24 +351,37 @@ python analyze_jsonl_characters.py
 
 将jsonl文件提取text到文件中： `python extract_wikipedia_texts.py`
 
-由文件生成到json的问题集： `python generate_wikipedia_test_cases.py --limit 100`
+旧的 16,000 题文件已归档为 `evaluation_cases/test_cases_novel.retired-16000.json`。运行以下命令会继承其中前 50 篇材料、上下文和 `veri_file_id`，重新生成 `evaluation_cases/test_cases_novel.json`：
 
-`generate_wikipedia_test_cases.py` 有断点恢复的能力，会按照jsonl文件从前往后进行问题集生成。比如从1生成到 正在处理50，我按了ctrl，下次我重新运行此命令，会从50开始重新生成并向后生成。
+```bash
+python generate_wikipedia_test_cases.py
+```
+
+生成器只让 ChatGPT 编写 100 道可回答题。每道参考答案都包含可在 `retrieval_context` 中逐字定位的 `Source citation`，并另存 `reference_citation`。全部可回答题完成后，脚本从不同文章各错配 2 道题，得到 100 道不可回答题。最终共 50 篇、每篇 4 题（2 道可回答、2 道不可回答），合计 200 题。
+
+脚本逐道保存可回答题并支持断点恢复；模型不会被要求直接编写不可回答问题。错配题带 `mismatched_from_page_id` 和 `mismatched_from_title`，便于审计来源。
 
 linux上运行:
 
 ```bash
 # install pip requirements
 source .env
-python3 -u generate_wikipedia_test_cases.py \
-  --limit 2000 \
-  > log_gen_test_case.log 2>&1
+python3 -u generate_wikipedia_test_cases.py
 ```
 
 生成完成后：
 
-1. 让被测系统作答：`python gpt-4o-mini_answer.py`，严格使用每篇题目保存的 `retrieval_context`，并将结果写入 `actual_answered_<target.model>` 与 `actual_output_<target.model>`；
-2. 运行评估：`python evaluation.py`，按[指标适用性与用例判定](#指标适用性与用例判定)规则打分，并输出[汇总统计](#汇总统计)。
+1. API 考生并发作答：`python answer_models.py`。GPT 与 DeepSeek 共用 `answering.prompt`，回答时必须附可在上下文逐字定位的 `Source citation`，每个模型只写自己的 `actual_answered_<id>` 与 `actual_output_<id>`。
+2. Veri 使用专用脚本作答并重判回答决策：`python veriai_answer.py`，然后运行 `python judge_veri_answered.py`。
+3. 运行 `bash evaluation.sh`。评估器会用 GPT 和 DeepSeek 分别评价每个已有考生输出，并将每个“考生 × 裁判”组合写入独立目录。
+
+统一作答器支持 `--limit`、`--models` 和断点续跑。例如先各模型合计试跑 20 个任务：
+
+```bash
+python answer_models.py --limit 20
+```
+
+配置多个 API 考生时，网络请求在线程池执行；共享 JSON 只由主线程更新，并在每个完整响应后原子替换，因此不会由多个线程同时写文件。
 
 提取出的 TXT 文件只用于上传到外部 RAG 系统或人工检查；内置作答脚本不读取 TXT，以免完整文章与生成题目时截断保存的 `retrieval_context` 不一致。
 

@@ -8,10 +8,12 @@ from evaluation import (
     build_live_report,
     build_metrics,
     build_quality_summary,
+    create_judge_model,
     evaluate_case,
     evaluate_cases,
     get_metric_identity,
     get_decision_state,
+    get_judge_models,
     get_target_models,
     load_cases,
 )
@@ -203,6 +205,69 @@ def test_target_models_supports_dual_targets_and_legacy_single_target():
     assert get_target_models({"target": {"model": "gpt-4o-mini"}}) == [
         "gpt-4o-mini"
     ]
+
+
+def test_judge_models_support_openai_deepseek_and_legacy_config():
+    assert get_judge_models(
+        {
+            "judge": {
+                "models": [
+                    {
+                        "id": "gpt",
+                        "provider": "openai",
+                        "model": "gpt-4o-mini",
+                        "api_key_env": "OPENAI_API_KEY",
+                    },
+                    {
+                        "id": "deepseek",
+                        "provider": "deepseek",
+                        "model": "deepseek-flash",
+                    },
+                ]
+            }
+        }
+    ) == [
+        {
+            "id": "gpt",
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "api_key_env": "OPENAI_API_KEY",
+        },
+        {
+            "id": "deepseek",
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+        },
+    ]
+    assert get_judge_models({"judge": {"model": "gpt-4o-mini"}})[0][
+        "provider"
+    ] == "openai"
+
+
+def test_create_judge_model_uses_configured_provider(monkeypatch):
+    monkeypatch.setenv("OPENAI_API_KEY", "test-openai-key")
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-deepseek-key")
+
+    openai_judge = create_judge_model(
+        {
+            "id": "gpt",
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "api_key_env": "OPENAI_API_KEY",
+        }
+    )
+    deepseek_judge = create_judge_model(
+        {
+            "id": "deepseek",
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+        }
+    )
+
+    assert openai_judge.__class__.__name__ == "OpenAIModel"
+    assert deepseek_judge.__class__.__name__ == "DeepSeekModel"
 
 
 def test_conditional_summaries_and_zero_denominators():

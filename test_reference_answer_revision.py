@@ -20,7 +20,7 @@ def model_case(state: str, answered: bool, expected: bool) -> dict:
 def all_models(case: dict) -> dict[str, dict]:
     return {
         "gpt-4o-mini": dict(case),
-        "gemini-3.5-flash": dict(case),
+        "deepseek": dict(case),
         "veri": dict(case),
     }
 
@@ -28,13 +28,13 @@ def all_models(case: dict) -> dict[str, dict]:
 def test_candidate_reasons_include_disagreement_and_unanimous_mismatches() -> None:
     disagreement = {
         "gpt-4o-mini": model_case("NN", False, False),
-        "gemini-3.5-flash": model_case("NA", True, False),
+        "deepseek": model_case("NA", True, False),
         "veri": model_case("NA", True, False),
     }
     unanimous_na = all_models(model_case("NA", True, False))
     unanimous_an = all_models(model_case("AN", False, True))
     unanimous_aa = all_models(model_case("AA", True, True))
-    without_gemini = {
+    without_deepseek = {
         "gpt-4o-mini": model_case("NN", False, False),
         "veri": model_case("NA", True, False),
     }
@@ -47,7 +47,7 @@ def test_candidate_reasons_include_disagreement_and_unanimous_mismatches() -> No
     assert candidate_reasons(unanimous_an, False) == ["unanimous_AN"]
     assert candidate_reasons(unanimous_na, True) == []
     assert candidate_reasons(unanimous_aa, False) == []
-    assert candidate_reasons(without_gemini, False) == [
+    assert candidate_reasons(without_deepseek, False) == [
         "model_decision_disagreement"
     ]
     assert candidate_reasons(only_veri, False) == []
@@ -101,7 +101,7 @@ def test_review_candidate_sends_inline_context_and_all_model_answers() -> None:
     assert "input_file" not in prompt
     assert "supported evidence" in prompt
     assert "gpt-4o-mini" in prompt
-    assert "gemini-3.5-flash" in prompt
+    assert "deepseek" in prompt
     assert "result: unavailable" in prompt
     assert "veri" in prompt
     assert "only authoritative source" in prompt
