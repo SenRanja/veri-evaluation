@@ -117,7 +117,7 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 - `project.cases_file`：用例 JSON。
 - `project.results_directory`：评估输出根目录。
 - `answering.models`：API 考生列表。每项包含稳定字段后缀 `id`、API 模型名、key 环境变量和可选 `base_url`。
-- `answering.prompt`：GPT 与 DeepSeek 共用的作答提示词；要求仅依据上下文回答，并在实际回答时附上逐字原文引用。
+- `answering.prompt`：GPT 与 DeepSeek 共用的作答提示词；要求仅依据上下文回答，并在实际回答时附上可追溯来源引用，允许轻微改写。
 - `answering.max_workers`：跨模型、跨问题的 API 工作线程数。工作线程不写共享 JSON，主线程逐结果原子保存，避免条件竞争和顺序损坏。
 - `target.model`：旧作答脚本兼容值。
 - `target.models`：评估器依次读取的模型字段后缀列表；未设置时兼容回退到 `target.model`。

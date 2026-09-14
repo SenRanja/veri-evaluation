@@ -371,7 +371,7 @@ python3 -u generate_wikipedia_test_cases.py
 
 生成完成后：
 
-1. API 考生并发作答：`python answer_models.py`。GPT 与 DeepSeek 共用 `answering.prompt`，回答时必须附可在上下文逐字定位的 `Source citation`，每个模型只写自己的 `actual_answered_<id>` 与 `actual_output_<id>`。
+1. API 考生并发作答：`python answer_models.py`。GPT 与 DeepSeek 共用 `answering.prompt`，回答时必须附可追溯到上下文的 `Source citation`（允许轻微改写），每个模型只写自己的 `actual_answered_<id>` 与 `actual_output_<id>`。
 2. Veri 使用专用脚本作答并重判回答决策：`python veriai_answer.py`，然后运行 `python judge_veri_answered.py`。
 3. 运行 `bash evaluation.sh`。评估器会用 GPT 和 DeepSeek 分别评价每个已有考生输出，并将每个“考生 × 裁判”组合写入独立目录。
 

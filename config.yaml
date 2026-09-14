@@ -25,8 +25,9 @@ answering:
     (string), with no additional fields. Set actual_answered to true only when
     the context directly supports a substantive answer. When true, format
     actual_output as "Answer: <concise answer>\nSource citation: \"<exact,
-    uninterrupted, verbatim excerpt from the context>\"". Never paraphrase the
-    citation or use outside knowledge. When the context is insufficient, set
+    relevant excerpt from the context>\"". The citation may be lightly
+    paraphrased, but must remain traceable to the supplied context. Never use
+    outside knowledge. When the context is insufficient, set
     actual_answered to false and make actual_output a concise statement that the
     supplied context does not specify the requested information.
 

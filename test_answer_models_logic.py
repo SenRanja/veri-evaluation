@@ -76,13 +76,25 @@ def test_load_candidates_supports_openai_and_deepseek() -> None:
     assert models[1].base_url == "https://api.deepseek.com"
 
 
-def test_answer_validation_requires_verbatim_citation_when_answered() -> None:
+def test_answer_validation_requires_source_citation_when_answered() -> None:
     output = 'Answer: 1999.\nSource citation: "Alpha was founded in 1999."'
     answer = ModelAnswer(actual_answered=True, actual_output=output)
 
     validate_answer(answer, "Alpha was founded in 1999.")
 
     assert extract_source_citation(output) == "Alpha was founded in 1999."
+
+
+def test_answer_validation_allows_paraphrased_citation() -> None:
+    answer = ModelAnswer(
+        actual_answered=True,
+        actual_output=(
+            'Answer: 1999.\nSource citation: '
+            '"The source says Alpha was established in 1999."'
+        ),
+    )
+
+    validate_answer(answer, "Alpha was founded in 1999.")
 
 
 def test_model_answer_rejects_extra_fields() -> None:

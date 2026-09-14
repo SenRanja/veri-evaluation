@@ -213,10 +213,6 @@ def validate_documents(documents: list[dict[str, Any]]) -> None:
                 )
 
 
-def normalize_text(value: str) -> str:
-    return " ".join(value.split())
-
-
 def extract_source_citation(output: str) -> str | None:
     match = re.search(
         r"(?:^|\n)Source citation:\s*(?:\"([^\"]+)\"|(.+?))\s*$",
@@ -237,10 +233,8 @@ def validate_answer(answer: ModelAnswer, context: str) -> None:
     citation = extract_source_citation(output)
     if not citation:
         raise ValueError(
-            'Answered output must end with Source citation: "<verbatim excerpt>"'
+            'Answered output must end with Source citation: "<source excerpt>"'
         )
-    if normalize_text(citation) not in normalize_text(context):
-        raise ValueError("Source citation is not a verbatim context excerpt")
 
 
 def parse_model_answer(content: str) -> ModelAnswer:

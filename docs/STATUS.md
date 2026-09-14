@@ -11,7 +11,7 @@
 - 原 4,000 篇、16,000 题用例已归档为 `evaluation_cases/test_cases_novel.retired-16000.json`，不再作为当前评估输入。新题库从其前 200 篇继承 `retrieval_context`、文章元数据和已有 `veri_file_id`。
 - 生成器现在对每个案例只调用 ChatGPT 一次，同时生成 2 道可回答题并保存上下文逐字引用；随后从不同案例错配得到 2 道不可回答题。最终固定为 200 个案例、每案例 4 题，共 800 题（400 道可回答、400 道不可回答）。
 - 当前仓库内 `test_cases_novel.json` 仍是较小检查点；运行最新生成器会保留已有可回答题、扩展到 200 个案例，并在全部可回答题完成后统一重建 400 道错配题。生成过程重新调用模型，但不要求输出文本必须与旧题库不同。
-- 已新增 `answer_models.py`：按配置并发运行 GPT 与 DeepSeek，统一要求回答附逐字原文引用；工作线程只做 API 请求，主线程写入每个模型的两项后缀字段并逐响应原子保存。
+- 已新增 `answer_models.py`：按配置并发运行 GPT 与 DeepSeek，统一要求回答附可追溯来源引用并允许轻微改写；工作线程只做 API 请求，主线程写入每个模型的两项后缀字段并逐响应原子保存。
 - `evaluation_cases/test_cases_novel - Copy.json` 有 101 篇文档、401 道题，401 道题均已有完整的 `gpt-4o-mini` 模型后缀作答字段；如需评估它，必须同时将 `config.yaml` 的 `project.cases_file` 指向该文件。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
 - 已新增 `genimi-3.5-flash_answer.py`，通过官方 `google-genai` SDK 调用稳定模型 `gemini-3.5-flash`，以结构化输出逐题保存 Gemini 专属 Boolean 和文本字段，并支持原子断点恢复、限量、重试和覆盖。
