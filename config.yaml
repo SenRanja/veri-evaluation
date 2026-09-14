@@ -56,7 +56,7 @@ judge:
       api_key_env: "DEEPSEEK_API_KEY"
 
 evaluation:
-  max_workers: 4
+  max_workers: 1
   metric_retries: 3
 
 metrics:

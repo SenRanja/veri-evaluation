@@ -63,7 +63,7 @@
 
 - `generate_wikipedia_test_cases.py`、`answer_models.py`、`calibrate_reference_answers.py`、`veriai_answer.py` 和 `evaluation.py` 都会调用 API。
 - 完整评估每题运行四项 LLM 指标；当前 16,000 题理论上需要 64,000 个指标结果，成本远高于已完成的 152 题运行。
-- 之前以 16 并发运行时留下未完成目录；当前默认已降为 4。DeepEval 指标可能为单题发起多次裁判请求，4 个用例同步重试仍可能触发 RPM/TPM 限流。中断时实时 `results.json` 会保留已返回结果，可用 `--resume` 原地继续；限流恢复建议同时使用 `--max-workers 1`。
+- 之前以 16 并发运行时留下未完成目录；当前评估默认并发已降为 1。DeepEval 指标可能为单题发起多次裁判请求，因此单并发仍可能受账户 RPM/TPM 或余额限制。中断时实时 `results.json` 会保留已返回结果，可用 `--resume` 原地继续。
 - `20260818-104954-gpt-4o-mini-judge-gpt-4o-mini` 在 Contextual Relevancy 阶段因裁判把合法 JSON 包在 Markdown `json` 代码围栏中而触发 DeepEval 解析异常；对应 `sullivan_family_background`，用例 JSON 和内部 13 条 verdict 均有效。现已通过指标重试和单题技术失败隔离避免整批退出。
 - 作答器每题原子保存，并默认跳过已有的完整模型后缀字段；可通过重复执行安全续跑。不要使用 `--overwrite`，除非明确需要重生成已有回答。
 - `test_chatbot.py` 和 `test_veris.py` 是网络测试，其中存在硬编码裁判模型，不应作为默认离线测试运行。
