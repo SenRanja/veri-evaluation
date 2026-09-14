@@ -17,6 +17,7 @@
 - API 考生共用 `answering.prompt`，实际作答必须在 `actual_output_<model-id>` 中包含可追溯到 `retrieval_context` 的 `Source citation`；允许轻微改写，拒答不伪造引用。
 - 多考生并发时，工作线程不得修改共享用例；只有主线程可合并完整字段对并原子保存 JSON。
 - 作答器和评估器必须使用 JSON 用例中保存的 `retrieval_context`。不要用提取出的完整 TXT 替换它，否则可能泄漏出题时截断范围之外的信息。
+- 正式评估前的参考答案校正只处理 GPT/DeepSeek Boolean 决策不一致且字段完整的题；审核以 `retrieval_context` 为唯一事实依据，考生回答只作线索，并且不得修改任何考生后缀字段。
 - 回答决策只有 AA、NN、AN、NA 四种状态。Correctness 始终参与用例判定；Answer Relevancy 和 Faithfulness 仅在实际作答时参与；Contextual Relevancy 仅作诊断。
 - 长任务必须保持逐题原子保存和断点恢复能力；不要破坏现有输出或使用破坏性 Git 命令。
 - `evaluation_results/` 中的交互日志可能包含完整上下文和模型回答，应按敏感数据处理。
@@ -28,7 +29,8 @@
 ```bash
 source .venv/bin/activate
 python -m pytest -q test_evaluation_logic.py
-python -m py_compile evaluation.py answer_models.py generate_wikipedia_test_cases.py
+python -m pytest -q test_reference_calibration_logic.py
+python -m py_compile evaluation.py answer_models.py calibrate_reference_answers.py generate_wikipedia_test_cases.py
 ```
 
 以下命令会访问 API、产生费用或耗时，除非用户明确要求，否则不要自行运行：
@@ -36,6 +38,7 @@ python -m py_compile evaluation.py answer_models.py generate_wikipedia_test_case
 ```bash
 python generate_wikipedia_test_cases.py
 python answer_models.py
+python calibrate_reference_answers.py
 python evaluation.py
 python -m pytest -q test_chatbot.py test_veris.py
 ```

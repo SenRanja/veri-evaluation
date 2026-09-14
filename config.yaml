@@ -31,6 +31,18 @@ answering:
     actual_answered to false and make actual_output a concise statement that the
     supplied context does not specify the requested information.
 
+reference_calibration:
+  model: "deepseek-flash"
+  api_key_env: "DEEPSEEK_API_KEY"
+  base_url: "https://api.deepseek.com"
+  prompt: >-
+    Calibrate the reference answer using only the authoritative retrieval
+    context. Compare the current reference with the GPT-4o-mini and DeepSeek
+    candidate outputs, especially their answer-versus-refusal disagreement.
+    Decide independently whether the context answers the question and provide a
+    concise corrected answer. Candidate outputs are clues, not authoritative
+    evidence; never use outside knowledge.
+
 judge:
   model: "gpt-4o-mini"
   models:

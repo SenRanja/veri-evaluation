@@ -171,21 +171,21 @@ Correctness、Faithfulness 与 Answer Relevancy 含义不同，不要把三者�
 
 所有统计项输出时附带分子与分母；分母为 0 记为 `null`。
 
-## 参考答案审计
+## 评估前参考答案校正
 
-GPT、DeepSeek、Veri 中至少两个模型有完整结果，且可用模型出现决策不一致或一致得到 NA/AN 时，可以调用审核脚本检查 golden label。模型结果缺失时仍可使用其余两个结果进入候选：
+GPT 与 DeepSeek 考生作答完成后，先筛选两者回答/拒答 Boolean 不一致的题，由 DeepSeek-V4.1-Flash 依据 `retrieval_context`、当前参考答案和两份考生回答校正 golden label：
 
 ```bash
 source .venv/bin/activate
-python -u revise_reference_answers.py --model gpt-4o-mini --limit 10
-python -u revise_reference_answers.py --model gpt-4o-mini
-python -u revise_reference_answers.py --model gpt-4o-mini --apply
-bash evaluation.sh
+python -u calibrate_reference_answers.py --limit 10
+python -u calibrate_reference_answers.py
+# 检查审计文件后：
+python -u calibrate_reference_answers.py --apply
 ```
 
-前两条命令只更新 `evaluation_results/reference_answer_revision_audit.json`，不会修改用例。`--apply` 只应用审核模型标为高置信、无歧义且无需人工复核的建议，并原子更新 `test_cases_novel.json`。脚本不上传文件，只把用例中的精确 `retrieval_context`、当前参考答案和 GPT/DeepSeek/Veri 的可用历史回答作为文本交给审核模型，golden 字段严格以 `retrieval_context` 为准。
+前两条命令只更新 `evaluation_results/pre_evaluation_reference_calibration.json`，不会修改用例。脚本要求两位考生都有完整回答字段且 Boolean 决策不同；考生输出只作线索，`retrieval_context` 是唯一事实依据。DeepSeek 返回证据段编号，脚本从原文构建引用。`--apply` 只应用高置信且无歧义的建议，并仅原子更新 `expected_answered` 与 `expected_output`，不会改变任何考生回答字段。
 
-修订用例不会改变历史 `results.json`。应用后必须重新运行 `evaluation.sh`，才能得到基于新参考答案的三个目标模型评估结果。
+旧的 `revise_reference_answers.py` 用于基于历史评估结果的扩展事后审计，不属于新 800 题的标准前置流程。校正完成后再运行 Veri 作答/重判和 `evaluation.sh`。
 
 评估运行开始后会立即创建 `results.json`。每收到一个指标响应，程序都会通过临时文件原子替换该 JSON，因此 Ctrl+C 或异常退出时，已经返回的指标不会丢失。文件中的 `progress` 包含：
 
@@ -372,8 +372,9 @@ python3 -u generate_wikipedia_test_cases.py
 生成完成后：
 
 1. API 考生并发作答：`python answer_models.py`。GPT 与 DeepSeek 共用 `answering.prompt`，回答时必须附可追溯到上下文的 `Source citation`（允许轻微改写），每个模型只写自己的 `actual_answered_<id>` 与 `actual_output_<id>`。
-2. Veri 使用专用脚本作答并重判回答决策：`python veriai_answer.py`，然后运行 `python judge_veri_answered.py`。
-3. 运行 `bash evaluation.sh`。评估器会用 GPT 和 DeepSeek 分别评价每个已有考生输出，并将每个“考生 × 裁判”组合写入独立目录。
+2. 对 GPT/DeepSeek 回答与拒答不一致的题运行前置校正：先 `python -u calibrate_reference_answers.py --limit 10`，续跑全部并检查审计后使用 `--apply`。
+3. Veri 使用专用脚本作答并重判回答决策：`python veriai_answer.py`，然后运行 `python judge_veri_answered.py`。
+4. 运行 `bash evaluation.sh`。评估器会用 GPT 和 DeepSeek 分别评价每个已有考生输出，并将每个“考生 × 裁判”组合写入独立目录。
 
 统一作答器支持 `--limit`、`--models` 和断点续跑。例如先各模型合计试跑 20 个任务：
 

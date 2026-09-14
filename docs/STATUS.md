@@ -12,6 +12,7 @@
 - 生成器现在对每个案例只调用 ChatGPT 一次，同时生成 2 道可回答题并保存上下文逐字引用；随后从不同案例错配得到 2 道不可回答题。最终固定为 200 个案例、每案例 4 题，共 800 题（400 道可回答、400 道不可回答）。
 - 当前仓库内 `test_cases_novel.json` 仍是较小检查点；运行最新生成器会保留已有可回答题、扩展到 200 个案例，并在全部可回答题完成后统一重建 400 道错配题。生成过程重新调用模型，但不要求输出文本必须与旧题库不同。
 - 已新增 `answer_models.py`：按配置并发运行 GPT 与 DeepSeek，统一要求回答附可追溯来源引用并允许轻微改写；工作线程只做 API 请求，主线程写入每个模型的两项后缀字段并逐响应原子保存。
+- 服务器上的新题库已完成 200 个案例、800 道题生成；GPT 与 DeepSeek 共 1,600 个模型-题目作答任务均已完成，最近一次补跑处理 70 个缺口、跳过 1,530 个已有结果且失败为 0。
 - `evaluation_cases/test_cases_novel - Copy.json` 有 101 篇文档、401 道题，401 道题均已有完整的 `gpt-4o-mini` 模型后缀作答字段；如需评估它，必须同时将 `config.yaml` 的 `project.cases_file` 指向该文件。
 - 作答器已改为只使用用例 JSON 中保存的 `retrieval_context`，不再读取外部完整 TXT。
 - 已新增 `genimi-3.5-flash_answer.py`，通过官方 `google-genai` SDK 调用稳定模型 `gemini-3.5-flash`，以结构化输出逐题保存 Gemini 专属 Boolean 和文本字段，并支持原子断点恢复、限量、重试和覆盖。
@@ -19,6 +20,7 @@
 - 当前用例前 10 篇文档已完成 Veris 测试，共保存 10 个文件 ID 和 40 道非空回答；40 道回答均含回答、引用、来源和本地来源索引区块，重复运行 `--document-limit 10` 会跳过全部网络调用。
 - 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
 - 已新增 `revise_reference_answers.py`：从 GPT、Gemini、Veri 中至少两个模型有完整结果的题目里筛选决策不一致及一致 NA/AN 用例，直接提供精确 `retrieval_context`、当前参考答案和可用模型历史回答供审核模型修订 golden answer；Gemini 缺失不会排除题目，且不再上传完整文件。默认只写原子审计快照，`--apply` 只应用高置信、无歧义且无需人工复核的建议。
+- 已新增 `calibrate_reference_answers.py` 作为新 800 题流程的前置 golden 校正器：直接筛选 GPT 与 DeepSeek 回答/拒答不一致的题，用 DeepSeek-V4.1-Flash 基于两份回答和精确 `retrieval_context` 重审；逐题原子保存审计，应用时仅更新高置信、无歧义建议的 `expected_answered` 与 `expected_output`。
 - 评估器支持 GPT 与 DeepSeek 双裁判，会为每个已有考生输出分别创建独立结果目录；考生模型只生成两项回答字段，不参与质量打分。
 - 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
@@ -37,9 +39,9 @@
 
 ## 尚未完成
 
-- 新 800 题题库尚未完成生成，也未运行 GPT、Veri 和 DeepSeek 考生作答或双裁判质量评估；这些步骤会产生 API 成本。
+- 新 800 题题库及 GPT/DeepSeek 考生作答已在服务器完成；前置 golden 校正、Veri 完整作答/重判和双裁判质量评估尚未完成，都会产生 API 成本。
 
-- 尚未完成参考答案审核 API 全量运行。按至少两个可用模型筛选，现有结果中有 1,310 个决策不一致用例、860 个一致 NA 和 57 个一致 AN，去重后共 2,227 个候选；其中 1,790 个没有 Gemini 结果。应先用 `--limit 10` 检查质量和成本，再续跑并人工检查审计文件。
+- 尚未运行新 800 题的前置参考答案校正。应先用 `python -u calibrate_reference_answers.py --limit 10` 检查 DeepSeek 建议质量和成本，再续跑全部候选；人工检查审计文件后才使用 `--apply`。
 - 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
 - Gemini 当前只有 2,965 条完整目标记录，三模型报告因此使用 2,959 道共同成功用例；补齐 Gemini 或重跑统一输入评估都会产生大量 API 调用、费用和运行时间。
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。
@@ -58,7 +60,7 @@
 
 ### 成本和稳定性
 
-- `generate_wikipedia_test_cases.py`、`answer_models.py`、`veriai_answer.py` 和 `evaluation.py` 都会调用 API。
+- `generate_wikipedia_test_cases.py`、`answer_models.py`、`calibrate_reference_answers.py`、`veriai_answer.py` 和 `evaluation.py` 都会调用 API。
 - 完整评估每题运行四项 LLM 指标；当前 16,000 题理论上需要 64,000 个指标结果，成本远高于已完成的 152 题运行。
 - 之前以 16 并发运行时留下未完成目录；当前已降为 4。中断时实时 `results.json` 会保留已返回结果，但评估器本身不续跑，重新执行会创建新的时间戳目录并从头评估。
 - `20260818-104954-gpt-4o-mini-judge-gpt-4o-mini` 在 Contextual Relevancy 阶段因裁判把合法 JSON 包在 Markdown `json` 代码围栏中而触发 DeepEval 解析异常；对应 `sullivan_family_background`，用例 JSON 和内部 13 条 verdict 均有效。现已通过指标重试和单题技术失败隔离避免整批退出。
@@ -77,8 +79,8 @@
 
 ## 下一步建议
 
-1. 使用 `python answer_models.py --limit <小批量>` 并发为 GPT 与 DeepSeek 生成回答，确认字段、引用、速率和成本；重复运行会跳过已完成任务。
-2. 只有在 `config.yaml` 所指文件中的所有题目都包含完整目标模型后缀字段后，才运行 `bash evaluation.sh`；评估器不接受部分作答文件。
+1. 在服务器运行 `python -u calibrate_reference_answers.py --limit 10`，人工确认建议质量后续跑全部候选并使用 `--apply`。
+2. 完成 Veri 作答与 Boolean 重判，再运行 `bash evaluation.sh`；不要在 golden 校正完成前恢复正式评估。
 3. 统一 downloader 与 generator/extractor 的默认 JSONL 路径。
 4. 将网络测试明确标记为 integration，避免默认 `pytest` 触发 API。
 
@@ -89,7 +91,8 @@
 ```bash
 source .venv/bin/activate
 python -m pytest -q test_evaluation_logic.py
-python -m py_compile evaluation.py answer_models.py generate_wikipedia_test_cases.py
+python -m pytest -q test_reference_calibration_logic.py
+python -m py_compile evaluation.py answer_models.py calibrate_reference_answers.py generate_wikipedia_test_cases.py
 ```
 
 生成与作答（有 API 成本）：
@@ -99,6 +102,8 @@ python generate_wikipedia_test_cases.py --limit 100
 python answer_models.py --limit 20
 # 重复执行会跳过已完成模型-题目任务；去掉 --limit 可处理全部剩余任务
 python answer_models.py
+# 前置校正：先审计，再人工检查，最后使用 --apply
+python -u calibrate_reference_answers.py --limit 10
 ```
 
 评估（有较高 API 成本）：

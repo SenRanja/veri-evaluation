@@ -19,6 +19,7 @@
 | `genimi-3.5-flash_answer.py` | 历史 Gemini 作答器；当前评估目标已移除 Gemini，不用于新 800 题流程。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
+| `calibrate_reference_answers.py` | 在正式评估前直接从用例中筛选 GPT/DeepSeek 回答与拒答不一致的题，使用 DeepSeek 和精确 `retrieval_context` 校正 golden 字段；逐题原子保存审计，`--apply` 只应用高置信、无歧义的建议。 |
 | `revise_reference_answers.py` | 从至少两个可用模型的历史结果中筛选决策不一致及一致 NA/AN 用例，向审核模型直接提供 `retrieval_context`、当前参考答案和可用模型回答，逐题保存参考答案修订审计；不上传文件，仅在 `--apply` 时应用高置信建议。 |
 | `evaluation.py` | 按目标加载已有完整作答，对 `target.models × judge.models` 的每个组合独立构建四项 DeepEval 指标、并发评估并输出汇总。 |
 | `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv`、`OPENAI_API_KEY` 与 `DEEPSEEK_API_KEY`，再用 `.venv/bin/python -u` 启动双裁判评估器。 |
@@ -38,6 +39,8 @@ flowchart LR
     G --> C[case JSON with retrieval_context]
     C --> A[target answer runner]
     A -->|model-suffixed actual fields| C
+    C --> R[pre-evaluation reference calibration]
+    R -->|expected fields| C
     E[external RAG integration] -->|same field contract| C
     C --> V[evaluation runner]
     Y[config.yaml] --> A
@@ -51,7 +54,9 @@ flowchart LR
 
 每篇文章的 2 道可回答题在一次结构化请求中返回并整组校验。某篇达到重试上限时只保留该篇缺口并继续后续文章；所有文章都具备 2 道可回答题后才统一构造错配题。重复运行同一命令会跳过完整文章并补齐缺口。
 
-参考答案审核只发送实际提供给被测模型的 `retrieval_context`，不上传完整 TXT。`expected_answered` 和 `expected_output` 因此严格依据同一输入边界修订，同时避免每题重复处理完整文件带来的 token 成本。
+前置参考答案校正发生在 GPT/DeepSeek 考生作答之后、Veri 作答和正式评估之前。只有两者均有完整字段且 `actual_answered_gpt-4o-mini != actual_answered_deepseek` 的题会进入候选。DeepSeek 审核提示包含题目、当前 golden、两份考生输出和实际提供给考生的 `retrieval_context`；考生输出只作线索，上下文是唯一事实依据。审核模型返回证据段编号，脚本从原文构建 `Source citation`，不信任模型抄写引用。候选回答字段不会被修改。
+
+旧的 `revise_reference_answers.py` 是基于历史 `evaluation_results` 的事后扩展审计工具，不属于新 800 题的标准前置流程。
 
 ## 数据契约
 
@@ -119,6 +124,7 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 - `answering.models`：API 考生列表。每项包含稳定字段后缀 `id`、API 模型名、key 环境变量和可选 `base_url`。
 - `answering.prompt`：GPT 与 DeepSeek 共用的作答提示词；要求仅依据上下文回答，并在实际回答时附上可追溯来源引用，允许轻微改写。
 - `answering.max_workers`：跨模型、跨问题的 API 工作线程数。工作线程不写共享 JSON，主线程逐结果原子保存，避免条件竞争和顺序损坏。
+- `reference_calibration`：前置 golden 校正使用的 DeepSeek 模型、API key 环境变量、OpenAI 兼容端点和审核提示。
 - `target.model`：旧作答脚本兼容值。
 - `target.models`：评估器依次读取的模型字段后缀列表；未设置时兼容回退到 `target.model`。
 - `judge.model`：Veri 决策重判等旧脚本使用的兼容裁判。
@@ -136,6 +142,10 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 source .venv/bin/activate
 python generate_wikipedia_test_cases.py
 python answer_models.py
+python -u calibrate_reference_answers.py --limit 10
+python -u calibrate_reference_answers.py
+# 人工检查审计文件后：
+python -u calibrate_reference_answers.py --apply
 python veriai_answer.py
 python judge_veri_answered.py
 bash evaluation.sh
@@ -160,21 +170,19 @@ python -u judge_veri_answered.py
 bash evaluation.sh
 ```
 
-参考答案审计与重新评估：
+前置参考答案校正：
 
 ```bash
 source .venv/bin/activate
-# 先小批量生成审计建议，不修改用例；当前有 2,227 个候选
-python -u revise_reference_answers.py --model gpt-4o-mini --limit 10
-# 检查 evaluation_results/reference_answer_revision_audit.json 后续跑全部
-python -u revise_reference_answers.py --model gpt-4o-mini
-# 仅高置信、无歧义且无需人工复核的建议会被应用
-python -u revise_reference_answers.py --model gpt-4o-mini --apply
-# 历史 results.json 不会自动变化，必须重新评估
-bash evaluation.sh
+# 小批量检查质量和成本；不修改用例
+python -u calibrate_reference_answers.py --limit 10
+# 检查 evaluation_results/pre_evaluation_reference_calibration.json 后续跑全部
+python -u calibrate_reference_answers.py
+# 人工检查后，只应用高置信且无歧义的建议
+python -u calibrate_reference_answers.py --apply
 ```
 
-默认候选要求 GPT、DeepSeek、Veri 中至少两个模型有完整结果，包括可用模型的决策状态不一致，以及可用模型一致为 NA 或 AN 的异常用例。模型结果缺失不会排除题目；审核提示会明确标记该结果不可用。后两类不能省略，因为错误 golden label 可能让所有可用模型同时得到同一错误状态。审计文件逐题原子保存，可重复同一命令断点续跑。文件上传版旧审计与当前 schema 不兼容，重跑前需删除或改名；`--disagreements-only` 只检查不一致样本，会漏掉已知类型的标签污染。
+校正器只检查 GPT 与 DeepSeek 回答/拒答 Boolean 不一致的题；缺少任一完整字段或两者决策一致时不会调用审核 API。审计逐题原子保存，失败项可在重复运行时重试。`--apply` 不发起已完成题目的请求，只修改 `expected_answered` 与 `expected_output`；中低置信或歧义建议留给人工检查。
 
 每个目标只评估同时包含 Boolean `actual_answered_<model>` 和非空字符串 `actual_output_<model>` 的题目，因此允许对部分作答文件进行评估；缺字段题目不计入该目标的任何统计。
 
