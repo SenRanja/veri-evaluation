@@ -13,7 +13,7 @@
 | `wiki_downloader/wiki_downloader.py` | 随机下载英文 Wikipedia 页面、去重、过滤短文并追加 JSONL；可按已有 page ID 续传。 |
 | `analyze_jsonl_characters.py` | 统计 JSONL 每行字符数。 |
 | `extract_wikipedia_texts.py` | 将 `text` 提取为 Windows 安全的 `{page_id}-{title}.txt`。TXT 只用于外部上传或人工检查。 |
-| `generate_wikipedia_test_cases.py` | 从退役题库继承材料与 `veri_file_id`；用 Responses API 只生成带逐字引用的可回答题，再跨文章错配得到不可回答题；逐题原子保存并支持断点恢复。 |
+| `generate_wikipedia_test_cases.py` | 从退役题库继承材料与 `veri_file_id`；每篇一次请求生成 2 道带逐字引用的可回答题，再跨文章错配得到 2 道不可回答题；逐案例原子保存并支持断点恢复。 |
 | `answer_models.py` | 按 `answering.models` 并发调用 GPT 与 DeepSeek；共用配置中的可追溯回答提示词；工作线程只请求 API，主线程串行合并完整字段对并原子保存。 |
 | `gpt-4o-mini_answer.py` | 兼容入口，委托 `answer_models.py` 只运行 GPT-4o-mini。 |
 | `genimi-3.5-flash_answer.py` | 历史 Gemini 作答器；当前评估目标已移除 Gemini，不用于新 200 题流程。 |
@@ -48,6 +48,8 @@ flowchart LR
 关键原则：生成、作答和评估共享用例 JSON 中保存的同一份 `retrieval_context`。新题库直接继承退役题库的上下文与上传文件 ID，不读取完整 TXT，也不重新上传材料。
 
 新题库固定使用 50 篇文章、每篇 4 题，共 200 题。ChatGPT 对每篇文章只生成 2 道明确可回答的问题、简洁答案和可在上下文中逐字定位的引用；另外 2 道题来自其他文章的可回答题。错配源文章标题不得出现在目标上下文中，且两道错配题来自不同文章。模型不直接生成不可回答问题。
+
+每篇文章的 2 道可回答题在一次结构化请求中返回并整组校验。某篇达到重试上限时只保留该篇缺口并继续后续文章；所有文章都具备 2 道可回答题后才统一构造错配题。重复运行同一命令会跳过完整文章并补齐缺口。
 
 参考答案审核只发送实际提供给被测模型的 `retrieval_context`，不上传完整 TXT。`expected_answered` 和 `expected_output` 因此严格依据同一输入边界修订，同时避免每题重复处理完整文件带来的 token 成本。
 
@@ -252,5 +254,5 @@ evaluation_results/{timestamp}-{target_model}-judge-{judge_model}/
 - 评估器同样在每个 metric 响应后原子保存实时 `results.json`，并用异步锁串行化并发写入。
 - 每成功生成一道题或取得一个回答后立即保存。
 - 作答器通过跳过已有完整回答实现断点续跑；评估器只保留中断快照，不实现断点续跑。
-- 生成器恢复时要求已有 page ID 是当前选择集前缀，且只有最后一篇可以未完成。
+- 生成器恢复时校验已有 page ID 与当前选择集一致；允许多个案例因 API 或校验失败而暂时缺题，重复运行会仅补齐这些缺口。
 - 抽样由 `--sample` 和 `--seed` 控制；恢复时必须保持 `--start`、`--sample`、`--seed`、题数等选择参数兼容。

@@ -6,6 +6,7 @@ from generate_wikipedia_test_cases import (
     GeneratedQuestion,
     add_mismatched_questions,
     build_prompt,
+    load_or_initialize_output,
     new_document,
     remove_legacy_overlaps,
     split_evidence_passages,
@@ -70,6 +71,7 @@ def test_retry_prompt_includes_validation_feedback():
         "Alpha",
         ["Alpha has one exact fact."],
         1,
+        1,
         [],
         [],
         "evidence_id 超出范围",
@@ -77,6 +79,38 @@ def test_retry_prompt_includes_validation_feedback():
 
     assert "A previous attempt failed validation" in prompt
     assert "evidence_id 超出范围" in prompt
+
+
+def test_existing_output_expands_and_removes_old_mismatches(tmp_path):
+    sources = [
+        source_document(1, "Alpha", "Alpha has one fact."),
+        source_document(2, "Beta", "Beta has a second fact."),
+        source_document(3, "Gamma", "Gamma has a third fact."),
+    ]
+    completed = [new_document(source) for source in sources]
+    for document, fact in zip(
+        completed,
+        (
+            "Alpha has one fact.",
+            "Beta has a second fact.",
+            "Gamma has a third fact.",
+        ),
+        strict=True,
+    ):
+        document["questions"] = [
+            answerable_question(document["title"], fact, 0),
+            answerable_question(document["title"], fact, 1),
+        ]
+    # Simulate a completed smaller run; expansion must discard stale mismatches.
+    add_mismatched_questions(completed)
+    existing = completed[:2]
+    path = tmp_path / "cases.json"
+    path.write_text(__import__("json").dumps(existing), encoding="utf-8")
+
+    expanded = load_or_initialize_output(path, sources, overwrite=False)
+
+    assert len(expanded) == 3
+    assert [len(document["questions"]) for document in expanded] == [2, 2, 0]
 
 
 def test_remove_legacy_overlaps_drops_stale_mismatches():

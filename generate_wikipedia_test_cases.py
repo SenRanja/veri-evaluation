@@ -40,6 +40,12 @@ class GeneratedQuestion(BaseModel):
     )
 
 
+class GeneratedQuestionBatch(BaseModel):
+    questions: list[GeneratedQuestion] = Field(
+        description="The requested distinct answerable questions"
+    )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -55,10 +61,10 @@ def parse_args() -> argparse.Namespace:
         "--limit",
         type=int,
         default=50,
-        help="继承文章数量；默认 50 篇，即最终 200 道题。",
+        help="继承案例素材数量；默认 50 个案例，即最终 200 道题。",
     )
     parser.add_argument("--start", type=int, default=0, help="跳过开头多少篇文章。")
-    parser.add_argument("--retries", type=int, default=3)
+    parser.add_argument("--retries", type=int, default=5)
     parser.add_argument(
         "--overwrite",
         action="store_true",
@@ -194,14 +200,13 @@ def load_or_initialize_output(
         return [new_document(document) for document in selected]
 
     documents = load_cases(path)
-    if len(documents) != len(selected):
+    if len(documents) > len(selected):
         raise ValueError(
             f"已有输出包含 {len(documents)} 篇，当前选择 {len(selected)} 篇；"
-            "请保持相同 --start/--limit，或明确使用 --overwrite。"
+            "请确保 --limit 不小于已有进度，或明确使用 --overwrite。"
         )
 
-    question_counts = []
-    for index, (document, source) in enumerate(zip(documents, selected, strict=True)):
+    for index, (document, source) in enumerate(zip(documents, selected)):
         if str(document.get("page_id")) != str(source["page_id"]):
             raise ValueError(f"已有输出第 {index + 1} 篇与源题库 page_id 不一致")
         if document.get("veri_file_id") != source["veri_file_id"]:
@@ -211,19 +216,22 @@ def load_or_initialize_output(
             raise ValueError(f"已有输出第 {index + 1} 篇 questions 不是数组")
         if len(questions) not in (0, 1, 2, 4):
             raise ValueError(f"已有输出第 {index + 1} 篇问题数量无效")
-        question_counts.append(len(questions))
 
-    if any(count == TOTAL_QUESTIONS_PER_DOCUMENT for count in question_counts) and not all(
-        count == TOTAL_QUESTIONS_PER_DOCUMENT for count in question_counts
-    ):
-        raise ValueError("已有输出混合了完成和未完成的错配状态")
+        # Mismatches depend on the full selected set, so rebuild them after expansion.
+        if len(questions) == TOTAL_QUESTIONS_PER_DOCUMENT:
+            document["questions"] = questions[:ANSWERABLE_QUESTIONS_PER_DOCUMENT]
+
+    documents.extend(
+        new_document(source) for source in selected[len(documents) :]
+    )
     return documents
 
 
 def build_prompt(
     title: str,
     passages: list[str],
-    question_number: int,
+    question_start_number: int,
+    question_count: int,
     existing_questions: list[dict[str, Any]],
     legacy_questions: list[dict[str, Any]],
     validation_feedback: str | None = None,
@@ -249,8 +257,10 @@ def build_prompt(
         else ""
     )
     return f"""
-Create answerable question {question_number} of 2 for an English RAG evaluation
-dataset about the Wikipedia article {title!r}. Use only the retrieval context.
+Create {question_count} distinct answerable question(s) for an English RAG
+evaluation dataset about the Wikipedia article {title!r}. These are question
+numbers {question_start_number} through
+{question_start_number + question_count - 1} of 2. Use only the retrieval context.
 {retry_instruction}
 
 Requirements:
@@ -318,16 +328,17 @@ def validate_generated_question(
         )
 
 
-def generate_question(
+def generate_questions(
     client: Any,
     model: str,
     title: str,
     passages: list[str],
-    question_number: int,
+    question_start_number: int,
+    question_count: int,
     existing_questions: list[dict[str, Any]],
     legacy_questions: list[dict[str, Any]],
     validation_feedback: str | None = None,
-) -> GeneratedQuestion:
+) -> GeneratedQuestionBatch:
     response = client.responses.parse(
         model=model,
         input=[
@@ -344,14 +355,15 @@ def generate_question(
                 "content": build_prompt(
                     title,
                     passages,
-                    question_number,
+                    question_start_number,
+                    question_count,
                     existing_questions,
                     legacy_questions,
                     validation_feedback,
                 ),
             },
         ],
-        text_format=GeneratedQuestion,
+        text_format=GeneratedQuestionBatch,
     )
     if response.output_parsed is None:
         raise ValueError("模型没有返回可解析的结构化结果")
@@ -363,34 +375,48 @@ def call_with_retries(
     args: argparse.Namespace,
     document: dict[str, Any],
     legacy_questions: list[dict[str, Any]],
-) -> GeneratedQuestion:
+) -> list[GeneratedQuestion]:
     context = "\n\n".join(document["retrieval_context"])
     passages = split_evidence_passages(context)
     if not passages:
         raise RuntimeError("retrieval_context 无法切分出证据段")
-    question_number = len(document["questions"]) + 1
+    question_start_number = len(document["questions"]) + 1
+    question_count = ANSWERABLE_QUESTIONS_PER_DOCUMENT - len(document["questions"])
     last_error: Exception | None = None
     validation_feedback = None
     for attempt in range(1, args.retries + 1):
         try:
-            question = generate_question(
+            batch = generate_questions(
                 client,
                 args.model,
                 str(document["title"]),
                 passages,
-                question_number,
+                question_start_number,
+                question_count,
                 document["questions"],
                 legacy_questions,
                 validation_feedback,
             )
-            validate_generated_question(
-                question,
-                str(document["title"]),
-                passages,
-                document["questions"],
-                legacy_questions,
-            )
-            return question
+            if len(batch.questions) != question_count:
+                raise ValueError(
+                    f"模型返回 {len(batch.questions)} 题，要求 {question_count} 题"
+                )
+            validated_questions = list(document["questions"])
+            for question in batch.questions:
+                validate_generated_question(
+                    question,
+                    str(document["title"]),
+                    passages,
+                    validated_questions,
+                    legacy_questions,
+                )
+                validated_questions.append(
+                    {
+                        "name": normalize_name(question.name, "question"),
+                        "input": question.input.strip(),
+                    }
+                )
+            return batch.questions
         except Exception as error:  # API and validation failures are retryable.
             last_error = error
             validation_feedback = str(error)
@@ -546,43 +572,67 @@ def main() -> None:
     save_json(documents, args.output)
     client = OpenAI()
     generated_question_count = 0
+    failed_documents = []
     try:
         for document_index, document in enumerate(documents):
             position = document_index + 1
-            while len(document["questions"]) < ANSWERABLE_QUESTIONS_PER_DOCUMENT:
-                question_number = len(document["questions"]) + 1
+            if len(document["questions"]) < ANSWERABLE_QUESTIONS_PER_DOCUMENT:
+                question_start = len(document["questions"]) + 1
+                question_count = (
+                    ANSWERABLE_QUESTIONS_PER_DOCUMENT - len(document["questions"])
+                )
                 print(
                     f"[{position}/{len(documents)}] {document['title']}："
-                    f"生成可回答题 {question_number}/2..."
+                    f"一次生成 {question_count} 道可回答题"
+                    f"（第 {question_start}-2 题）..."
                 )
-                generated = call_with_retries(
-                    client,
-                    args,
-                    document,
-                    selected[document_index].get("questions", []),
-                )
-                context = "\n\n".join(document["retrieval_context"])
-                passages = split_evidence_passages(context)
-                citation = passages[generated.evidence_id - 1]
-                document["questions"].append(
-                    to_answerable_question(generated, question_number - 1, citation)
-                )
-                save_json(documents, args.output)
-                generated_question_count += 1
-                print(f"  已保存：{document['questions'][-1]['name']}")
+                try:
+                    generated_batch = call_with_retries(
+                        client,
+                        args,
+                        document,
+                        selected[document_index].get("questions", []),
+                    )
+                    context = "\n\n".join(document["retrieval_context"])
+                    passages = split_evidence_passages(context)
+                    new_questions = [
+                        to_answerable_question(
+                            generated,
+                            question_start - 1 + batch_index,
+                            passages[generated.evidence_id - 1],
+                        )
+                        for batch_index, generated in enumerate(generated_batch)
+                    ]
+                    document["questions"].extend(new_questions)
+                    save_json(documents, args.output)
+                    generated_question_count += len(new_questions)
+                    print(
+                        "  已保存："
+                        + ", ".join(question["name"] for question in new_questions)
+                    )
+                except RuntimeError as error:
+                    failed_documents.append((position, str(error)))
+                    print(f"  此案例生成失败，保留缺口并继续：{error}")
     except KeyboardInterrupt:
         print("\n收到 Ctrl+C。所有已显示“已保存”的问题都已写入 JSON。")
         print(f"输出文件：{args.output}")
         raise SystemExit(130) from None
-    except RuntimeError as error:
-        raise SystemExit(f"生成失败：{error}") from error
-
-    add_mismatched_questions(documents)
-    save_json(documents, args.output)
+    incomplete = [
+        index + 1
+        for index, document in enumerate(documents)
+        if len(document["questions"]) != ANSWERABLE_QUESTIONS_PER_DOCUMENT
+    ]
+    if not incomplete:
+        add_mismatched_questions(documents)
+        save_json(documents, args.output)
     print(f"输出文件：{args.output}")
     print(f"本次调用模型生成可回答题：{generated_question_count}")
     print(f"累计文章：{len(documents)}")
     print(f"累计问题：{sum(len(item['questions']) for item in documents)}")
+    if incomplete:
+        print(f"尚有 {len(incomplete)} 个案例未完成；重新运行同一命令即可补齐。")
+        print("未完成案例序号：" + ", ".join(map(str, incomplete)))
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
