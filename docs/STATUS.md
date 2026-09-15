@@ -1,12 +1,13 @@
 # 项目状态
 
-更新日期：2026-09-14
+更新日期：2026-09-16
 
 ## 当前可用状态
 
 - Python 依赖已写入根目录 `requirements.txt`。
 - 本地 `.venv` 使用 Python 3.12.13，核心依赖可导入。
-- `config.yaml` 当前设置：API 考生为 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），评估目标为 `[gpt-4o-mini, veri, deepseek]`，质量裁判同样为 GPT-4o-mini 与 DeepSeek-V4.1-Flash，完整 OpenAI 交互日志关闭。
+- `config.yaml` 当前设置：API 考生为 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），评估目标为 `[gpt-4o-mini, veri, deepseek]`，最终质量裁判只使用 DeepSeek-V4.1-Flash，不再调用 GPT-4o-mini 裁判，完整 OpenAI 交互日志关闭。
+- API 并发已改为按模型配置：GPT-4o-mini 默认为单线程；DeepSeek 作答、前置参考答案校正和最终质量评估均使用 4 个工作线程。共享用例与审计文件仍只由主线程原子写入。
 - Wikipedia 源数据 `evaluation_cases/wikipedia_10000.jsonl` 当前有 4,970 行。
 - 原 4,000 篇、16,000 题用例已归档为 `evaluation_cases/test_cases_novel.retired-16000.json`，不再作为当前评估输入。新题库从其前 200 篇继承 `retrieval_context`、文章元数据和已有 `veri_file_id`。
 - 生成器现在对每个案例只调用 ChatGPT 一次，同时生成 2 道可回答题并保存上下文逐字引用；随后从不同案例错配得到 2 道不可回答题。最终固定为 200 个案例、每案例 4 题，共 800 题（400 道可回答、400 道不可回答）。
@@ -21,7 +22,7 @@
 - 已新增 `judge_veri_answered.py`，使用 `judge.model` 根据 `actual_output_veri` 重判 `actual_answered_veri`，逐题原子保存并按裁判模型标记断点进度。
 - 已新增 `revise_reference_answers.py`：从 GPT、Gemini、Veri 中至少两个模型有完整结果的题目里筛选决策不一致及一致 NA/AN 用例，直接提供精确 `retrieval_context`、当前参考答案和可用模型历史回答供审核模型修订 golden answer；Gemini 缺失不会排除题目，且不再上传完整文件。默认只写原子审计快照，`--apply` 只应用高置信、无歧义且无需人工复核的建议。
 - 已新增 `calibrate_reference_answers.py` 作为新 800 题流程的前置 golden 校正器：直接筛选 GPT 与 DeepSeek 回答/拒答不一致的题，用 DeepSeek-V4.1-Flash 基于两份回答和精确 `retrieval_context` 重审；逐题原子保存审计，应用时仅更新高置信、无歧义建议的 `expected_answered` 与 `expected_output`。
-- 评估器支持 GPT 与 DeepSeek 双裁判，会为每个已有考生输出分别创建独立结果目录；考生模型只生成两项回答字段，不参与质量打分。
+- 评估器保留多裁判配置能力，但当前只启用 DeepSeek 裁判，并会为每个已有考生输出创建独立结果目录；考生模型只生成两项回答字段，不参与质量打分。
 - 评估器允许每个目标只评估已有完整字段的子集；指标异常会重试，重试耗尽后隔离为技术失败并继续，技术失败不计入模型统计。
 - 评估逻辑已实现目标/裁判模型分离、模型字段选择、指标适用性、条件质量汇总和 CSV 门控标记。
 - `results.json` 现在从运行开始存在，并在每个 metric 响应后原子更新；总体汇总只统计完整用例，每完成一题即时输出实时总体指标。
@@ -40,10 +41,10 @@
 
 ## 尚未完成
 
-- 新 800 题题库及 GPT/DeepSeek 考生作答已在服务器完成；前置 golden 校正、Veri 完整作答/重判和双裁判质量评估尚未完成，都会产生 API 成本。
+- 新 800 题题库及 GPT/DeepSeek 考生作答已在服务器完成；前置 golden 校正、Veri 完整作答/重判和 DeepSeek 裁判质量评估尚未完成，都会产生 API 成本。
 
 - 尚未运行新 800 题的前置参考答案校正。应先用 `python -u calibrate_reference_answers.py --limit 10` 检查 DeepSeek 建议质量和成本，再续跑全部候选；人工检查审计文件后才使用 `--apply`。
-- 运行双目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由当前裁判模型重判。
+- 运行多目标评估前，必须先完整运行 `judge_veri_answered.py`，确保全部 Veris Boolean 决策均由兼容 `judge.model` 重判。
 - Gemini 当前只有 2,965 条完整目标记录，三模型报告因此使用 2,959 道共同成功用例；补齐 Gemini 或重跑统一输入评估都会产生大量 API 调用、费用和运行时间。
 - 未运行网络测试 `test_chatbot.py` 与 `test_veris.py`，它们会调用 LLM 并产生费用。
 

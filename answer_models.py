@@ -40,6 +40,7 @@ class CandidateModel:
     model: str
     api_key_env: str
     base_url: str | None = None
+    max_workers: int = 1
 
 
 @dataclass(frozen=True)
@@ -136,6 +137,13 @@ def load_candidates(
     raw_models = answering.get("models")
     if not isinstance(raw_models, list) or not raw_models:
         raise ValueError("answering.models must be a non-empty list")
+    default_max_workers = answering.get("max_workers", 1)
+    if (
+        not isinstance(default_max_workers, int)
+        or isinstance(default_max_workers, bool)
+        or default_max_workers < 1
+    ):
+        raise ValueError("answering.max_workers must be a positive integer")
 
     candidates = []
     for index, raw in enumerate(raw_models, 1):
@@ -156,12 +164,22 @@ def load_candidates(
             not isinstance(base_url, str) or not base_url.strip()
         ):
             raise ValueError(f"answering.models item {index} has invalid base_url")
+        max_workers = raw.get("max_workers", default_max_workers)
+        if (
+            not isinstance(max_workers, int)
+            or isinstance(max_workers, bool)
+            or max_workers < 1
+        ):
+            raise ValueError(
+                f"answering.models item {index} has invalid max_workers"
+            )
         candidates.append(
             CandidateModel(
                 id=candidate_id.strip(),
                 model=model.strip(),
                 api_key_env=api_key_env.strip(),
                 base_url=base_url.strip().rstrip("/") if base_url else None,
+                max_workers=max_workers,
             )
         )
 
@@ -177,15 +195,12 @@ def load_candidates(
     return candidates
 
 
-def get_answering_settings(config: dict[str, Any]) -> tuple[str, int]:
+def get_answering_settings(config: dict[str, Any]) -> str:
     answering = config["answering"]
     prompt = answering.get("prompt")
     if not isinstance(prompt, str) or not prompt.strip():
         raise ValueError("answering.prompt must be a non-empty string")
-    max_workers = answering.get("max_workers", 4)
-    if not isinstance(max_workers, int) or isinstance(max_workers, bool) or max_workers < 1:
-        raise ValueError("answering.max_workers must be a positive integer")
-    return prompt.strip(), max_workers
+    return prompt.strip()
 
 
 def retrieval_context(document: dict[str, Any], document_index: int) -> str:
@@ -363,7 +378,6 @@ def execute_tasks(
     tasks: list[AnswerTask],
     prompt: str,
     retries: int,
-    max_workers: int,
     output_path: Path,
     client_factory: Any = create_client,
 ) -> tuple[int, list[str]]:
@@ -389,11 +403,17 @@ def execute_tasks(
 
     processed = 0
     errors = []
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures: dict[Future[ModelAnswer], AnswerTask] = {
-            executor.submit(run_task, task): task for task in tasks
-        }
-        try:
+    tasks_by_model: dict[str, list[AnswerTask]] = {}
+    for task in tasks:
+        tasks_by_model.setdefault(task.candidate.id, []).append(task)
+
+    try:
+        for model_tasks in tasks_by_model.values():
+            max_workers = model_tasks[0].candidate.max_workers
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures: dict[Future[ModelAnswer], AnswerTask] = {
+                    executor.submit(run_task, task): task for task in model_tasks
+                }
             for future in as_completed(futures):
                 task = futures[future]
                 try:
@@ -421,10 +441,11 @@ def execute_tasks(
                     f"question={task.question_index + 1}",
                     flush=True,
                 )
-        except KeyboardInterrupt:
+    except KeyboardInterrupt:
+        if "futures" in locals():
             for future in futures:
                 future.cancel()
-            raise
+        raise
     return processed, errors
 
 
@@ -439,7 +460,7 @@ def main() -> None:
         load_env_file(args.env_file)
         config = load_config(args.config)
         candidates = load_candidates(config, args.models)
-        prompt, max_workers = get_answering_settings(config)
+        prompt = get_answering_settings(config)
         documents = load_json(args.input)
         validate_documents(documents)
         for candidate in candidates:
@@ -455,7 +476,11 @@ def main() -> None:
 
     print(
         f"Models: {', '.join(candidate.id for candidate in candidates)}; "
-        f"pending tasks: {len(tasks)}; workers: {max_workers}",
+        f"pending tasks: {len(tasks)}; workers: "
+        + ", ".join(
+            f"{candidate.id}={candidate.max_workers}"
+            for candidate in candidates
+        ),
         flush=True,
     )
     try:
@@ -464,7 +489,6 @@ def main() -> None:
             tasks,
             prompt,
             args.retries,
-            max_workers,
             args.input,
         )
     except KeyboardInterrupt:

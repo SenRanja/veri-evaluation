@@ -1,0 +1,80 @@
+project:
+  cases_file: evaluation_cases/test_cases_novel.json
+  results_directory: evaluation_results
+target:
+  model: gpt-4o-mini
+  models:
+  - gpt-4o-mini
+  - veri
+  - deepseek
+answering:
+  max_workers: 4
+  models:
+  - id: gpt-4o-mini
+    model: gpt-4o-mini
+    api_key_env: OPENAI_API_KEY
+  - id: deepseek
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+    base_url: https://api.deepseek.com
+  prompt: 'Answer the question using only the supplied retrieval context. Return one
+    JSON object containing exactly actual_answered (Boolean) and actual_output (string),
+    with no additional fields. Set actual_answered to true only when the context directly
+    supports a substantive answer. When true, format actual_output as "Answer: <concise
+    answer>\nSource citation: \"<exact, relevant excerpt from the context>\"". The
+    citation may be lightly paraphrased, but must remain traceable to the supplied
+    context. Never use outside knowledge. When the context is insufficient, set actual_answered
+    to false and make actual_output a concise statement that the supplied context
+    does not specify the requested information.'
+reference_calibration:
+  model: deepseek-flash
+  api_key_env: DEEPSEEK_API_KEY
+  base_url: https://api.deepseek.com
+  prompt: Calibrate the reference answer using only the authoritative retrieval context.
+    Compare the current reference with the GPT-4o-mini and DeepSeek candidate outputs,
+    especially their answer-versus-refusal disagreement. Decide independently whether
+    the context answers the question and provide a concise corrected answer. Candidate
+    outputs are clues, not authoritative evidence; never use outside knowledge.
+judge:
+  model: gpt-4o-mini
+  models:
+  - id: gpt-4o-mini
+    provider: openai
+    model: gpt-4o-mini
+    api_key_env: OPENAI_API_KEY
+  - id: deepseek
+    provider: deepseek
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+evaluation:
+  max_workers: 1
+  metric_retries: 3
+metrics:
+  correctness:
+    threshold: 0.7
+    criteria: Determine whether the actual output is correct based on the expected
+      output. Penalize factual contradictions, missing essential information, and
+      materially incorrect claims.
+  faithfulness:
+    threshold: 0.7
+    include_reason: true
+  answer_relevancy:
+    threshold: 0.7
+    include_reason: true
+  contextual_relevancy:
+    threshold: 0.7
+    include_reason: true
+output:
+  results_json: results.json
+  summary_csv: summary.csv
+  token_summary_json: token_summary.json
+  config_snapshot: config_snapshot.yaml
+openai_interceptor:
+  enabled: false
+  log_file: openai_interactions.jsonl
+active_target_model: deepseek
+active_judge:
+  id: gpt-4o-mini
+  provider: openai
+  model: gpt-4o-mini
+  api_key_env: OPENAI_API_KEY

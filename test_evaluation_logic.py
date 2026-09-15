@@ -223,6 +223,7 @@ def test_judge_models_support_openai_deepseek_and_legacy_config():
                         "id": "deepseek",
                         "provider": "deepseek",
                         "model": "deepseek-flash",
+                        "max_workers": 4,
                     },
                 ]
             }
@@ -233,12 +234,14 @@ def test_judge_models_support_openai_deepseek_and_legacy_config():
             "provider": "openai",
             "model": "gpt-4o-mini",
             "api_key_env": "OPENAI_API_KEY",
+            "max_workers": 1,
         },
         {
             "id": "deepseek",
             "provider": "deepseek",
             "model": "deepseek-flash",
             "api_key_env": "DEEPSEEK_API_KEY",
+            "max_workers": 4,
         },
     ]
     assert get_judge_models({"judge": {"model": "gpt-4o-mini"}})[0][

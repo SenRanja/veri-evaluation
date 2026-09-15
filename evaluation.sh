@@ -15,11 +15,6 @@ if [[ -f .env ]]; then
   set +a
 fi
 
-if [[ -z "${OPENAI_API_KEY:-}" ]]; then
-  echo "OPENAI_API_KEY is not set in the environment or .env." >&2
-  exit 1
-fi
-
 if [[ -z "${DEEPSEEK_API_KEY:-}" ]]; then
   echo "DEEPSEEK_API_KEY is not set in the environment or .env." >&2
   exit 1

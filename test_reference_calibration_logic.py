@@ -5,6 +5,7 @@ from calibrate_reference_answers import (
     ReferenceCalibration,
     apply_completed_reviews,
     build_disagreement_candidates,
+    calibration_settings,
     review_candidate,
 )
 
@@ -29,6 +30,22 @@ def document(questions: list[dict]) -> dict:
         "retrieval_context": ["Alpha was founded in 1999."],
         "questions": questions,
     }
+
+
+def test_calibration_settings_supports_deepseek_workers() -> None:
+    settings = calibration_settings(
+        {
+            "reference_calibration": {
+                "model": "deepseek-flash",
+                "api_key_env": "DEEPSEEK_API_KEY",
+                "base_url": "https://api.deepseek.com",
+                "prompt": "Review the answer.",
+                "max_workers": 4,
+            }
+        }
+    )
+
+    assert settings["max_workers"] == 4
 
 
 def test_only_gpt_deepseek_answerability_disagreements_are_selected() -> None:

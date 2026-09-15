@@ -10,15 +10,17 @@ target:
     - "deepseek"
 
 answering:
-  max_workers: 4
+  max_workers: 1
   models:
     - id: "gpt-4o-mini"
       model: "gpt-4o-mini"
       api_key_env: "OPENAI_API_KEY"
+      max_workers: 1
     - id: "deepseek"
       model: "deepseek-flash"
       api_key_env: "DEEPSEEK_API_KEY"
       base_url: "https://api.deepseek.com"
+      max_workers: 4
   prompt: >-
     Answer the question using only the supplied retrieval context. Return one
     JSON object containing exactly actual_answered (Boolean) and actual_output
@@ -35,6 +37,7 @@ reference_calibration:
   model: "deepseek-flash"
   api_key_env: "DEEPSEEK_API_KEY"
   base_url: "https://api.deepseek.com"
+  max_workers: 4
   prompt: >-
     Calibrate the reference answer using only the authoritative retrieval
     context. Compare the current reference with the GPT-4o-mini and DeepSeek
@@ -46,14 +49,11 @@ reference_calibration:
 judge:
   model: "gpt-4o-mini"
   models:
-    - id: "gpt-4o-mini"
-      provider: "openai"
-      model: "gpt-4o-mini"
-      api_key_env: "OPENAI_API_KEY"
     - id: "deepseek"
       provider: "deepseek"
       model: "deepseek-flash"
       api_key_env: "DEEPSEEK_API_KEY"
+      max_workers: 4
 
 evaluation:
   max_workers: 1

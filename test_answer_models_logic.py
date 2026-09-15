@@ -15,11 +15,12 @@ from answer_models import (
 )
 
 
-def candidate(candidate_id: str) -> CandidateModel:
+def candidate(candidate_id: str, max_workers: int = 1) -> CandidateModel:
     return CandidateModel(
         id=candidate_id,
         model=f"{candidate_id}-api-model",
         api_key_env=f"{candidate_id.upper()}_API_KEY",
+        max_workers=max_workers,
     )
 
 
@@ -64,6 +65,7 @@ def test_load_candidates_supports_openai_and_deepseek() -> None:
                     "model": "deepseek-flash",
                     "api_key_env": "DEEPSEEK_API_KEY",
                     "base_url": "https://api.deepseek.com/",
+                    "max_workers": 4,
                 },
             ]
         }
@@ -74,6 +76,8 @@ def test_load_candidates_supports_openai_and_deepseek() -> None:
     assert [model.id for model in models] == ["gpt-4o-mini", "deepseek"]
     assert models[1].model == "deepseek-flash"
     assert models[1].base_url == "https://api.deepseek.com"
+    assert models[0].max_workers == 1
+    assert models[1].max_workers == 4
 
 
 def test_answer_validation_requires_source_citation_when_answered() -> None:
@@ -129,19 +133,27 @@ def test_concurrent_workers_only_commit_complete_pairs_on_main_thread(
     tmp_path, monkeypatch
 ) -> None:
     data = documents()
-    models = [candidate("gpt"), candidate("deepseek")]
+    models = [candidate("gpt", 1), candidate("deepseek", 4)]
     tasks, _ = build_tasks(data, models, False, 0)
     output = tmp_path / "cases.json"
     output.write_text(json.dumps(data), encoding="utf-8")
     main_thread = threading.get_ident()
     save_threads = []
+    worker_counts = []
     original_save = answer_models.save_json
+    original_executor = answer_models.ThreadPoolExecutor
 
     def capture_save(payload, path):
         save_threads.append(threading.get_ident())
         original_save(payload, path)
 
     monkeypatch.setattr(answer_models, "save_json", capture_save)
+
+    def capture_executor(max_workers):
+        worker_counts.append(max_workers)
+        return original_executor(max_workers=max_workers)
+
+    monkeypatch.setattr(answer_models, "ThreadPoolExecutor", capture_executor)
 
     class FakeCompletions:
         def create(self, **kwargs):
@@ -175,13 +187,13 @@ def test_concurrent_workers_only_commit_complete_pairs_on_main_thread(
         tasks,
         "Prompt",
         retries=1,
-        max_workers=4,
         output_path=output,
         client_factory=lambda _: fake_client,
     )
 
     assert processed == 4
     assert errors == []
+    assert worker_counts == [1, 4]
     assert save_threads == [main_thread] * 4
     saved = json.loads(output.read_text(encoding="utf-8"))
     for question in saved[0]["questions"]:

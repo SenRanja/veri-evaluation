@@ -82,6 +82,7 @@ def get_judge_models(config):
                 "provider": "openai",
                 "model": model.strip(),
                 "api_key_env": "OPENAI_API_KEY",
+                "max_workers": 1,
             }
         ]
     if not isinstance(models, list) or not models:
@@ -110,12 +111,22 @@ def get_judge_models(config):
         )
         if not isinstance(api_key_env, str) or not api_key_env.strip():
             raise ValueError(f"judge.models item {index} has invalid api_key_env")
+        max_workers = item.get("max_workers", 1)
+        if (
+            not isinstance(max_workers, int)
+            or isinstance(max_workers, bool)
+            or max_workers < 1
+        ):
+            raise ValueError(
+                f"judge.models item {index} has invalid max_workers"
+            )
         normalized.append(
             {
                 "id": values["id"].strip(),
                 "provider": provider,
                 "model": values["model"].strip(),
                 "api_key_env": api_key_env.strip(),
+                "max_workers": max_workers,
             }
         )
 
@@ -981,9 +992,9 @@ def main():
             raise ValueError(
                 "Resume config snapshot is missing active target or judge"
             )
-        max_workers = args.max_workers or config.get("evaluation", {}).get(
+        max_workers = args.max_workers or judge.get(
             "max_workers",
-            4,
+            config.get("evaluation", {}).get("max_workers", 1),
         )
         validate_max_workers(max_workers)
         judge_model = create_judge_model(judge)
@@ -1000,11 +1011,6 @@ def main():
 
     target_models = get_target_models(config)
     judges = get_judge_models(config)
-    max_workers = args.max_workers or config.get("evaluation", {}).get(
-        "max_workers",
-        4,
-    )
-    validate_max_workers(max_workers)
     metric_retries = config.get("evaluation", {}).get("metric_retries", 3)
     if not isinstance(metric_retries, int) or isinstance(metric_retries, bool):
         raise ValueError("evaluation.metric_retries must be an integer")
@@ -1012,6 +1018,8 @@ def main():
         raise ValueError("evaluation.metric_retries must be at least 1")
 
     for judge in judges:
+        max_workers = args.max_workers or judge["max_workers"]
+        validate_max_workers(max_workers)
         judge_model = create_judge_model(judge)
         for target_model in target_models:
             evaluate_target(

@@ -6,8 +6,10 @@ import argparse
 import json
 import os
 import re
+import threading
 import time
 from collections import Counter
+from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Literal
 
@@ -107,7 +109,7 @@ def load_config(path: Path) -> dict[str, Any]:
     return config
 
 
-def calibration_settings(config: dict[str, Any]) -> dict[str, str]:
+def calibration_settings(config: dict[str, Any]) -> dict[str, Any]:
     settings = config.get("reference_calibration")
     if not isinstance(settings, dict):
         raise ValueError("config must contain reference_calibration")
@@ -115,7 +117,17 @@ def calibration_settings(config: dict[str, Any]) -> dict[str, str]:
     for key in required:
         if not isinstance(settings.get(key), str) or not settings[key].strip():
             raise ValueError(f"reference_calibration.{key} must be a non-empty string")
-    return {key: settings[key].strip() for key in required}
+    max_workers = settings.get("max_workers", 1)
+    if (
+        not isinstance(max_workers, int)
+        or isinstance(max_workers, bool)
+        or max_workers < 1
+    ):
+        raise ValueError("reference_calibration.max_workers must be a positive integer")
+    return {
+        **{key: settings[key].strip() for key in required},
+        "max_workers": max_workers,
+    }
 
 
 def split_evidence_passages(context: str, max_chars: int = 800) -> list[str]:
@@ -264,7 +276,7 @@ def review_with_retries(
     raise RuntimeError(f"Maximum retries reached: {last_error}") from last_error
 
 
-def new_audit(cases_path: Path, settings: dict[str, str]) -> dict[str, Any]:
+def new_audit(cases_path: Path, settings: dict[str, Any]) -> dict[str, Any]:
     return {
         "schema_version": 1,
         "cases_file": str(cases_path),
@@ -278,7 +290,7 @@ def new_audit(cases_path: Path, settings: dict[str, str]) -> dict[str, Any]:
 
 
 def load_or_create_audit(
-    path: Path, cases_path: Path, settings: dict[str, str]
+    path: Path, cases_path: Path, settings: dict[str, Any]
 ) -> dict[str, Any]:
     expected = new_audit(cases_path, settings)
     if not path.exists():
@@ -425,43 +437,61 @@ def main() -> None:
             from openai import OpenAI
         except ImportError as error:
             raise SystemExit("Missing dependency; run: pip install openai") from error
-        client = OpenAI(api_key=api_key, base_url=settings["base_url"])
+        thread_state = threading.local()
+
+        def review_pending(candidate):
+            client = getattr(thread_state, "client", None)
+            if client is None:
+                client = OpenAI(api_key=api_key, base_url=settings["base_url"])
+                thread_state.client = client
+            return review_with_retries(client, settings, candidate, args.retries)
+
         positions = {
             review_identity(review): index
             for index, review in enumerate(audit["reviews"])
         }
         try:
-            for position, candidate in enumerate(pending, 1):
-                print(
-                    f"[{position}/{len(pending)}] {candidate['document']['title']} / "
-                    f"{candidate['question']['name']}",
-                    flush=True,
-                )
-                try:
-                    revision, expected_output = review_with_retries(
-                        client, settings, candidate, args.retries
+            with ThreadPoolExecutor(
+                max_workers=settings["max_workers"]
+            ) as executor:
+                futures: dict[Future, dict[str, Any]] = {
+                    executor.submit(review_pending, candidate): candidate
+                    for candidate in pending
+                }
+                for position, future in enumerate(as_completed(futures), 1):
+                    candidate = futures[future]
+                    print(
+                        f"[{position}/{len(pending)}] "
+                        f"{candidate['document']['title']} / "
+                        f"{candidate['question']['name']}",
+                        flush=True,
                     )
-                    record = make_review_record(
-                        candidate, revision, expected_output
-                    )
-                except RuntimeError as error:
-                    record = {
-                        "status": "failed",
-                        "document": candidate["key"][0],
-                        "name": candidate["key"][1],
-                        "error": str(error),
-                        "applied": False,
-                    }
-                    print(f"  Failed: {error}", flush=True)
-                key = candidate["key"]
-                if key in positions:
-                    audit["reviews"][positions[key]] = record
-                else:
-                    positions[key] = len(audit["reviews"])
-                    audit["reviews"].append(record)
-                audit["summary"] = summarize(audit, len(candidates))
-                save_json_atomic(audit, args.audit)
+                    try:
+                        revision, expected_output = future.result()
+                        record = make_review_record(
+                            candidate, revision, expected_output
+                        )
+                    except Exception as error:
+                        record = {
+                            "status": "failed",
+                            "document": candidate["key"][0],
+                            "name": candidate["key"][1],
+                            "error": str(error),
+                            "applied": False,
+                        }
+                        print(f"  Failed: {error}", flush=True)
+                    key = candidate["key"]
+                    if key in positions:
+                        audit["reviews"][positions[key]] = record
+                    else:
+                        positions[key] = len(audit["reviews"])
+                        audit["reviews"].append(record)
+                    audit["summary"] = summarize(audit, len(candidates))
+                    save_json_atomic(audit, args.audit)
         except KeyboardInterrupt:
+            if "futures" in locals():
+                for future in futures:
+                    future.cancel()
             print("\nInterrupted. Every completed review is saved.", flush=True)
             raise SystemExit(130) from None
 

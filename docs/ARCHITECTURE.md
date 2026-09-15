@@ -14,15 +14,15 @@
 | `analyze_jsonl_characters.py` | 统计 JSONL 每行字符数。 |
 | `extract_wikipedia_texts.py` | 将 `text` 提取为 Windows 安全的 `{page_id}-{title}.txt`。TXT 只用于外部上传或人工检查。 |
 | `generate_wikipedia_test_cases.py` | 从退役题库继承材料与 `veri_file_id`；每篇一次请求生成 2 道带逐字引用的可回答题，再跨文章错配得到 2 道不可回答题；逐案例原子保存并支持断点恢复。 |
-| `answer_models.py` | 按 `answering.models` 并发调用 GPT 与 DeepSeek；共用配置中的可追溯回答提示词；工作线程只请求 API，主线程串行合并完整字段对并原子保存。 |
+| `answer_models.py` | 按 `answering.models[].max_workers` 分模型调用 GPT 与 DeepSeek；共用配置中的可追溯回答提示词；工作线程只请求 API，主线程串行合并完整字段对并原子保存。 |
 | `gpt-4o-mini_answer.py` | 兼容入口，委托 `answer_models.py` 只运行 GPT-4o-mini。 |
 | `genimi-3.5-flash_answer.py` | 历史 Gemini 作答器；当前评估目标已移除 Gemini，不用于新 800 题流程。 |
 | `veriai_answer.py` | 按 JSON 顺序向 Veris 上传每篇文章的 TXT，将文件 ID 和逐题回答原子写回用例，并跳过已有完整结果以支持续跑。 |
 | `judge_veri_answered.py` | 使用 `judge.model` 根据 `actual_output_veri` 重新判定并逐题保存 `actual_answered_veri`；保存裁判模型标记以支持断点恢复。 |
 | `calibrate_reference_answers.py` | 在正式评估前直接从用例中筛选 GPT/DeepSeek 回答与拒答不一致的题，使用 DeepSeek 和精确 `retrieval_context` 校正 golden 字段；逐题原子保存审计，`--apply` 只应用高置信、无歧义的建议。 |
 | `revise_reference_answers.py` | 从至少两个可用模型的历史结果中筛选决策不一致及一致 NA/AN 用例，向审核模型直接提供 `retrieval_context`、当前参考答案和可用模型回答，逐题保存参考答案修订审计；不上传文件，仅在 `--apply` 时应用高置信建议。 |
-| `evaluation.py` | 按目标加载已有完整作答，对 `target.models × judge.models` 的每个组合独立构建四项 DeepEval 指标、并发评估并输出汇总。 |
-| `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv`、`OPENAI_API_KEY` 与 `DEEPSEEK_API_KEY`，再用 `.venv/bin/python -u` 启动双裁判评估器。 |
+| `evaluation.py` | 按目标加载已有完整作答，对 `target.models × judge.models` 的每个组合独立构建四项 DeepEval 指标、按裁判配置并发评估并输出汇总。 |
+| `evaluation.sh` | 从项目根目录加载 `.env`，校验 `.venv` 与 `DEEPSEEK_API_KEY`，再用 `.venv/bin/python -u` 启动评估器。 |
 | `tools/openai_interceptor.py` | 拦截 DeepEval 使用的 Chat Completions 调用，记录请求、响应、错误和 token。 |
 | `test_evaluation_logic.py` | 不访问网络的核心契约回归测试。 |
 | `test_chatbot.py`、`test_veris.py` | 会访问裁判模型的示例/集成测试，可能产生费用。 |
@@ -123,13 +123,14 @@ Veris 集成按篇保存 `veri_file_id`，按题保存固定后缀字段 `actual
 - `project.results_directory`：评估输出根目录。
 - `answering.models`：API 考生列表。每项包含稳定字段后缀 `id`、API 模型名、key 环境变量和可选 `base_url`。
 - `answering.prompt`：GPT 与 DeepSeek 共用的作答提示词；要求仅依据上下文回答，并在实际回答时附上可追溯来源引用，允许轻微改写。
-- `answering.max_workers`：跨模型、跨问题的 API 工作线程数。工作线程不写共享 JSON，主线程逐结果原子保存，避免条件竞争和顺序损坏。
-- `reference_calibration`：前置 golden 校正使用的 DeepSeek 模型、API key 环境变量、OpenAI 兼容端点和审核提示。
+- `answering.max_workers`：候选模型未单独设置并发数时使用的兼容默认值，当前为 1。
+- `answering.models[].max_workers`：每个考生独立的 API 工作线程数；当前 GPT-4o-mini 为 1，DeepSeek 为 4。不同模型分开调度，工作线程不写共享 JSON，主线程逐结果原子保存。
+- `reference_calibration`：前置 golden 校正使用的 DeepSeek 模型、API key 环境变量、OpenAI 兼容端点、审核提示和 `max_workers`；当前并发数为 4。
 - `target.model`：旧作答脚本兼容值。
 - `target.models`：评估器依次读取的模型字段后缀列表；未设置时兼容回退到 `target.model`。
 - `judge.model`：Veri 决策重判等旧脚本使用的兼容裁判。
-- `judge.models`：质量评估裁判列表。当前分别通过 OpenAI 和 DeepSeek provider 使用 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`）。
-- `evaluation.max_workers`：并发数；越高越容易触发限流并扩大瞬时费用。
+- `judge.models`：质量评估裁判列表。当前只使用 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），不再调用 GPT-4o-mini 作为最终评估裁判；每项可用 `max_workers` 设置独立并发数，当前 DeepSeek 为 4，未配置时默认为 1。
+- `evaluation.max_workers`：旧运行快照缺少裁判级设置时的兼容并发数；命令行 `--max-workers` 可临时覆盖当前裁判配置。
 - `metrics.*`：阈值和裁判说明。
 - `output.*`：产物文件名。
 - `openai_interceptor.*`：交互日志开关与文件名；当前关闭，不再写入完整 OpenAI 交互。
@@ -160,7 +161,7 @@ source .venv/bin/activate
 python veriai_answer.py --document-limit 10
 ```
 
-当前 `answering.models` 会同时处理 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），分别只写 `actual_answered_<id>` 和 `actual_output_<id>`。`veri` 使用专用作答器。当前 `target.models` 为 `gpt-4o-mini`、`veri` 和 `deepseek`；`judge.models` 也使用 GPT-4o-mini 和 DeepSeek-V4.1-Flash，因此完整评估会为每个已有考生输出分别创建两个裁判结果目录。
+当前 `answering.models` 会处理 GPT-4o-mini 与 DeepSeek-V4.1-Flash（API 标识 `deepseek-flash`），分别只写 `actual_answered_<id>` 和 `actual_output_<id>`；GPT 单线程，DeepSeek 使用 4 个工作线程。`veri` 使用专用作答器。当前 `target.models` 为 `gpt-4o-mini`、`veri` 和 `deepseek`，但 `judge.models` 只保留 DeepSeek，因此完整评估会为每个已有考生输出创建一个 DeepSeek 裁判结果目录。
 
 Veris 决策重判与双目标评估：
 
