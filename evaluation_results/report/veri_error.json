@@ -1,0 +1,608 @@
+{
+  "metadata": {
+    "generated_date": "2026-09-16",
+    "scope": "Three-model common completed intersection",
+    "common_sample_size": 419,
+    "target_model": "veri",
+    "judge_model": "gpt-4o-mini",
+    "definition": [
+      "只收录三者 status=completed 的 (document,name) 严格交集中的非 AA/NN 决策错误。",
+      "AN 表示 false_refusal，NA 表示 unsupported_answer；AA/NN 不收录。"
+    ],
+    "source_results": [
+      "evaluation_results/20260914-111353-gpt-4o-mini-judge-gpt-4o-mini",
+      "evaluation_results/20260915-004747-veri-judge-gpt-4o-mini",
+      "../../tmp/deepseek-judge-gpt-snapshot.json"
+    ]
+  },
+  "summary": {
+    "total_errors": 11,
+    "false_refusal": 10,
+    "unsupported_answer": 1
+  },
+  "errors": [
+    {
+      "document": "wikipedia_50739529_tropical_storm_colin_2016",
+      "name": "tropical_storm_colin_landfall_location",
+      "input": "Where did Tropical Storm Colin (2016) make landfall?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "Tropical Storm Colin (2016) made landfall in Taylor County, Florida.\n\nSource citation: \"Early on June 7, Colin made landfall in Taylor County, Florida, still at peak intensity. The system rapidly crossed Northern Florida and emerged into the Atlantic Ocean several hours later. By late on June 7, Colin transitioned into an extratropical cyclone offshore North Carolina before being absorbed by a frontal boundary the following day. Upon the development of Colin on June 5, a tropical storm warning was issued for much of the west coast of Florida, followed by tropical storm warnings and watches on Atlantic coast from Central Florida to North Carolina later on June 5 and June 6. Governor of Florida Rick Scott declared a state of emergency, while schools and colleges closed in several counties.\"",
+      "actual_output": "【Answer】\n【未搜尋到知識庫中的相關資訊】\n\n【Cited passage】\nNo relevant passage\n\n【Source】\nTropical Storm Colin (2016) (filename: 50739529-Tropical Storm Colin (2016).txt)\n\n【Source index】\nfile_id: dfe4728d-b10f-468a-8d9f-991019974e39\nfilename: 50739529-Tropical Storm Colin (2016).txt\ntitle: Tropical Storm Colin (2016)",
+      "retrieval_context": [
+        "Tropical Storm Colin was the earliest third named storm in the Atlantic basin on record for four years, until it was surpassed by Tropical Storm Cristobal in 2020. An atypical, poorly organized tropical cyclone, Colin developed from a low pressure area over the Gulf of Mexico near the northern coast of the Yucatán Peninsula late on June 5. Moving northward, the depression strengthened into a tropical storm about eight hours after its formation. On June 6, Colin curved to the north-northeast and intensified slightly to winds of 50 mph (80 km/h). Strong wind shear prevented further strengthening and resulted in the system maintaining a disheveled appearance on satellite imagery. Later, the storm began accelerating to the northeast. Early on June 7, Colin made landfall in Taylor County, Florida, still at peak intensity. The system rapidly crossed Northern Florida and emerged into the Atlantic Ocean several hours later. By late on June 7, Colin transitioned into an extratropical cyclone offshore North Carolina before being absorbed by a frontal boundary the following day.\nUpon the development of Colin on June 5, a tropical storm warning was issued for much of the west coast of Florida, followed by tropical storm warnings and watches on Atlantic coast from Central Florida to North Carolina later on June 5 and June 6. Governor of Florida Rick Scott declared a state of emergency, while schools and colleges closed in several counties. The storm produced heavy rainfall over portions of Florida, resulting in flooding in some areas, especially Hillsborough and Pinellas counties. There, the freshwater flooding was compounded by coastal flooding from high tides. Winds caused over 93,300 power outages throughout the state. The storm spawned two tornadoes, one of which knocked down trees and damaged several cars and homes in Jacksonville. Four fatalities occurred in the Florida Panhandle due to drowning. Heavy rainfall was also observed in portions of Georgia, North Carolina, and South Carolina. Two additional drowning deaths occurred in Georgia. Damage throughout the East Coast reached $1.04 million (2016 USD).\n\n\n== Meteorological history ==\n\nThe National Hurricane Center (NHC) issued a Tropical Weather Outlook (TWO) over the Gulf of Mexico and northern Yucatán Peninsula on June 1. The Two indicated the probability of the development of a low pressure area, which would have a 20% chance of becoming a tropical cyclone in the next five days. By June 3, a concentrated area of showers and thunderstorms developed in the western Caribbean Sea, resulting in an increasing probability of tropical cyclogenesis within 48 hours. Despite land interaction with the Yucatán Peninsula and unfavorably strong wind shear, the system reached an 80% chance of developing in the next 48 hours by early on June 5. It then moved inland over the Yucatán Peninsula, but continued to organize. After entering the Gulf of Mexico, the system developed a well-defined circulation, according to surface data and satellite imagery. Thus, the NHC upgraded it to on Tropical Depression Three at 12:00 UTC on June 5, while located just north of the Yucatán Peninsula. The northward-moving depression was lopsided, with the circulation being well to the west of an elongated band of deep convection.\nLater that day, after a reconnaissance aircraft observed tropical storm force winds, the cyclone was upgraded to Tropical Storm Colin at 18:00 UTC. Colin became the earliest third tropical storm in the Atlantic basin, exceeding the previous record set by Tropical Storm Three on June 12, 1887. Despite the intensification, the storm remained poorly organized due to strong wind shear, with the low-level center being indistinguishable on infrared satellite imagery. Early on June 6, data from surface observations, the National Oceanic and Atmospheric Administration, and a reconnaissance aircraft flight suggested that two small-scale circulations existed. Shortly thereafter, NHC noted that the \"satellite presentation of Colin does not resemble that of a classical tropical cyclone\", as convection and strong winds were displaced well east of the center, primarily due to wind shear. The storm began accelerating to the northeast late on June 6 due to a mid- to upper-level trough over the Midwestern United States. Despite this, Colin was able to reach its peak intensity at 00:00 UTC on June 7, with maximum sustained winds of 50 mph (80 km/h) and a minimum atmospheric pressure of 1,001 mbar (29.6 inHg).\nTwo hours later, the cyclone made landfall in Keaton Beach, Florida, at peak intensity. Continuing rapidly northeastward, Colin quickly crossed North Florida and southern Georgia, reaching the Atlantic Ocean before 09:00 UTC. The storm appeared to be \"not very tropical\", though large areas of deep convection continued to exist to the east and southeast of the center. At 12:00 UTC on June 7, the system had frontal features and thus transitioned into an extratropical cyclone, just off the Carolinas coast.\n\n\n== Preparations ==\n\nUpon the development of Colin at 15:00 UTC on June 5, a tropical storm warning was issued on the west coast of Florida from Englewood to Indian Pass. Six hours later, a tropical storm watch was put into effect from the Flagler–Volusia county line on the east coast to Altamaha Sound in Georgia. Early on June 6, the tropical storm watch was upgraded to a tropical storm warning, which was extended southward to the Sebastian Inlet. Simultaneously, a new tropical storm watch was issued from Altamaha Sound to the South Santee River in South Carolina. The tropical storm watch was upgraded to a tropical storm warning by 18:00 UTC on June 6. After three hours, the tropical storm warning was extended northward to Oregon Inlet in North Carolina. At 09:00 UTC on June 7, the tropical storm warning on the Gulf Coast of Florida and the East Coast of the United States south of Altamaha Sound, Georgia, was discontinued. Three hours later, the tropical storm warning was canceled south of Surf City, North Carolina. By 18:00 UTC on June 7, the remaining portion of the tropical storm warning was discontinued.\nOn June 6, Governor of Florida Rick Scott declared a state of emergency for 34 counties and also prepared to deploy 6,000 Florida National Guard members, if necessary. All campuses of Seminole State College and University of Central Florida were closed on June 6, while the University of South Florida closed all three of its campuses after 3:00 p.m. EST. The Sunshine Skyway Bridge, which spans across Tampa Bay, was closed on June 6 due to high winds. In Manatee County, an elementary school in Holmes Beach closed for one day. School students in Pasco County were released early on June 6. Boat ramps in Levy County were closed, while schools in Cedar Key and Yankeetown had an early release day on June 6. Sandbags were available in several counties, including Alachua, Bradford, Citrus, Hernando, Highlands, Hillsborough, Lake, Manatee, Marion, Pasco, Pinellas, St. Johns, and Volusia.\nIn coastal Georgia, Liberty County schools, Armstrong State University, Savannah Technical College, closed early on June 6. The health departments in Bryan, Camden, Chatham, Effingham, Glynn, Liberty, Long, and McIntosh counties were also closed earlier than normal on that day. Military personnel and civilian employees at Fort Stewart and Hunter Army Airfield were ordered not to return until after the storm safely passed.\n\n\n== Impact ==\nThe storm brought heavy rainfall and flooding to western Cuba, particularly Pinar del Río Province, where some locations recorded more than 7.9 inches (200 mm) of precipitation in 24 hours. San Juan y Martínez saw the highest total with 8.7 inches (220 mm). In low-lying and flood prone communities, authorities remained alert to the possibility of evacuations due to rivers beginning to overflow. Several roads were left impassable, while crops were damaged in some areas. Approximately 84,000 acres (34,000 hectares) of crops were flooded. Additionally, water service was disrupted and more than 6,770 customers lost electricity. Three homes in Old Havana suffered major damage and several others were impacted following multiple landslides. Heavy rainfall was largely seen as beneficial; multiple reservoirs received much-needed rain and their overall capacity reached 50 percent.\n\n\n=== Florida ===\n\nThe storm brought heavy rainfall to some areas of Florida, particularly North Florida and the Tampa Bay Area. Precipitation peaked at 17.54 in (446 mm) in Seminole in Pinellas County. Tropical storm force wind gusts were observed at several locations, though few locations reported sustained tropical storm force winds. At the New Smyrna Beach Municipal Airport, a sustained winds speed of 52 mph (84 km/h) was recorded, while a wind tower at the Kennedy Space Center observed a wind gust of 66 mph (106 km/h). Other strong wind gusts included 57 mph (92 km/h) in Bradenton and 63 mph (101 km/h) in Jacksonville. At the Tampa International Airport, there were 29 flight delays and 2 cancellations, while the Orlando International Airport reported sixty-four flight arrival and departure delays, as well as four cancellations.\n\nThe heavy precipitation resulted in scattered reports of flooding throughout North and Central Florida. Many roads and intersections in at least a few counties were closed due to flooding, including in Alachua, Bradford, Hernando, Hillsborough, Pinellas, and St. Johns counties. Water entered a few businesses in Tampa at South Manhattan Avenue and El Prado Boulevard. In Pinellas County, a mobile home park in Clearwater was flooded, while water entered some homes in St. Pete Beach. Floodwaters overwhelmed the sewage system, forcing the city to pump partially treated sewage into Tampa Bay. Heavy rainfall in St. Petersburg resulted in water entering the hallway at St. Petersburg High School while school was in session. Overall, damage in the Tampa Bay area total $10,000. The south fork of Black Creek, located in Clay County, rose from 0.5 ft (0.15 m) to about 13.8 ft (4.2 m), but remained below flood stage. In St. Johns County, two sinkholes formed on the roads, while a culvert was washed out. Some areas were also impacted by storm surge and abnormally high tides. In Cedar Key, seven businesses and thirteen homes were flooded, while roads were inundated at the Cedar Keys National Wildlife Refuge. At least three people drowned along the Florida Panhandle due to rip currents, and a fourth remains missing but is presumed dead.\nPower outages were reported throughout Central and North Florida, with over 93,300 customers losing electricity, including about 9,500 power outages between Tampa and Temple Terrace. In several counties, such as Alachua, Bradford, Duval, Flagler, Hardee, Martin, Orange, Putnam, and St. Lucie, impact was primarily limited to falling trees, which blocked roads, knocked down some power lines, or left generally minor damage to homes and vehicles. A few tornadoes and waterspouts were spawned during a storm. A waterspout was spotted offshore Lee County near Bonita Springs and Estero. An EF1 tornado on the Enhanced Fujita scale touched down near Jacksonville. The tornado snapped a number of pine and hardwood trees, while causing roof damage to some homes. At a Publix distribution center, three empty trucks were overturned. A possible tornado in Alachua County in the vicinity of Hawthorne toppled some trees and damaged a home.\n\n\n=== Georgia and the Carolinas ===\nIn Georgia, two swimmers went missing while boating St. Andrew Sound. After a United States Coast Guard helicopter search of an over 1,150 sq mi (3,000 km2) area, the bodies of both of them were located. The storm left wind damage in Glynn County. Five trees fell onto roads, while one tree each was reported striking a power line, a shed, and a vehicle. Several roads in Liberty County were washed out due to flooding, where 4.32 in (110 mm) of precipitation was observed at Hine"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.4,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.40 because while there are relevant statements like 'Colin made landfall in Taylor County, Florida' and 'made landfall in Keaton Beach, Florida', the majority of the context focuses on the storm's impact and movement, which detracts from directly answering the question about its landfall location."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response fails to provide any relevant information regarding the landfall of Tropical Storm Colin, indicating a complete lack of relevance to the question asked."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.19417701775131485,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output fails to provide any factual information about Tropical Storm Colin, which is a significant deviation from the expected output that details its landfall and subsequent events. While it correctly cites the source, it does not include any relevant information from that source, resulting in a lack of essential details. The absence of any relevant content leads to a categorization of the output as incorrect."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_3839532_gerard_james_borg",
+      "name": "gerard_james_borg_song_eurovision",
+      "input": "What is the name of the song by Gerard James Borg that helped Malta achieve 2nd place in the Eurovision Song Contest?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "The song is \"7th Wonder\" sung by Ira Losco.\n\nSource citation: \"Gerard James Borg is a Maltese songwriter, author, and concept creator. He is well known for writing multiple songs that competed in the Eurovision Song Contest. Borg has written six of the Maltese entries for the annual Eurovision Song Contest with composer Philip Vella. Their song \"7th Wonder\" sung by Ira Losco gave Malta 2nd place in the contest. This was the first time Malta reached 2nd place and it is the country's best result in the contest so far, alongside the 2nd place earned by Chiara with the song \"Angel\" in 2005. Borg and Vella also penned the song \"Reaching Higher\" as the official theme for the 2003 Games of the Small States of Europe which were held in Malta that year. Some of their compositions have also done well in foreign charts.\"",
+      "actual_output": "我幫您仔細查看了一下資料，不過目前選出的段落中並沒有提到 Gerard James Borg 演唱的歌曲名稱。段落中提到的「7th Wonder」是由 Ira Losco 演唱並為馬耳他獲得亞軍的，這與問題中詢問的 Gerard James Borg 不符。\n\n由於缺乏關於 Gerard James Borg 參賽歌曲的具體資訊，我無法直接為您提供答案。如果您有其他相關資料或想確認其他參賽者的資訊，歡迎隨時告訴我喔！\n\n【Answer】\n未搜索到知識庫中的相關信息\n\n【Cited passage】\nNo relevant passage\n\n【Source】\nGerard James Borg (filename: 3839532-Gerard James Borg.txt)\n\n【Source index】\nfile_id: a8b94341-d05e-4c67-a6c9-b7775700ff88\nfilename: 3839532-Gerard James Borg.txt\ntitle: Gerard James Borg",
+      "retrieval_context": [
+        "Gerard James Borg is a Maltese songwriter, author, and concept creator. He is well known for writing multiple songs that competed in the Eurovision Song Contest.\nBorg has written six of the Maltese entries for the annual Eurovision Song Contest with composer Philip Vella. Their song \"7th Wonder\" sung by Ira Losco gave Malta 2nd place in the contest. This was the first time Malta reached 2nd place and it is the country's best result in the contest so far, alongside the 2nd place earned by Chiara with the song \"Angel\" in 2005. Borg and Vella also penned the song \"Reaching Higher\" as the official theme for the 2003 Games of the Small States of Europe which were held in Malta that year. Some of their compositions have also done well in foreign charts.\nBorg has also co-written the song \"Shine\" which represented Russia in the 2014 Eurovision Song Contest and wrote songs for several national finals in other countries which include France, Norway, The Netherlands, Belgium, Greece, Iceland, Bulgaria, and Romania.\nBorg has also written blog-style articles for the Times of Malta, and been interviewed for the Maltese newspaper by journalist Ramona Depares.  Some of his fashion designs appeared on the German fashion publication Burda.\n\n\n== Eurovision Song Contest ==\n\n\n=== Eurovision Song Contest entries ===\n\nDesire by Claudette Pace  (Malta 2000)\n7th Wonder by Ira Losco  (Malta 2002)\nOn Again... Off Again by Julie & Ludwig  (Malta 2004)\nVertigo by Olivia Lewis   (Malta 2007)\nVodka by Morena   (Malta 2008)\nShine by Tolmachevy Twins   (Russia 2014)\nBreathlessly by Claudia Faniello   (Malta 2017)\n\n\n=== National final entries ===\n\n\n== Publications ==\nGerard James Borg has published 5 novels.\n\nSliema Wives (2013)\nMadliena Married Men (2015)\nBormla Babes: Behind the Scenes (2017)\nTigné Point Bachelors (2019)\nSliema Wives: The New Breed (2021)\nThe Divorce Party (2024)\nBorg's debut novel Sliema Wives is a local best seller and it peaked at number one after one week of its release. Part of the proceeds from the book were donated to local charity Puttinu Cares. Similarly, Madliena Married Men also reached the number one spot in the local bestseller list.\n\n\n== References ==\n\n\n== External links ==\nOfficial facebook site"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.375,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.38 because while there are relevant statements like 'Their song '7th Wonder' sung by Ira Losco gave Malta 2nd place in the contest,' the majority of the context discusses unrelated topics such as Borg's fashion designs and articles, making it largely irrelevant to the specific question about the song that helped Malta achieve 2nd place."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.2857142857142857,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.29 because the output fails to mention the name of the song by Gerard James Borg, which is the main focus of the question. Additionally, it includes irrelevant references to another artist and confirms a lack of relevant information, which detracts from the overall relevance."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.27639574412752327,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the song '7th Wonder' is performed by Ira Losco, but it fails to provide the expected information about Gerard James Borg's involvement in writing the song. While it acknowledges the lack of specific information about Borg's song, it does not address the main point of the expected output, which is to connect Borg to the song. The response lacks coherence with the expected output and does not cite any relevant passages, leading to a low score."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.4,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.40 because the actual output claims specific titles and participation details about Gerard James Borg's songs for Eurovision, which are not supported by the retrieval context that only mentions he has written multiple songs without specifying titles or relevant passages."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_310142_under_milk_wood",
+      "name": "under_milk_wood_stage_adaptation_year",
+      "input": "In what year was the stage adaptation of 'Under Milk Wood' first performed?",
+      "expected_answered": false,
+      "actual_answered": true,
+      "decision_state": "NA",
+      "error_type": "unsupported_answer",
+      "expected_output": "The retrieval context does not specify the year in which the stage adaptation of Under Milk Wood was first performed. It only states that the play was later adapted for the stage and separately notes a first public reading in New York City in 1953.",
+      "actual_output": "我幫您看了一下資料，這部戲劇的改編版本最早是在 1954 年於日內瓦的 Cour Saint-Pierre 劇院演出的。\n\n【Answer】\n1954\n\n【Cited passage】\nNonetheless, the play has subsequently been staged in many theatres, beginning in November 1954 at the Théâtre de la Cour Saint-Pierre, Geneva, by Phoenix Productions, with sound effects lent by the BBC.\n\n【Source】\nUnder Milk Wood (filename: 310142-Under Milk Wood.txt)\n\n【Source index】\nfile_id: a43fd33f-3c60-4981-b98a-f2497086f107\nfilename: 310142-Under Milk Wood.txt\ntitle: Under Milk Wood",
+      "retrieval_context": [
+        "Under Milk Wood is a 1954 radio drama by the Welsh poet Dylan Thomas. The BBC commissioned the play, which was later adapted for the stage. The first public reading was in New York City in 1953.\nA film version of the same name, directed by Andrew Sinclair, was released in 1972. A second adaptation of the play, directed by Pip Broughton, was staged for television in 2014 for the 60th anniversary of the piece. \nAn omniscient narrator invites the audience to listen to the dreams and innermost thoughts of the inhabitants of the fictional small Welsh fishing town, Llareggub, (buggerall spelt backwards).\nThey include Mrs. Ogmore-Pritchard, relentlessly nagging her two dead husbands; Captain Cat, reliving his seafaring times; the two Mrs. Dai Breads; Organ Morgan, obsessed with his music; and Polly Garter, pining for her dead lover. Later, the town awakens, and, aware now of how their feelings affect whatever they do, we watch them go about their daily business.\n\n\n== Origins and development ==\n\n\n=== Background ===\n\nIn 1931, the 17-year-old Thomas created a piece for the Swansea Grammar School magazine that included a conversation of Milk Wood stylings, between Mussolini and Wife, similar to those between Mrs. Ogmore-Pritchard and her two husbands that would later be found in Under Milk Wood. \nIn 1933, Thomas talked at length with his mentor and friend, Bert Trick, about creating a play about a Welsh town:\n\nHe read it to Nell and me in our bungalow at Caswell around the old Dover stove, with the paraffin lamps lit at night ... the story was then called Llareggub, which was a mythical village in South Wales, a typical village, with terraced houses with one ty bach to about five cottages and the various characters coming out and emptying the slops and exchanging greetings and so on; that was the germ of the idea which ... developed into Under Milk Wood.\nIn February 1937, Thomas outlined his plans for a Welsh Journey, following a route that would \"be decided by what incidents arose, what people told me stories, what pleasant or unpleasant or curious things...I encountered in the little-known villages among the lesser-known people.\"\nA year later, in March 1938, Thomas suggested that a group of Welsh writers should prepare a verse-report of their \"own particular town, village, or district.\"\n\n\n=== Laugharne ===\nIn May 1938, the Thomas family moved to Laugharne, a small town on the estuary of the river Tâf in Carmarthenshire, Wales. They lived there intermittently for just under two years until July 1941. They did not return to live there until 1949. \nThe author Richard Hughes, who lived in Laugharne, has recalled that Thomas spoke to him in 1939 about writing a play about Laugharne in which the townsfolk would play themselves, an idea pioneered on the radio by Cornish villagers in the 1930s. Four years later, in 1943, Thomas again met Hughes, and this time outlined a play about a Welsh village certified as 'mad' by government inspectors.\nHughes believed that when Thomas \"came to write Under Milk Wood, he did not use actual Laugharne characters.\" Nevertheless, some elements of Laugharne are discernible in the play. A girl, age 14, named Rosie Probert (\"Rosie Probert, thirty three Duck Lane. Come on up, boys, I'm dead.\") was living in Horsepool Road in Laugharne at the 1921 census. Although there is no-one of that name in Laugharne in the 1939 War Register, nor anyone named Rosie, Laugharne resident, Jane Dark, has described how she told Thomas about her. Dark has also described telling Thomas about the ducks of Horsepool Road (\"Duck Lane\") and the drowning of the girl who went in search of them.\nBoth Laugharne and Llareggub have a castle, and, like Laugharne, Llareggub is on an estuary (\"boat-bobbing river and sea\"), with cockles, cocklers and Cockle Row. Laugharne also provides the clock tower of Myfanwy Price's dreams, as well as Salt House Farm which may have inspired the name of Llareggub's Salt Lake Farm. Llareggub's Butcher Beynon almost certainly draws on butcher and publican Carl Eynon, though he was not in Laugharne but in nearby St Clears.\n\n\n=== New Quay ===\nIn September 1944, the Thomas family moved to a bungalow called Majoda on the cliffs outside New Quay, Cardiganshire (Ceredigion), Wales, and left in July the following year. Thomas had previously visited New Quay whilst living in nearby Talsarn in 1942–1943, and had an aunt and cousins living in New Quay. He had written a New Quay pub poem, Sooner than you can water milk, in 1943, which has several words and ideas that would later re-appear in Under Milk Wood. Thomas' bawdy letter-poem from New Quay to T. W. Earp, written just days after moving into Majoda, contains the name \"No-good\", anticipating Nogood Boyo of Under Milk Wood.\nThomas's wife, Caitlin, has described the year at Majoda as \"one of the most important creative periods of his life...New Quay was just exactly his kind of background, with the ocean in front of him ... and a pub where he felt at home in the evenings.\" Thomas' biographers have taken a similar view. His time there, recalled Constantine FitzGibbon, his first biographer, was \"a second flowering, a period of fertility that recalls the earliest days … [with a] great outpouring of poems\", as well as a good deal of other material. Biographer Paul Ferris agreed: \"On the grounds of output, the bungalow deserves a plaque of its own.\" Thomas' third biographer, George Tremlett, concurred, describing the time in New Quay as \"one of the most creative periods of Thomas's life.\"\nSome of those who knew him well, including FitzGibbon, have said that Thomas began writing Under Milk Wood in New Quay. The play's first producer, Douglas Cleverdon, agreed, noting that Thomas \"wrote the first half within a few months; then his inspiration seemed to fail him when he left New Quay.\" One of Thomas' closest friends and confidantes, Ivy Williams of Brown's Hotel, Laugharne, has said \"Of course, it wasn't really written in Laugharne at all. It was written in New Quay, most of it.\"\nThe writer and puppeteer, Walter Wilkinson, visited New Quay in 1947, and his essay on the town captures its character and atmosphere as Thomas would have found it two years earlier. Photos of New Quay in Thomas' day, as well as a 1959 television programme about the town, can be found here.\nThere were many milestones  on the road to Llareggub, and these have been detailed by Professor Walford Davies in his Introduction to the definitive edition of Under Milk Wood. The most important of these was Quite Early One Morning, Thomas' description of a walk around New Quay, broadcast by the BBC in 1945, and described by Davies as a \"veritable storehouse of phrases, rhythms and details later resurrected or modified for Under Milk Wood.\" For example, the \"done-by-hand water colours\" of Quite Early One Morning appear later as the \"watercolours done by hand\" of Under Milk Wood.\nAnother striking example from the 1945 broadcast is Mrs Ogmore-Pritchard who later appears as a major character in Under Milk Wood:\n\nOpen the curtains, light the fire, what are servants for?\nI am Mrs. Ogmore-Pritchard and I want another snooze.\nDust the china, feed the canary, sweep the drawing-room floor;\nAnd before you let the sun in, mind he wipes his shoes.\nMrs Ogmore Davies and Mrs Pritchard-Jones both lived on Church Street in New Quay. Mrs Pritchard-Jones was constantly cleaning, recalled one of her neighbours, \"a real matron-type, very strait-laced, house-proud, ran the house like a hospital ward.\" In her book on New Quay, Mrs Pritchard-Jones' daughter notes that her mother had been a Queen's Nurse before her marriage and afterwards \"devoted much of her time to cleaning and dusting our home ... sliding a small mat under our feet so we would not bring in any dirt from the road.\"\nJack Lloyd, a New Quay postman and the Town Crier, also lived on Church Street. He provided the character of Llareggub's postman Willy Nilly, whose practice of opening letters, and spreading the news, reflects Lloyd's role as Town Crier, as Thomas himself noted on a work sheet for the play: \"Nobody minds him opening the letters and acting as [a] kind of town-crier. How else could they know the news?\" It is this note, together with our knowledge that Thomas knew Jack Lloyd (\"an old friend\"), that establish the link between Willy Nilly and Lloyd.\nThere were also other New Quay residents in Under Milk Wood. Dai Fred Davies the donkeyman on board the fishing vessel, the Alpha, appears in the play as Tom-Fred the donkeyman. Local builder, Dan Cherry Jones, appears as Cherry Owen in the play, as Cherry Jones in Thomas' sketch of Llareggub, and as Cherry Jones in one of Thomas' work sheets for the play, where Thomas describes him as a plumber and carpenter.\nThe time-obsessed, \"thin-vowelled laird\", as Thomas described him, New Quay's reclusive English aristocrat, Alastair Hugh Graham, lover of fish, fishing and cooking, and author of Twenty Different Ways of Cooking New Quay Mackerel, is considered to be the inspiration for \"Lord Cut-Glass … that lordly fish-head nibbler … in his fish-slimy kitchen ... [who] scampers from clock to clock\".\nThird Drowned's question at the beginning of the play, \"How's the tenors in Dowlais?\", reflects the special relationship that once existed between New Quay and Dowlais, an industrial town in South Wales. Its workers traditionally holidayed in New Quay and often sang on the pier on summer evenings. Such was the relationship between the two towns that when St Mair's church in Dowlais was demolished in 1963, its bell was given to New Quay's parish church.\nOther names and features from New Quay in the play include Maesgwyn farm  the Sailor's Home Arms, the river Dewi, the quarry, the harbour, Manchester House, the hill of windows and the Downs. The Fourth Drowned's line \"Buttermilk and whippets\" also comes from New Quay, as does the stopped clock in the bar of the Sailors' Arms.\nWalford Davies has concluded that New Quay \"was crucial in supplementing the gallery of characters Thomas had to hand for writing Under Milk Wood. FitzGibbon had come to a similar conclusion many years earlier, noting that Llareggub \"resembles New Quay more closely [than Laugharne] and many of the characters derive from that seaside village in Cardiganshire...\" John Ackerman has also suggested that the story of the drowned village and graveyard of Llanina, that lay in the sea below Majoda, \"is the literal truth that inspired the imaginative and poetic truth\" of Under Milk Wood. Another part of that literal truth were the 60 acres of cliff between New Quay and Majoda, including Maesgwyn farm, that collapsed into the sea in the early 1940s.\n\n\n=== Elba, South Leigh and Prague ===\nIn April 1947, Thomas and family went to Italy. He intended to write a radio play there, as his letters home make clear.  Several words and phrases that appear in Under Milk Wood can be found in some of Thomas' letters from the island of Elba, where he stayed for three weeks. The \"fishers and miners\" and \"webfooted waterboys\"  of the letters become the \"fishers\" and \"webfoot cocklewomen\" of the first page of Under Milk Wood. The \"sunblack\" and \"fly-black\" adjectives of Elba anticipate the \"crowblack\" and \"bible-black\" descriptions of Llareggub. The play's Fourth Drowned, Alfred Pomeroy Jones, \"died of blisters\", and so, almost, did Thomas, as he vividly describes in a letter home.  And, in time, the island's \"blister-biting blimp-blue bakehouse sea\" would re-appear as Llareggub's \"slow, black, crowblack, fishingboat-bobbing sea.\"\nOn their return from Italy in August 1947, the Thomases moved to South Leigh, near Witney in Oxfordshire, where Thomas declared his intent to work further on the play.  It was here that he knocked the play into shape, as one biographer described it. There are various accounts of his work on the play at South Leigh, where he lived until May 1949. He also worked on filmscripts here, including The Three Weird S"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that address the question about the stage adaptation's performance year, as all provided statements focus on unrelated aspects such as the radio drama's creation and various adaptations."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.25,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.25 because the output included several irrelevant statements that did not address the specific question about the year of the first performance, such as details about staging and sound effects."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.22161755314957818,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output incorrectly states that the adaptation was first performed in 1954, contradicting the expected output which indicates that the retrieval context does not specify the year of the stage adaptation. While the actual output provides a specific year, it fails to align with the factual accuracy required, leading to a significant error."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.50 because the actual output claims the play was first staged in November 1954 at the Théâtre de la Cour Saint-Pierre in Geneva, but the retrieval context indicates there is no evidence to support this staging date."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_62270402_2018_connecticut_house_of_representatives_election",
+      "name": "number_of_seats_won_in_2018_connecticut_house_of_representatives_election",
+      "input": "How many seats did Democrats win in the 2018 Connecticut House of Representatives election?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "Democrats won 92 seats in the 2018 Connecticut House of Representatives election.\n\nSource citation: \"The 2018 Connecticut House of Representatives election was held on Tuesday, November 6, 2018, to elect members to the Connecticut House of Representatives, one from each of the state's 151 General Assembly districts. The date of this the election corresponded with other elections in the state, including ones for governor, U.S. Senate, and the Connecticut State Senate. Democrats retained control of the House of Representatives, winning 92 seats to the Republicans 59. Representatives elected would serve a two-year term, beginning in January 2019.\"",
+      "actual_output": "我幫您看了一下資料，不過很遺憾，選出的段落中並沒有提到 2018 年康涅狄格州眾議院選舉中民主黨獲得了多少席位。該段落僅提及民主黨在眾議院整體控制權上的獲勝情況（92 席對共和黨的 59 席），這似乎是指其他層級或整體的選舉結果，而非康涅狄格州當地的具體選舉數據。\n\n【Answer】\n未搜索到知識庫中的相關信息\n\n【Cited passage】\nDemocrats retained control of the House of Representatives, winning 92 seats to the Republicans 59.\n\n【Source】\n2018 Connecticut House of Representatives election (filename: 62270402-2018 Connecticut House of Representatives election.txt)\n\n【Source index】\nfile_id: 0254898e-7220-479d-9d85-b48d21106dd8\nfilename: 62270402-2018 Connecticut House of Representatives election.txt\ntitle: 2018 Connecticut House of Representatives election",
+      "retrieval_context": [
+        "The 2018 Connecticut House of Representatives election was held on Tuesday, November 6, 2018, to elect members to the Connecticut House of Representatives, one from each of the state's 151 General Assembly districts. The date of this the election corresponded with other elections in the state, including ones for governor, U.S. Senate, and the Connecticut State Senate. Democrats retained control of the House of Representatives, winning 92 seats to the Republicans 59.\nRepresentatives elected would serve a two-year term, beginning in January 2019.\n\n\n== Predictions ==\n\n\n== Special elections ==\n\n\n=== District 115 ===\n\n\n=== District 7 ===\n\n\n=== District 15 ===\n\n\n== Results ==\n\n\n== Election results ==\n\n\n=== District 1 ===\nIncumbent Democrat Matthew Ritter ran unopposed in the Connecticut House of Representatives District 1 general election.\n\n\n=== District 2 ===\n\n\n=== District 3 ===\n\n\n=== District 4 ===\n\n\n=== District 5 ===\n\n\n=== District 6 ===\n\n\n=== District 7 ===\n\n\n=== District 8 ===\n\n\n=== District 9 ===\n\n\n=== District 10 ===\n\n\n=== District 11 ===\n\n\n=== District 12 ===\n\n\n=== District 13 ===\n\n\n=== District 14 ===\n\n\n=== District 15 ===\n\n\n=== District 16 ===\n\n\n=== District 17 ===\n\n\n=== District 18 ===\n\n\n=== District 19 ===\n\n\n=== District 20 ===\n\n\n=== District 21 ===\n\n\n=== District 22 ===\n\n\n=== District 23 ===\n\n\n=== District 24 ===\n\n\n=== District 25 ===\n\n\n=== District 26 ===\n\n\n=== District 27 ===\n\n\n=== District 28 ===\n\n\n=== District 29 ===\n\n\n=== District 30 ===\n\n\n=== District 31 ===\n\n\n=== District 32 ===\n\n\n=== District 33 ===\n\n\n=== District 34 ===\n\n\n=== District 35 ===\n\n\n=== District 36 ===\n\n\n=== District 37 ===\n\n\n=== District 38 ===\n\n\n=== District 39 ===\n\n\n=== District 40 ===\n\n\n=== District 41 ===\n\n\n=== District 42 ===\n\n\n=== District 43 ===\n\n\n=== District 44 ===\n\n\n=== District 45 ===\n\n\n=== District 46 ===\n\n\n=== District 47 ===\n\n\n=== District 48 ===\n\n\n=== District 49 ===\n\n\n=== District 50 ===\n\n\n=== District 51 ===\n\n\n=== District 52 ===\n\n\n=== District 53 ===\n\n\n=== District 54 ===\n\n\n=== District 55 ===\n\n\n=== District 56 ===\n\n\n=== District 57 ===\n\n\n=== District 58 ===\n\n\n=== District 59 ===\n\n\n=== District 60 ===\n\n\n=== District 61 ===\n\n\n=== District 62 ===\n\n\n=== District 63 ===\n\n\n=== District 64 ===\n\n\n=== District 65 ===\n\n\n=== District 66 ===\n\n\n=== District 67 ===\n\n\n=== District 68 ===\n\n\n=== District 69 ===\n\n\n=== District 70 ===\n\n\n=== District 71 ===\n\n\n=== District 72 ===\n\n\n=== District 73 ===\n\n\n=== District 74 ===\n\n\n=== District 75 ===\n\n\n=== District 76 ===\n\n\n=== District 77 ===\n\n\n=== District 78 ===\n\n\n=== District 79 ===\n\n\n=== District 80 ===\n\n\n=== District 81 ===\n\n\n=== District 82 ===\n\n\n=== District 83 ===\n\n\n=== District 84 ===\n\n\n=== District 85 ===\n\n\n=== District 86 ===\n\n\n=== District 87 ===\n\n\n=== District 88 ===\n\n\n=== District 89 ===\n\n\n=== District 90 ===\n\n\n=== District 91 ===\n\n\n=== District 92 ===\n\n\n=== District 93 ===\n\n\n=== District 94 ===\n\n\n=== District 95 ===\n\n\n=== District 96 ===\n\n\n=== District 97 ===\n\n\n=== District 98 ===\n\n\n=== District 99 ===\n\n\n=== District 100 ===\n\n\n=== District 101 ===\n\n\n=== District 102 ===\n\n\n=== District 103 ===\n\n\n=== District 104 ===\n\n\n=== District 105 ===\n\n\n=== District 106 ===\n\n\n=== District 107 ===\n\n\n=== District 108 ===\n\n\n=== District 109 ===\n\n\n=== District 110 ===\n\n\n=== District 111 ===\n\n\n=== District 112 ===\n\n\n=== District 113 ===\n\n\n=== District 114 ===\n\n\n=== District 115 ===\n\n\n=== District 116 ===\n\n\n=== District 117 ===\n\n\n=== District 118 ===\n\n\n=== District 119 ===\n\n\n=== District 120 ===\n\n\n=== District 121 ===\n\n\n=== District 122 ===\n\n\n=== District 123 ===\n\n\n=== District 124 ===\n\n\n=== District 125 ===\n\n\n=== District 126 ===\n\n\n=== District 127 ===\n\n\n=== District 128 ===\n\n\n=== District 129 ===\n\n\n=== District 130 ===\n\n\n=== District 131 ===\n\n\n=== District 132 ===\n\n\n=== District 133 ===\n\n\n=== District 134 ===\n\n\n=== District 135 ===\n\n\n=== District 136 ===\n\n\n=== District 137 ===\n\n\n=== District 138 ===\n\n\n=== District 139 ===\n\n\n=== District 140 ===\n\n\n=== District 141 ===\n\n\n=== District 142 ===\n\n\n=== District 143 ===\n\n\n=== District 144 ===\n\n\n=== District 145 ===\n\n\n=== District 146 ===\n\n\n=== District 147 ===\n\n\n=== District 148 ===\n\n\n=== District 149 ===\n\n\n=== District 150 ===\n\n\n=== District 151 ===\n\n\n== References =="
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because the relevant statement clearly answers the input question, stating that 'Democrats retained control of the House of Representatives, winning 92 seats,' which directly addresses the number of seats won by Democrats."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.6,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.60 because the output failed to provide the specific number of seats won by Democrats in the 2018 Connecticut House of Representatives election, indicating a lack of relevant information. This prevented the score from being higher, as the core question was not adequately addressed."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.422886560759427,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the selected passage does not provide specific seat counts for the Connecticut election, which aligns with the factual accuracy requirement. However, it fails to mention the key detail that Democrats won 92 seats, which is essential information missing from the output. The coherence is somewhat maintained, but the lack of critical data results in a lower score."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.3333333333333333,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.33 because the actual output contradicts the retrieval context by claiming that the number of seats won by Democrats is not mentioned, despite the context stating they won 92 seats. Additionally, it incorrectly asserts that the passage refers to the overall control of the House of Representatives, while the context specifically discusses the Connecticut House of Representatives election."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_520188_kurt_reidemeister",
+      "name": "birth_date_kurt_reidemeister",
+      "input": "What is the birth date of Kurt Reidemeister?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "Kurt Reidemeister was born on 13 October 1893.\n\nSource citation: \"Kurt Werner Friedrich Reidemeister (13 October 1893 – 8 July 1971) was a mathematician born in Braunschweig (Brunswick), Germany.\"",
+      "actual_output": "我幫您仔細查看了一下提供的資料，不過目前選出的段落中只提到了 Friedrich Reidemeister 的出生日期（1893年10月13日），並沒有包含關於 Kurt Reidemeister 出生日期的資訊呢。\n\n【Answer】\nNo relevant passage\n\n【Cited passage】\nFriedrich Reidemeister (13 October 1893 – 8 July 1971) was a mathematician born in Braunschweig (Brunswick), Germany.\n\n【Source】\nKurt Reidemeister (filename: 520188-Kurt Reidemeister.txt)\n\n【Source index】\nfile_id: 463e9395-7137-4c36-aece-b6d3de58566b\nfilename: 520188-Kurt Reidemeister.txt\ntitle: Kurt Reidemeister",
+      "retrieval_context": [
+        "Kurt Werner Friedrich Reidemeister (13 October 1893 – 8 July 1971) was a mathematician born in Braunschweig (Brunswick), Germany.\n\n\n== Life ==\n\nHe was a brother of Marie Neurath.\nBeginning in 1912, he studied in Freiburg, Munich, Marburg, and Göttingen. In 1920, he got the Staatsexamen (master's degree) in mathematics, philosophy, physics, chemistry, and geology.\nHe received his doctorate in 1921 with a thesis in algebraic number theory at the University of Hamburg under the supervision of Erich Hecke.\nHe became interested in differential geometry; he edited Wilhelm Blaschke's second volume on the topic, and both made an acclaimed contribution to the Jena DMV conference in September 1921.\nIn October 1922 or 1923 he was appointed assistant professor at the University of Vienna. While there he became familiar with the work of Wilhelm Wirtinger on knot theory, and became closely connected to Hans Hahn and the Vienna Circle. Its 1929 manifesto lists one of Reidemeister's publications in a bibliography of closely related authors.\nIn 1925 he became a full professor at the University of Königsberg; he stayed until 1933, when he was regarded politically unsound by the Nazis and dismissed from his position. Whilst there he organised the Second Conference on the Epistemology of the Exact Sciences in conjunction with journal Erkenntnis.\nBlaschke managed to get a promise about Reidemeister's reappointment, and in autumn 1934 he got the chair of Kurt Hensel at the University of Marburg. He stayed there, except for a visit to the Princeton Institute for Advanced Study in 1948–1950, until he got appointed to Göttingen University in 1955, where he stayed until his emeritation.\n\n\n== Works ==\nReidemeister's interests were mainly in combinatorial group theory, combinatorial topology, geometric group theory, and the foundations of geometry. His works include Knoten und Gruppen (1926), Einführung in die kombinatorische Topologie (1932), and Knotentheorie (1932). He co-edited the journal Mathematische Annalen from 1947 until 1963.\nHe was also a philosopher. His book \"Das exakte Denken der Griechen\" (1949) is not as well known as his mathematical work. In it he remarks that mathematical thought is \"just the beginning of thought\".\n\n\n== See also ==\nReidemeister moves\nReidemeister–Singer theorem\nReidemeister torsion\n\n\n== References ==\n\n\n== External links ==\n\nKurt Reidemeister at the Mathematics Genealogy Project"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.047619047619047616,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.05 because the majority of the retrieval context consists of irrelevant statements, such as 'He was a brother of Marie Neurath' and 'He became interested in differential geometry', which do not address the birth date of Kurt Reidemeister. The only relevant statement is 'Kurt Werner Friedrich Reidemeister (13 October 1893 – 8 July 1971) was a mathematician born in Braunschweig (Brunswick), Germany.', but it is overshadowed by the unrelated information."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.25,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.25 because the output focuses on Friedrich Reidemeister instead of addressing the question about Kurt Reidemeister's birth date, leading to irrelevant information that detracts from the main inquiry."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.27743640885429544,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the provided passage only mentions Friedrich Reidemeister's birth date, which aligns with the factual accuracy check. However, it fails to provide the expected information about Kurt Reidemeister's birth date, leading to a significant deficiency. The claim about the lack of relevant information is accurate, but the response does not address the expected output, resulting in a low score."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.6,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.60 because the actual output incorrectly states Friedrich Reidemeister's death date as 8 July 1971, which contradicts the retrieval context that does not mention this date, suggesting he did not die then. Additionally, while the output includes Kurt Reidemeister's birth date as 13 October 1893, it does not align with the context provided."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_2543508_list_of_fishes_of_sweden",
+      "name": "herring_economic_importance",
+      "input": "What is the most economically important fish in Sweden as mentioned in the article 'List of fishes of Sweden'?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "The herring is the most economically important fish in Sweden.\n\nSource citation: \"=== Clupeiformes (herring-like fish) ===\nClupeiformes is the order of ray-finned fish that includes the herring family, Clupeidae, and the anchovy family, Engraulidae. The herring is common around the coasts of Sweden where it is often the most common fish—the population fluctuates yearly. The herring has been of historical importance for the Swedish economy and food since the Middle Ages. It is still the most economically important Swedish fish. The catch of herring in Swedish waters in 1996 was 132,153 tonnes, of which 74,293 tonnes became fish meal and 57,860 tonnes was sold to consumers. The Swedes have two names for herring, sill or strömming, depending on where they have been caught, west or east of the island of Bornholm. The herring is also an important part of the Swedish cuisine.\"",
+      "actual_output": "我幫您看了一下資料，不過很遺憾，選出的段落中雖然提到「It is still the most economically important Swedish fish」（它仍然是瑞典最具經濟價值的魚），但並沒有具體說明「它」指的是哪一種魚。因此，我無法從目前的資訊中為您提供確切的魚種名稱。\n\n如果您有其他相關文件或更多上下文，歡迎隨時提供，我會很樂意再幫您確認！\n\n【Answer】\n無法確定具體魚種，因為選出的段落未指明「它」所指代的魚類名稱。\n\n【Cited passage】\nIt is still the most economically important Swedish fish.\n\n【Source】\nList of fishes of Sweden (filename: 2543508-List of fishes of Sweden.txt)\n\n【Source index】\nfile_id: ce549955-0dd5-48c2-ba4b-d7f4159cf2f6\nfilename: 2543508-List of fishes of Sweden.txt\ntitle: List of fishes of Sweden",
+      "retrieval_context": [
+        "List of fish encountered in Swedish waters; both fresh water (lakes and streams) and in the marine salt water.\nThe table denotes species native to Sweden, as well as those introduced from a neighbouring country and those that have only occurred occasionally. There are approximately 140 species which are native and common in Sweden, plus another 90 which are sporadic, not established or extinct.\nThe IUCN Red List is a set of criteria for fish population statuses. The following terminology is used: extinct, critically endangered, endangered, vulnerable, near threatened, least concern, disappeared, data deficient and not evaluated.\n\n\n== List ==\n\n\n=== Aulopiformes ===\nThe Aulopiformes, or grinners, are marine fish, most of which live in deep-sea waters in the Atlantic. Only sporadically encountered in Swedish waters, e.g. the Magnisudis atlantica has to date been found eight times, the first in 1960 and the last in 1978.\n\n\n=== Acipenseriformes (sturgeon-like fish) ===\nThe Acipenseriformes are an order of primitive ray-finned fishes that includes the sturgeons and paddlefishes. There have been occasional finds in Swedish waters. Some species, such as the beluga sturgeon are heavily desired for its roe, or caviar.\nSome species of sturgeons are known to have populated Swedish waters in the 19th century along the coast lines of the Baltic Sea and in some inland streams. The population has now probably disappeared, and the Red List denotes it as disappeared (RE). Stuffed specimens are common in museums.\n\n\n=== Anguilliformes (eel fish) ===\nThe European eel (Anguilla anguilla) in Swedish waters has radically diminished in the latest decades, and is now listed as critically endangered. The population is estimated to have decreased to 1–10% of what it was in the 1970s. Eels are sensitive of environmental pollution, but the fishing of eel has also increased, especially in French waters. As eels migrate long distances, overfishing and pollution in one location may endanger the population and little is known of all possible causes for the diminishing population.\nThe eel is a popular dish, especially in southern Sweden, and is economically of importance with catches of around 1,000 tonnes (1,200 in 1983). It is prepared by being smoked.\n\n\n=== Carcharhiniformes (ground sharks) ===\nThe order Carcharhiniformes, or ground sharks, are the largest order of sharks and include many well-known types such as the blue shark and the sandbar shark. \n\n\n=== Beryciformes ===\nThe Beryciformes are an order of ray-finned fishes. They live solely in deep marine waters, usually in tropical areas, and are only sporadically seen in Nordic waters.\n\n\n=== Beloniformes ===\nThe Beloniformes are an order of \"horned\" fishes. The most notable species here is the garfish (Belone belone) which swims in large shoals during the summer along the coasts of south and west Sweden, and caught for food or sport. The catch during 1983 was 44 tonnes.\n\n\n=== Batrachoidiformes ===\nThe order Batrachoidiformes, or toadfish, are a type of ray-finned fish normally found on the sand and mud bottoms of coastal waters worldwide. The only example of a fish from this order caught in Swedish water was a specimen of Halobatrachus didactylus—a fish native to the coasts of Africa—caught by the shore of southern Sweden in 1820 (specimens preserved).\n\n\n=== Chimaeriformes (ghost sharks) ===\nThe order Chimaeriformes is common in tropical waters. The only species found in Swedish water is the Chimaera monstrosa which is somewhat common in the westernmost waters of Sweden, the Skagerrak. This fish is unsuitable as a food fish, but its large liver is used to produce a lubricant.\n\n\n=== Clupeiformes (herring-like fish) ===\nClupeiformes is the order of ray-finned fish that includes the herring family, Clupeidae, and the anchovy family, Engraulidae.\nThe herring is common around the coasts of Sweden where it is often the most common fish—the population fluctuates yearly. The herring has been of historical importance for the Swedish economy and food since the Middle Ages. It is still the most economically important Swedish fish. The catch of herring in Swedish waters in 1996 was 132,153 tonnes, of which 74,293 tonnes became fish meal and 57,860 tonnes was sold to consumers.\nThe Swedes have two names for herring, sill or strömming, depending on where they have been caught, west or east of the island of Bornholm.\nThe herring is also an important part of the Swedish cuisine. It is served pickled both at Christmas and at Midsummer, and in northern Sweden the fermented herring, surströmming, is popular treat.\nShoals of anchovies are denoted as native and common, but the anchovy is primarily native to southern Europe, and the shoals in Nordic waters vary between years. As such, anchovy fishing is not reliable.\nA third economically important fish of this order is the European sprat (Sprattus sprattus). The catch in Swedish waters in 1996 was 168,582 tonnes. It is often flavoured and put in cans labeled as anchovy, which is incorrect from a zoological point of view, but fairly accurate in terms of usage. This pickled \"anchovy\" is a main ingredient of the Swedish traditional dish Janssons frestelse.\n\n\n=== Cypriniformes ===\nThe order Cypriniformes consists of several families of carp-like fishes, the most important being the cyprinids—the carps and minnows.\nThe carp bream (Abramis brama), the largest of the breams, is of note in Swedish fresh waters. Once an important source of food (which is still the case in parts of Europe), it is today only of economic importance in Sweden's southern parts (Skåne, etc.). However it is still common in other waters in Sweden, where it is a popular game fish.\n\n \n\n\n=== Esociformes (pike fish) ===\nThere is only one fish of the genus Esox in Europe: the Esox lucius, epox, also known as northern pike. This fish is common in lakes in the whole of Sweden, with the exceptions of the northernmost regions where it is only sporadic.\nCommercial fishing is practically non-existent. Most epox are caught by sport-fishers; it is the largest fish in fresh waters, with the official record weight (in Swedish fresh waters) being 31 kg.\n\n\n=== Gadiformes (cod-like fish) ===\nThe order Gadiformes includes many important food fish. For Sweden, the Atlantic cod (Gadus morhua) is, together with the herring, the most important food fish. Cod in Swedish waters is caught in the west of Sweden in the Skagerrak and east in the Baltic Sea. Cod in the Baltic does not migrate to the Atlantic, and may be a subspecies: Gadus morhua callarias, but this view is generally abandoned today.\nBaltic cod has been subjected to heavy fishing in the latest decades and is now endangered. Fishing moratoriums have been called for, but the cod is of importance to many countries around the Baltic and is of such economic importance that a complete stop has not been carried through.\nThe haddock (Melanogrammus aeglefinus) is another important food fish of the Gadiformes. It is, in Swedish view, less important than the cod as it does not populate the Baltic. Like the cod, the population has diminished.\nBurbot, the only fresh water fish of this order, is common in the whole of Sweden. It is the provincial fish of Västergötland in west Sweden.\n\n\n=== Gasterosteiformes (pipefish or sticklebacks) ===\nThe most notable families of the order Gasterosteiformes are the sticklebacks. The three-spined stickleback (Gasterosteus aculeatus) is common on all Swedish coasts and in adjacent fresh water lakes and streams. It was once caught in large quantities to make fish oil; today it is still caught in some extent for the purpose of fish meal.\n\n\n=== Lamniformes (mackerel sharks) ===\nThe Lamniformes include some of the most familiar species of sharks, such as the great white shark. For this list, the basking shark (Cetorhinus maximus) is of note, as it is the largest fish in Nordic waters, occasionally encountered on the Swedish west coast (Västergötland). As the finds have become more sparse in recent years it is now listed as endangered.\n\n\n=== Myxiniformes ===\nThe Myxiniformes, or hagfish, are a family of primitive eel-like fish. They live in marine waters, and in Swedish waters they are encountered west of Sweden in the Skagerrak and Kattegat. It lacks economic importance as it is not eaten.\n\n\n=== Lampriformes (deep sea ray finned fish) ===\nThe Lampriformes are an order of primitive, often rope-like, fishes. Living in deep-sea in tropical and temperate waters, they are rarely encountered in Nordic waters.\n\n\n=== Myctophiformes ===\nThe order Myctophiformes, which includes the family Myctophidae, or lanternfishes, consists of deep-sea fish common on the Southern Hemisphere and only rarely caught in Swedish waters.\n\n\n=== Lophiiformes ===\nThe Lophiiformes, or angler fish, are deep-water fish with big heads. Of these, the angler or sea-devil (Lophius piscatorius) is common in Sweden in the waters west of Sweden in the Skagerrak and Kattegat. It is a tasty fish and therefore common in fish dishes, usually with its head removed. The Swedish catch in 1983 was 26 tonnes.\n\n\n=== Mugiliformes ===\n\n\n=== Osmeriformes ===\nThe order Osmeriformes is generally encountered in the Atlantic Ocean as well as other oceans. A few species of the family Argentinidae extend their habitat to the Skagerrak where it is caught by Swedish ships. The catches are not food fish, but processed into fish meal.\n\n\n=== Perciformes (perch-like fish) ===\nThe Perciformes include about 40% of all fish. The name Perciformes means perch-like.\nOne of the best known types is the zander (gös in Swedish), common and native in Sweden and most of Europe. It is a popular game fish because of its taste. In Sweden it is common in all regions except the northernmost mountains and on the island of Gotland, and it is the provincial fish of Västmanland. The Swedish record weight is 12.007 kg.\nThe arguably most popular fish in Swedish fresh water is the European perch, and the annual catch is around 2,000 tonnes. It is common in the whole country—with the exception of the mountain regions in the north—and commonly encountered around the coast of the brackish Baltic Sea.\n\n\n=== Petromyzontiformes (lampreys) ===\nA lamprey is a jawless fish with a toothed, funnel-like sucking mouth, with which most species bore into the flesh of other fishes to suck their blood. In zoology, lampreys are not considered to be true fish because of their vastly different morphology and physiology.\nIn Sweden, the European river lamprey (Lampetra fluviatilis), living in fresh waters, is the most usual usage of the term lamprey. The Lampetra planeri is a closely related species living in small streams, possibly even the same species.\nThe lamprey is the provincial fish of Västerbotten in northern Sweden.\n\n\n=== Pleuronectiformes (flatfish) ===\nThe flatfish are common as food fish.\nSome notable specimens are the turbot which is common both on Sweden's east and west coasts. The Swedish catch was as much as 82 tonnes in the 1950s, but had decreased to 10–20 tonnes by the 1980s.\nThe plaice (Pleuronectes platessa) is one of Sweden's most important food fishes. It is common around the shores on both the east and west coast. The catch in 1983 was 540 tonnes.\nThe Atlantic halibut (Hippoglossus hippoglossus) was also once a major food fish, but overfishing in recent decades has endangered the population in Swedish waters. The fish was eaten in Sweden during the weekends when meat was prohibited, which explains the Swedish name helgeflundra, literally \"holy flounder\".\n\n\n=== Scorpaeniformes ===\nThe Scorpaeniformes are also known as mail-cheeked fishes due to their suborbital stay. Their head is armoured with bone plates. The families of this order are generally small, bottom living, and unsuited as food fish. As such, they lack commercial value.\nAn exception is the family Sebastidae, which contains appreciated food fish, but as they are rare in Swedish waters they are not subjected to systematic fishi"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.50 because while the context mentions the herring as 'the most economically important Swedish fish,' it also includes irrelevant details about the European eel and cod that do not directly address the question."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because the response directly addresses the question about the most economically important fish in Sweden without any irrelevant statements."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.3807466178053658,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the selected passage mentions an economically important Swedish fish but fails to specify that it refers to herring, which is a critical detail in the expected output. While it acknowledges the lack of clarity in the passage, it does not provide the correct fish name, leading to a partially correct assessment."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_9831907_seaside_sparrow",
+      "name": "seaside_sparrow_species",
+      "input": "What is the scientific classification of the seaside sparrow?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "Ammospiza maritima\n\nSource citation: \"The seaside sparrow (Ammospiza maritima) is a species of American sparrow.\"",
+      "actual_output": "我幫您看了一下資料，不過很抱歉，目前提供的段落中並沒有包含海濱麻雀（Seaside sparrow）完整的科學分類資訊（如界、門、綱、目、科等詳細層級）。該段落僅提到它是一種美洲麻雀（American sparrow）物種。\n\n如果您需要更詳細的分類資訊，建議您可以提供更多相關的資料來源，或者告訴我您具體想了解哪一層級的分類，我會盡力為您解答！\n\n【Answer】\nThe provided text does not contain the full scientific classification of the seaside sparrow. It only states that it is a species of American sparrow.\n\n【Cited passage】\nThe seaside sparrow (Ammospiza maritima) is a species of American sparrow.\n\n【Source】\nSeaside sparrow (filename: 9831907-Seaside sparrow.txt)\n\n【Source index】\nfile_id: 290205cc-be08-490a-a7f2-a62db943fa3c\nfilename: 9831907-Seaside sparrow.txt\ntitle: Seaside sparrow",
+      "retrieval_context": [
+        "The seaside sparrow (Ammospiza maritima) is a species of American sparrow.\n\n\n== Description ==\nAdults have brownish upperparts with gray on the crown and nape, and a grayish-buff-colored breast with dark streaks; they have a dark face with gray cheeks, a white throat, and a short, pointed tail. Birds show a small yellow streak just above the eye. A typical seaside sparrow lifespan in 8 to 9 years of maximum. The oldest record of seaside sparrow was an individual male which was at least 10 years old when recaptured and re-released during the banding operations in South Carolina.\nTheir breeding habitat is salt marshes on the Atlantic and Gulf coasts of the United States from southern New Hampshire to southern Texas. The nest is an open cup usually built in the salt marsh on tidal reeds and spartina grasses. Females lay two to five eggs. Northern birds most often migrate farther south along the eastern coast of the United States. They forage on the ground or in marsh vegetation, sometimes probing in mud. They mainly eat insects, marine invertebrates and seeds. Their feeding areas are often some distance away from the areas they choose to nest. The song is a raspy buzz that closely resembles a distant red-winged blackbird.\n\nOne of the numerous subspecies of this bird, the dusky seaside sparrow (A. m. nigrescens), has recently become extinct, and the Cape Sable subspecies, A. m. mirabilis, is endangered. Occurring in a restricted range but of uncertain validity is Scott's seaside sparrow, (A. m. peninsulae). The small isolated population that is near Corpus Christi, Texas, south to the Rio Grande and the sennetti subspecies may also have risk to endangered, those were formerly considered a separate species.\n\n\n== Subspecies ==\nCurrently there are eight subspecies recognized:\n\nAmmospiza maritima fisheri (Chapman, 1899)\nAmmospiza maritima macgillivraii (Audubon, 1834)\nAmmospiza maritima maritima (A. Wilson, 1811) – Nominate subspecies\nAmmospiza maritima mirabilis (A. H. Howell, 1919) - Cape Sable seaside sparrow\nAmmospiza maritima nigrescens (Ridgway, 1874) - Dusky seaside sparrow †\nAmmospiza maritima pelonota (Oberholser, 1931)\nAmmospiza maritima peninsulae (J. A. Allen, 1888) - Scott's seaside sparrow\nAmmospiza maritima sennetti (J. A. Allen, 1888)\n\n\n== Predation ==\nIn Florida, seaside sparrows may be eaten by some growth stage of invasive snakes such as Burmese pythons, reticulated pythons, Southern African rock pythons, Central African rock pythons, boa constrictors, yellow anacondas, Bolivian anacondas, dark-spotted anacondas, and green anacondas.\n\n\n== References ==\n\n\n== External links ==\n\n\"Seaside sparrow media\". Internet Bird Collection.\nStamps (for the United States) with a range map at bird-stamps.org\nSeaside sparrow photo gallery at VIREO (Drexel University)\nDusky seaside sparrow bird sound at the Florida Museum of Natural History\nCape Sable seaside sparrow bird sound at the Florida Museum of Natural History\n\"Ecological and Genetic Diversity in the Seaside Sparrow\" (pdf, 0.95 Mb)\nInteractive range map of Ammodramus maritimus at IUCN Red List"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.4,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.40 because while the relevant statement identifies the seaside sparrow as 'Ammospiza maritima' and lists its eight recognized subspecies, the majority of the context focuses on unrelated aspects such as appearance, breeding habitat, and predation, which do not contribute to understanding its scientific classification."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.50 because the output fails to provide the complete scientific classification of the seaside sparrow, which is the main focus of the input."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.5671181481126184,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the provided text does not contain the full scientific classification of the seaside sparrow, aligning with the expected output's focus on the species name. However, it lacks the specific scientific name 'Ammospiza maritima' as the expected output, which is a significant deficiency. The response is coherent but does not fully meet the factual accuracy required."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_5821932_gordon_j_mccann",
+      "name": "gordon_j_mccann_birth_date",
+      "input": "What is the birth year of Gordon J. McCann?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "Gordon J. McCann was born in 1908.\n\nSource citation: \"Gordon J. \"Pete\" McCann (1908 – January 18, 2000) was a Canadian Thoroughbred horse trainer. He was born in East York, now part of the city of Toronto. Known to his family as Gordon, in racing circles he was nicknamed Pete. Pete McCann began his career as a jockey. He raced at  Oriental Park Racetrack in Havana, Cuba where he was a leading jockey in 1926. He rode with success in Toronto then in 1940 took out his trainer's license and won his first King's Plate that same year with Willie the Kid. McCann was hired by E. P. Taylor as head trainer at Windfields Farm in 1950 where he would spend the next twenty-one years.\"",
+      "actual_output": "我幫您仔細查看了一下提供的資料，不過目前選出的段落中並沒有提到 Gordon J. McCann 的出生年份。這裡只提到了另一位名叫 \"Pete\" McCann 的加拿大純種馬訓練師，他的出生年份是 1908 年。\n\n由於缺乏關於 Gordon J. McCann 的具體資訊，我無法直接為您提供答案。如果您有其他相關文件或更多細節，歡迎隨時提供，我會很樂意再幫您確認！\n\n【Answer】\nNo relevant passage\n\n【Cited passage】\n\"Pete\" McCann (1908 – January 18, 2000) was a Canadian Thoroughbred horse trainer.\n\n【Source】\nGordon J. McCann (filename: 5821932-Gordon J. McCann.txt)\n\n【Source index】\nfile_id: 01deae0e-50fc-442b-818e-16754d0751b0\nfilename: 5821932-Gordon J. McCann.txt\ntitle: Gordon J. McCann",
+      "retrieval_context": [
+        "Gordon J. \"Pete\" McCann (1908 – January 18, 2000) was a Canadian Thoroughbred horse trainer. He was born in East York, now part of the city of Toronto. Known to his family as Gordon, in racing circles he was nicknamed Pete.\nPete McCann began his career as a jockey. He raced at  Oriental Park Racetrack in Havana, Cuba where he was a leading jockey in 1926. He rode with success in Toronto then in 1940 took out his trainer's license and won his first King's Plate that same year with Willie the Kid.\nMcCann was hired by E. P. Taylor as head trainer at Windfields Farm in 1950 where he would spend the next twenty-one years. During his training career, McCann conditioned seven Canadian Hall of Fame horses and six horses that won Canadian Horse of the Year honours including Canadian Triple Crown winners New Providence in 1959 and Canebora in 1963. He also trained six winners of Canada's most prestigious race, the Queen's Plate and overall won seventeen races that now comprise the Canadian Classics. He also is tied for having trained the most winners with three in the Canadian International Stakes.\nIn 1971, McCann retired from training after Taylor divided the stable into Canadian and United States divisions under separate head trainers.  Quickly bored, he returned to racing with a small stable of his own.\nMcCann was inducted into the Canadian Horse Racing Hall of Fame in 1979. He died of pneumonia at age 91.\n\n\n== References ==\nGordon J. McCann at the Canadian Horse Racing and Hall of Fame\nJanuary 20, 2000 Thoroughbred Times.com article titled Top trainer McCann dead Archived June 10, 2011, at the Wayback Machine\nWindfields Farm online"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.14285714285714285,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.14 because while the retrieval context mentions that Gordon J. McCann was born in East York and provides his birth year as 1908, the majority of the context is irrelevant, focusing on his career and achievements rather than directly answering the question about his birth year."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.2,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.20 because the output included multiple irrelevant statements about Pete McCann instead of addressing the question about Gordon J. McCann's birth year."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.2923470845179896,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies the absence of information about Gordon J. McCann's birth year, which aligns with the evaluation steps. However, it incorrectly focuses on Pete McCann instead, leading to a significant factual inaccuracy since the expected output clearly states that Gordon J. McCann was born in 1908. The response lacks essential information about Gordon J. McCann and fails to provide the expected answer, resulting in a low score."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.6,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.60 because the actual output incorrectly states the year of Pete McCann's death, contradicting the context that indicates he died at age 91, which would not align with a 2000 death."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_15338320_jingyangia",
+      "name": "jingyangia_cambrian_period",
+      "input": "During which geological period did Jingyangia live?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "Jingyangia lived during the Cambrian Period.\n\nSource citation: \"Jingyangia is an extinct genus from a well-known class of fossil marine arthropods, the trilobites. It lived during the early part of the Botomian stage, which lasted from approximately 524 to 518.5 million years ago. This faunal stage was part of the Cambrian Period.\"",
+      "actual_output": "我幫您仔細查看了一下這份資料，不過很遺憾，目前選出的段落中並沒有提到 Jingyangia 這個屬名，因此無法直接從中得知它生活在哪個地質時期。\n\n【Answer】\n無法回答\n\n【Cited passage】\nThis faunal stage was part of the Cambrian Period.\n\n【Source】\nJingyangia (filename: 15338320-Jingyangia.txt)\n\n【Source index】\nfile_id: 11f23350-3810-40fe-8691-051a9046f059\nfilename: 15338320-Jingyangia.txt\ntitle: Jingyangia",
+      "retrieval_context": [
+        "Jingyangia is an extinct genus from a well-known class of fossil marine arthropods, the trilobites. It lived during the early part of the Botomian stage, which lasted from approximately 524 to 518.5 million years ago. This faunal stage was part of the Cambrian Period.\n\n\n== References =="
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.6666666666666666,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.67 because while the retrieval context mentions that Jingyangia lived during the early part of the Botomian stage, it does not directly address the geological period in a clear manner, as noted in the irrelevancy reason."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.8,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 0.80 because the output included an irrelevant statement about the selected paragraphs not mentioning Jingyangia, which detracted from the focus on the geological period in question."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.27424970770662277,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the specific genus Jingyangia is not mentioned in the provided passage, but it fails to provide the expected information that Jingyangia lived during the Cambrian Period. The response lacks essential details about the geological time frame, leading to a significant deficiency in factual accuracy and completeness."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.50 because the actual output incorrectly states that the genus name Jingyangia is not mentioned, while the retrieval context confirms that it is indeed mentioned in the document."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_52434949_richmond_by_election",
+      "name": "richmond_australia_by_election_1957",
+      "input": "What year did the Richmond by-election occur in Australia that is specifically noted in the article?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "1957\n\nSource citation: \"== Australia ==\n1957 Richmond by-election\n1984 Richmond by-election\"",
+      "actual_output": "我幫您仔細查看了一下提供的資料，不過目前選出的段落中並沒有包含關於澳洲里奇蒙補選（Richmond by-election）具體發生年份的資訊。\n\n【Answer】\n未搜索到知識庫中的相關信息\n\n【Cited passage】\nNo relevant passage\n\n【Source】\nRichmond by-election (filename: 52434949-Richmond by-election.txt)\n\n【Source index】\nfile_id: 8968cdb6-1449-4ae5-9b42-8223e855e0f9\nfilename: 52434949-Richmond by-election.txt\ntitle: Richmond by-election",
+      "retrieval_context": [
+        "Richmond by-election may refer to:\n\n\n== Australia ==\n1957 Richmond by-election\n1984 Richmond by-election\n\n\n== United Kingdom ==\n\n\n=== London ===\n2016 Richmond Park by-election\n\n\n=== Yorkshire ===\n1872 Richmond (Yorks) by-election\n1873 Richmond (Yorks) by-election\n1989 Richmond (Yorks) by-election"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.3333333333333333,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.33 because the retrieval context primarily included irrelevant by-elections such as '2016 Richmond Park by-election' and '1872 Richmond (Yorks) by-election', while only mentioning relevant events like '1957 Richmond by-election' and '1984 Richmond by-election' without providing the specific year of the Australian Richmond by-election sought."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the output fails to provide any relevant information regarding the year of the Richmond by-election, indicating a complete lack of pertinent content to the inquiry."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.20114576861494649,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies the absence of specific information regarding the year of the Richmond by-election, but it fails to provide the expected factual answer of '1957'. Additionally, it does not reference the relevant source material that contains this information, leading to a significant deficiency in completeness and accuracy."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "document": "wikipedia_33473957_francis_allotey",
+      "name": "founding_of_the_professor_allotey_graduate_school",
+      "input": "What institution was established in 2009 and named in honor of Francis Allotey?",
+      "expected_answered": true,
+      "actual_answered": false,
+      "decision_state": "AN",
+      "error_type": "false_refusal",
+      "expected_output": "The Professor Francis Allotey Graduate School was established in 2009 at the Accra Institute of Technology.\n\nSource citation: \"He was also instrumental in the advancement of computer education in Africa and worked closely with organisations such as the IBM International and the International Federation for Information Processing. In 2004, he was the only African among the 100 most eminent physicists and mathematicians in the world to be cited in a book titled, \"One hundred reasons to be a scientist.\"\nThe Professor Francis Allotey Graduate School was established in 2009 at the Accra Institute of Technology. The institute provides master's degrees in Business Administration and Software Engineering and doctoral programmes in Information Technology and Philosophy. The Government of Ghana awarded him the Millennium Excellence Award in 2005, and dedicated a postage stamp in his honour.\"",
+      "actual_output": "【Answer】\n【未搜尋到知識庫中的相關資訊】\n\n【Cited passage】\nNo relevant passage\n\n【Source】\nFrancis Allotey (filename: 33473957-Francis Allotey.txt)\n\n【Source index】\nfile_id: 35105c1f-1471-4c7d-b489-f94f07a841f0\nfilename: 33473957-Francis Allotey.txt\ntitle: Francis Allotey",
+      "retrieval_context": [
+        "Francis Kofi Ampenyin Allotey  (9 August 1932 – 2 November 2017) was a Ghanaian mathematical physicist. Together with Daniel Afedzi Akyeampong, he became the first Ghanaian to obtain a doctorate in mathematical sciences, earned in 1966.\n\n\n== Early life and education ==\nAllotey was born on 9 August 1932 in the Fante town of Saltpond in the Central Region of Ghana to Joseph Kofi Allotey, a general commodities merchant and Alice Esi Nyena Allotey, a dressmaker from the Royal Dehyena family of Enyan Owomase and Ekumfi Edumafa, in the Central Region of Ghana. His father owned a bookstore. During his childhood,  Allotey spent his free time in his father's bookstore reading the biographies of famous scientists which piqued his interest in science. He was raised a Roman Catholic. He had his primary education at St. John the Baptist Catholic (Boys) School in Saltpond and was among the pioneer batch of Ghana National College when the school was founded in July 1948 by Kwame Nkrumah.\nAfter secondary school, he attended the University Tutorial College in Ghana and the London Borough Polytechnic. He held master's and doctorate degrees from Princeton University, awarded in 1966 and earlier the Diploma of Imperial College, obtained in 1960. He was tutored by the Pakistani Nobel prize-winning physicist Abdus Salam as an undergraduate at Imperial College. During his time at Princeton, Allotey was mentored by many physicists such as Robert Dicke, Val Fitch, Robert Oppenheimer, Paul A. M. Dirac and C. N. Yang.\n\n\n== Career ==\nHe was known for the \"Allotey Formalism\" which arose from his work on soft X-ray spectroscopy. He was the 1973 recipient of the UK Prince Philip Golden Award for his work in this area. A founding fellow of the African Academy of Sciences, in 1974, he became the first Ghanaian full professor of mathematics and head of the Department of Mathematics and later Dean of the Faculty of Science at the Kwame Nkrumah University of Science and Technology. He was also the founding director of the KNUST Computer Centre before he assumed his position as the Pro-Vice-Chancellor of the university. Among Allotey's colleagues on the mathematics faculty at KNUST was Atu Mensa Taylor (died in 1977), the third Ghanaian to obtain a doctorate in mathematics. Taylor had received his DPhil (1967) from Oxford under the Welsh mathematical physicist, John Trevor Lewis, having also received an MA there many years before.\nAllotey was the President of the Ghana Academy of Arts and Sciences and a member of a number of international scientific organizations including the Abdus Salam International Centre for Theoretical Physics Scientific Council since 1996. He was also the President of the Ghana Institute of Physics and the founding President of the African Physical Society. He was instrumental in getting Ghana to join the International Union of Pure and Applied Physics, making it one of the first few African countries to join the Union. He collaborated with the IUPAP and ICTP to encourage physics education in developing countries through workshops and conferences in order to create awareness on the continent.\nAllotey was the Chairman of Board of Trustees of the Accra Institute of Technology, the President of the African Institute for Mathematical Sciences, Ghana. He was an honorary fellow of the Institute of Physics.  He was an honorary Fellow of the Nigerian Mathematical Society among others. He consulted for many international institutions such as the UNESCO, IAEA and UNIDO. He was also the Vice president, 7th General Assembly of Intergovernmental Bureau of Informatics (IBI). He was also instrumental in the advancement of computer education in Africa and worked closely with organisations such as the IBM International and the International Federation for Information Processing. In 2004, he was the only African among the 100 most eminent physicists and mathematicians in the world to be cited in a book titled, \"One hundred reasons to be a scientist.\"\nThe Professor Francis Allotey Graduate School was established in 2009 at the Accra Institute of Technology. The institute provides master's degrees in Business Administration and Software Engineering and doctoral programmes in Information Technology and Philosophy. The Government of Ghana awarded him the Millennium Excellence Award in 2005, and dedicated a postage stamp in his honour. In 2009 he received the Order of the Volta and was posthumously awarded the Osagyefo Kwame Nkrumah African Genius Award in 2017. He helped establish the African Institute of Mathematical Sciences in Ghana in 2012.\n\n\n== Personal life ==\nAllotey first married Edoris Enid Chandler from Barbados, whom he met while they were both studying in London. They had two children, Francis Kojo Enu Allotey and Joseph Kobina Nyansa Allotey. Chandler died in November 1981. He then remarried to Ruby Asie Mirekuwa Akuamoah. Together they raised her two children, Cilinnie and Kay. Akuamoah died in October, 2011. Overall, Allotey had four children and 20 grandchildren.\n\n\n== Death and state funeral ==\nFrancis Allotey died of natural causes on 2 November 2017. The Ghanaian government accorded him a state funeral in recognition of his contributions to the advancement of science and technology in Ghana.  His body was interred in his hometown, Saltpond, Central Region.\n\n\n== References ==\n\n\n== External links ==\nAIMS Ghana\nAllotey profile"
+      ],
+      "failed_gating_metrics": null,
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.50 because while the relevant statement notes that 'The Professor Francis Allotey Graduate School was established in 2009,' the context primarily focuses on program details, which do not directly answer the question about the institution."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the output fails to provide any relevant information regarding the institution established in 2009 named in honor of Francis Allotey."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.17907079884098748,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output fails to provide any relevant information about Professor Francis Allotey, which is a significant deficiency compared to the expected output. It only states that no relevant information was found, contradicting the expected details about his contributions and the establishment of the graduate school. The lack of factual accuracy and essential information leads to a low score."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    }
+  ]
+}

@@ -2,15 +2,15 @@
   "progress": {
     "status": "running",
     "total_cases": 800,
-    "completed_cases": 429,
-    "failed_cases": 42,
-    "metric_responses": 1843,
+    "completed_cases": 450,
+    "failed_cases": 43,
+    "metric_responses": 1932,
     "expected_metric_responses": 3200
   },
   "decision_summary": {
     "counts": {
-      "AA": 208,
-      "NN": 221,
+      "AA": 218,
+      "NN": 232,
       "AN": 0,
       "NA": 0
     },
@@ -22,62 +22,62 @@
     "abstention_precision": 1.0,
     "rate_details": {
       "decision_accuracy": {
-        "numerator": 429,
-        "denominator": 429,
+        "numerator": 450,
+        "denominator": 450,
         "value": 1.0
       },
       "false_refusal_rate": {
         "numerator": 0,
-        "denominator": 208,
+        "denominator": 218,
         "value": 0.0
       },
       "hallucinated_answer_rate": {
         "numerator": 0,
-        "denominator": 221,
+        "denominator": 232,
         "value": 0.0
       },
       "answer_precision": {
-        "numerator": 208,
-        "denominator": 208,
+        "numerator": 218,
+        "denominator": 218,
         "value": 1.0
       },
       "answer_recall": {
-        "numerator": 208,
-        "denominator": 208,
+        "numerator": 218,
+        "denominator": 218,
         "value": 1.0
       },
       "abstention_precision": {
-        "numerator": 221,
-        "denominator": 221,
+        "numerator": 232,
+        "denominator": 232,
         "value": 1.0
       }
     }
   },
   "quality_summary": {
     "aa_mean_correctness": {
-      "numerator": 135.14564677946873,
-      "denominator": 208,
-      "value": 0.6497386864397535
+      "numerator": 141.26620775959222,
+      "denominator": 218,
+      "value": 0.648010127337579
     },
     "aa_mean_faithfulness": {
-      "numerator": 177.78333333333333,
-      "denominator": 208,
-      "value": 0.8547275641025641
+      "numerator": 186.61666666666667,
+      "denominator": 218,
+      "value": 0.856039755351682
     },
     "aa_mean_answer_relevancy": {
-      "numerator": 154.77619047619046,
-      "denominator": 208,
-      "value": 0.7441163003663003
+      "numerator": 163.3,
+      "denominator": 218,
+      "value": 0.7490825688073395
     },
     "nn_mean_correctness": {
-      "numerator": 168.8233187733011,
-      "denominator": 221,
-      "value": 0.7639064197886928
+      "numerator": 177.30425005298912,
+      "denominator": 232,
+      "value": 0.7642424571249531
     },
     "correct_answer_rate": {
-      "numerator": 83,
-      "denominator": 208,
-      "value": 0.39903846153846156
+      "numerator": 86,
+      "denominator": 218,
+      "value": 0.3944954128440367
     }
   },
   "cases": [
@@ -25651,15 +25651,15 @@
       ]
     },
     {
-      "status": "in_progress",
+      "status": "completed",
       "document": "wikipedia_30018705_nick_dudman",
       "name": "mismatched_75017499_all_faiths_chapel_construction_year",
       "expected_answered": false,
       "actual_answered": false,
       "decision_state": "NN",
       "decision_passed": true,
-      "case_passed": null,
-      "passed": null,
+      "case_passed": true,
+      "passed": true,
       "input": "In what year was All Faiths Chapel constructed?",
       "actual_output": "The supplied context does not specify the construction year of All Faiths Chapel.",
       "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
@@ -25675,6 +25675,1226 @@
           "passed": false,
           "gates_case": false,
           "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that address the construction year of All Faiths Chapel, as all provided statements focus on Nick Dudman's career and achievements, which are unrelated to the input question."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response fails to address the question about the construction year of All Faiths Chapel, instead stating that the year is not provided, which is irrelevant to the inquiry."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.8114018524717694,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not specify the construction year of All Faiths Chapel, aligning closely with the expected output's assertion that the retrieval context lacks the necessary information. However, the wording differs slightly, which prevents a perfect score."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_17705607_en_me_nuna",
+      "name": "en_me_nuna_king_position",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "What position did En-me-nuna hold in the First Dynasty of Kish according to the Sumerian King List?",
+      "actual_output": "Answer: He was the fifteenth Sumerian king in the First Dynasty of Kish.\nSource citation: \"En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List.\"",
+      "expected_output": "En-me-nuna was the fifteenth Sumerian king in the First Dynasty of Kish.\n\nSource citation: \"En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List. The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\"",
+      "retrieval_context": [
+        "En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List. The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.3333333333333333,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.33 because while the relevant statement notes that 'En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish,' the surrounding context fails to provide a direct answer and instead discusses the historical validity of kings, which detracts from the relevance."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.6666666666666666,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.67 because the response lacks specific details about En-me-nuna's position, focusing instead on the Sumerian King List without directly answering the question."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7787213152698647,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies En-me-nuna as the fifteenth Sumerian king in the First Dynasty of Kish, aligning with the expected output. However, it lacks the additional context provided in the expected output regarding the historical consideration of the kings listed in the Sumerian King List, which is a significant omission. The source citation is accurate and supports the claim made, but the absence of the broader context affects the overall completeness of the response."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_17705607_en_me_nuna",
+      "name": "en_me_nuna_historical_relevance",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "Is En-me-nuna considered a historical figure according to the Sumerian King List?",
+      "actual_output": "Answer: No, En-me-nuna is not considered a historical figure; he is not among the early SKL kings mentioned in Early Dynastic documents.\nSource citation: \"The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\"",
+      "expected_output": "En-me-nuna is not considered a historical figure as he is not mentioned in Early Dynastic documents.\n\nSource citation: \"En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List. The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\"",
+      "retrieval_context": [
+        "En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List. The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.3333333333333333,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.33 because while the statement 'En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish' provides some context, it is overshadowed by the contradictory information that 'The kings on the early part of the SKL are usually not considered historical' and 'En-me-nuna is not one of them', which directly address the inquiry about his historical status."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.75,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 0.75 because the output includes a statement that contradicts the question by asserting that En-me-nuna is not considered a historical figure, which is irrelevant to the inquiry about the Sumerian King List."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.6530887480486972,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly states that En-me-nuna is not considered a historical figure and provides a source citation that aligns with the expected output. However, it inaccurately claims that he is not among the early SKL kings, which contradicts the expected output's implication that he is the fifteenth king. This misrepresentation affects factual accuracy and coherence."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.6666666666666666,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.67 because while En-me-nuna is mentioned in the Sumerian King List, which includes many non-historical figures, the actual output implies he is not considered a historical figure, contradicting the context that he may still be viewed as such."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_17705607_en_me_nuna",
+      "name": "mismatched_75017499_all_faiths_chapel_location",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "Where is All Faiths Chapel located?",
+      "actual_output": "The supplied context does not specify where All Faiths Chapel is located.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List. The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the retrieval context contains no relevant information regarding the location of All Faiths Chapel, as it solely discusses En-me-nuna and the Sumerian King List, which are unrelated to the inquiry."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response failed to provide any relevant information about the location of All Faiths Chapel, which is the core of the question. The mention of the location not being provided is irrelevant and does not contribute to answering the inquiry."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7979711169689627,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not provide the location of All Faiths Chapel, aligning with the expected output's assertion about the lack of necessary information. However, the wording differs slightly, which affects coherence, but the essential information is present and accurate."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_17705607_en_me_nuna",
+      "name": "mismatched_69391642_presidential_resignation_august",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What happened on August 2 regarding the presidency in '1828 in Bolivia'?",
+      "actual_output": "The supplied context does not specify what happened on August 2 regarding the presidency in '1828 in Bolivia'.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "En-me-nuna of Kish was the fifteenth Sumerian king in the First Dynasty of Kish, according to the Sumerian King List. The kings on the early part of the SKL are usually not considered historical, except when they are mentioned in Early Dynastic documents. En-me-nuna is not one of them.\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the retrieval context discusses 'En-me-nuna of Kish' and the Sumerian King List, which are completely unrelated to the presidency in Bolivia in 1828."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response fails to provide any relevant information about the specific event on August 2, 1828 in Bolivia, indicating a complete lack of relevance to the inquiry."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7866949275041917,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not provide information about the presidency in Bolivia in 1828, aligning with the expected output's assertion of missing information. However, the phrasing could be more aligned with the expected output by explicitly stating that the context does not contain the necessary information, which would enhance clarity and adherence to the evaluation steps."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_75017499_all_faiths_chapel",
+      "name": "all_faiths_chapel_location",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "Where is All Faiths Chapel located?",
+      "actual_output": "Answer: It is in Austin, Texas, on the grounds of the Austin State Supported Living Center (AusSSLC).\nSource citation: \"All Faiths Chapel, previously known as Chapel for the Children, is an interfaith house of worship and historical landmark in Austin, Texas. It is on the grounds of the Austin State Supported Living Center (AusSSLC), a facility for people with developmental or intellectual disabilities, which was known at the time of the chapel's construction as the Austin State School.\"",
+      "expected_output": "All Faiths Chapel is located in Austin, Texas.\n\nSource citation: \"All Faiths Chapel, previously known as Chapel for the Children, is an interfaith house of worship and historical landmark in Austin, Texas. It is on the grounds of the Austin State Supported Living Center (AusSSLC), a facility for people with developmental or intellectual disabilities, which was known at the time of the chapel's construction as the Austin State School. As of May 9, 2022, it is listed in the National Register of Historic Places for its importance in architectural, disability, and social history.\"",
+      "retrieval_context": [
+        "All Faiths Chapel, previously known as Chapel for the Children, is an interfaith house of worship and historical landmark in Austin, Texas. It is on the grounds of the Austin State Supported Living Center (AusSSLC), a facility for people with developmental or intellectual disabilities, which was known at the time of the chapel's construction as the Austin State School.\nAs of May 9, 2022, it is listed in the National Register of Historic Places for its importance in architectural, disability, and social history.\n\n\n== History ==\nThe chapel was constructed following a request by Reverend Luther Holloway, Austin State School's chaplain, for a dedicated space for worship.\nOrganizations such as the Protestant Austin Council of Church Women, the Austin Jewish Community Council, and the Catholic Ladies of Charity, instituted a statewide fundraising campaign for the construction of the chapel. Additional funding came from soldiers who were stationed in Germany. The funds raised eventually totaled over $100,000.\nConstruction by architect David Calvert Graeber finished around 1961, and Chapel for the Children was dedicated on January 21, 1962.\nFrom 1961 to 1972, Chapel for the Children served as an interfaith chapel for students of the AusSSLC, and now serves as an area for spiritual and religious services for residents, family members, employees, and the public.\nAfter David Graeber's death in 2010, the Chapel hosted his memorial service. Family members asked for, in lieu of flowers, donations to be made in his name to the maintenance fund for the chapel.\n\n\n== Structure and design ==\n\nAll Faiths Chapel consists of 3 distinct sections: the main chapel, a meditation garden, and a chaplaincy office.\n\nMain Chapel\nThe main chapel consists of a 52-foot high A-frame with a skylighted ceiling.\nBoth gable ends feature the stained glass design \"Miracle in the Sky\" by artist Blossom Burns.\nThe interior design includes copper light fixtures made by hand and door handles that depict simple abstracted flying birds. The Texas Historical Commission states that these birds \"reflect the importance of music and graphic arts in teaching religious concepts to persons with physical and cognitive impairments.\"\n\nMeditation Garden\nTo the north of the main chapel is a fully landscaped exterior courtyard called the Meditation Garden. There are sidewalks that lead both back to the chapel and to the chaplaincy office.\nThe primary entrance to the garden has the verse Isaiah 56:7 from the Book of Isaiah inscribed upon it: \"MINE HOUSE SHALL BE CALLED AN [sic] HOUSE OF PRAYER FOR ALL PEOPLE\".\nIn the northwest corner, there is a tall mature oak tree. In the southeast corner is a large limestone statue, titled Lazarus, which was donated by David Graeber's son Larry Graeber in 2015. Lazarus is of a man reclining and looking upwards towards the west.\n\nChaplaincy Office\nThere is a chaplaincy office attached, with five office rooms and one restroom. The office rooms include a sacrament room, office space, a meeting room, and a communal room with a kitchenette.\n\n\n== See also ==\nNational Register of Historic Places listings in Travis County, Texas\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.25,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.25 because while the retrieval context mentions that 'All Faiths Chapel is an interfaith house of worship and historical landmark in Austin, Texas,' it primarily focuses on historical and architectural details, failing to directly answer the question about its specific location."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.8571428571428571,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 0.86 because the response included a statement about the chapel's function, which does not directly answer the question about its location."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.6803772312566021,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies the location of All Faiths Chapel in Austin, Texas, which aligns with the expected output. However, it lacks the additional context provided in the expected output regarding the chapel's historical significance and its listing in the National Register of Historic Places. While the essential information is present, the omission of these details affects the completeness of the response."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_75017499_all_faiths_chapel",
+      "name": "all_faiths_chapel_construction_year",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "In what year was All Faiths Chapel constructed?",
+      "actual_output": "Answer: 1961\nSource citation: \"Construction by architect David Calvert Graeber finished around 1961, and Chapel for the Children was dedicated on January 21, 1962.\"",
+      "expected_output": "All Faiths Chapel was constructed around 1961.\n\nSource citation: \"== History ==\nThe chapel was constructed following a request by Reverend Luther Holloway, Austin State School's chaplain, for a dedicated space for worship. Organizations such as the Protestant Austin Council of Church Women, the Austin Jewish Community Council, and the Catholic Ladies of Charity, instituted a statewide fundraising campaign for the construction of the chapel. Additional funding came from soldiers who were stationed in Germany. The funds raised eventually totaled over $100,000. Construction by architect David Calvert Graeber finished around 1961, and Chapel for the Children was dedicated on January 21, 1962.\"",
+      "retrieval_context": [
+        "All Faiths Chapel, previously known as Chapel for the Children, is an interfaith house of worship and historical landmark in Austin, Texas. It is on the grounds of the Austin State Supported Living Center (AusSSLC), a facility for people with developmental or intellectual disabilities, which was known at the time of the chapel's construction as the Austin State School.\nAs of May 9, 2022, it is listed in the National Register of Historic Places for its importance in architectural, disability, and social history.\n\n\n== History ==\nThe chapel was constructed following a request by Reverend Luther Holloway, Austin State School's chaplain, for a dedicated space for worship.\nOrganizations such as the Protestant Austin Council of Church Women, the Austin Jewish Community Council, and the Catholic Ladies of Charity, instituted a statewide fundraising campaign for the construction of the chapel. Additional funding came from soldiers who were stationed in Germany. The funds raised eventually totaled over $100,000.\nConstruction by architect David Calvert Graeber finished around 1961, and Chapel for the Children was dedicated on January 21, 1962.\nFrom 1961 to 1972, Chapel for the Children served as an interfaith chapel for students of the AusSSLC, and now serves as an area for spiritual and religious services for residents, family members, employees, and the public.\nAfter David Graeber's death in 2010, the Chapel hosted his memorial service. Family members asked for, in lieu of flowers, donations to be made in his name to the maintenance fund for the chapel.\n\n\n== Structure and design ==\n\nAll Faiths Chapel consists of 3 distinct sections: the main chapel, a meditation garden, and a chaplaincy office.\n\nMain Chapel\nThe main chapel consists of a 52-foot high A-frame with a skylighted ceiling.\nBoth gable ends feature the stained glass design \"Miracle in the Sky\" by artist Blossom Burns.\nThe interior design includes copper light fixtures made by hand and door handles that depict simple abstracted flying birds. The Texas Historical Commission states that these birds \"reflect the importance of music and graphic arts in teaching religious concepts to persons with physical and cognitive impairments.\"\n\nMeditation Garden\nTo the north of the main chapel is a fully landscaped exterior courtyard called the Meditation Garden. There are sidewalks that lead both back to the chapel and to the chaplaincy office.\nThe primary entrance to the garden has the verse Isaiah 56:7 from the Book of Isaiah inscribed upon it: \"MINE HOUSE SHALL BE CALLED AN [sic] HOUSE OF PRAYER FOR ALL PEOPLE\".\nIn the northwest corner, there is a tall mature oak tree. In the southeast corner is a large limestone statue, titled Lazarus, which was donated by David Graeber's son Larry Graeber in 2015. Lazarus is of a man reclining and looking upwards towards the west.\n\nChaplaincy Office\nThere is a chaplaincy office attached, with five office rooms and one restroom. The office rooms include a sacrament room, office space, a meeting room, and a communal room with a kitchenette.\n\n\n== See also ==\nNational Register of Historic Places listings in Travis County, Texas\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.06666666666666667,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.07 because while the statement 'Construction by architect David Calvert Graeber finished around 1961' is relevant, it is vague and does not directly answer the question about the specific year of construction, leading to a low relevancy score."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because the response directly addressed the question about the year All Faiths Chapel was constructed without including any irrelevant information."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.6226260297691137,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output provides a year of construction (1961) which aligns with the expected output, but it lacks the context of the request for a dedicated space for worship and the fundraising efforts mentioned in the expected output. While the factual accuracy regarding the construction year is correct, the response does not fully capture the essential information or the overall coherence of the expected output."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.50 because the actual output incorrectly states the name under which the chapel was dedicated, leading to confusion about its historical context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_75017499_all_faiths_chapel",
+      "name": "mismatched_69391642_event_april_military_mutiny",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What significant military event occurred on April 18 in the article '1828 in Bolivia'?",
+      "actual_output": "The supplied context does not specify any information about a significant military event on April 18 in the article '1828 in Bolivia'.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "All Faiths Chapel, previously known as Chapel for the Children, is an interfaith house of worship and historical landmark in Austin, Texas. It is on the grounds of the Austin State Supported Living Center (AusSSLC), a facility for people with developmental or intellectual disabilities, which was known at the time of the chapel's construction as the Austin State School.\nAs of May 9, 2022, it is listed in the National Register of Historic Places for its importance in architectural, disability, and social history.\n\n\n== History ==\nThe chapel was constructed following a request by Reverend Luther Holloway, Austin State School's chaplain, for a dedicated space for worship.\nOrganizations such as the Protestant Austin Council of Church Women, the Austin Jewish Community Council, and the Catholic Ladies of Charity, instituted a statewide fundraising campaign for the construction of the chapel. Additional funding came from soldiers who were stationed in Germany. The funds raised eventually totaled over $100,000.\nConstruction by architect David Calvert Graeber finished around 1961, and Chapel for the Children was dedicated on January 21, 1962.\nFrom 1961 to 1972, Chapel for the Children served as an interfaith chapel for students of the AusSSLC, and now serves as an area for spiritual and religious services for residents, family members, employees, and the public.\nAfter David Graeber's death in 2010, the Chapel hosted his memorial service. Family members asked for, in lieu of flowers, donations to be made in his name to the maintenance fund for the chapel.\n\n\n== Structure and design ==\n\nAll Faiths Chapel consists of 3 distinct sections: the main chapel, a meditation garden, and a chaplaincy office.\n\nMain Chapel\nThe main chapel consists of a 52-foot high A-frame with a skylighted ceiling.\nBoth gable ends feature the stained glass design \"Miracle in the Sky\" by artist Blossom Burns.\nThe interior design includes copper light fixtures made by hand and door handles that depict simple abstracted flying birds. The Texas Historical Commission states that these birds \"reflect the importance of music and graphic arts in teaching religious concepts to persons with physical and cognitive impairments.\"\n\nMeditation Garden\nTo the north of the main chapel is a fully landscaped exterior courtyard called the Meditation Garden. There are sidewalks that lead both back to the chapel and to the chaplaincy office.\nThe primary entrance to the garden has the verse Isaiah 56:7 from the Book of Isaiah inscribed upon it: \"MINE HOUSE SHALL BE CALLED AN [sic] HOUSE OF PRAYER FOR ALL PEOPLE\".\nIn the northwest corner, there is a tall mature oak tree. In the southeast corner is a large limestone statue, titled Lazarus, which was donated by David Graeber's son Larry Graeber in 2015. Lazarus is of a man reclining and looking upwards towards the west.\n\nChaplaincy Office\nThere is a chaplaincy office attached, with five office rooms and one restroom. The office rooms include a sacrament room, office space, a meeting room, and a communal room with a kitchenette.\n\n\n== See also ==\nNational Register of Historic Places listings in Travis County, Texas\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that pertain to military events on April 18, as all provided statements focus on the All Faiths Chapel and its features, which are entirely unrelated."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.50 because the response failed to address the specific military event on April 18, instead noting a lack of relevant information in the supplied context."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7846733199792887,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output accurately reflects the absence of information regarding a significant military event on April 18 in the specified article, aligning well with the expected output's assertion about the lack of necessary information. However, the phrasing could be slightly more aligned with the expected output's wording, which may affect coherence."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_75017499_all_faiths_chapel",
+      "name": "mismatched_68917156_eduard_brandt_professor_position",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What position did Eduard Brandt hold at the Imperial Military Medical Academy?",
+      "actual_output": "The supplied context does not specify what position Eduard Brandt held at the Imperial Military Medical Academy.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "All Faiths Chapel, previously known as Chapel for the Children, is an interfaith house of worship and historical landmark in Austin, Texas. It is on the grounds of the Austin State Supported Living Center (AusSSLC), a facility for people with developmental or intellectual disabilities, which was known at the time of the chapel's construction as the Austin State School.\nAs of May 9, 2022, it is listed in the National Register of Historic Places for its importance in architectural, disability, and social history.\n\n\n== History ==\nThe chapel was constructed following a request by Reverend Luther Holloway, Austin State School's chaplain, for a dedicated space for worship.\nOrganizations such as the Protestant Austin Council of Church Women, the Austin Jewish Community Council, and the Catholic Ladies of Charity, instituted a statewide fundraising campaign for the construction of the chapel. Additional funding came from soldiers who were stationed in Germany. The funds raised eventually totaled over $100,000.\nConstruction by architect David Calvert Graeber finished around 1961, and Chapel for the Children was dedicated on January 21, 1962.\nFrom 1961 to 1972, Chapel for the Children served as an interfaith chapel for students of the AusSSLC, and now serves as an area for spiritual and religious services for residents, family members, employees, and the public.\nAfter David Graeber's death in 2010, the Chapel hosted his memorial service. Family members asked for, in lieu of flowers, donations to be made in his name to the maintenance fund for the chapel.\n\n\n== Structure and design ==\n\nAll Faiths Chapel consists of 3 distinct sections: the main chapel, a meditation garden, and a chaplaincy office.\n\nMain Chapel\nThe main chapel consists of a 52-foot high A-frame with a skylighted ceiling.\nBoth gable ends feature the stained glass design \"Miracle in the Sky\" by artist Blossom Burns.\nThe interior design includes copper light fixtures made by hand and door handles that depict simple abstracted flying birds. The Texas Historical Commission states that these birds \"reflect the importance of music and graphic arts in teaching religious concepts to persons with physical and cognitive impairments.\"\n\nMeditation Garden\nTo the north of the main chapel is a fully landscaped exterior courtyard called the Meditation Garden. There are sidewalks that lead both back to the chapel and to the chaplaincy office.\nThe primary entrance to the garden has the verse Isaiah 56:7 from the Book of Isaiah inscribed upon it: \"MINE HOUSE SHALL BE CALLED AN [sic] HOUSE OF PRAYER FOR ALL PEOPLE\".\nIn the northwest corner, there is a tall mature oak tree. In the southeast corner is a large limestone statue, titled Lazarus, which was donated by David Graeber's son Larry Graeber in 2015. Lazarus is of a man reclining and looking upwards towards the west.\n\nChaplaincy Office\nThere is a chaplaincy office attached, with five office rooms and one restroom. The office rooms include a sacrament room, office space, a meeting room, and a communal room with a kitchenette.\n\n\n== See also ==\nNational Register of Historic Places listings in Travis County, Texas\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that pertain to Eduard Brandt or his position at the Imperial Military Medical Academy, as all provided statements focus on unrelated topics such as All Faiths Chapel."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response fails to address the question regarding Eduard Brandt's position, indicating a lack of relevant information."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7838648828958374,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not specify Eduard Brandt's position, aligning with the expected output's assertion about missing information. However, the wording differs slightly, which affects the overall coherence. The essential information is present, but the phrasing could be more aligned with the expected context."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_69391642_1828_in_bolivia",
+      "name": "event_april_military_mutiny",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "What significant military event occurred on April 18 in the article '1828 in Bolivia'?",
+      "actual_output": "Answer: A military mutiny occurred in Chuquisaca, during which President Antonio José de Sucre was wounded and delegated command to President of the Council of Ministers José María Pérez de Urdininea.\nSource citation: \"18 April – Military mutiny in Chuquisaca. President Antonio José de Sucre is wounded and delegates command to President of the Council of Ministers José María Pérez de Urdininea.\"",
+      "expected_output": "A military mutiny occurred in Chuquisaca, wounding President Antonio José de Sucre.\n\nSource citation: \"=== April ===\n18 April – Military mutiny in Chuquisaca. President Antonio José de Sucre is wounded and delegates command to President of the Council of Ministers José María Pérez de Urdininea. 30 April – The revolt in Chuquisaca is quelled.\"",
+      "retrieval_context": [
+        "Events in the year 1828 in Bolivia.\n\n\n== Incumbents ==\nPresident:\nAntonio José de Sucre (until 18 April)\nJosé María Pérez de Urdininea (acting: 18 April–2 August)\nJosé Miguel de Velasco (acting: 2 August–18 December)\nJosé Ramón de Loayza (acting: 18–26 December)\nPedro Blanco Soto (provisional: starting 26 December)\nVice President:\nVacant (until 26 December)\nJosé Miguel de Velasco (designate: 12 August–18 December)\nJosé Ramón de Loayza (designate: 18–26 December)\nJosé Ramón de Loayza (provisional: starting 26 December)\n\n\n== Ongoing events ==\nPeruvian–Bolivian War (1828)\n\n\n== Events ==\n\n\n=== April ===\n18 April – Military mutiny in Chuquisaca. President Antonio José de Sucre is wounded and delegates command to President of the Council of Ministers José María Pérez de Urdininea.\n30 April – The revolt in Chuquisaca is quelled.\n\n\n=== May ===\n1 May – Peruvian–Bolivian War: Peruvian forces under Agustín Gamarra cross the Desaguadero River into Bolivia, seeking to expel Gran Colombian influence in the country.\n\n\n=== July ===\n6 July – Peruvian–Bolivian War: The Treaty of Piquiza is signed between Sucre and Gamarra. Gran Colombian troops are required to withdraw while Peruvian troops will remain for some time.\n\n\n=== August ===\n2 August – President Sucre presents his definitive resignation to Congress. Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco.\n12 August – Andrés de Santa Cruz and José Miguel de Velasco are elected provisional president and vice president by the General Constituent Congress. Velasco assumes command pending the arrival of Santa Cruz.\n\n\n=== December ===\n18 December – Given the continued absence of Santa Cruz, the Congress reconvenes and elects Pedro Blanco Soto and José Ramón de Loayza provisional president and vice president, in the framework of an assembly dominated by the interests of Agustín Gamarra and the Peruvian Army.\n31 December – President Blanco is arrested by anti-Peruvian rebels.\n\n\n== Deaths ==\n30 April – José Miguel García Lanza, guerilla. (b. 1791)\n\n\n== Notes ==\n\n\n=== Footnotes ===\n\n\n=== Citations ===\n\n\n== Bibliography =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.125,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.12 because the majority of the context discusses events that occur after April 18, such as political elections and resignations, which are irrelevant to the specific military event. However, the relevant statement notes the 'Military mutiny in Chuquisaca' on April 18, which is the key event in question."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.75,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 0.75 because while the response provided relevant information about the military event, it included an irrelevant statement regarding José María Pérez de Urdininea's position, which did not directly pertain to the event in question."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.6709123394593343,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output accurately describes the military mutiny and mentions the wounding of President Sucre, aligning with the expected output. However, it includes additional details about the delegation of command to José María Pérez de Urdininea, which, while factually correct, diverges from the expected output's focus. This extra information could be seen as a deficiency in coherence with the expected output's intent."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 0.6666666666666666,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.67 because the actual output incorrectly states that President Antonio José de Sucre delegated command to José María Pérez de Urdininea, while the retrieval context clarifies that Urdininea took command only after Sucre was wounded."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_69391642_1828_in_bolivia",
+      "name": "presidential_resignation_august",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What happened on August 2 regarding the presidency in '1828 in Bolivia'?",
+      "actual_output": "Answer: On August 2, President Sucre presented his definitive resignation to Congress; simultaneously, a new cabinet was appointed by decree, presided by José Miguel de Velasco.\nSource citation: \"2 August – President Sucre presents his definitive resignation to Congress. Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco.\"",
+      "expected_output": "President Sucre presented his definitive resignation to Congress.\n\nSource citation: \"=== August ===\n2 August – President Sucre presents his definitive resignation to Congress. Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco. 12 August – Andrés de Santa Cruz and José Miguel de Velasco are elected provisional president and vice president by the General Constituent Congress. Velasco assumes command pending the arrival of Santa Cruz.\"",
+      "retrieval_context": [
+        "Events in the year 1828 in Bolivia.\n\n\n== Incumbents ==\nPresident:\nAntonio José de Sucre (until 18 April)\nJosé María Pérez de Urdininea (acting: 18 April–2 August)\nJosé Miguel de Velasco (acting: 2 August–18 December)\nJosé Ramón de Loayza (acting: 18–26 December)\nPedro Blanco Soto (provisional: starting 26 December)\nVice President:\nVacant (until 26 December)\nJosé Miguel de Velasco (designate: 12 August–18 December)\nJosé Ramón de Loayza (designate: 18–26 December)\nJosé Ramón de Loayza (provisional: starting 26 December)\n\n\n== Ongoing events ==\nPeruvian–Bolivian War (1828)\n\n\n== Events ==\n\n\n=== April ===\n18 April – Military mutiny in Chuquisaca. President Antonio José de Sucre is wounded and delegates command to President of the Council of Ministers José María Pérez de Urdininea.\n30 April – The revolt in Chuquisaca is quelled.\n\n\n=== May ===\n1 May – Peruvian–Bolivian War: Peruvian forces under Agustín Gamarra cross the Desaguadero River into Bolivia, seeking to expel Gran Colombian influence in the country.\n\n\n=== July ===\n6 July – Peruvian–Bolivian War: The Treaty of Piquiza is signed between Sucre and Gamarra. Gran Colombian troops are required to withdraw while Peruvian troops will remain for some time.\n\n\n=== August ===\n2 August – President Sucre presents his definitive resignation to Congress. Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco.\n12 August – Andrés de Santa Cruz and José Miguel de Velasco are elected provisional president and vice president by the General Constituent Congress. Velasco assumes command pending the arrival of Santa Cruz.\n\n\n=== December ===\n18 December – Given the continued absence of Santa Cruz, the Congress reconvenes and elects Pedro Blanco Soto and José Ramón de Loayza provisional president and vice president, in the framework of an assembly dominated by the interests of Agustín Gamarra and the Peruvian Army.\n31 December – President Blanco is arrested by anti-Peruvian rebels.\n\n\n== Deaths ==\n30 April – José Miguel García Lanza, guerilla. (b. 1791)\n\n\n== Notes ==\n\n\n=== Footnotes ===\n\n\n=== Citations ===\n\n\n== Bibliography =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.08695652173913043,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.09 because while there are relevant statements such as 'On August 2, President Sucre presents his definitive resignation to Congress' and 'Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco', the majority of the context is irrelevant, as highlighted by statements like 'The statement 'President Antonio José de Sucre (until 18 April)' is irrelevant as it does not pertain to the events of August 2.' This lack of relevant context significantly lowers the score."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because the response directly addressed the question about the presidency in Bolivia in 1828 without any irrelevant statements."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7007102187526577,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly states that President Sucre presented his definitive resignation to Congress, aligning with the expected output. However, it includes additional information about the new cabinet and its presiding officer, which, while factually accurate, is not part of the expected output. This extra detail does not contradict the expected information but introduces a slight deviation from the focus of the expected response."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_69391642_1828_in_bolivia",
+      "name": "mismatched_68917156_eduard_brandt_birth_death",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What are the birth and death dates of Eduard Brandt?",
+      "actual_output": "The supplied context does not specify the birth and death dates of Eduard Brandt.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "Events in the year 1828 in Bolivia.\n\n\n== Incumbents ==\nPresident:\nAntonio José de Sucre (until 18 April)\nJosé María Pérez de Urdininea (acting: 18 April–2 August)\nJosé Miguel de Velasco (acting: 2 August–18 December)\nJosé Ramón de Loayza (acting: 18–26 December)\nPedro Blanco Soto (provisional: starting 26 December)\nVice President:\nVacant (until 26 December)\nJosé Miguel de Velasco (designate: 12 August–18 December)\nJosé Ramón de Loayza (designate: 18–26 December)\nJosé Ramón de Loayza (provisional: starting 26 December)\n\n\n== Ongoing events ==\nPeruvian–Bolivian War (1828)\n\n\n== Events ==\n\n\n=== April ===\n18 April – Military mutiny in Chuquisaca. President Antonio José de Sucre is wounded and delegates command to President of the Council of Ministers José María Pérez de Urdininea.\n30 April – The revolt in Chuquisaca is quelled.\n\n\n=== May ===\n1 May – Peruvian–Bolivian War: Peruvian forces under Agustín Gamarra cross the Desaguadero River into Bolivia, seeking to expel Gran Colombian influence in the country.\n\n\n=== July ===\n6 July – Peruvian–Bolivian War: The Treaty of Piquiza is signed between Sucre and Gamarra. Gran Colombian troops are required to withdraw while Peruvian troops will remain for some time.\n\n\n=== August ===\n2 August – President Sucre presents his definitive resignation to Congress. Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco.\n12 August – Andrés de Santa Cruz and José Miguel de Velasco are elected provisional president and vice president by the General Constituent Congress. Velasco assumes command pending the arrival of Santa Cruz.\n\n\n=== December ===\n18 December – Given the continued absence of Santa Cruz, the Congress reconvenes and elects Pedro Blanco Soto and José Ramón de Loayza provisional president and vice president, in the framework of an assembly dominated by the interests of Agustín Gamarra and the Peruvian Army.\n31 December – President Blanco is arrested by anti-Peruvian rebels.\n\n\n== Deaths ==\n30 April – José Miguel García Lanza, guerilla. (b. 1791)\n\n\n== Notes ==\n\n\n=== Footnotes ===\n\n\n=== Citations ===\n\n\n== Bibliography =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the retrieval context contains no relevant statements regarding Eduard Brandt's birth and death dates, focusing instead on unrelated historical events in Bolivia."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response fails to provide any relevant information regarding the birth and death dates of Eduard Brandt, which was the specific request."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.8500513532589495,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not provide the birth and death dates of Eduard Brandt, aligning with the expected output's assertion that the necessary information is absent. However, the wording differs slightly, which could be seen as a minor discrepancy, but it does not significantly impact the overall accuracy."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_69391642_1828_in_bolivia",
+      "name": "mismatched_44749860_renascer_writer_director",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "Who wrote and directed Renascer (1993 TV series)?",
+      "actual_output": "The supplied context does not specify who wrote and directed Renascer (1993 TV series).",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "Events in the year 1828 in Bolivia.\n\n\n== Incumbents ==\nPresident:\nAntonio José de Sucre (until 18 April)\nJosé María Pérez de Urdininea (acting: 18 April–2 August)\nJosé Miguel de Velasco (acting: 2 August–18 December)\nJosé Ramón de Loayza (acting: 18–26 December)\nPedro Blanco Soto (provisional: starting 26 December)\nVice President:\nVacant (until 26 December)\nJosé Miguel de Velasco (designate: 12 August–18 December)\nJosé Ramón de Loayza (designate: 18–26 December)\nJosé Ramón de Loayza (provisional: starting 26 December)\n\n\n== Ongoing events ==\nPeruvian–Bolivian War (1828)\n\n\n== Events ==\n\n\n=== April ===\n18 April – Military mutiny in Chuquisaca. President Antonio José de Sucre is wounded and delegates command to President of the Council of Ministers José María Pérez de Urdininea.\n30 April – The revolt in Chuquisaca is quelled.\n\n\n=== May ===\n1 May – Peruvian–Bolivian War: Peruvian forces under Agustín Gamarra cross the Desaguadero River into Bolivia, seeking to expel Gran Colombian influence in the country.\n\n\n=== July ===\n6 July – Peruvian–Bolivian War: The Treaty of Piquiza is signed between Sucre and Gamarra. Gran Colombian troops are required to withdraw while Peruvian troops will remain for some time.\n\n\n=== August ===\n2 August – President Sucre presents his definitive resignation to Congress. Simultaneously, a new cabinet is appointed by decree, presided by José Miguel de Velasco.\n12 August – Andrés de Santa Cruz and José Miguel de Velasco are elected provisional president and vice president by the General Constituent Congress. Velasco assumes command pending the arrival of Santa Cruz.\n\n\n=== December ===\n18 December – Given the continued absence of Santa Cruz, the Congress reconvenes and elects Pedro Blanco Soto and José Ramón de Loayza provisional president and vice president, in the framework of an assembly dominated by the interests of Agustín Gamarra and the Peruvian Army.\n31 December – President Blanco is arrested by anti-Peruvian rebels.\n\n\n== Deaths ==\n30 April – José Miguel García Lanza, guerilla. (b. 1791)\n\n\n== Notes ==\n\n\n=== Footnotes ===\n\n\n=== Citations ===\n\n\n== Bibliography =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that address the question about who wrote and directed the Renascer (1993 TV series). All provided statements focus on unrelated historical events in Bolivia, making them completely irrelevant to the inquiry."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response completely fails to address the question regarding the writer and director of Renascer (1993 TV series), providing no relevant information."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7482125162395139,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not provide information about the writer and director of the Renascer (1993 TV series), aligning closely with the expected output. However, it could have explicitly stated that the context lacks the necessary information, which would have made it more precise. Overall, it demonstrates a strong understanding of the limitations of the provided context."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "failed",
+      "document": "wikipedia_68917156_eduard_brandt",
+      "name": "eduard_brandt_birth_death",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": null,
+      "passed": null,
+      "input": "What are the birth and death dates of Eduard Brandt?",
+      "actual_output": "Answer: 15 February 1839 – 17 November 1891\nSource citation: \"15 February 1839 – 17 November 1891\"",
+      "expected_output": "Eduard Brandt was born on 15 February 1839 and died on 17 November 1891.\n\nSource citation: \"Eduard Karlovich Brandt (Russian: Эдуард Карлович Брандт; 15 February 1839 – 17 November 1891) was a Russo-German comparative anatomist and zoologist who contributed to studies on the nervous system of insects. He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\"",
+      "retrieval_context": [
+        "Eduard Karlovich Brandt (Russian: Эдуард Карлович Брандт; 15 February 1839 – 17 November 1891) was a Russo-German comparative anatomist and zoologist who contributed to studies on the nervous system of insects. He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\n\n\n== Life and work ==\nBrandt was educated at St. Petersburg where he studied at the Saint Peter's School after which he studied medicine, receiving a diploma in 1862. He then studied zoology, training under his uncle Fedor Fedorovich Brandt (German form Johann Friedrich von Brandt), particularly examining the insects and received a master's degree in 1876. In 1863 he became an assistant in comparative anatomy at the Imperial Military Medical Academy. He made field trips in Paris with Émile Blanchard and Henri Milne-Edwards in 1866 and met Richard Owen in London. He became a professor of zoology in 1878 and was elected to the Academy of Sciences Leopoldina in 1881. His major work was on the nervous system of insects for which he received an award from the French Academy of Sciences.  Between 1880 and 1889 he presided over the Russian Entomological Society. \n\n\n== References ==\n\n\n== Sources ==\n\"Брандт, Эдуард Карлович\" . Brockhaus and Efron Encyclopedic Dictionary (in Russian). 1906.\n\n\n== External links ==\nBrandt's studies on the nervous system of insects in Horae Societatis Entomologicae Rossicae (1879)"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.1111111111111111,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.11 because while the relevant statement provides Eduard Brandt's birth and death dates, the majority of the context focuses on his profession and achievements, which do not answer the question."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.50 because the output included a source citation that did not add any new information beyond what was already provided in the answer, making it less relevant. However, the core information about Eduard Brandt's birth and death dates was addressed."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.4000000000000001,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output provides the correct dates of birth and death but lacks the essential context about Eduard Brandt, such as his profession and contributions, which are critical for a complete answer. Additionally, the source citation does not reference Brandt's name, leading to a deficiency in clarity and completeness."
+        }
+      ],
+      "error": "Faithfulness failed after 3 attempts: RetryError: RetryError[<Future at 0x78e974181220 state=finished raised TimeoutError>]; root cause: SSLWantReadError: The operation did not complete (read) (_ssl.c:2570)"
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_68917156_eduard_brandt",
+      "name": "eduard_brandt_professor_position",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "What position did Eduard Brandt hold at the Imperial Military Medical Academy?",
+      "actual_output": "Answer: Professor.\nSource citation: \"He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\"",
+      "expected_output": "Eduard Brandt served as a professor at the Imperial Military Medical Academy in St. Petersburg.\n\nSource citation: \"Eduard Karlovich Brandt (Russian: Эдуард Карлович Брандт; 15 February 1839 – 17 November 1891) was a Russo-German comparative anatomist and zoologist who contributed to studies on the nervous system of insects. He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\"",
+      "retrieval_context": [
+        "Eduard Karlovich Brandt (Russian: Эдуард Карлович Брандт; 15 February 1839 – 17 November 1891) was a Russo-German comparative anatomist and zoologist who contributed to studies on the nervous system of insects. He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\n\n\n== Life and work ==\nBrandt was educated at St. Petersburg where he studied at the Saint Peter's School after which he studied medicine, receiving a diploma in 1862. He then studied zoology, training under his uncle Fedor Fedorovich Brandt (German form Johann Friedrich von Brandt), particularly examining the insects and received a master's degree in 1876. In 1863 he became an assistant in comparative anatomy at the Imperial Military Medical Academy. He made field trips in Paris with Émile Blanchard and Henri Milne-Edwards in 1866 and met Richard Owen in London. He became a professor of zoology in 1878 and was elected to the Academy of Sciences Leopoldina in 1881. His major work was on the nervous system of insects for which he received an award from the French Academy of Sciences.  Between 1880 and 1889 he presided over the Russian Entomological Society. \n\n\n== References ==\n\n\n== Sources ==\n\"Брандт, Эдуард Карлович\" . Brockhaus and Efron Encyclopedic Dictionary (in Russian). 1906.\n\n\n== External links ==\nBrandt's studies on the nervous system of insects in Horae Societatis Entomologicae Rossicae (1879)"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.4,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.40 because while the retrieval context mentions that 'He served as a professor at the Imperial Military Medical Academy' and 'In 1863 he became an assistant in comparative anatomy at the Imperial Military Medical Academy,' the overall context fails to directly answer the specific question about his position, leading to a lower relevancy score."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because the response directly addressed the question about Eduard Brandt's position at the Imperial Military Medical Academy without including any irrelevant information."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.4371203207923715,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies the role of Professor but lacks the full name 'Eduard Brandt' and additional context about his contributions, which are essential for factual accuracy. The source citation is relevant but does not fully align with the expected output, leading to a deficiency in completeness and coherence."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_68917156_eduard_brandt",
+      "name": "mismatched_44749860_renascer_production_year",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What year was Renascer (1993 TV series) produced and broadcast?",
+      "actual_output": "The supplied context does not specify the production or broadcast year for Renascer (1993 TV series).",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "Eduard Karlovich Brandt (Russian: Эдуард Карлович Брандт; 15 February 1839 – 17 November 1891) was a Russo-German comparative anatomist and zoologist who contributed to studies on the nervous system of insects. He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\n\n\n== Life and work ==\nBrandt was educated at St. Petersburg where he studied at the Saint Peter's School after which he studied medicine, receiving a diploma in 1862. He then studied zoology, training under his uncle Fedor Fedorovich Brandt (German form Johann Friedrich von Brandt), particularly examining the insects and received a master's degree in 1876. In 1863 he became an assistant in comparative anatomy at the Imperial Military Medical Academy. He made field trips in Paris with Émile Blanchard and Henri Milne-Edwards in 1866 and met Richard Owen in London. He became a professor of zoology in 1878 and was elected to the Academy of Sciences Leopoldina in 1881. His major work was on the nervous system of insects for which he received an award from the French Academy of Sciences.  Between 1880 and 1889 he presided over the Russian Entomological Society. \n\n\n== References ==\n\n\n== Sources ==\n\"Брандт, Эдуард Карлович\" . Brockhaus and Efron Encyclopedic Dictionary (in Russian). 1906.\n\n\n== External links ==\nBrandt's studies on the nervous system of insects in Horae Societatis Entomologicae Rossicae (1879)"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that address the production and broadcast year of the Renascer (1993 TV series), making the context entirely irrelevant to the input."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because the response directly addressed the question about the year Renascer was produced and broadcast without any irrelevant statements."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7100246316794713,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not specify the production year for Renascer, aligning with the expected output's assertion that the necessary information is absent. However, it could have more explicitly stated that the context lacks the information needed to answer the question, which would have strengthened its alignment with the expected output."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_68917156_eduard_brandt",
+      "name": "mismatched_40551371_danny_mcgarvey_tuc_presidency_year",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "In what year did Danny McGarvey become the President of the Trades Union Congress (TUC)?",
+      "actual_output": "The supplied context does not specify the year Danny McGarvey became President of the Trades Union Congress (TUC).",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "Eduard Karlovich Brandt (Russian: Эдуард Карлович Брандт; 15 February 1839 – 17 November 1891) was a Russo-German comparative anatomist and zoologist who contributed to studies on the nervous system of insects. He served as a professor at the Imperial Military Medical Academy in St. Petersburg.\n\n\n== Life and work ==\nBrandt was educated at St. Petersburg where he studied at the Saint Peter's School after which he studied medicine, receiving a diploma in 1862. He then studied zoology, training under his uncle Fedor Fedorovich Brandt (German form Johann Friedrich von Brandt), particularly examining the insects and received a master's degree in 1876. In 1863 he became an assistant in comparative anatomy at the Imperial Military Medical Academy. He made field trips in Paris with Émile Blanchard and Henri Milne-Edwards in 1866 and met Richard Owen in London. He became a professor of zoology in 1878 and was elected to the Academy of Sciences Leopoldina in 1881. His major work was on the nervous system of insects for which he received an award from the French Academy of Sciences.  Between 1880 and 1889 he presided over the Russian Entomological Society. \n\n\n== References ==\n\n\n== Sources ==\n\"Брандт, Эдуард Карлович\" . Brockhaus and Efron Encyclopedic Dictionary (in Russian). 1906.\n\n\n== External links ==\nBrandt's studies on the nervous system of insects in Horae Societatis Entomologicae Rossicae (1879)"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because there are no relevant statements in the retrieval context that pertain to Danny McGarvey's presidency of the TUC, as all provided statements focus solely on Eduard Karlovich Brandt's contributions to zoology and anatomy."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the output fails to address the question regarding the specific year Danny McGarvey became President of the TUC, instead stating that the context does not provide this information, which is irrelevant to the inquiry."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7878743563420909,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not specify the year Danny McGarvey became President of the TUC, aligning with the expected output's assertion about the lack of information. However, it could be improved by explicitly stating that the context does not contain the necessary information, which would enhance clarity and coherence."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_44749860_renascer_1993_tv_series",
+      "name": "renascer_production_year",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "What year was Renascer (1993 TV series) produced and broadcast?",
+      "actual_output": "Answer: 1993\nSource citation: \"produced and broadcast by TV Globo in 1993\"",
+      "expected_output": "Renascer (1993 TV series) was produced and broadcast in 1993.\n\nSource citation: \"Renascer (English: To be reborn) is a Brazilian telenovela produced and broadcast by TV Globo in 1993, written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\"",
+      "retrieval_context": [
+        "Renascer (English: To be reborn) is a Brazilian telenovela produced and broadcast by TV Globo in 1993, written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\n\n\n== Cast ==\n\n\n=== First phase ===\n\n\n== Awards ==\nTroféu APCA (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nBest Supporting Actor - Osmar Prado\nBest Supporting Actress - Regina Dourado\nMale revelation - Jackson Antunes\nTroféu Imprensa (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nRevelation of the Year - Jackson Antunes\n\n\n== References ==\n\n\n== External links ==\nRenascer - Official website (in Portuguese)\nRenascer at IMDb"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.50 because while the relevant statements indicate that 'Renascer is a Brazilian telenovela produced and broadcast by TV Globo in 1993', the retrieval context also includes irrelevant awards information that does not pertain to the year of production."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because the response directly addressed the question about the year Renascer was produced and broadcast without any irrelevant statements."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.33223221404823866,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output provides the year 1993, which is factually accurate, but it lacks essential details such as the title of the series and the names of the writer and director. This omission results in a significant deficiency in completeness. Additionally, while the source citation is relevant, it does not fully align with the expected output, which includes more context about the series."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_44749860_renascer_1993_tv_series",
+      "name": "renascer_writer_director",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "Who wrote and directed Renascer (1993 TV series)?",
+      "actual_output": "Answer: Written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\nSource citation: \"written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\"",
+      "expected_output": "Renascer (1993 TV series) was written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\n\nSource citation: \"Renascer (English: To be reborn) is a Brazilian telenovela produced and broadcast by TV Globo in 1993, written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\"",
+      "retrieval_context": [
+        "Renascer (English: To be reborn) is a Brazilian telenovela produced and broadcast by TV Globo in 1993, written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\n\n\n== Cast ==\n\n\n=== First phase ===\n\n\n== Awards ==\nTroféu APCA (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nBest Supporting Actor - Osmar Prado\nBest Supporting Actress - Regina Dourado\nMale revelation - Jackson Antunes\nTroféu Imprensa (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nRevelation of the Year - Jackson Antunes\n\n\n== References ==\n\n\n== External links ==\nRenascer - Official website (in Portuguese)\nRenascer at IMDb"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because the retrieval context directly provides the answer to the input, stating that 'Renascer... is a Brazilian telenovela... written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.' This clear and relevant information perfectly matches the query."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because the response directly addressed the question about the writer and director of the Renascer (1993 TV series) without any irrelevant statements."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.5070980744118325,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies the writer and director of the series, which aligns with the expected output. However, it lacks the title of the series 'Renascer' and the additional context about it being a Brazilian telenovela produced by TV Globo in 1993. This omission of essential information results in a partial alignment with the expected output."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_44749860_renascer_1993_tv_series",
+      "name": "mismatched_40551371_danny_mcgarvey_birth_date",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": true,
+      "passed": true,
+      "input": "What was the birth date of Danny McGarvey?",
+      "actual_output": "The supplied context does not specify the birth date of Danny McGarvey.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "Renascer (English: To be reborn) is a Brazilian telenovela produced and broadcast by TV Globo in 1993, written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\n\n\n== Cast ==\n\n\n=== First phase ===\n\n\n== Awards ==\nTroféu APCA (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nBest Supporting Actor - Osmar Prado\nBest Supporting Actress - Regina Dourado\nMale revelation - Jackson Antunes\nTroféu Imprensa (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nRevelation of the Year - Jackson Antunes\n\n\n== References ==\n\n\n== External links ==\nRenascer - Official website (in Portuguese)\nRenascer at IMDb"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the retrieval context is completely irrelevant, containing only information about a Brazilian telenovela and its awards, with no mention of Danny McGarvey's birth date."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response explicitly states that the birth date is not provided, which is irrelevant to the question asked."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7503665532323281,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not provide the birth date of Danny McGarvey, aligning with the expected output's assertion about missing information. However, the wording differs slightly, which affects the overall coherence. The essential information is present, but the phrasing could be more aligned with the expected context."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_44749860_renascer_1993_tv_series",
+      "name": "mismatched_36150760_notable_musician_vettese",
+      "expected_answered": false,
+      "actual_answered": false,
+      "decision_state": "NN",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "Who is a notable Scottish musician with the surname Vettese?",
+      "actual_output": "The supplied context does not specify a notable Scottish musician with the surname Vettese.",
+      "expected_output": "The supplied retrieval context does not contain the information needed to answer this question.",
+      "retrieval_context": [
+        "Renascer (English: To be reborn) is a Brazilian telenovela produced and broadcast by TV Globo in 1993, written by Benedito Ruy Barbosa and directed by Luiz Fernando Carvalho.\n\n\n== Cast ==\n\n\n=== First phase ===\n\n\n== Awards ==\nTroféu APCA (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nBest Supporting Actor - Osmar Prado\nBest Supporting Actress - Regina Dourado\nMale revelation - Jackson Antunes\nTroféu Imprensa (1993)\n\nBest Telenovela\nBest Actor - Antônio Fagundes\nRevelation of the Year - Jackson Antunes\n\n\n== References ==\n\n\n== External links ==\nRenascer - Official website (in Portuguese)\nRenascer at IMDb"
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the retrieval context is entirely unrelated to the input question about a Scottish musician with the surname Vettese, as evidenced by statements like 'Renascer (English: To be reborn) is a Brazilian telenovela...' which do not pertain to the query."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.0,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.00 because the response directly states that there is no information about a notable Scottish musician with the surname Vettese, which is irrelevant to the input question."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.66979576911563,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies that the context does not specify a notable Scottish musician with the surname Vettese, which aligns with the expected output's assertion that the retrieval context lacks necessary information. However, the phrasing differs slightly, which could lead to minor confusion about the completeness of the response. Overall, it effectively conveys the lack of relevant information."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": false,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "completed",
+      "document": "wikipedia_40551371_danny_mcgarvey",
+      "name": "danny_mcgarvey_birth_date",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": false,
+      "passed": false,
+      "input": "What was the birth date of Danny McGarvey?",
+      "actual_output": "Answer: 16 September 1919\nSource citation: \"Sir Daniel McGarvey, CBE (16 September 1919 – 26 April 1977) was a Scottish trade unionist.\"",
+      "expected_output": "Danny McGarvey was born on 16 September 1919.\n\nSource citation: \"Sir Daniel McGarvey, CBE (16 September 1919 – 26 April 1977) was a Scottish trade unionist. McGarvey was born in Clydebank and attended Our Holy Redeemer School, then St Patrick's High School, Dumbarton. At the age of fifteen, he began working as an apprentice caulker. He became active in the United Society of Boilermakers and Iron and Steel Shipbuilders, being elected to its general council in 1951, and in 1954 to the executive council of the Confederation of Shipbuilding and Engineering Unions. From 1958 to 1965, he served on the National Executive Council of the Labour Party. In 1964, he was elected as General Secretary of the renamed Amalgamated Society of Boilermakers, Shipwrights, Blacksmiths and Structural Workers.\"",
+      "retrieval_context": [
+        "Sir Daniel McGarvey, CBE (16 September 1919 – 26 April 1977) was a Scottish trade unionist.\nMcGarvey was born in Clydebank and attended Our Holy Redeemer School, then St Patrick's High School, Dumbarton.  At the age of fifteen, he began working as an apprentice caulker.\nHe became active in the United Society of Boilermakers and Iron and Steel Shipbuilders, being elected to its general council in 1951, and in 1954 to the executive council of the Confederation of Shipbuilding and Engineering Unions. From 1958 to 1965, he served on the National Executive Council of the Labour Party. In 1964, he was elected as General Secretary of the renamed Amalgamated Society of Boilermakers, Shipwrights, Blacksmiths and Structural Workers.\nIn 1965, he was elected to the General Council of the Trades Union Congress (TUC), and he became the President of the TUC in 1976, but died the following April, before completing his term.\n\n\n== Honours ==\nMcGarvey received the CBE in 1970, and was knighted shortly before his death.\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.125,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.12 because while the relevant statement mentions his birth date as '16 September 1919', the majority of the context focuses on unrelated aspects of his life, such as his career and political involvement, which do not answer the question about his birth date."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.50 because the output included irrelevant information about Danny McGarvey's death date and profession, which did not address the specific inquiry about his birth date."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.7376744883147868,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The actual output correctly identifies the birth date of Danny McGarvey as 16 September 1919, aligning with the expected output. However, it lacks the additional context about McGarvey's life and career that is present in the expected output, which could enhance the completeness of the response. The source citation is accurate and relevant, supporting the factual claim made."
+        },
+        {
+          "id": "faithfulness",
+          "name": "Faithfulness",
+          "score": 1.0,
+          "threshold": 0.7,
+          "passed": true,
+          "gates_case": true,
+          "reason": "The score is 1.00 because there are no contradictions present, indicating that the actual output aligns perfectly with the retrieval context."
+        }
+      ]
+    },
+    {
+      "status": "in_progress",
+      "document": "wikipedia_40551371_danny_mcgarvey",
+      "name": "danny_mcgarvey_tuc_presidency_year",
+      "expected_answered": true,
+      "actual_answered": true,
+      "decision_state": "AA",
+      "decision_passed": true,
+      "case_passed": null,
+      "passed": null,
+      "input": "In what year did Danny McGarvey become the President of the Trades Union Congress (TUC)?",
+      "actual_output": "Answer: 1976\nSource citation: \"he became the President of the TUC in 1976\"",
+      "expected_output": "Danny McGarvey became the President of the TUC in 1976.\n\nSource citation: \"In 1965, he was elected to the General Council of the Trades Union Congress (TUC), and he became the President of the TUC in 1976, but died the following April, before completing his term.\"",
+      "retrieval_context": [
+        "Sir Daniel McGarvey, CBE (16 September 1919 – 26 April 1977) was a Scottish trade unionist.\nMcGarvey was born in Clydebank and attended Our Holy Redeemer School, then St Patrick's High School, Dumbarton.  At the age of fifteen, he began working as an apprentice caulker.\nHe became active in the United Society of Boilermakers and Iron and Steel Shipbuilders, being elected to its general council in 1951, and in 1954 to the executive council of the Confederation of Shipbuilding and Engineering Unions. From 1958 to 1965, he served on the National Executive Council of the Labour Party. In 1964, he was elected as General Secretary of the renamed Amalgamated Society of Boilermakers, Shipwrights, Blacksmiths and Structural Workers.\nIn 1965, he was elected to the General Council of the Trades Union Congress (TUC), and he became the President of the TUC in 1976, but died the following April, before completing his term.\n\n\n== Honours ==\nMcGarvey received the CBE in 1970, and was knighted shortly before his death.\n\n\n== References =="
+      ],
+      "metrics": [
+        {
+          "id": "contextual_relevancy",
+          "name": "Contextual Relevancy",
+          "score": 0.09090909090909091,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": false,
+          "reason": "The score is 0.09 because while the relevant statement notes that 'He became the President of the TUC in 1976,' the majority of the context is filled with irrelevant information about his early life and career, which does not address the specific question about the year he became President."
+        },
+        {
+          "id": "answer_relevancy",
+          "name": "Answer Relevancy",
+          "score": 0.5,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The score is 0.50 because the output included an irrelevant statement, '1976.', which lacks context and does not directly answer the question about Danny McGarvey's presidency in the TUC. This prevents a higher score, but the response still provides a partial answer."
+        },
+        {
+          "id": "correctness",
+          "name": "Correctness",
+          "score": 0.4554114838971121,
+          "threshold": 0.7,
+          "passed": false,
+          "gates_case": true,
+          "reason": "The actual output provides the correct year (1976) but lacks the essential detail of who became the President of the TUC, which is Danny McGarvey. Additionally, the source citation does not fully align with the expected output, as it omits critical context about his election and subsequent death. This results in a deficiency in completeness and coherence."
         }
       ]
     }
